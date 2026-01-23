@@ -1,83 +1,586 @@
 @import "tailwindcss";
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
 @theme {
-  --font-sans: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  --color-brand-orange-light: #fcc096;
-  --color-brand-orange-dark: #fba67b;
-  --color-brand-blue-light: #a6e3ff;
-  --color-brand-blue-dark: #6dd0ff;
-  --color-brand-purple-light: #d1b3ff;
-  --color-brand-purple-dark: #7047eb;
-  --color-brand-border: #9E5D47;
+    --font-sans: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --color-brand-orange-light: #fcc096;
+    --color-brand-orange-dark: #fba67b;
+    --color-brand-blue-light: #a6e3ff;
+    --color-brand-blue-dark: #6dd0ff;
+    --color-brand-purple-light: #d1b3ff;
+    --color-brand-purple-dark: #7047eb;
+    --color-brand-border: #9E5D47;
 }
 
 @layer base {
-  body.our-team-page {
-    @apply m-0 p-0 h-screen w-screen overflow-hidden bg-[#5d2a1c] text-[#213547];
-    font-family: var(--font-sans);
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-}
-
-@layer utilities {
-  .stamp-border {
-    background-color: #f7d0ab;
-    border-radius: 100px;
-    
-    background-image:
-        radial-gradient(ellipse 21.6px 16.5px at center, #5d2a1c 90%, transparent 91%),
-        radial-gradient(ellipse 21.6px 16.5px at center, #5d2a1c 90%, transparent 91%),
-        radial-gradient(ellipse 18.4px 19.3px at center, #5d2a1c 90%, transparent 91%),
-        radial-gradient(ellipse 18.4px 19.3px at center, #5d2a1c 90%, transparent 91%);
-    
-    background-size: 58px 43px, 58px 43px, 43px 58px, 43px 58px;
-    background-position: -6px -17px, -6px calc(100% + 17px), -17px 0, calc(100% + 19px) 1px;
-    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-  }
-
-  @media (max-width: 768px) {
-    .stamp-border {
-      border-radius: 30px;
-      background-size: 40px 30px, 40px 30px, 30px 40px, 30px 40px;
-      background-image:
-          radial-gradient(ellipse 14px 11px at center, #5d2a1c 90%, transparent 91%),
-          radial-gradient(ellipse 14px 11px at center, #5d2a1c 90%, transparent 91%),
-          radial-gradient(ellipse 12px 13px at center, #5d2a1c 90%, transparent 91%),
-          radial-gradient(ellipse 12px 13px at center, #5d2a1c 90%, transparent 91%);
-      background-position: -4px -12px, -4px calc(100% + 12px), -12px 0, calc(100% + 13px) 1px;
+    body.our-team-page {
+        @apply m-0 p-0 min-h-screen flex flex-col relative overflow-x-hidden bg-[#f7d0ab] text-[#213547] w-full;
+        font-family: var(--font-sans);
     }
-  }
+
+    section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    body.our-team-page::after {
+        content: '';
+        @apply fixed top-10 left-10 right-10 bottom-10 border-[6px] border-[var(--color-brand-border)] rounded-[80px] pointer-events-none z-[9999] transition-colors duration-300;
+    }
+
+    @media (max-width: 768px) {
+        body.our-team-page::after {
+            @apply top-6 left-6 right-6 bottom-6 border-[5px] rounded-[50px];
+        }
+    }
+
+    @media (max-width: 480px) {
+        body.our-team-page::after {
+            @apply top-4 left-4 right-4 bottom-4 border-[4px] rounded-[30px];
+        }
+    }
+
+    @media (max-width: 360px) {
+        body.our-team-page::after {
+            @apply top-3 left-3 right-3 bottom-3 border-[3px] rounded-[20px];
+        }
+    }
 }
 
 @layer components {
-  .bg-gradient-orange {
-    background: radial-gradient(circle at center, transparent 0%, rgba(93, 42, 28, 0.08) 100%),
-    repeating-conic-gradient(from 0deg at 50% 50%, var(--color-brand-orange-dark) 0deg 10deg, var(--color-brand-orange-light) 10deg 20deg);
-  }
-  .bg-gradient-blue {
-    background: radial-gradient(circle at center, transparent 0%, rgba(0, 102, 204, 0.08) 100%),
-    repeating-conic-gradient(from 0deg at 50% 50%, var(--color-brand-blue-dark) 0deg 10deg, var(--color-brand-blue-light) 10deg 20deg);
-  }
-  .bg-gradient-purple {
-    background: radial-gradient(circle at center, transparent 0%, rgba(157, 100, 255, 0.1) 100%),
-    repeating-conic-gradient(from 0deg at 50% 50%, #e2d1ff 0deg 10deg, var(--color-brand-purple-light) 10deg 20deg);
-  }
+    .bg-gradient-orange {
+        background:
+            radial-gradient(circle at center, transparent 0%, rgba(93, 42, 28, 0.08) 100%),
+            repeating-conic-gradient(from 0deg at 50% 50%,
+                var(--color-brand-orange-dark) 0deg 10deg,
+                var(--color-brand-orange-light) 10deg 20deg);
+    }
 
-  .swing-banner { @apply origin-top animate-[swing_4.5s_ease-in-out_infinite]; }
-  .lantern-swing { @apply origin-top animate-[lanternSwing_3.5s_ease-in-out_infinite]; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2)); }
-  
-  .vogue-img-anim-left { @apply origin-bottom; animation: slideUpHandLeft 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
-  .vogue-img-anim-right { @apply origin-bottom; animation: slideUpHandRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+    .bg-gradient-blue {
+        background:
+            radial-gradient(circle at center, transparent 0%, rgba(0, 102, 204, 0.08) 100%),
+            repeating-conic-gradient(from 0deg at 50% 50%,
+                var(--color-brand-blue-dark) 0deg 10deg,
+                var(--color-brand-blue-light) 10deg 20deg);
+    }
+
+    .bg-gradient-purple {
+        background:
+            radial-gradient(circle at center, transparent 0%, rgba(157, 100, 255, 0.1) 100%),
+            repeating-conic-gradient(from 0deg at 50% 50%,
+                #e2d1ff 0deg 10deg,
+                var(--color-brand-purple-light) 10deg 20deg);
+    }
+
+    .orange-theme {}
+
+    .blue-theme {
+        /* Background handled by fixed layer */
+    }
+
+    .purple-theme {
+        box-shadow: inset 0 0 100px rgba(112, 71, 235, 0.1);
+    }
+
+    .swing-banner {
+        @apply origin-top animate-[swing_4.5s_ease-in-out_infinite];
+    }
+
+    .lantern-swing {
+        @apply origin-top animate-[lanternSwing_3.5s_ease-in-out_infinite];
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+
+    .vogue-img-anim-left {
+        @apply origin-bottom;
+        animation: slideUpHandLeft 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+
+    .vogue-img-anim-right {
+        @apply origin-bottom;
+        animation: slideUpHandRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
 }
 
-@keyframes swing { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
-@keyframes lanternSwing { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-@keyframes slideUpHandLeft { from { transform: translateY(100%) rotate(-15deg); opacity: 0; } to { transform: translateY(0) rotate(0); opacity: 1; } }
-@keyframes slideUpHandRight { from { transform: translateY(100%) rotate(15deg); opacity: 0; } to { transform: translateY(0) rotate(0); opacity: 1; } }
+@keyframes swing {
+
+    0%,
+    100% {
+        transform: rotate(-2.5deg);
+    }
+
+    50% {
+        transform: rotate(2.5deg);
+    }
+}
+
+@keyframes lanternSwing {
+
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes slideUpHandLeft {
+    from {
+        transform: translateY(100%) rotate(-15deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpHandRight {
+    from {
+        transform: translateY(100%) rotate(15deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+
+@layer utilities {
+    .stamp-border {
+        background-color: var(--color-v-cream);
+        border-radius: 109px;
+        background-image:
+            radial-gradient(ellipse 21.6px 16.5px, var(--color-v-maroon) 90%, transparent 91%),
+            radial-gradient(ellipse 21.6px 16.5px, var(--color-v-maroon) 90%, transparent 91%),
+            radial-gradient(ellipse 18.4px 19.3px, var(--color-v-maroon) 90%, transparent 91%),
+            radial-gradient(ellipse 18.4px 19.3px, var(--color-v-maroon) 90%, transparent 91%);
+        background-size: 58px 43px, 58px 43px, 43px 58px, 43px 58px;
+        background-position: -6px -17px, -6px calc(100% + 17px), -17px 0, calc(100% + 19px) 1px;
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    }
+
+    .label-pill-ticket {
+        background-color: #0099bc;
+        border-radius: 60px;
+        position: relative;
+        padding: 0.4rem 0.7rem 0.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        border: none;
+        width: 210px;
+        gap: 1px;
+    }
+
+    .label-pill-compact {
+        width: 175px;
+        padding: 0.35rem 0.6rem 0.25rem !important;
+    }
+
+    .label-pill-ticket::before,
+    .label-pill-ticket::after {
+        content: '';
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        height: 4px;
+        background-image: radial-gradient(circle, white 1.2px, transparent 1.5px);
+        background-size: 7px 4px;
+        background-repeat: repeat-x;
+    }
+
+    .label-pill-ticket::before {
+        top: 3px;
+    }
+
+    .label-pill-ticket::after {
+        bottom: 3px;
+    }
+
+    @media (max-width: 768px) {
+        .label-pill-ticket {
+            padding: 0.3rem 0.55rem 0.2rem;
+            width: 150px;
+        }
+
+        .label-pill-compact {
+            width: 125px;
+            padding: 0.25rem 0.45rem 0.15rem !important;
+        }
+
+        .label-pill-ticket::before,
+        .label-pill-ticket::after {
+            height: 3px;
+            background-image: radial-gradient(circle, white 1px, transparent 1.3px);
+            background-size: 6px 3px;
+            left: 10px;
+            right: 10px;
+        }
+
+        .label-pill-ticket::before {
+            top: 4px;
+        }
+
+        .label-pill-ticket::after {
+            bottom: 4px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .label-pill-ticket {
+            padding: 0.25rem 0.45rem 0.15rem;
+            width: 130px;
+            gap: 0px;
+        }
+
+        .label-pill-compact {
+            width: 110px;
+        }
+
+        .label-pill-ticket::before,
+        .label-pill-ticket::after {
+            height: 2px;
+            background-image: radial-gradient(circle, white 0.8px, transparent 1px);
+            background-size: 5px 2px;
+            left: 8px;
+            right: 8px;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 767px) {
+        .label-pill-ticket {
+            width: 165px;
+            padding: 0.35rem 0.55rem 0.25rem;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 900px) {
+        .label-pill-ticket {
+            width: 175px;
+            padding: 0.35rem 0.6rem 0.25rem;
+        }
+    }
+
+    @media (min-width: 901px) and (max-width: 1023px) {
+        .label-pill-ticket {
+            width: 140px;
+            padding: 0.3rem 0.45rem 0.2rem;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .label-pill-ticket {
+            width: 13vw;
+            padding: 0.5rem 0.8rem 0.4rem;
+        }
+
+        .label-pill-compact {
+            width: 10vw;
+            padding: 0.4rem 0.6rem 0.3rem !important;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .label-pill-ticket {
+            width: 16vw;
+            padding: 0.6rem 0.9rem 0.5rem;
+        }
+
+        .label-pill-compact {
+            width: 13vw !important;
+            padding: 0.5rem 0.75rem 0.4rem !important;
+        }
+    }
+
+    .label-pill-ticket-purple {
+        background-color: #9d00cc;
+        border-radius: 60px;
+        position: relative;
+        padding: 0.4rem 0.7rem 0.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        border: none;
+        width: 210px;
+        gap: 1px;
+    }
+
+    .label-pill-ticket-purple::before,
+    .label-pill-ticket-purple::after {
+        content: '';
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        height: 4px;
+        background-image: radial-gradient(circle, white 1.2px, transparent 1.5px);
+        background-size: 7px 4px;
+        background-repeat: repeat-x;
+    }
+
+    .label-pill-ticket-purple::before {
+        top: 3px;
+    }
+
+    .label-pill-ticket-purple::after {
+        bottom: 3px;
+    }
+
+    @media (max-width: 768px) {
+        .label-pill-ticket-purple {
+            padding: 0.3rem 0.55rem 0.2rem;
+            width: 150px;
+        }
+
+        .label-pill-ticket-purple::before,
+        .label-pill-ticket-purple::after {
+            height: 3px;
+            background-image: radial-gradient(circle, white 1px, transparent 1.3px);
+            background-size: 6px 3px;
+            left: 10px;
+            right: 10px;
+        }
+
+        .label-pill-ticket-purple::before {
+            top: 4px;
+        }
+
+        .label-pill-ticket-purple::after {
+            bottom: 4px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .label-pill-ticket-purple {
+            padding: 0.25rem 0.45rem 0.15rem;
+            width: 130px;
+            gap: 0px;
+        }
+
+        .label-pill-ticket-purple::before,
+        .label-pill-ticket-purple::after {
+            height: 2px;
+            background-image: radial-gradient(circle, white 0.8px, transparent 1px);
+            background-size: 5px 2px;
+            left: 8px;
+            right: 8px;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 767px) {
+        .label-pill-ticket-purple {
+            width: 165px;
+            padding: 0.35rem 0.55rem 0.25rem;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 900px) {
+        .label-pill-ticket-purple {
+            width: 175px;
+            padding: 0.35rem 0.6rem 0.25rem;
+        }
+    }
+
+    @media (min-width: 901px) and (max-width: 1023px) {
+        .label-pill-ticket-purple {
+            width: 140px;
+            padding: 0.3rem 0.45rem 0.2rem;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .label-pill-ticket-purple {
+            width: 13vw;
+            padding: 0.5rem 0.8rem 0.4rem;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .label-pill-ticket-purple {
+            width: 16vw;
+            padding: 0.6rem 0.9rem 0.5rem;
+        }
+    }
+
+
+    .label-pill-ticket-purple.label-pill-compact {
+        width: 175px;
+        padding: 0.35rem 0.6rem 0.25rem !important;
+    }
+
+    @media (max-width: 768px) {
+        .label-pill-ticket-purple.label-pill-compact {
+            width: 125px;
+            padding: 0.25rem 0.45rem 0.15rem !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .label-pill-ticket-purple.label-pill-compact {
+            width: 110px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .label-pill-ticket-purple.label-pill-compact {
+            width: 10vw;
+            padding: 0.4rem 0.6rem 0.3rem !important;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .label-pill-ticket-purple.label-pill-compact {
+            width: 13vw !important;
+            padding: 0.5rem 0.75rem 0.4rem !important;
+        }
+    }
+
+    .label-pill-ticket-orange {
+        background-color: #ff8c42;
+        border-radius: 60px;
+        position: relative;
+        padding: 0.4rem 0.7rem 0.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        border: none;
+        width: 210px;
+        gap: 1px;
+    }
+
+    .label-pill-ticket-orange::before,
+    .label-pill-ticket-orange::after {
+        content: '';
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        height: 4px;
+        background-image: radial-gradient(circle, white 1.2px, transparent 1.5px);
+        background-size: 7px 4px;
+        background-repeat: repeat-x;
+    }
+
+    .label-pill-ticket-orange::before {
+        top: 3px;
+    }
+
+    .label-pill-ticket-orange::after {
+        bottom: 3px;
+    }
+
+    @media (min-width: 640px) {
+        .label-pill-ticket-orange {
+            width: 240px;
+            padding: 0.5rem 0.8rem 0.4rem;
+        }
+
+        .label-pill-ticket-orange::before,
+        .label-pill-ticket-orange::after {
+            left: 16px;
+            right: 16px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .label-pill-ticket-orange {
+            width: 250px;
+            padding: 0.55rem 0.85rem 0.45rem;
+        }
+
+        .label-pill-ticket-orange::before,
+        .label-pill-ticket-orange::after {
+            left: 18px;
+            right: 18px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .label-pill-ticket-orange {
+            width: 280px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .label-pill-ticket-orange {
+            width: 20vw;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .label-pill-ticket-orange {
+            width: 24vw;
+        }
+    }
+
+    .label-pill-ticket-orange.label-pill-compact {
+        width: 175px;
+        padding: 0.35rem 0.6rem 0.25rem !important;
+    }
+
+    @media (min-width: 640px) {
+        .label-pill-ticket-orange.label-pill-compact {
+            width: 200px;
+            padding: 0.4rem 0.7rem 0.3rem !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .label-pill-ticket-orange.label-pill-compact {
+            width: 210px;
+            padding: 0.45rem 0.75rem 0.35rem !important;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .label-pill-ticket-orange.label-pill-compact {
+            width: 230px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .label-pill-ticket-orange.label-pill-compact {
+            width: 16vw !important;
+            padding: 0.45rem 0.7rem 0.35rem !important;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .label-pill-ticket-orange.label-pill-compact {
+            width: 13vw !important;
+            padding: 0.5rem 0.75rem 0.4rem !important;
+        }
+    }
+
+
+
+    body.our-team-page.hide-frame-bottom::after {
+        border-bottom-width: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        bottom: 0 !important;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    body.our-team-page.hide-frame-top::after {
+        border-top-width: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        top: 0 !important;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+}

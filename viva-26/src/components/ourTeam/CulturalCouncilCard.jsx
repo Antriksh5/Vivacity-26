@@ -34,12 +34,12 @@ const CulturalCouncilCard = ({ imageUrl, name, role }) => {
 
     return (
         <div className="relative flex flex-col items-center">
-            <div ref={cardRef} className="relative flex items-center bg-white p-[1.5px] sm:p-0.5 md:p-[2.5px] rounded-xl sm:rounded-[15px] md:rounded-[18px] shadow-xl transition-transform hover:scale-105 duration-300">
-                <img src={leftBorder} className="h-[96%] absolute top-[-3%] w-auto z-2 pointer-events-none -left-3 sm:-left-4 md:-left-5 lg:-left-6" alt="" />
-                <div className={`${imageWidthClasses} aspect-16/24 overflow-hidden relative rounded-[10.5px] sm:rounded-[13px] md:rounded-2xl`}>
+            <div ref={cardRef} className="relative flex items-center bg-white p-[1.5px] sm:p-[2px] md:p-[2.5px] rounded-[12px] sm:rounded-[15px] md:rounded-[18px] shadow-xl transition-transform hover:scale-105 duration-300">
+                <img src={leftBorder} className="h-[96%] absolute top-[-3%] w-auto z-[2] pointer-events-none -left-3 sm:-left-4 md:-left-5 lg:-left-[24px]" alt="" />
+                <div className={`${imageWidthClasses} aspect-[16/24] overflow-hidden relative rounded-[10.5px] sm:rounded-[13px] md:rounded-[16px]`}>
                     <img src={imageUrl} alt={name || "Cultural Council Member"} className="w-full h-full object-cover" />
                 </div>
-                <img src={rightBorder} className="h-[106%] absolute top-[-3%] w-auto z-2 pointer-events-none -right-3 sm:-right-4 md:-right-5 lg:-right-6" alt="" />
+                <img src={rightBorder} className="h-[106%] absolute top-[-3%] w-auto z-[2] pointer-events-none -right-3 sm:-right-4 md:-right-5 lg:-right-[24px]" alt="" />
             </div>
 
             <div className={`absolute ${bottomClasses} flex items-center gap-0.5 sm:gap-1 md:gap-1.5 z-10`}>

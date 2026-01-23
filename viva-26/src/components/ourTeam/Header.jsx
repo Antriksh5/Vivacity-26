@@ -22,15 +22,15 @@ const Header = () => {
     return (
         <>
             <header className="w-full flex flex-row justify-between items-center z-50 pt-10 sm:pt-12 md:pt-14 lg:pt-16 px-3 lg:px-3 xl:px-12 2xl:px-20 relative">
-                <div className="shrink-0 z-50 relative">
-                    <img src={vivaLogo} alt="Vivacity'26 Logo" className="h-10 sm:h-12.5 md:h-17.5 lg:h-22.5 w-auto transition-all" />
+                <div className="flex-shrink-0 z-50 relative">
+                    <img src={vivaLogo} alt="Vivacity'26 Logo" className="h-[40px] sm:h-[50px] md:h-[70px] lg:h-[90px] w-auto transition-all" />
                 </div>
 
                 <nav className="hidden min-[1100px]:flex items-center gap-6 xl:gap-10">
-                    <a href="#home" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-brand-border transition-colors">HOME</a>
-                    <a href="#events" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-brand-border transition-colors">EVENTS</a>
-                    <a href="#sponsors" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-brand-border transition-colors">SPONSORS</a>
-                    <a href="#team" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-brand-border transition-colors">OUR TEAM</a>
+                    <a href="#home" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</a>
+                    <a href="#events" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</a>
+                    <a href="#sponsors" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</a>
+                    <a href="#team" className="no-underline text-[#3d1c10] font-semibold text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">OUR TEAM</a>
                 </nav>
 
                 <div className="min-[1100px]:hidden z-50 relative">
@@ -44,10 +44,10 @@ const Header = () => {
 
             <div ref={menuRef} className="fixed inset-0 bg-[#f7d0ab] z-40 flex flex-col justify-center items-center min-[1100px]:hidden translate-x-full">
                 <nav ref={linksRef} className="flex flex-col gap-8 text-center">
-                    <a href="#home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-brand-border transition-colors">HOME</a>
-                    <a href="#events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-brand-border transition-colors">EVENTS</a>
-                    <a href="#sponsors" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-brand-border transition-colors">SPONSORS</a>
-                    <a href="#team" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-brand-border transition-colors">OUR TEAM</a>
+                    <a href="#home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-[#9E5D47] transition-colors">HOME</a>
+                    <a href="#events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-[#9E5D47] transition-colors">EVENTS</a>
+                    <a href="#sponsors" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-[#9E5D47] transition-colors">SPONSORS</a>
+                    <a href="#team" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-bold text-2xl tracking-widest hover:text-[#9E5D47] transition-colors">OUR TEAM</a>
                 </nav>
             </div>
         </>
