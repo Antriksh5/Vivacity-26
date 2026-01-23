@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  --color-brand-orange-light: #fcc096;
+  --color-brand-orange-dark: #fba67b;
+  --color-brand-blue-light: #a6e3ff;
+  --color-brand-blue-dark: #6dd0ff;
+  --color-brand-purple-light: #d1b3ff;
+  --color-brand-purple-dark: #7047eb;
+  --color-brand-border: #9E5D47;
+}
+
+@layer base {
+  body.our-team-page {
+    @apply m-0 p-0 h-screen w-screen overflow-hidden bg-[#5d2a1c] text-[#213547];
+    font-family: var(--font-sans);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .stamp-border {
+    background-color: #f7d0ab;
+    border-radius: 100px;
+    
+    background-image:
+        radial-gradient(ellipse 21.6px 16.5px at center, #5d2a1c 90%, transparent 91%),
+        radial-gradient(ellipse 21.6px 16.5px at center, #5d2a1c 90%, transparent 91%),
+        radial-gradient(ellipse 18.4px 19.3px at center, #5d2a1c 90%, transparent 91%),
+        radial-gradient(ellipse 18.4px 19.3px at center, #5d2a1c 90%, transparent 91%);
+    
+    background-size: 58px 43px, 58px 43px, 43px 58px, 43px 58px;
+    background-position: -6px -17px, -6px calc(100% + 17px), -17px 0, calc(100% + 19px) 1px;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  }
+
+  @media (max-width: 768px) {
+    .stamp-border {
+      border-radius: 30px;
+      background-size: 40px 30px, 40px 30px, 30px 40px, 30px 40px;
+      background-image:
+          radial-gradient(ellipse 14px 11px at center, #5d2a1c 90%, transparent 91%),
+          radial-gradient(ellipse 14px 11px at center, #5d2a1c 90%, transparent 91%),
+          radial-gradient(ellipse 12px 13px at center, #5d2a1c 90%, transparent 91%),
+          radial-gradient(ellipse 12px 13px at center, #5d2a1c 90%, transparent 91%);
+      background-position: -4px -12px, -4px calc(100% + 12px), -12px 0, calc(100% + 13px) 1px;
+    }
+  }
+}
+
+@layer components {
+  .bg-gradient-orange {
+    background: radial-gradient(circle at center, transparent 0%, rgba(93, 42, 28, 0.08) 100%),
+    repeating-conic-gradient(from 0deg at 50% 50%, var(--color-brand-orange-dark) 0deg 10deg, var(--color-brand-orange-light) 10deg 20deg);
+  }
+  .bg-gradient-blue {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 102, 204, 0.08) 100%),
+    repeating-conic-gradient(from 0deg at 50% 50%, var(--color-brand-blue-dark) 0deg 10deg, var(--color-brand-blue-light) 10deg 20deg);
+  }
+  .bg-gradient-purple {
+    background: radial-gradient(circle at center, transparent 0%, rgba(157, 100, 255, 0.1) 100%),
+    repeating-conic-gradient(from 0deg at 50% 50%, #e2d1ff 0deg 10deg, var(--color-brand-purple-light) 10deg 20deg);
+  }
+
+  .swing-banner { @apply origin-top animate-[swing_4.5s_ease-in-out_infinite]; }
+  .lantern-swing { @apply origin-top animate-[lanternSwing_3.5s_ease-in-out_infinite]; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2)); }
+  
+  .vogue-img-anim-left { @apply origin-bottom; animation: slideUpHandLeft 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+  .vogue-img-anim-right { @apply origin-bottom; animation: slideUpHandRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+}
+
+@keyframes swing { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
+@keyframes lanternSwing { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes slideUpHandLeft { from { transform: translateY(100%) rotate(-15deg); opacity: 0; } to { transform: translateY(0) rotate(0); opacity: 1; } }
+@keyframes slideUpHandRight { from { transform: translateY(100%) rotate(15deg); opacity: 0; } to { transform: translateY(0) rotate(0); opacity: 1; } }

@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+    body.registration-page {
+        @apply w-full h-screen overflow-hidden m-0 p-0 min-w-[320px] relative;
+    }
+
+    /* Graffiti Wall Background - Full Screen Responsive */
+    body.registration-page::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../assets/registration/graffiti-wall.png');
+        background-size: 100% 100%;
+        background-position: top center;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+}
