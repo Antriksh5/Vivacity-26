@@ -1,0 +1,193 @@
+.viva-footer {
+    width: 100%;
+    min-height: 360px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 65px 40px;
+    position: relative;
+    z-index: 100;
+    color: #3d1c10;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-viva-logo {
+    height: 185px;
+    width: auto;
+    margin-left: -70px;
+    margin-top: 30px;
+}
+
+.footer-credits {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 25px;
+    text-align: right;
+}
+
+.social-nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 0;
+}
+
+.social-link {
+    color: #3d1c10;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link svg {
+    width: 38px;
+    height: 38px;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    color: #c43118;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #3d1c10;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #c43118;
+}
+
+.footer-queries {
+    line-height: 1.5;
+}
+
+.query-title {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.query-contact {
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+.highlight {
+    font-weight: 700;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .viva-footer {
+        min-height: 300px;
+        padding: 50px 30px;
+    }
+
+    .footer-viva-logo {
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .viva-footer {
+        min-height: auto;
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px 80px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 45px;
+    }
+
+    .footer-left,
+    .footer-right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        flex-direction: column-reverse;
+    }
+
+    .social-nav-wrapper {
+        align-items: center;
+    }
+
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .footer-viva-logo {
+        height: 90px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-nav {
+        gap: 8px 12px;
+    }
+
+    .nav-item {
+        font-size: 0.75rem;
+    }
+
+    .query-contact {
+        font-size: 0.8rem;
+    }
+
+    .social-link svg {
+        width: 24px;
+        height: 24px;
+    }
+}

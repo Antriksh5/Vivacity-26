@@ -16,7 +16,7 @@ const PhotoCard = ({ imageUrl, name, role, size = "normal", theme = "blue" }) =>
     const [labelWidth, setLabelWidth] = useState('auto');
 
     const imageWidthClasses = isSmall
-        ? "w-[85px] sm:w-[105px] md:w-[105px] lg:w-[125px] xl:w-[12vw] 2xl:w-[14vw]"
+        ? "w-[80px] sm:w-[112px] md:w-[112px] lg:w-[138px] xl:w-[13vw] 2xl:w-[15vw]"
         : "w-[100px] sm:w-[130px] md:w-[130px] lg:w-[155px] xl:w-[15vw] 2xl:w-[18vw]";
 
     const bottomClasses = isSmall
@@ -28,24 +28,24 @@ const PhotoCard = ({ imageUrl, name, role, size = "normal", theme = "blue" }) =>
         : "w-6 h-6 sm:w-8 sm:h-8 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-[3.2vw] xl:h-[3.2vw] 2xl:w-[3.8vw] 2xl:h-[3.8vw]";
 
     const nameTextSize = isSmall
-        ? "text-[0.55rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-[0.8rem] xl:text-[0.9vw] 2xl:text-[1.1vw]"
+        ? "text-[0.45rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-[0.8rem] xl:text-[0.9vw] 2xl:text-[1.1vw]"
         : "text-[0.65rem] sm:text-[0.7rem] md:text-[0.85rem] lg:text-[1rem] xl:text-[1.1vw] 2xl:text-[1.3vw]";
 
     const roleTextSize = isSmall
-        ? "text-[0.45rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] xl:text-[0.7vw] 2xl:text-[0.9vw]"
+        ? "text-[0.35rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] xl:text-[0.7vw] 2xl:text-[0.9vw]"
         : "text-[0.55rem] sm:text-[0.6rem] md:text-[0.75rem] lg:text-[0.85rem] xl:text-[0.9vw] 2xl:text-[1.1vw]";
 
     useLayoutEffect(() => {
-        if (cardRef.current) {
-            setLabelWidth(cardRef.current.offsetWidth * 1.2);
-        }
-        const handleResize = () => {
+        const updateWidth = () => {
             if (cardRef.current) {
-                setLabelWidth(cardRef.current.offsetWidth * 1.2);
+                const multiplier = window.innerWidth < 640 ? 1.05 : 2.1;
+                setLabelWidth(cardRef.current.offsetWidth * multiplier);
             }
         };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+        return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
     const getIcons = () => {

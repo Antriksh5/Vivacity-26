@@ -10,26 +10,26 @@ const CulturalCouncilCard = ({ imageUrl, name, role }) => {
     const cardRef = useRef(null);
     const [labelWidth, setLabelWidth] = useState('auto');
 
-    const imageWidthClasses = "w-[85px] sm:w-[105px] md:w-[105px] lg:w-[125px] xl:w-[12vw] 2xl:w-[14vw]";
+    const imageWidthClasses = "w-[80px] sm:w-[112px] md:w-[112px] lg:w-[138px] xl:w-[13vw] 2xl:w-[15vw]";
 
     const bottomClasses = "-bottom-[38px] sm:-bottom-[50px] md:-bottom-[45px] lg:-bottom-[50px] xl:-bottom-[75px] 2xl:-bottom-[95px]";
 
     const iconWidthClasses = "w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-[2.5vw] xl:h-[2.5vw] 2xl:w-[3vw] 2xl:h-[3vw]";
 
-    const nameTextSize = "text-[0.55rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-[0.8rem] xl:text-[0.9vw] 2xl:text-[1.1vw]";
-    const roleTextSize = "text-[0.45rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] xl:text-[0.7vw] 2xl:text-[0.9vw]";
+    const nameTextSize = "text-[0.6rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-[0.8rem] xl:text-[0.9vw] 2xl:text-[1.1vw]";
+    const roleTextSize = "text-[0.5rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] xl:text-[0.7vw] 2xl:text-[0.9vw]";
 
     useLayoutEffect(() => {
-        if (cardRef.current) {
-            setLabelWidth(cardRef.current.offsetWidth * 1.2);
-        }
-        const handleResize = () => {
+        const updateWidth = () => {
             if (cardRef.current) {
-                setLabelWidth(cardRef.current.offsetWidth * 1.2);
+                const multiplier = window.innerWidth < 640 ? 1.8 : 2.1;
+                setLabelWidth(cardRef.current.offsetWidth * multiplier);
             }
         };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+        return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
     return (

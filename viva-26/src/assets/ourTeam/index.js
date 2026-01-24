@@ -15,6 +15,13 @@ import sponsorBanner from './sponsor.png';
 import developmentBanner from './development.png';
 import creativeBanner from './creative.png';
 import prEventsBanner from './pr_events.png';
+import mentorImage from './mentorImage.png';
+import mentorsCard from './mentors-card.png';
+import festhead1 from './festhead1.png';
+import festhead2 from './festhead2.png';
+import cultural1 from './cultural1.png';
+import cultural2 from './cultural2.png';
+import cultural3 from './cultural3.png';
 
 export {
     vivaLogo,
@@ -33,5 +40,12 @@ export {
     sponsorBanner,
     developmentBanner,
     creativeBanner,
-    prEventsBanner
+    prEventsBanner,
+    mentorImage,
+    mentorsCard,
+    festhead1,
+    festhead2,
+    cultural1,
+    cultural2,
+    cultural3
 };
