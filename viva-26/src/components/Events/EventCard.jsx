@@ -1,34 +1,42 @@
-import React from 'react';
+import React from "react";
+import "../../styles/Card.css";
 
-const EventCard = ({ imageSrc, title, description }) => {
-  return (
-    <div className="relative group h-full flex flex-col">
-      {/* The heavy red border frame overlay */}
-      <div className="absolute inset-0 border-[5px] border-poster-red z-20 pointer-events-none rounded-sm"></div>
+import leftTop from '../../assets/Events/DanceEvent/left_top_edge.png'
+import rightTop from '../../assets/Events/DanceEvent/right_top_edge.png'
 
-      {/* Image Container */}
-      <div className="relative h-48 overflow-hidden">
-        <img 
-          src={imageSrc} 
-          alt={title} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        {/* Title Overlay with heavy shadow/outline effect */}
-        <h3 className="absolute bottom-1 left-2 z-10 text-white text-2xl font-display font-bold tracking-wider drop-shadow-[0_3px_3px_rgba(0,0,0,0.9)] shadow-text-outline">
-          {title.toUpperCase()}
-        </h3>
-         {/* Dark gradient at bottom of image to make text pop */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-      </div>
+const EventCard = ({
+    yellowText,
 
-      {/* Description Box */}
-      <div className="bg-poster-yellow p-3 flex-grow border-t-[5px] border-poster-red z-10 relative">
-        <p className="text-xs font-bold text-black leading-tight uppercase">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
+    titleImage,
+    description,
+    artistImage,
+}) => {
+    return (
+        <div className="card-wrapper">
+            <div className="card-border">
+                <div className="card-inner">
+
+                    <div className="white_div">
+                        <div className="artist">
+                            <img className="artist" src={artistImage} alt="artist" />
+                        </div>
+                        <div className="title1">
+                            PUMP IT UP
+                        </div>
+                    </div>
+
+                    <div className="text_area">
+                        <img className="text_area" src={yellowText} alt="text" />
+                    </div>
+
+                    <div className="text_card">
+                        {description}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default EventCard;

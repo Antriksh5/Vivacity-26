@@ -1,0 +1,42 @@
+.stamp-border {
+    background-color: #f7d0ab;
+    border-radius: 80px;
+    background-image:
+        radial-gradient(circle at 50% 0%, var(--stamp-color) 28px, transparent 29px),
+        radial-gradient(circle at 50% 100%, var(--stamp-color) 28px, transparent 29px),
+        radial-gradient(circle at 0% 50%, var(--stamp-color) 28px, transparent 29px),
+        radial-gradient(circle at 100% 50%, var(--stamp-color) 28px, transparent 29px);
+    background-size: 72px 72px;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.stamp-inner-line {
+    position: absolute;
+    inset: 55px;
+    border: 2px solid #9E5D47;
+    border-radius: 35px;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .stamp-inner-line {
+        inset: 35px;
+        border-radius: 20px;
+    }
+
+    .orange-theme,
+    .blue-theme,
+    .purple-theme {
+        background-size: 36px 36px, 36px 36px, 36px 36px, 36px 36px;
+        background-image:
+            radial-gradient(circle at 50% 0%, var(--stamp-color) 14px, transparent 15px),
+            radial-gradient(circle at 50% 100%, var(--stamp-color) 14px, transparent 15px),
+            radial-gradient(circle at 0% 50%, var(--stamp-color) 14px, transparent 15px),
+            radial-gradient(circle at 100% 50%, var(--stamp-color) 14px, transparent 15px);
+    }
+}
