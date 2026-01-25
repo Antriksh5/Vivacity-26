@@ -1,11 +1,12 @@
 import React from 'react'
 import BackGroundImage from '../../assets/Events/BackGroundImage.png'
-import TextArea from '../../assets/Events/DanceEvent/Yellow_text_area.png'
+import TextArea from '../../assets/Events/DanceEvent/YellowTextArea.png'
+
 import EventCard from './EventCard';
 
 import '../../styles/Event.css'
 
-const EventComponent = ({ HeaderImage, Events, border }) => {
+const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea }) => {
     return (
         <>
             <div
@@ -30,15 +31,22 @@ const EventComponent = ({ HeaderImage, Events, border }) => {
                                 <img src={HeaderImage} alt="Events" className='w-3/4 sm:w-[80vw] lg:w-[90vw] lg-[10vh] lg:h-[30vh] object-contain' />
                             </div>
                             <div className="w-full max-w-[95%] mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 p-2 md:p-4 justify-items-center">
-                                {Events.map(event => (
-                                    <EventCard
-                                        key={event.id}
-                                        titleImage={event.title}
-                                        artistImage={event.img}
-                                        description={event.desc}
-                                        yellowText={TextArea}
-                                    />
-                                ))}
+                                {Events.map((event, index) => {
+                                    const isLastOdd = Events.length % 2 !== 0 && index === Events.length - 1;
+                                    return (
+                                        <div
+                                            key={event.id}
+                                            className={`w-full flex justify-center ${isLastOdd ? 'lg:col-span-2 lg:w-[calc(50%-1.25rem)]' : ''}`}
+                                        >
+                                            <EventCard
+                                                titleImage={event.title}
+                                                artistImage={event.img}
+                                                description={event.desc}
+                                                yellowText={TextAreaImage}
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
                             <div className='mt-auto flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 w-full pb-4'
                             >
