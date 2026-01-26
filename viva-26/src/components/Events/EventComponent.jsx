@@ -10,7 +10,7 @@ const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea 
     return (
         <>
             <div
-                className='p-4 sm:p-6 md:p-10 w-full min-h-screen transition-colors duration-300'
+                className='p-4 sm:p-5 md:p-6 w-full min-h-screen transition-colors duration-300'
                 style={{ backgroundColor: border }}
             >
 
@@ -28,7 +28,7 @@ const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea 
                         />
                         <div className="relative z-10 p-4 sm:p-6 flex flex-col grow">
                             <div className='flex justify-center items-start w-full mb-3'>
-                                <img src={HeaderImage} alt="Events" className='w-3/4 sm:w-[80vw] lg:w-[90vw] lg-[10vh] lg:h-[30vh] object-contain' />
+                                <img src={HeaderImage} alt="Events" className='w-3/4 sm:w-[80vw] lg:w-[80vw] lg:h-[25vh] object-contain' />
                             </div>
                             <div className="w-full max-w-[95%] mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 p-2 md:p-4 justify-items-center">
                                 {Events.map((event, index) => {
