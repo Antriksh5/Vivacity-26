@@ -70,23 +70,24 @@
 
 .title1 {
   font-family: "Rumble Brave", cursive;
-
-  /* 🔥 Responsive font scaling */
   font-size: clamp(1.8rem, 3vw + 2vh, 3.8rem);
 
   color: #f7e8c6;
-  -webkit-text-stroke: 1px #111;
+  -webkit-text-stroke: 2.0px #111;
 
-  text-shadow: 3px 3px 0 #111;
+  /* ⬇️ this line increases the yellow area */
+  text-shadow:
+    1px 0 0 #f7e8c6,
+    3px 3px 0 #111;
+
   letter-spacing: 0.15rem;
 
-  /* 🎯 Lock position relative to card */
   position: absolute;
   top: 74%;
   left: 1%;
-
   z-index: 10;
 }
+
 
 
 
@@ -121,18 +122,18 @@
 
 
 .artist{
-    position: relative;
-    height:101%;
-    width: 101.001%;
-    margin-left: -0.23%;
-    margin-top: -0.4%;
-    border-top-left-radius:22%;
-    border-top-right-radius:22%;
+  position: relative;
+  height: 101%;
+  width: 101.001%;
+  margin-left: -0.23%;
+  margin-top: -0.4%;
 
+  /* 🔥 more circular arc */
+  border-top-left-radius: 15% 25%;
+  border-top-right-radius: 15% 25%;
 }
-/* ===================== */
-/* ===== TABLET ======== */
-/* ===================== */
+
+
 @media (max-width: 768px) and (min-width: 426px) {
 
   .card-wrapper {
