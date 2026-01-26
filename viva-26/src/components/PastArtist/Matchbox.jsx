@@ -39,7 +39,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
                     backgroundRepeat: 'no-repeat',
                 }}
             >
-                <span className="text-[#790000] rumble-brave text-lg sm:text-2xl drop-shadow-md mb-2 uppercase font-[500] text-center px-2 leading-tight">{artistName}</span>
+                <span className="text-[#790000] rumble-brave text-xl sm:text-3xl drop-shadow-md mb-2 uppercase font-[500] text-center px-2 leading-tight">{artistName}</span>
             </div>
 
             {/* Three-color border frame */}

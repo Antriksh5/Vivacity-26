@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import '../styles/PastArtist.css';
 import Matchbox from '../components/PastArtist/Matchbox';
-import PastArtistHeader from '../assets/PastArtist/PastArtistHeader.png';
 import BackgroundImage from '../assets/PastArtist/PastArtistBackGround.png';
 import LeftButton from '../assets/PastArtist/LeftButton.png';
 import RightButton from '../assets/PastArtist/RightButton.png';
@@ -253,11 +252,15 @@ const PastArtists = () => {
 
                     <div className="relative z-10 flex flex-col items-center py-4 md:py-8 w-full h-full">
 
-                        <img
-                            src={PastArtistHeader}
-                            alt="Past Artist"
-                            className="w-full max-w-[200px] md:max-w-lg mb-8 z-20 drop-shadow-xl relative"
-                        />
+                        <h1
+                            className="rumble-brave text-4xl sm:text-6xl md:text-8xl mb-8 z-20 relative text-center tracking-wider"
+                            style={{
+                                color: '#FFD900',
+                                textShadow: '3px 3px 0px #FF8000, 6px 6px 0px rgba(0,0,0,0.2)'
+                            }}
+                        >
+                            PAST ARTISTS
+                        </h1>
 
 
                         <div className="relative w-full max-w-7xl px-4 flex items-center justify-center z-20">
