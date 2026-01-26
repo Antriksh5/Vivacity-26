@@ -22,7 +22,7 @@ const Matchbox = ({ color, artistName, image, delay = 0, isOpen = true }) => {
     }, [delay, isOpen]);
 
     return (
-        <div ref={containerRef} className="relative w-72 h-[32rem] flex justify-center shrink-0">
+        <div ref={containerRef} className="relative w-full max-w-[16rem] md:max-w-[18rem] h-[24rem] sm:h-[30rem] flex justify-center shrink-0 transition-all duration-300">
             <div
                 ref={trayRef}
                 className="absolute w-full h-[50%] top-0 z-0 flex items-end justify-center pb-4"
@@ -32,7 +32,7 @@ const Matchbox = ({ color, artistName, image, delay = 0, isOpen = true }) => {
                     backgroundRepeat: 'no-repeat',
                 }}
             >
-                <span className="text-[#790000] rumble-brave text-3xl drop-shadow-md mb-2 uppercase font-[500]">{artistName}</span>
+                <span className="text-[#790000] rumble-brave text-lg sm:text-2xl drop-shadow-md mb-2 uppercase font-[500] text-center px-2 leading-tight">{artistName}</span>
             </div>
 
             {/* Three-color border frame */}
@@ -56,10 +56,10 @@ const Matchbox = ({ color, artistName, image, delay = 0, isOpen = true }) => {
                         <div className="absolute inset-1 border-2 border-[#F4D06F] opacity-50 z-10 pointer-events-none"></div>
 
                         {/* Corner Decorations */}
-                        <img src={LeftTopCorner} alt="" className="absolute top-1 left-1 w-12 h-12 z-20" />
-                        <img src={RightTopCorner} alt="" className="absolute top-1 right-1 w-12 h-12 z-20" />
-                        <img src={LeftBottomCorner} alt="" className="absolute bottom-1 left-1 w-12 h-12 z-20" />
-                        <img src={RightBottomCorner} alt="" className="absolute bottom-1 right-1 w-12 h-12 z-20" />
+                        <img src={LeftTopCorner} alt="" className="absolute top-1 left-1 w-8 h-8 sm:w-12 sm:h-12 z-20" />
+                        <img src={RightTopCorner} alt="" className="absolute top-1 right-1 w-8 h-8 sm:w-12 sm:h-12 z-20" />
+                        <img src={LeftBottomCorner} alt="" className="absolute bottom-1 left-1 w-8 h-8 sm:w-12 sm:h-12 z-20" />
+                        <img src={RightBottomCorner} alt="" className="absolute bottom-1 right-1 w-8 h-8 sm:w-12 sm:h-12 z-20" />
                     </div>
                 </div>
             </div>
