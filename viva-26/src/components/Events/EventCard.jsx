@@ -4,22 +4,21 @@ import "../../styles/Card.css";
 
 const EventCard = ({
   yellowText,
-
-  titleImage,
+  title,
   description,
   artistImage,
 }) => {
   return (
-    <div className="card-wrapper">
-      <div className="card-border">
-        <div className="card-inner">
+    <div className="card-wrapper" style={{ "--card-red": "#ff0000" }}>
+      <div className="card-border" style={{ "--card-red": "#ff0000" }}>
+        <div className="card-inner" style={{ "--card-red": "#ff0000" }}>
 
           <div className="white_div">
             <div className="artist">
               <img className="artist" src={artistImage} alt="artist" />
             </div>
             <div className="title1">
-              PUMP IT UP
+              {title}
             </div>
           </div>
 

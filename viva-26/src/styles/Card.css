@@ -10,54 +10,66 @@
 
 /* ===== RED CARD ===== */
 .card-border {
-  background: red;
+  background: var(--card-red);
   padding: 0.03rem;
-  height: 100%;              /* thickness of red border */
+  height: 100%;
 }
 
 /* ===== INNER DASHED BORDER ===== */
 .card-inner { 
-    width: 100%; 
-    height: 100%;
-    position: relative;
-    background: red;
-    border: 0.4rem dashed transparent; /* alternating black & white dashes */ 
-    background-image: repeating-linear-gradient( 
-            to right, 
-            black 0 0.8rem, 
-            red 0.8rem 1.2rem, 
-            white 1.2rem 2rem, 
-            red 2rem 2.4rem ), 
-        repeating-linear-gradient( 
-            to bottom, 
-            black 0 0.8rem, 
-            red 0.8rem 1.2rem, 
-            white 1.2rem 2rem, 
-            red 2rem 2.4rem ),
-        repeating-linear-gradient( 
-            to left, 
-            black 0 0.8rem, 
-            red 0.8rem 1.2rem, 
-            white 1.2rem 2rem, 
-            red 2rem 2.4rem ), 
-        repeating-linear-gradient( 
-            to top, 
-            black 0 0.8rem, 
-            red 0.8rem 1.2rem, 
-            white 1.2rem 2rem, 
-            red 2rem 2.4rem );
-        background-size: 
-            calc(100% - 0.8rem) 0.3rem, 
-            0.3rem calc(100% - 0.8rem), 
-            calc(100% - 0.8rem) 0.3rem, 
-            0.3rem calc(100% - 0.8rem); 
-        background-position: 
-            top center, 
-            right center, 
-            bottom center, 
-            left center; 
-        background-repeat: no-repeat; 
-} 
+  width: 100%; 
+  height: 100%;
+  position: relative;
+
+  background: var(--card-red);
+
+  border: 0.4rem dashed transparent;
+
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      black 0 0.8rem,
+      var(--card-red) 0.8rem 1.2rem,
+      white 1.2rem 2rem,
+      var(--card-red) 2rem 2.4rem
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      black 0 0.8rem,
+      var(--card-red) 0.8rem 1.2rem,
+      white 1.2rem 2rem,
+      var(--card-red) 2rem 2.4rem
+    ),
+    repeating-linear-gradient(
+      to left,
+      black 0 0.8rem,
+      var(--card-red) 0.8rem 1.2rem,
+      white 1.2rem 2rem,
+      var(--card-red) 2rem 2.4rem
+    ),
+    repeating-linear-gradient(
+      to top,
+      black 0 0.8rem,
+      var(--card-red) 0.8rem 1.2rem,
+      white 1.2rem 2rem,
+      var(--card-red) 2rem 2.4rem
+    );
+
+  background-size:
+    calc(100% - 0.8rem) 0.3rem,
+    0.3rem calc(100% - 0.8rem),
+    calc(100% - 0.8rem) 0.3rem,
+    0.3rem calc(100% - 0.8rem);
+
+  background-position:
+    top center,
+    right center,
+    bottom center,
+    left center;
+
+  background-repeat: no-repeat;
+}
+
 .white_div{
     position: relative;
     background-color: white;
