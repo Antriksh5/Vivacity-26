@@ -39,7 +39,7 @@ const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea 
                                             className={`w-full flex justify-center ${isLastOdd ? 'lg:col-span-2 lg:w-[calc(50%-1.25rem)]' : ''}`}
                                         >
                                             <EventCard
-                                                titleImage={event.title}
+                                                title={event.title}
                                                 artistImage={event.img}
                                                 description={event.desc}
                                                 yellowText={TextAreaImage}
