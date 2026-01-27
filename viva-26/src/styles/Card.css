@@ -1,11 +1,10 @@
 /* ===== OUTER WRAPPER ===== */
+/* ===== OUTER WRAPPER ===== */
 .card-wrapper {
   width: 110%;
   max-width: 90rem;
   margin: 2rem auto;
   height: 58vh;
-
- /* page bg only */
 }
 
 /* ===== RED CARD ===== */
@@ -69,7 +68,6 @@
 
   background-repeat: no-repeat;
 }
-
 .white_div{
     position: relative;
     background-color: white;
@@ -82,24 +80,23 @@
 
 .title1 {
   font-family: "Rumble Brave", cursive;
+
+  /* 🔥 Responsive font scaling */
   font-size: clamp(1.8rem, 3vw + 2vh, 3.8rem);
 
   color: #f7e8c6;
-  -webkit-text-stroke: 2.0px #111;
+  -webkit-text-stroke: 1px #111;
 
-  /* ⬇️ this line increases the yellow area */
-  text-shadow:
-    1px 0 0 #f7e8c6,
-    3px 3px 0 #111;
-
+  text-shadow: 3px 3px 0 #111;
   letter-spacing: 0.15rem;
 
+  /* 🎯 Lock position relative to card */
   position: absolute;
   top: 74%;
   left: 1%;
+
   z-index: 10;
 }
-
 
 
 
@@ -134,104 +131,325 @@
 
 
 .artist{
-  position: relative;
-  height: 101%;
-  width: 101.001%;
-  margin-left: -0.23%;
-  margin-top: -0.4%;
+    position: relative;
+    height:101%;
+    width: 101.001%;
+    margin-left: -0.23%;
+    margin-top: -0.4%;
+    border-top-left-radius:22%;
+    border-top-right-radius:22%;
 
-  /* 🔥 more circular arc */
-  border-top-left-radius: 15% 25%;
-  border-top-right-radius: 15% 25%;
 }
-
-
-@media (max-width: 768px) and (min-width: 426px) {
-
+@media (max-width: 1300px) and (min-width: 1145px) {
   .card-wrapper {
-    width: 100%;
-    height: 40vh;
-    margin: 1.5rem auto;
-  }
-
-  .white_div {
-    width: 96%;
-    height: 68%;
-    margin-left: 2%;
-    margin-top: 1.5%;
+    width: 105%;
+    height: 52vh;
   }
 
   .title1 {
-    font-size: clamp(2.1rem, 4.5vw, 3.6rem);
-
-    top: 78%;
-    left: 2%;
-    letter-spacing: 0.12rem;
-
-  }
-
-  .text_area {
-    height: 53%;
+    font-size: clamp(2.4rem, 3.2vw, 3.4rem);
+    top: 75%;
   }
 
   .text_card {
-    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+  }
+}
 
+@media (max-width: 1145px) and (min-width: 1024px){
+    .card-wrapper {
+    width: 105%;
+    height: 42vh;
+  }
+
+  .title1 {
+    font-size: clamp(2rem, 2.6vw, 3rem);
+    top: 75%;
+  }
+
+  .text_card {
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+
+  }
+}
+@media (max-width: 1024px) {
+  .card-wrapper {
+    width: 100%;
+    height: 36vh;
+  }
+
+  .white_div {
+    height: 66%;
+  }
+
+  .title1 {
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
     top: 73%;
-    width: 94%;
-    left: 3%;
+    letter-spacing: 0.12rem;
+  }
+  .text_area{
+    height: 54%;
+  }
+
+  .text_card {
+    font-size: clamp(0.6rem, 1vw, 0.8rem);
+    top: 71%;
+  }
+}
+@media (max-width: 1024px) and (min-width: 812px) {
+    .card-wrapper {
+    width: 67%;
+    height: 56vh;
+  }
+
+  .white_div {
+    height: 66%;
+  }
+
+  .title1 {
+    font-size: clamp(1.8rem, 3.6vw, 2.9rem);
+    top: 76%;
+    letter-spacing: 0.12rem;
+  }
+  .text_area{
+    height: 54%;
+  }
+
+  .text_card {
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    top: 71%;
+  }
+}
+@media (max-width: 812px) and (min-width: 698px) {
+   .card-wrapper {
+    width: 67%;
+    height: 45vh;
+  }
+
+  .white_div {
+    height: 66%;
+  }
+
+  .title1 {
+    font-size: clamp(1.8rem, 3.6vw, 2.9rem);
+    top: 76%;
+    letter-spacing: 0.12rem;
+  }
+  .text_area{
+    height: 54%;
+  }
+
+  .text_card {
+    font-size: clamp(0.8rem, 1.35vw, 1rem);
+    top: 71%;
+  }
+}
+@media (max-width: 698px) and (min-width: 530px) {
+      .card-inner {
+    border: 0.22rem dashed transparent;
+
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to left,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to top,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      );
+
+    background-size:
+      calc(100% - 0.5rem) 0.2rem,
+      0.2rem calc(100% - 0.5rem),
+      calc(100% - 0.5rem) 0.2rem,
+      0.2rem calc(100% - 0.5rem);
+  }
+  .card-wrapper {
+    height: 35vh;
+    width: 65%;
+  }
+
+  .white_div {
+    height: 66%;
+  }
+
+  .title1 {
+    font-size: clamp(1.4rem, 4vw, 2.1rem);
+    top: 74%;
+  }
+
+  .text_card {
+    font-size: clamp(0.65rem, 1.6vw, 0.85rem);
   }
 
   .artist {
-    border-top-left-radius: 18%;
-    border-top-right-radius: 18%;
+    border-top-left-radius: 16%;
+    border-top-right-radius: 16%;
   }
-}
-@media (max-width: 425px) {
+}@media (max-width: 530px) and (min-width: 427px) {
 
+      .card-inner {
+    border: 0.22rem dashed transparent;
+
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to left,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to top,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      );
+
+    background-size:
+      calc(100% - 0.5rem) 0.2rem,
+      0.2rem calc(100% - 0.5rem),
+      calc(100% - 0.5rem) 0.2rem,
+      0.2rem calc(100% - 0.5rem);
+  }
   .card-wrapper {
-    width: 100%;
-    height: 20vh;
-    margin: 1rem auto;
+    height: 26vh;
+    width:66%;
   }
 
   .white_div {
-    width: 95%;
-    height: 62%;
-    margin-left: 2.5%;
-    margin-top: 2%;
+    height: 60%;
+    margin-top: 5%;
   }
-
+  .artist{
+    margin-top: -1.4%;
+    height: 116%;
+  }
   .title1 {
-    font-size: clamp(1.1rem, 5vw, 1.9rem);
-    top: 68%;
-    left: 3%;
+    font-size: clamp(1.10rem, 4vw, 2.8rem);
+    top: 70%;
     letter-spacing: 0.08rem;
-    text-shadow: 2px 2px 0 #111;
-  }
-
-  .text_area {
-    height: 55%;
-    margin-left: 1.3%;
-
   }
 
   .text_card {
-    font-size: clamp(0.45rem, 1.8vw, 0.6rem);
-    line-height: 1.3;
-    top: 70%;
-    width: 94%;
-    left: 3%;
+    font-size: clamp(0.4rem, 1.6vw, 0.55rem);
+    line-height: 1.25;
   }
 
   .artist {
     border-top-left-radius: 14%;
     border-top-right-radius: 14%;
-    margin-top: -1.2%;
-    height: 110%;
   }
 }
+@media (max-width: 427px) and (min-width: 320px) {
 
+  
+    .card-inner {
+    border: 0.22rem dashed transparent;
 
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to left,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      ),
+      repeating-linear-gradient(
+        to top,
+        black 0 0.45rem,
+        var(--card-red) 0.45rem 0.65rem,
+        white 0.65rem 1.05rem,
+        var(--card-red) 1.05rem 1.25rem
+      );
 
+    background-size:
+      calc(100% - 0.5rem) 0.2rem,
+      0.2rem calc(100% - 0.5rem),
+      calc(100% - 0.5rem) 0.2rem,
+      0.2rem calc(100% - 0.5rem);
+  }
+  .card-wrapper {
+    height: 20vh;
+    width: 68%;
+  }
+
+.white_div {
+  height: 58%;
+  border: 0.1rem solid yellow;
+}
+
+  .title1 {
+    font-size: clamp(0.75rem, 4.4vw, 1.15rem);
+    top: 68%;
+    text-shadow: 2px 2px 0 #111;
+  }
+
+  .text_card {
+    font-size: clamp(0.32rem, 1.7vw, 0.4rem);
+    line-height: 1.2;
+    margin-top: -1%;
+  }
+  .text_area{
+    margin-top: 1%;
+    height: 57%;
+  }
+  .artist {
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    height: 122%;
+    margin-top: -2%;
+    width: 101%;
+    margin-top: -0.1rem;
+  }
+}
 
