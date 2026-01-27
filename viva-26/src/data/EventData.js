@@ -1,7 +1,7 @@
 
 // Dance Events
 import PumpItUp from '../assets/Events/DanceEvent/First/PumpItUp.png';
-import StreetDance from '../assets/Events/DanceEvent/Second/StreetDance.png';
+import StreetDance from '../assets/Events/DanceEvent/second/StreetDance.png';
 import Razzmatazz from '../assets/Events/DanceEvent/Third/Razzmatazz.png';
 import TaalTarang from '../assets/Events/DanceEvent/Fourth/TaalTarang.png';
 import LetsTangle from '../assets/Events/DanceEvent/Fifth/LetsTangle.png';
