@@ -7,9 +7,14 @@ import HandImage from '../assets/EventLanding/Hand.png';
 import EyesGif from '../assets/EventLanding/AakheGIF.gif';
 import MusicImage from '../assets/Events/MusicEvent/First/BattleOfBands.png';
 import DramaImage from '../assets/Events/DramaEvent/First/Rangshala_1.png';
-import FashionImage from '../assets/Events/FashionEvent/Artists/Vogue_1.jpg';
-import DanceImage from '../assets/Events/DanceEvent/First/PumpItUp.png';
+import FashionImage from '../assets/EventLanding/FashionImage.jpg';
+import DanceImage from '../assets/EventLanding/Dance1.jpg';
 import ArtImage from '../assets/EventLanding/ArtImage.jpg';
+import PhotoGraphyImage from '../assets/EventLanding/PhotoGraphyImage.jpg';
+import SpeakingImage from '../assets/EventLanding/SpeakingImage.jpg';
+import SocialImage from '../assets/EventLanding/SocialImage.jpg';
+import ExcitingImage from '../assets/EventLanding/ExcitingImage.jpg';
+import QuizEventImage from '../assets/EventLanding/QuizEvent.jpg';
 
 const eventsData = [
     {
@@ -59,7 +64,7 @@ const eventsData = [
         id: 'photography',
         title: 'Photography Event',
         prize: '1.5 Lakh +',
-        mainImage: ArtImage,
+        mainImage: PhotoGraphyImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'FMC',
@@ -100,7 +105,7 @@ const eventsData = [
         id: 'Speaking',
         title: 'Speaking Arts Event',
         prize: '1.0 Lakh +',
-        mainImage: ArtImage,
+        mainImage: SpeakingImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Duologue',
@@ -118,7 +123,7 @@ const eventsData = [
     {
         id: 'Social',
         title: 'Social Event',
-        mainImage: ArtImage,
+        mainImage: SocialImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Sahyog',
@@ -131,7 +136,7 @@ const eventsData = [
         id: 'Quizzing',
         title: 'Quizzing Event',
         prize: '20K +',
-        mainImage: ArtImage,
+        mainImage: QuizEventImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Bamboozled',
@@ -144,7 +149,7 @@ const eventsData = [
     {
         id: 'Exciting',
         title: 'Exciting Event',
-        mainImage: ArtImage,
+        mainImage: ExcitingImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Prom Night',
@@ -218,7 +223,7 @@ const EventLanding = () => {
                 <div className="stamp-inner-line-past z-30 pointer-events-none"></div>
 
                 {/* Background Pattern */}
-                <div className="absolute inset-[14px] md:inset-[20px] lg:inset-[28px] rounded-[1rem] md:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden z-0">
+                <div className="absolute inset-[14px] md:inset-[25px] lg:inset-[28px] rounded-[1rem] md:rounded-[1.3rem] lg:rounded-[2rem] overflow-hidden z-0">
                     <img
                         src={BackgroundImage}
                         alt="Background"
@@ -259,7 +264,7 @@ const EventLanding = () => {
                                     {/* Row 1: Event Title */}
                                     <div className="h-[8vh] md:h-[9vh] flex items-center justify-center overflow-hidden bg-black  relative">
                                         <h2
-                                            className={`w-full text-center ${getTitleSize(currentEvent.title)} rumble-brave md:pb-[2vh] tracking-widest  leading-none whitespace-nowrap`}
+                                            className={`w-full text-center ${getTitleSize(currentEvent.title)} rumble-brave md:pb-[0.7vh] lg:pb-[2vh] tracking-widest  leading-none whitespace-nowrap`}
                                             style={{
                                                 color: currentEvent.color,
                                                 textShadow: '1px 0px 0 #7B02E7'
@@ -281,14 +286,14 @@ const EventLanding = () => {
                                             />
 
                                             {/* Prize Text */}
-                                            <div className="flex flex-col justify-center leading-none text-[#5C1A4E] rumble-brave text-[2vh] md:text-[3.5vh] lg:text-[5vh] tracking-widest md:p-10 z-10 relative ">
+                                            <div className="flex flex-col justify-center leading-none text-[#5C1A4E] rumble-brave text-[2vh] md:text-[3vh] lg:text-[5vh] tracking-widest lg:p-10 z-10 relative ">
                                                 <span>PRIZE</span>
-                                                <span className="text-[2.5vh] md:text-[5vh] lg:text-[5vh] ">WORTH</span>
+                                                <span className="text-[2.5vh] md:text-[3vh] lg:text-[5vh] ">WORTH</span>
                                             </div>
                                         </div>
 
                                         {/* Right: Amount */}
-                                        <div className="bg-[#7B02E7] text-white w-1/2 flex items-center justify-center font-bold text-[2.5vh] md:text-[6vh] lg:text-[5vh] tracking-widest uppercase rumble-brave whitespace-nowrap px-2">
+                                        <div className="bg-[#7B02E7] text-white w-1/2 flex items-center justify-center font-bold text-[2.5vh] md:text-[3vh] lg:text-[5vh] tracking-widest uppercase rumble-brave whitespace-nowrap px-2">
                                             {currentEvent.prize}
                                         </div>
                                     </div>
@@ -345,13 +350,13 @@ const EventLanding = () => {
                         </div>
 
                         {/* LEFT SIDEBAR: Sub-events List (Second on Mobile, Left on Desktop via row-reverse) */}
-                        <div className="w-full lg:w-1/3 bg-[#6A1B9A] lg:border-r-4 border-black flex flex-col relative overflow-y-auto custom-scrollbar">
+                        <div className="w-full lg:w-1/3 bg-[#6A1B9A] lg:border-r-4 border-black flex flex-col relative  custom-scrollbar pt-[0.1vh]">
                             {/* Zigzag decoration top/bottom if desired, keeping simple for now */}
 
-                            <div className="flex-grow p-[1vh] md:p-[3vh] w-full flex flex-col justify-center gap-[0.5vh]">
-                                <ul className="space-y-[0.05vh] md:space-y-[1.5vh] lg:space-y-[2vh] text-white w-full">
+                            <div className="flex-grow p-[1vh] md:p-[1vh] lg:p-[2vh] w-full flex flex-col justify-center gap-[0.5vh] md:gap-[1vh] lg:gap-[2vh]">
+                                <ul className="space-y-[0.05vh] md:space-y-[0.2vh] lg:space-y-[2vh] text-white w-full">
                                     {currentEvent.subEvents.map((event, idx) => (
-                                        <li key={idx} className="flex items-start text-[1.5vh] sm:text-[2.2vh] md:text-[2.5vh] tracking-wider">
+                                        <li key={idx} className={`flex items-start text-[1.5vh] sm:text-[2.2vh] md:text-[1.6vh] lg:text-[2.5vh] tracking-wider ${idx >= 4 ? 'hidden lg:flex' : ''}`}>
                                             <span className="mr-[0.5vw] text-[1.5vh]">•</span>
                                             <span className="uppercase">{event}</span>
                                         </li>
@@ -377,29 +382,29 @@ const EventLanding = () => {
                         </div>
 
                         {/* MOBILE FOOTER: Know More + Navigation (Visible only on Mobile) */}
-                        <div className="flex lg:hidden w-full border-t-4 border-white h-[10vh]">
+                        <div className="flex lg:hidden w-full border-t-4 border-black h-[10vh]">
                             {/* Know More Button */}
-                            <div className="w-1/2 bg-[#FE55B2] border-r-4 border-white flex flex-col items-center justify-between relative overflow-hidden cursor-pointer">
+                            <div className="w-1/2 bg-[#FE55B2] border-r-4 border-black flex flex-col items-center justify-between relative overflow-hidden cursor-pointer">
                                 <div className="w-full h-[60%] overflow-hidden">
                                     <img src={EyesGif} alt="Eyes" className="w-full h-full object-cover scale-150" />
                                 </div>
                                 <div className="w-full h-[40%] flex items-center justify-center bg-[#FE55B2]">
-                                    <span className="font-bold text-[2vh] md:text-[3vh] lg:text-[4vh] text-white drop-shadow-[1px_1px_0_#000] tracking-widest rumble-brave uppercase leading-none">
+                                    <span className="font-bold text-[2vh] md:text-[2.4vh] lg:text-[4vh] text-white drop-shadow-[1px_1px_0_#000] tracking-widest rumble-brave uppercase leading-none">
                                         KNOW MORE
                                     </span>
                                 </div>
                             </div>
 
                             {/* Mobile Navigation */}
-                            <div className="w-1/2 bg-[#FFAB00] flex items-center justify-center gap-3 relative overflow-hidden">
-                                <div className="flex gap-3 z-10">
-                                    <button onClick={handlePrev} className="w-10 h-10 rounded-full bg-[#FFAB00] border-[4px] border-[#7B02E7] flex items-center justify-center active:scale-95 transition-transform">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="#7B02E7" className="w-6 h-6">
+                            <div className="w-1/2 bg-[#FFAB00] flex items-center justify-center gap-3 md:gap-4 relative overflow-hidden">
+                                <div className="flex gap-3 md:gap-4 z-10">
+                                    <button onClick={handlePrev} className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#FFAB00] border-[4px] md:border-[5px] border-[#7B02E7] flex items-center justify-center active:scale-95 transition-transform">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="#7B02E7" className="w-6 h-6 md:w-8 md:h-8">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                                         </svg>
                                     </button>
-                                    <button onClick={handleNext} className="w-10 h-10 rounded-full bg-[#FFAB00] border-[4px] border-[#7B02E7] flex items-center justify-center active:scale-95 transition-transform">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="#7B02E7" className="w-6 h-6">
+                                    <button onClick={handleNext} className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#FFAB00] border-[4px] md:border-[5px] border-[#7B02E7] flex items-center justify-center active:scale-95 transition-transform">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="#7B02E7" className="w-6 h-6 md:w-8 md:h-8">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                         </svg>
                                     </button>
