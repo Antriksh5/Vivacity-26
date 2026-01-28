@@ -4,6 +4,8 @@ import OurTeam from './pages/OurTeam.jsx'
 import EventPage from './pages/EventPage.jsx'
 import PastArtists from './pages/PastArtists.jsx'
 import Team from './pages/Team.jsx'
+import EventLanding from './pages/EventLanding.jsx'
+
 function App() {
     return (
         <Routes>
@@ -13,6 +15,7 @@ function App() {
             <Route path="/events" element={<EventPage />} />
             <Route path="/past-artists" element={<PastArtists />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/eventLanding" element={<EventLanding />} />
         </Routes>
     )
 }
