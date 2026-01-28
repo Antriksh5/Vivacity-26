@@ -10,6 +10,15 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
     const containerRef = useRef(null);
     const trayRef = useRef(null);
 
+    // Dynamic font size based on name length
+    const getNameFontSize = (name) => {
+        const length = name.length;
+        if (length <= 6) return 'text-2xl sm:text-4xl'; // Very short names (e.g., "Kullu", "Ritviz")
+        if (length <= 10) return 'text-xl sm:text-3xl'; // Short names (e.g., "Asees Kaur")
+        if (length <= 14) return 'text-lg sm:text-2xl'; // Medium names (e.g., "Amit Trivedi")
+        return 'text-base sm:text-xl'; // Longer names (e.g., "Mohit Chauhan")
+    };
+
     const {
         topLeft = LeftTopCorner,
         topRight = RightTopCorner,
@@ -39,7 +48,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
                     backgroundRepeat: 'no-repeat',
                 }}
             >
-                <span className="text-[#790000] rumble-brave text-xl sm:text-3xl drop-shadow-md mb-2 uppercase font-[500] text-center px-2 leading-tight">{artistName}</span>
+                <span className={`text-[#790000] rumble-brave ${getNameFontSize(artistName)} drop-shadow-md md:mb-1 uppercase font-[500] text-center px-2 leading-tight`}>{artistName}</span>
             </div>
 
             {/* Three-color border frame */}
