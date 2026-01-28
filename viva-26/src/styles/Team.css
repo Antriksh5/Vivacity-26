@@ -1,0 +1,51 @@
+.stamp-border {
+  background-color: #FA7305;
+  border-radius: 90px;
+  background-image:
+    radial-gradient(circle at 50% 0%, var(--stamp-color) 28px, transparent 29px),
+    radial-gradient(circle at 50% 100%, var(--stamp-color) 28px, transparent 29px),
+    radial-gradient(circle at 0% 50%, var(--stamp-color) 28px, transparent 29px),
+    radial-gradient(circle at 100% 50%, var(--stamp-color) 28px, transparent 29px);
+  background-size: 72px 72px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  position: relative;
+  width: 100%;
+  padding:45px;
+}
+
+.inner-container {
+  background-color: #FFD600;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  border: 5px solid #731402;
+}
+
+.content-box {
+  background-color: #4A0E04;
+  border: 3px solid #F6BC7B;
+  border-radius: 20px;
+  position: relative;
+  padding: 2rem 1rem;
+  margin: 1rem auto;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.content-box-text {
+  color: #F6BC7B;
+  font-family: serif;
+  font-weight: bold;
+  font-size: clamp(10px, 1.4vw, 18px);
+  line-height: 1.4;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .content-box {
+    border-radius: 20px;
+  }
+}

@@ -3,7 +3,7 @@ import Registration from './pages/Registration.jsx'
 import OurTeam from './pages/OurTeam.jsx'
 import EventPage from './pages/EventPage.jsx'
 import PastArtists from './pages/PastArtists.jsx'
-
+import Team from './pages/Team.jsx'
 function App() {
     return (
         <Routes>
@@ -12,6 +12,7 @@ function App() {
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/events" element={<EventPage />} />
             <Route path="/past-artists" element={<PastArtists />} />
+            <Route path="/team" element={<Team />} />
         </Routes>
     )
 }
