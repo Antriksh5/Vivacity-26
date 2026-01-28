@@ -36,6 +36,18 @@ export default {
             },
             fontFamily: {
                 'gill': ['"Gill Sans"', '"Gill Sans MT"', 'Calibri', '"Trebuchet MS"', 'sans-serif'],
+                'grobold': ['GROBOLD', 'sans-serif'],
+                'rfabb': ['RF_ABB', 'sans-serif'],
+                'lemon-milk': ['"LEMON MILK"', 'sans-serif'],
+                'vito-sans': ['"Vito Sans"', 'sans-serif'],
+            },
+            spacing: {
+                '77.5': '310px',
+                '95': '380px',
+                '105': '420px',
+                '300': '750px',
+                '320': '800px',
+                '350': '875px',
             },
         },
     },

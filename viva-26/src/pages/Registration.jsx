@@ -1,26 +1,96 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import '../styles/Registration.css'
 import doorGif from '../assets/registration/door.gif'
 import doorPng from '../assets/registration/doorPng.png'
 import doorOnlyPng from '../assets/registration/door_only.png'
 import nextButton from '../assets/registration/next.png'
 import preRegisterImg from '../assets/registration/Pre register here.png'
+import doorHoriB from '../assets/registration/doorHoriB.png'
+import proceedBtn from '../assets/registration/procced.png'
+import addEventBtn from '../assets/registration/addEvent.png'
+import Navbar from '../components/Registeration/Navbar'
+
+const eventData = {
+    "Drama Events": ["Gully Gully", "Halla Bol", "Natyatumb", "Manchpan"],
+    "Art Events": ["Hue-niverse", "Contrasto", "Eclectic", "Tattoo Tales", "Splash"],
+    "Music Events": ["Bandish", "Malhaar", "Battle of Bands", "Aaroh", "Gully War"],
+    "Quizzing Events": ["Bamboozled", "Movie Auction"],
+    "Dance Events": ["Razzamatazz", "Let's Tangle", "Taal-Tarang", "Mudra", "Pump It Up", "Street Dance"],
+    "Nukkad Events": ["Hunkaar"],
+    "Speaking Arts": ["Open Discussion", "Dare to Spell", "Potpourrii", "Duologue", "Spotlight", "Family Feud"],
+    "Photography & Videography Events": ["Kalakriti", "Pixels (Photography Contest)", "Perspective (Workshop)", "Film Making Competition", "Photo Booth", "Image Hunt"],
+    "Fashion Events": ["Vogue", "Mr. and Miss Viva"]
+};
 
 const Registration = () => {
-    const [step, setStep] = useState(1)
+    const doorRef = useRef(null)
+    const finalRef = useRef(null)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1024)
+    const [isVerySmallScreen, setIsVerySmallScreen] = useState(window.innerWidth < 500)
+    const [isExtremelySmallScreen, setIsExtremelySmallScreen] = useState(window.innerWidth < 330)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth <= 1024)
+            setIsVerySmallScreen(window.innerWidth < 500)
+            setIsExtremelySmallScreen(window.innerWidth < 330)
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    // Get step from URL or default to 1
+    const step = parseInt(searchParams.get('step') || '1', 10)
+
+    useEffect(() => {
+        if (doorRef.current) {
+            doorRef.current.scrollIntoView({ behavior: 'auto', block: 'start' });
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, []);
+
+    const setStep = (newStep) => {
+        setSearchParams({ step: newStep })
+    }
+
     const [showGif, setShowGif] = useState(true)
     const [showPng, setShowPng] = useState(false)
+    const [showSuccess, setShowSuccess] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
         mobile: '',
         email: '',
         university: '',
         referral: '',
-        participant: ''
+        participant: '',
+        eventCategory: '',
+        eventName: '',
+        teamSize: '',
+        isTeamCaptain: '',
+        teamName: '',
+        teamMembers: ''
     })
+    const [addedEvents, setAddedEvents] = useState([])
     const [errors, setErrors] = useState({})
-    const [formVisible, setFormVisible] = useState(false)
+
     const [gifSrc, setGifSrc] = useState(null)
+
+    // Control body overflow based on addedEvents
+    useEffect(() => {
+        const body = document.querySelector('body.registration-page');
+        if (body) {
+            if (addedEvents.length > 0) {
+                body.style.overflowY = 'auto';
+                body.style.height = 'auto';
+            } else {
+                body.style.overflowY = 'hidden';
+                body.style.height = '100vh';
+            }
+        }
+    }, [addedEvents]);
 
     useEffect(() => {
         document.body.classList.add('registration-page')
@@ -28,12 +98,15 @@ const Registration = () => {
         // Preload the PNG first (this is what stays after GIF ends)
         const pngImg = new Image()
         const doorOnlyImg = new Image()
+        const preGif = new Image()
 
         let pngLoaded = false
         let doorOnlyLoaded = false
+        let gifLoaded = false
 
         const checkAllLoaded = () => {
-            if (pngLoaded && doorOnlyLoaded) {
+            if (pngLoaded && doorOnlyLoaded && gifLoaded) {
+                // Now that it's cached, setting the src will be instant
                 setGifSrc(`${doorGif}?t=${Date.now()}`)
             }
         }
@@ -46,9 +119,14 @@ const Registration = () => {
             doorOnlyLoaded = true
             checkAllLoaded()
         }
+        preGif.onload = () => {
+            gifLoaded = true
+            checkAllLoaded()
+        }
 
         pngImg.src = doorPng
         doorOnlyImg.src = doorOnlyPng
+        preGif.src = doorGif
 
         return () => {
             document.body.classList.remove('registration-page')
@@ -57,9 +135,6 @@ const Registration = () => {
 
     useEffect(() => {
         if (!gifSrc) return
-
-        // Start form fade-in immediately when GIF starts
-        setFormVisible(true)
 
         // Start fading in the PNG near the end of the GIF
         const pngTimer = setTimeout(() => {
@@ -79,7 +154,20 @@ const Registration = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        setFormData(prev => ({ ...prev, [name]: value }))
+        setFormData(prev => {
+            const newData = { ...prev, [name]: value };
+            // If category changes, reset event name
+            if (name === 'eventCategory') {
+                newData.eventName = '';
+            }
+            return newData;
+        })
+
+        // Auto-transition to Step 4 after selecting Event Name
+        if (name === 'eventName' && value !== '') {
+            setTimeout(() => setStep(4), 300); // 300ms delay for visual feedback of selection
+        }
+
         if (errors[name]) {
             setErrors(prev => ({ ...prev, [name]: '' }))
         }
@@ -98,8 +186,56 @@ const Registration = () => {
             if (!formData.university.trim()) newErrors.university = 'University name is required'
         } else if (step === 2) {
             if (!formData.participant) newErrors.participant = 'Please select an option'
+        } else if (step === 3) {
+            if (!formData.eventCategory) newErrors.eventCategory = 'Please select a category'
+            if (!formData.eventName) newErrors.eventName = 'Please select an event'
+        } else if (step === 4) {
+            if (!formData.teamSize.trim()) newErrors.teamSize = 'Team size is required'
+            if (!formData.isTeamCaptain) newErrors.isTeamCaptain = 'Required'
+            if (!formData.teamName.trim()) newErrors.teamName = 'Team name is required'
         }
         return newErrors
+    }
+
+    const handleAddAnotherEvent = () => {
+        const validationErrors = validate()
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors)
+            return
+        }
+
+        // Add current event to the list
+        setAddedEvents(prev => [...prev, {
+            category: formData.eventCategory,
+            name: formData.eventName,
+            teamSize: formData.teamSize,
+            teamName: formData.teamName
+        }])
+
+        // Reset only event-related fields, keep personal info
+        setFormData(prev => ({
+            ...prev,
+            eventCategory: '',
+            eventName: '',
+            teamSize: '',
+            isTeamCaptain: '',
+            teamName: '',
+            teamMembers: ''
+        }))
+        setErrors({})
+        setStep(3)
+
+        // Scroll to the bottom to show the "Events Added" tab
+        setTimeout(() => {
+            if (finalRef.current) {
+                finalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 100)
+    }
+
+    const handleSubmitAll = () => {
+        console.log('Final Registration Data:', { personal: formData, events: addedEvents })
+        setShowSuccess(true)
     }
 
     const handleNext = (e) => {
@@ -113,36 +249,99 @@ const Registration = () => {
 
         if (step === 1) {
             setStep(2)
+        } else if (step === 2) {
+            if (formData.participant === 'yes') {
+                setStep(3)
+            } else {
+                setShowSuccess(true)
+            }
+        } else if (step === 4) {
+            const currentEvent = {
+                category: formData.eventCategory,
+                name: formData.eventName,
+                teamSize: formData.teamSize,
+                teamName: formData.teamName
+            }
+            setAddedEvents(prev => [...prev, currentEvent])
+            setShowSuccess(true)
         } else {
-            console.log('Final Form Data:', formData)
-            alert('Registration Complete!')
+            setStep(step + 1)
         }
     }
 
     return (
-        <div className="w-full h-screen flex items-center justify-center relative overflow-hidden">
-            <div className="flex items-center justify-center w-full h-screen relative z-0">
-                <div className="relative w-350 h-350 flex items-center justify-center transform-gpu backface-hidden max-[1200px]:w-225 max-[1200px]:h-225 max-[900px]:w-175 max-[900px]:h-175 max-[480px]:w-137.5 max-[480px]:h-137.5">
+        <div className={`w-full ${isSmallScreen ? 'min-h-screen scroll-smooth overflow-y-auto overflow-x-auto' : (addedEvents.length > 0 ? 'min-h-screen overflow-y-auto' : 'h-screen overflow-hidden')} relative ${isVerySmallScreen ? 'pt-[80vh] pb-[50vh]' : (isSmallScreen ? 'pb-[50vh]' : '')}`}>
+            <Navbar />
+            <div className={`flex items-center justify-center w-full ${isSmallScreen ? 'min-h-screen' : 'h-screen'} relative z-0 flex-shrink-0`}>
+                <div
+                    ref={doorRef}
+                    className={`relative flex-shrink-0 flex items-center justify-center transform-gpu backface-hidden transition-all duration-300 ${isVerySmallScreen
+                        ? 'w-[400px] h-[550px]'
+                        : 'w-320 h-320'
+                        }`}>
                     <img
-                        src={doorPng}
+                        src={isVerySmallScreen ? doorOnlyPng : doorPng}
                         alt="Door"
-                        className={`absolute w-full h-full object-contain block z-10 m-auto -translate-x-1 max-[480px]:hidden transition-opacity duration-500 ${showPng ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute w-full h-full object-contain block z-10 m-auto transition-opacity duration-500 ${isVerySmallScreen ? '' : '-translate-x-1'
+                            } ${showPng ? 'opacity-100' : 'opacity-0'}`}
                     />
                     {showGif && gifSrc && (
                         <img
                             src={gifSrc}
                             alt="Door Animation"
-                            className="absolute inset-0 w-full h-full object-contain -translate-x-1 z-20"
+                            className={`absolute w-full h-full object-contain block z-20 m-auto ${isVerySmallScreen
+                                ? 'scale-[2.3]'
+                                : '-translate-x-1'
+                                }`}
                         />
                     )}
 
-                    <div className={`absolute left-1/2 -translate-x-1/2 w-[38%] max-w-105 max-h-[65%] flex flex-col z-10 overflow-y-visible py-2.5 transition-all ease-out max-[1024px]:w-[36%] max-[1024px]:top-[49%] max-[768px]:w-[52%] max-[768px]:top-[48%] max-[480px]:w-[65%] max-[480px]:top-[46%] ${step === 2
-                        ? 'top-[34%] items-start'
-                        : 'top-1/2 items-center'
-                        } ${formVisible ? 'opacity-100 -translate-y-1/2' : 'opacity-0 -translate-y-[45%]'}`}>
-                        {step === 1 ? (
+                    <div className={`absolute left-1/2 -translate-x-1/2 flex flex-col z-40 py-1 transition-all ease-out ${isVerySmallScreen
+                        ? 'w-[85%] max-w-[300px]'
+                        : `w-[36%] max-w-95 ${isSmallScreen ? 'max-h-[75%] overflow-y-auto pr-2 scrollbar-thin' : ''}`
+                        } ${showSuccess
+                            ? 'top-[35%] items-center'
+                            : step === 2
+                                ? (isVerySmallScreen ? 'top-[28%] items-start' : 'top-[35%] items-start')
+                                : step === 3
+                                    ? (isVerySmallScreen ? 'top-[22%] items-center' : 'top-[34%] items-center')
+                                    : step === 4
+                                        ? (isVerySmallScreen ? 'top-[14%] items-start' : 'top-[32%] items-start')
+                                        : (isVerySmallScreen ? 'top-[16%] items-center' : 'top-[31%] items-center')
+                        } opacity-0 animate-formSlow`}>
+                        {showSuccess ? (
+                            <div className="w-full text-center flex flex-col items-center justify-center px-2">
+                                <h1 className="text-white font-lemon-milk text-[20px] md:text-[24px] leading-tight mb-8 tracking-wider max-[480px]:text-[14px] font-medium">
+                                    CONGRATULATIONS!
+                                    <br />
+                                    YOU HAVE SUCCESSFULLY
+                                    <br />
+                                    REGISTERED FOR VIVACITY 2025
+                                </h1>
+                                <p className="text-white font-lemon-milk text-[12px] md:text-[14px] mb-6 opacity-90 max-[480px]:text-[10px]">
+                                    You will shortly receive the payment
+                                    <br />
+                                    details on your registered email
+                                    <br />
+                                    address
+                                </p>
+                                <button
+                                    onClick={() => window.location.href = '/'}
+                                    className="bg-gradient-to-r from-[#4a3fad] to-[#216d7d] text-white font-lemon-milk text-[16px] px-8 py-2 rounded-full hover:scale-105 transition-transform duration-200 cursor-pointer border-none outline-none max-[480px]:text-[14px] max-[480px]:px-6 max-[480px]:py-1.5"
+                                >
+                                    HOME
+                                </button>
+                            </div>
+                        ) : step === 1 ? (
                             <>
-                                <img src={preRegisterImg} alt="Pre Register Here" className="w-full max-w-80 mx-auto mt-4 mb-4 block h-auto max-[480px]:max-w-77.5 max-[480px]:mb-3 max-[480px]:mt-2.5" />
+                                <img
+                                    src={preRegisterImg}
+                                    alt="Pre Register Here"
+                                    className={`w-full mx-auto block h-auto uppercase ${isVerySmallScreen
+                                        ? 'max-w-[180px] mt-1 mb-1'
+                                        : 'max-w-72 mt-3 mb-3 max-[480px]:max-w-77.5 max-[480px]:mb-3 max-[480px]:mt-2.5'
+                                        }`}
+                                />
                                 <form className="w-full" onSubmit={handleNext}>
                                     {[
                                         { label: 'NAME', name: 'name', type: 'text' },
@@ -151,8 +350,8 @@ const Registration = () => {
                                         { label: 'UNIVERSITY/ INSTITUTION/ ACADEMY', name: 'university', type: 'text' },
                                         { label: 'REFERRAL CODE (OPTIONAL)', name: 'referral', type: 'text' }
                                     ].map((field) => (
-                                        <div key={field.name} className="mb-2 flex flex-col relative pb-4 max-[480px]:mb-1.25 max-[480px]:pb-3">
-                                            <label className="text-white font-gill text-[15px] font-medium mb-1 text-left tracking-[0.5px] opacity-90 max-[768px]:text-[14px] max-[480px]:text-[12px] max-[480px]:mb-0.5">
+                                        <div key={field.name} className="mb-2 flex flex-col relative pb-4 max-[480px]:mb-1 max-[480px]:pb-4">
+                                            <label className="text-white font-lemon-milk text-[14px] font-medium mb-1 text-left tracking-[0.5px] opacity-90 max-[768px]:text-[13px] max-[480px]:text-[10px] max-[480px]:mb-0.5">
                                                 {field.label}
                                             </label>
                                             <input
@@ -161,22 +360,22 @@ const Registration = () => {
                                                 value={formData[field.name]}
                                                 onChange={handleChange}
                                                 placeholder="Enter text"
-                                                className={`bg-[linear-gradient(#0d192d,#0d192d),linear-gradient(to_right,#4a3fad,#216d7d)] [background-origin:padding-box,border-box] border-2 border-transparent rounded-md px-3 py-2 text-white text-[15px] font-gill w-full outline-none transition-all duration-300 placeholder-white/30 focus:border-white/40 focus:bg-[#0d1321]/95 max-[768px]:text-[14px] max-[480px]:text-[12px] max-[480px]:px-3 ${errors[field.name] ? 'border-[#ff4d4d] bg-[#ff4d4d]/5' : ''
+                                                className={`gradient-input rounded-md px-3 py-1.5 text-white text-[14px] font-vito-sans font-semibold w-full outline-none transition-all duration-300 placeholder-white/30 focus:border-white/40 focus:bg-[#0d1321]/95 max-[768px]:text-[13px] max-[480px]:text-[10px] max-[480px]:px-2 max-[480px]:py-0 max-[480px]:h-[28px] ${errors[field.name] ? 'border-[#ff4d4d] bg-[#ff4d4d]/5' : ''
                                                     }`}
                                             />
-                                            {errors[field.name] && <span className="text-[#ff4d4d] text-[11px] font-gill absolute bottom-0 left-0 font-medium tracking-[0.3px] animate-shake">{errors[field.name]}</span>}
+                                            {errors[field.name] && <span className="text-[#ff4d4d] text-[11px] font-lemon-milk absolute bottom-0 left-0 font-medium tracking-[0.3px] animate-shake">{errors[field.name]}</span>}
                                         </div>
                                     ))}
                                 </form>
                             </>
-                        ) : (
-                            <div className="w-full h-full text-left p-1.25 flex flex-col justify-start items-start">
-                                <h2 className="text-white font-gill text-[25px] font-extralight mb-5 tracking-[0.5px] leading-[1.2] max-[768px]:text-[22px] max-[480px]:text-[20px]">
+                        ) : step === 2 ? (
+                            <div className="w-full h-full text-left p-1.25 flex flex-col justify-start items-start pt-16">
+                                <h2 className="text-white font-lemon-milk text-[25px] font-extralight mb-5 tracking-[0.5px] leading-[1.2] max-[768px]:text-[22px] max-[480px]:text-[20px]">
                                     ARE YOU A PARTICIPANT?
                                 </h2>
                                 <div className="flex flex-col gap-5">
                                     {['yes', 'no'].map((option) => (
-                                        <label key={option} className="flex items-center gap-3.75 text-white font-gill text-[20px] cursor-pointer relative select-none max-[768px]:text-[18px] max-[480px]:text-[16px] max-[480px]:gap-2.5 group">
+                                        <label key={option} className="flex items-center gap-3.75 text-white font-lemon-milk text-[20px] cursor-pointer relative select-none max-[768px]:text-[18px] max-[480px]:text-[16px] max-[480px]:gap-2.5 group">
                                             <input
                                                 type="radio"
                                                 name="participant"
@@ -193,21 +392,228 @@ const Registration = () => {
                                     ))}
                                 </div>
                                 <div className="mt-2.5 pb-5 relative w-full h-5">
-                                    {errors.participant && <span className="text-[#ff4d4d] text-[11px] font-gill absolute top-0 left-0 font-medium tracking-[0.3px] animate-shake">{errors.participant}</span>}
+                                    {errors.participant && <span className="text-[#ff4d4d] text-[11px] font-lemon-milk absolute top-0 left-0 font-medium tracking-[0.3px] animate-shake">{errors.participant}</span>}
                                 </div>
                             </div>
+                        ) : step === 3 ? (
+                            <form className="RegisterforEvent1 w-full rounded-md mx-auto p-0 m-0" onSubmit={(e) => e.preventDefault()}>
+                                <h1 className="text-center font-lemon-milk text-[#57E8E8] tracking-wider leading-none mb-12 text-[18px] md:text-[24px] font-medium uppercase">
+                                    Register for an event
+                                </h1>
+                                <div className="flex flex-col gap-8 md:gap-14 mb-32 w-full mt-20 pb-20">
+                                    <div className="normal-select w-5/6 mx-auto flex flex-col gap-2 md:gap-2.5">
+                                        <label className="block font-lemon-milk text-white text-center leading-none text-[15px] md:text-[18px] tracking-wider uppercase font-medium">
+                                            Event Category
+                                        </label>
+                                        <select
+                                            name="eventCategory"
+                                            value={formData.eventCategory}
+                                            onChange={handleChange}
+                                            className={`gradient-input text-white text-center text-[14px] md:text-[16px] font-vito-sans font-medium cursor-pointer py-2 px-4 md:py-2.5 md:px-6 rounded-[10px] outline-none ${errors.eventCategory ? 'border-[#ff4d4d]' : ''}`}
+                                        >
+                                            <option value="" className="bg-[#0d1321]">--- Select Category ---</option>
+                                            {Object.keys(eventData).map(cat => (
+                                                <option key={cat} value={cat} className="bg-[#0d1321]">{cat}</option>
+                                            ))}
+                                        </select>
+                                        {errors.eventCategory && <span className="text-[#ff4d4d] text-center text-[12px] font-lemon-milk font-medium tracking-[0.3px] mt-1">{errors.eventCategory}</span>}
+                                    </div>
+
+                                    <div className="mb-4 w-full">
+                                        <div className="normal-select w-5/6 mx-auto flex flex-col gap-2 md:gap-2.5">
+                                            <label className="block font-lemon-milk text-white text-center leading-none text-[15px] md:text-[18px] tracking-wider uppercase font-medium">
+                                                Event Name
+                                            </label>
+                                            <select
+                                                name="eventName"
+                                                value={formData.eventName}
+                                                onChange={handleChange}
+                                                disabled={!formData.eventCategory}
+                                                className={`gradient-input text-white text-center text-[14px] md:text-[16px] font-vito-sans font-medium cursor-pointer py-2 px-4 md:py-2.5 md:px-6 rounded-[10px] outline-none disabled:opacity-50 disabled:cursor-not-allowed ${errors.eventName ? 'border-[#ff4d4d]' : ''}`}
+                                            >
+                                                <option value="" className="bg-[#0d1321]">--- Select Event ---</option>
+                                                {formData.eventCategory && eventData[formData.eventCategory].map(evt => (
+                                                    <option key={evt} value={evt} className="bg-[#0d1321]">{evt}</option>
+                                                ))}
+                                            </select>
+                                            {errors.eventName && <span className="text-[#ff4d4d] text-center text-[12px] font-lemon-milk font-medium tracking-[0.3px] mt-1">{errors.eventName}</span>}
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        ) : step === 4 ? (
+                            <form className="RegisterforEventTeam w-full rounded-md mx-auto p-0 m-0" onSubmit={(e) => e.preventDefault()}>
+                                <div className="flex flex-col gap-1 md:gap-2 mb-0 w-full mt-5">
+                                    <div className="mb-3 md:mb-5 w-full relative pb-3 md:pb-5">
+                                        <div className="normal-select w-5/6 mx-auto flex flex-col gap-1.5">
+                                            <label className="block font-lemon-milk text-white text-left leading-none text-[15px] tracking-wider uppercase">
+                                                Team Size
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="teamSize"
+                                                value={formData.teamSize}
+                                                onChange={handleChange}
+                                                placeholder="Enter Team Size"
+                                                className={`gradient-input rounded-md px-3 py-2 text-white text-[16px] font-vito-sans font-semibold w-full outline-none placeholder-white/30 ${errors.teamSize ? 'border-[#ff4d4d]' : ''}`}
+                                            />
+                                            {errors.teamSize && <span className="text-[#ff4d4d] text-[11px] absolute bottom-0 left-[8.33%] animate-shake">{errors.teamSize}</span>}
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-3 md:mb-5 w-full relative pb-3 md:pb-5">
+                                        <div className="w-5/6 mx-auto flex flex-col gap-1 md:gap-2">
+                                            <label className="block font-lemon-milk text-white text-left leading-none text-[15px] tracking-wider uppercase">
+                                                Are you the Team Captain?
+                                            </label>
+                                            <div className="flex flex-col gap-1">
+                                                {['yes', 'no'].map((option) => (
+                                                    <label key={option} className="flex items-center gap-2 text-white font-lemon-milk text-[16px] cursor-pointer relative select-none">
+                                                        <input
+                                                            type="radio"
+                                                            name="isTeamCaptain"
+                                                            value={option}
+                                                            checked={formData.isTeamCaptain === option}
+                                                            onChange={handleChange}
+                                                            className="absolute opacity-0 cursor-pointer peer"
+                                                        />
+                                                        <span className="h-4 w-4 bg-transparent border-2 border-white rounded-full flex justify-center items-center transition-all duration-200 shrink-0 peer-checked:border-white">
+                                                            <span className={`w-2.5 h-2.5 rounded-full bg-white ${formData.isTeamCaptain === option ? 'block' : 'hidden'}`}></span>
+                                                        </span>
+                                                        <span className="uppercase">{option === 'yes' ? 'Yes' : 'No'}</span>
+                                                    </label>
+                                                ))}
+                                            </div>
+                                            {errors.isTeamCaptain && <span className="text-[#ff4d4d] text-[11px] font-medium absolute bottom-0 left-[8.33%] animate-shake">{errors.isTeamCaptain}</span>}
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-3 md:mb-5 w-full relative pb-3 md:pb-5">
+                                        <div className="normal-select w-5/6 mx-auto flex flex-col gap-1.5">
+                                            <label className="block font-lemon-milk text-white text-left leading-none text-[15px] tracking-wider uppercase">
+                                                Team Name
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="teamName"
+                                                value={formData.teamName}
+                                                onChange={handleChange}
+                                                placeholder="Enter Team Name"
+                                                className={`gradient-input rounded-md px-3 py-2 text-white text-[16px] font-vito-sans font-semibold w-full outline-none placeholder-white/30 ${errors.teamName ? 'border-[#ff4d4d]' : ''}`}
+                                            />
+                                            {errors.teamName && <span className="text-[#ff4d4d] text-[11px] absolute bottom-0 left-[8.33%] animate-shake">{errors.teamName}</span>}
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-0 w-full">
+                                        <div className="normal-select w-5/6 mx-auto flex flex-col gap-1.5">
+                                            <label className="block font-lemon-milk text-white text-left leading-none text-[15px] tracking-wider uppercase">
+                                                Team Members (Optional)
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="teamMembers"
+                                                value={formData.teamMembers}
+                                                onChange={handleChange}
+                                                placeholder="Comma separated names"
+                                                className="gradient-input rounded-md px-3 py-2 text-white text-[16px] font-vito-sans font-semibold w-full outline-none placeholder-white/30 focus:border-white/40 focus:bg-[#0d1321]/95"
+                                            />
+                                            <span className="text-[#ff4d4d] text-[10px] font-lemon-milk font-medium tracking-[0.2px]">* Separated by comma</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        ) : (
+                            <div className="text-white font-lemon-milk opacity-50">Please select an event</div>
                         )}
                     </div>
 
-                    <button
-                        className="absolute bottom-[27%] left-1/2 -translate-x-1/2 z-30 transition-transform duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer max-[480px]:bottom-[16%]"
-                        onClick={handleNext}
-                    >
-                        <img src={nextButton} alt="Next" className="w-37.5 h-auto border-none outline-none" />
-                    </button>
+                    {!showSuccess && step !== 3 && step !== 4 && (
+                        <button
+                            key={`btn-${step}`}
+                            onClick={handleNext}
+                            className={`absolute z-50 transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer opacity-0 animate-formSlow left-1/2 -translate-x-1/2 ${isVerySmallScreen ? (step === 1 ? 'bottom-[10%] w-28' : 'bottom-[11%] w-28') : (step === 1 ? 'bottom-[27.8%] max-[480px]:bottom-[16.3%] w-[150px]' : 'bottom-[28.5%] max-[480px]:bottom-[17%] w-[150px]')
+                                }`}
+                        >
+                            <img
+                                src={nextButton}
+                                alt="Next"
+                                className="w-full h-auto border-none outline-none"
+                            />
+                        </button>
+                    )}
+
+                    {!showSuccess && step === 4 && (
+                        <div className={`absolute z-50 flex gap-4 justify-center items-center opacity-0 animate-formSlow left-1/2 -translate-x-1/2 ${isVerySmallScreen ? 'bottom-[11%] w-full' : 'bottom-[28.5%] max-[480px]:bottom-[17%] w-full'}`}>
+                            <button
+                                onClick={handleAddAnotherEvent}
+                                className={`transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'w-24' : 'w-[140px]'}`}
+                            >
+                                <img src={addEventBtn} alt="Add Event" className="w-full h-auto border-none outline-none" />
+                            </button>
+                            <button
+                                onClick={handleNext}
+                                className={`transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'w-24' : 'w-[140px]'}`}
+                            >
+                                <img src={proceedBtn} alt="Proceed" className="w-full h-auto border-none outline-none" />
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
-        </div>
+
+            {/* Events Added Tab - Below the door area */}
+            {
+                !showSuccess && addedEvents.length > 0 && (
+                    <div
+                        ref={finalRef}
+                        className={`relative mb-32 mx-auto w-full z-50 flex flex-col items-center animate-formReveal px-4 ${isVerySmallScreen
+                            ? 'mt-[-5vh] max-w-[650px] scale-125'
+                            : isSmallScreen
+                                ? 'mt-[-15vh] max-w-[750px] scale-120'
+                                : 'mt-0 max-w-[800px]'
+                            }`}>
+                        <div className="relative w-full aspect-[2/1] md:aspect-[2.5/1] flex flex-col items-center justify-center">
+                            <img
+                                src={doorHoriB}
+                                alt="Events Added Background"
+                                className="absolute inset-0 w-full h-full object-contain"
+                            />
+                            <div className={`relative z-10 flex flex-col items-center w-full max-w-[600px] ${isVerySmallScreen ? 'justify-start p-2 pt-1' : 'justify-center p-4 md:p-8'
+                                }`}>
+                                <h3 className={`text-[#57E8E8] font-lemon-milk tracking-wider uppercase ${isVerySmallScreen ? 'text-[14px] mb-2' : 'text-[18px] md:text-[24px] mb-4 md:mb-6'
+                                    }`}>
+                                    EVENTS ADDED
+                                </h3>
+                                <div className={`flex flex-wrap items-center justify-center overflow-y-auto w-full px-4 scrollbar-thin py-0.5 ${isVerySmallScreen ? 'max-h-[85px] mb-1 gap-1' : 'max-h-[180px] mb-8 gap-3'
+                                    }`}>
+                                    {addedEvents.map((event, index) => (
+                                        <div
+                                            key={index}
+                                            className={`gradient-input text-white font-lemon-milk rounded-full whitespace-nowrap ${isVerySmallScreen ? 'px-1.5 py-0 text-[8px]' : 'px-6 py-2 text-[13px] md:text-[15px]'
+                                                }`}
+                                        >
+                                            {event.name}
+                                        </div>
+                                    ))}
+                                </div>
+                                <button
+                                    onClick={handleSubmitAll}
+                                    className={`transition-all duration-200 hover:scale-110 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'translate-y-6' : 'translate-y-12'
+                                        }`}
+                                >
+                                    <img
+                                        src={proceedBtn}
+                                        alt="Proceed"
+                                        className={`${isVerySmallScreen ? 'w-[110px]' : 'w-[140px] md:w-[180px]'} h-auto border-none outline-none`}
+                                    />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        </div >
     )
 }
 

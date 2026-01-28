@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Ready for Anything BB';
+    src: url('ReadyforAnythingBB-Regular.eot');
+    src: local('Ready for Anything BB Regular'), local('ReadyforAnythingBB-Regular'),
+        url('ReadyforAnythingBB-Regular.eot?#iefix') format('embedded-opentype'),
+        url('ReadyforAnythingBB-Regular.woff2') format('woff2'),
+        url('ReadyforAnythingBB-Regular.woff') format('woff'),
+        url('ReadyforAnythingBB-Regular.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ready for Anything BB';
+    src: url('ReadyforAnythingBB-BoldItalic.eot');
+    src: local('Ready for Anything BB Bold Italic'), local('ReadyforAnythingBB-BoldItalic'),
+        url('ReadyforAnythingBB-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('ReadyforAnythingBB-BoldItalic.woff2') format('woff2'),
+        url('ReadyforAnythingBB-BoldItalic.woff') format('woff'),
+        url('ReadyforAnythingBB-BoldItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ready for Anything BB';
+    src: url('ReadyforAnythingBB-Bold.eot');
+    src: local('Ready for Anything BB Bold'), local('ReadyforAnythingBB-Bold'),
+        url('ReadyforAnythingBB-Bold.eot?#iefix') format('embedded-opentype'),
+        url('ReadyforAnythingBB-Bold.woff2') format('woff2'),
+        url('ReadyforAnythingBB-Bold.woff') format('woff'),
+        url('ReadyforAnythingBB-Bold.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ready for Anything BB';
+    src: url('ReadyforAnythingBB-Italic.eot');
+    src: local('Ready for Anything BB Italic'), local('ReadyforAnythingBB-Italic'),
+        url('ReadyforAnythingBB-Italic.eot?#iefix') format('embedded-opentype'),
+        url('ReadyforAnythingBB-Italic.woff2') format('woff2'),
+        url('ReadyforAnythingBB-Italic.woff') format('woff'),
+        url('ReadyforAnythingBB-Italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
