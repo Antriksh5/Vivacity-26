@@ -13,12 +13,16 @@ body {
 
 /* CENTER THE POSTER */
 .mascot-section {
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+
+  padding: 0; /* 🔥 let StampFrame control spacing */
 }
+
 
 /* 🖼️ OUTER POSTER FRAME */
 .mascot-outer {
@@ -33,6 +37,7 @@ body {
   padding: 1.6rem;
 
   position: relative;
+  flex-shrink: 0;
 
   box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.25);
 }

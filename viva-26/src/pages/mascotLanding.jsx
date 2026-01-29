@@ -27,45 +27,51 @@ const MascotLanding = () => {
   }, []);
 
 return (
-  <section className="mascot-section">
-    <div className="mascot-outer">
-      <div
-        className="mascot-inner-bg"
-        style={{ backgroundImage: `url(${backgroundImg})` }}
-      >
+  <StampFrame>
+    <StampScrollContainer>
 
-        <div className="mascot-left">
-          <video
-            className="mascot-video"
-            src={mascotVideo}
-            autoPlay
-            muted
-            playsInline
-          />
+      <section className="mascot-section">
+        <div className="mascot-outer">
+          <div
+            className="mascot-inner-bg"
+            style={{ backgroundImage: `url(${backgroundImg})` }}
+          >
 
-          <img
-            className="mascot-image"
-            src={mascotImage}
-            alt="Mascot Final"
-            style={{ opacity: 0 }}
-          />
-        </div>
+            <div className="mascot-left">
+              <video
+                className="mascot-video"
+                src={mascotVideo}
+                autoPlay
+                muted
+                playsInline
+              />
 
-        <div className="mascot-right-top">
-          <div className="mascot-title">
-            <span>MEET</span>
-            <span>OUR</span>
-            <span>MASCOT</span>
+              <img
+                className="mascot-image"
+                src={mascotImage}
+                alt="Mascot Final"
+                style={{ opacity: 0 }}
+              />
+            </div>
+
+            <div className="mascot-right-top">
+              <div className="mascot-title">
+                <span>MEET</span>
+                <span>OUR</span>
+                <span>MASCOT</span>
+              </div>
+            </div>
+
+            <div className="mascot-right-bottom">
+              <img src={araLogo} alt="Logo" className="mascot-logo" />
+            </div>
+
           </div>
         </div>
+      </section>
 
-        <div className="mascot-right-bottom">
-          <img src={araLogo} alt="Logo" className="mascot-logo" />
-        </div>
-
-      </div>
-    </div>
-  </section>
+    </StampScrollContainer>
+  </StampFrame>
 );
 };
 
