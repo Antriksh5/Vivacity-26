@@ -52,6 +52,11 @@
   z-index: 3;
 }
 
+/* PAGE BACKGROUND */
+body {
+  font-family: sans-serif;
+}
+
 /* CENTER THE POSTER */
 .mascot-section {
   width: 100%;
