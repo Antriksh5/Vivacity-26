@@ -1,9 +1,11 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import { Link } from 'react-router-dom'
 import { vivaLogo } from '../../assets/ourTeam'
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [sponsorsOpen, setSponsorsOpen] = useState(false)
     const menuRef = useRef(null)
     const linksRef = useRef(null)
 
@@ -35,14 +37,36 @@ const Header = () => {
         <>
             <header className="w-full flex flex-row justify-between items-center z-[110] max-[360px]:pt-10 pt-6 min-[370px]:max-[450px]:pt-[45px] min-[451px]:pt-14 md:pt-[65px] lg:pt-20 max-[360px]:px-8 px-6 min-[370px]:max-[450px]:px-[45px] min-[451px]:px-12 md:px-[65px] lg:px-20 xl:px-24 2xl:px-32 relative">
                 <div className="flex-shrink-0 z-50 relative mt-4 sm:mt-6 md:mt-0 -translate-x-[2px] md:-translate-x-[5px] -translate-y-[3px] md:-translate-y-[8px]">
-                    <img src={vivaLogo} alt="Vivacity'26 Logo" className="w-[36vw] max-[630px]:w-[30vw] max-[390px]:w-[24vw] sm:w-[26vw] md:w-[24vw] lg:w-[22vw] xl:w-[16vw] 2xl:w-[14vw] h-auto transition-all" />
+                    <Link to="/">
+                        <img src={vivaLogo} alt="Vivacity'26 Logo" className="w-[36vw] max-[630px]:w-[30vw] max-[390px]:w-[24vw] sm:w-[26vw] md:w-[24vw] lg:w-[22vw] xl:w-[16vw] 2xl:w-[14vw] h-auto transition-all" />
+                    </Link>
                 </div>
 
-                <nav className="hidden lg:flex items-center gap-4 lg:gap-6 xl:gap-10 pt-0 -mt-4 md:-mt-6 lg:-mt-10 mr-0">
-                    <a href="#home" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</a>
-                    <a href="#events" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</a>
-                    <a href="#sponsors" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</a>
-                    <a href="#team" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">OUR TEAM</a>
+                <nav className="hidden lg:flex items-center gap-4 lg:gap-6 xl:gap-8 pt-0 -mt-4 md:-mt-6 lg:-mt-10 mr-0">
+                    <Link to="/home" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</Link>
+                    <Link to="/events" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</Link>
+
+                    {/* Sponsors Dropdown */}
+                    <div
+                        className="relative group py-2"
+                        onMouseEnter={() => setSponsorsOpen(true)}
+                        onMouseLeave={() => setSponsorsOpen(false)}
+                    >
+                        <button className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors flex items-center gap-1 uppercase">
+                            Sponsors
+                            <svg className={`w-2.5 h-2.5 transition-transform duration-300 ${sponsorsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div className={`absolute top-full left-0 mt-1 w-40 bg-[#f7d0ab] shadow-lg rounded-md overflow-hidden transition-all duration-300 origin-top z-[120] ${sponsorsOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
+                            <Link to="/coming-soon" className="block px-4 py-2.5 text-[0.65rem] lg:text-[0.75rem] font-medium text-[#3d1c10] hover:bg-[#eec29a] hover:text-[#9E5D47] transition-colors tracking-wider">FOOD MENU</Link>
+                            <Link to="/coming-soon" className="block px-4 py-2.5 text-[0.65rem] lg:text-[0.75rem] font-medium text-[#3d1c10] hover:bg-[#eec29a] hover:text-[#9E5D47] transition-colors tracking-wider border-t border-[#eec29a]">VIBE CARD</Link>
+                        </div>
+                    </div>
+
+                    <Link to="/our-team" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">OUR TEAM</Link>
+                    <Link to="/registration" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors border border-[#3d1c10] px-3 py-1 rounded-full hover:bg-[#3d1c10] hover:text-[#f7d0ab]">REGISTER</Link>
                 </nav >
 
                 <div className="lg:hidden z-50 relative mt-4 sm:mt-6 md:mt-0">
@@ -55,11 +79,18 @@ const Header = () => {
             </header >
 
             <div ref={menuRef} className="absolute inset-0 bg-[#f7d0ab] z-[100] flex flex-col justify-center items-end lg:hidden pr-10 sm:pr-20 pointer-events-none opacity-0">
-                <nav ref={linksRef} className="flex flex-col gap-8 text-right pointer-events-auto">
-                    <a href="#home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">HOME</a>
-                    <a href="#events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">EVENTS</a>
-                    <a href="#sponsors" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">SPONSORS</a>
-                    <a href="#team" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">OUR TEAM</a>
+                <nav ref={linksRef} className="flex flex-col gap-6 text-right pointer-events-auto">
+                    <Link to="/home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">HOME</Link>
+                    <Link to="/events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">EVENTS</Link>
+
+                    <div className="flex flex-col gap-4">
+                        <span className="text-[#3d1c10] opacity-50 font-medium text-[10px] sm:text-xs tracking-[0.4em] uppercase">Sponsors</span>
+                        <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 pr-2">FOOD MENU</Link>
+                        <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 pr-2">VIBE CARD</Link>
+                    </div>
+
+                    <Link to="/our-team" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">OUR TEAM</Link>
+                    <Link to="/registration" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">REGISTER</Link>
                 </nav>
             </div>
         </>

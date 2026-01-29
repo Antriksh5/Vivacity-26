@@ -63,8 +63,8 @@ const VivaCountdown = () => {
                     </div>
 
                     <div className="nav-center">
-                        <a href="#home">HOME</a>
-                        <a href="#events">EVENTS</a>
+                        <Link to="/home">HOME</Link>
+                        <Link to="/events">EVENTS</Link>
                         <div className="nav-dropdown-wrapper">
                             <a href="#sponsers" className="dropdown-trigger">SPONSORS</a>
                             <div className="nav-dropdown">
@@ -72,13 +72,13 @@ const VivaCountdown = () => {
                                 <Link to="/coming-soon">VIBE CARD</Link>
                             </div>
                         </div>
-                        <a href="#team">OUR TEAM</a>
+                        <Link to="/our-team">OUR TEAM</Link>
                     </div>
 
                     <div className="nav-right">
-                        <button className="register-btn-styled">
+                        <Link to="/registration" className="register-btn-styled">
                             <img src={registerNow} alt="Register Now" />
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Hamburger Icon */}
@@ -91,8 +91,8 @@ const VivaCountdown = () => {
                     {/* Mobile Navigation Overlay */}
                     <div className={`mobile-nav-overlay ${menuOpen ? 'active' : ''}`}>
                         <div className="mobile-nav-links">
-                            <a href="#home" onClick={toggleMenu}>HOME</a>
-                            <a href="#events" onClick={toggleMenu}>EVENTS</a>
+                            <Link to="/home" onClick={toggleMenu}>HOME</Link>
+                            <Link to="/events" onClick={toggleMenu}>EVENTS</Link>
                             <div className="mobile-dropdown-container">
                                 <span className="mobile-dropdown-title">SPONSORS</span>
                                 <div className="mobile-dropdown-options">
@@ -100,7 +100,7 @@ const VivaCountdown = () => {
                                     <Link to="/coming-soon" onClick={toggleMenu}>VIBE CARD</Link>
                                 </div>
                             </div>
-                            <a href="#team" onClick={toggleMenu}>OUR TEAM</a>
+                            <Link to="/our-team" onClick={toggleMenu}>OUR TEAM</Link>
                         </div>
                     </div>
                 </nav>

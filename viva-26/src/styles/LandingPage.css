@@ -28,7 +28,7 @@ body,
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a0b2e;
+    background-color: transparent;
     overflow: hidden;
     z-index: 9999;
     /* Massive z-index to stay above everything else */

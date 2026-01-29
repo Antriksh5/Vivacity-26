@@ -64,11 +64,13 @@ const LandingPage = () => {
         };
 
         const lenis = new Lenis({
-            duration: 1.2,
+            duration: 2.5,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
+            wheelMultiplier: 0.5,
+            touchMultiplier: 1.5,
         });
 
         function raf(time) {
@@ -88,9 +90,9 @@ const LandingPage = () => {
                 scrollTrigger: {
                     trigger: triggerRef.current,
                     start: "top top",
-                    end: "+=150%",
+                    end: "+=350%",
                     pin: true,
-                    scrub: 1.2,
+                    scrub: 3.5,
                     anticipatePin: 1
                 }
             });
@@ -122,11 +124,20 @@ const LandingPage = () => {
                 ease: "power2.in"
             }, 0);
 
+            // bgAbout sneak peek - starts zoomed in, then zooms out
+            gsap.set(bgAboutRef.current, { scale: 1.3, opacity: 1 });
+            tl.to(bgAboutRef.current, {
+                scale: 1,
+                duration: 4,
+                ease: "power2.out"
+            }, 0);
+
+            // Fade in About Viva text immediately
             tl.to(aboutVivaRef.current, {
                 opacity: 1,
-                duration: 2,
+                duration: 1,
                 ease: "power1.inOut"
-            }, 1);
+            }, 0);
 
             // Hold to show bgAbout.png on first scroll
             tl.to({}, { duration: 2 });
@@ -220,7 +231,7 @@ const LandingPage = () => {
 
                     {/* CONTENT LAYERS */}
                     <div className="reveal-item" ref={aboutVivaRef}>
-                        <AboutViva />
+                        <AboutViva ref={bgAboutRef} />
                     </div>
                 </div>
 

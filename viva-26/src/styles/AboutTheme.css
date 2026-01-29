@@ -108,6 +108,10 @@
     max-width: 450px;
 }
 
+.mobile-only-text {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .theme-text-overlay {
         width: 60%;
@@ -176,6 +180,14 @@
         max-width: 200px;
         /* Forced wrapping into 3-4 lines */
         margin: 0 auto;
+    }
+
+    .desktop-only-text {
+        display: none;
+    }
+
+    .mobile-only-text {
+        display: block;
     }
 }
 

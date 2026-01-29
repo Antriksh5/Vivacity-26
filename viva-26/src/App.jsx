@@ -9,6 +9,7 @@ import EventLanding from './pages/EventLanding.jsx'
 import Legacy from './pages/Legacy.jsx'
 import Landing from './pages/Landing.jsx'
 import LandingPage from './pages/LandingPage.jsx'
+import ComingSoon from './pages/ComingSoon.jsx'
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/mascot" element={<MascotLanding />} />
             <Route path="/landing" element={<Landing />} />
             <Route path="/home" element={<LandingPage />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
         </Routes>
     )
 }

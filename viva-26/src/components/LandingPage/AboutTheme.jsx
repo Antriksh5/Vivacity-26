@@ -47,7 +47,15 @@ const AboutTheme = React.forwardRef((props, ref) => {
                             />
                         </div>
 
-                        <div className="theme-description">
+                        {/* Desktop version - Full text */}
+                        <div className="theme-description desktop-only-text">
+                            <p>
+                                Anachronic Mélange presents Vivacity as a timeless cultural experience—where past, present, and creativity merge seamlessly. Inspired by Indian maximalism, truck art, retro Bollywood, and folk traditions, LNMIIT becomes a living stage where culture isn't preserved, it's performed.
+                            </p>
+                        </div>
+
+                        {/* Mobile version - Shortened text */}
+                        <div className="theme-description mobile-only-text">
                             <p>
                                 Anachronic Mélange presents Vivacity as a timeless cultural experience—where past, present, and creativity merge seamlessly.
                             </p>

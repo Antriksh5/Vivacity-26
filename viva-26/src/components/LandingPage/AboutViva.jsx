@@ -11,7 +11,7 @@ import uncle from '../../assets/landingPage/uncle.png';
 import '../../styles/AboutViva.css';
 
 
-const AboutViva = () => {
+const AboutViva = React.forwardRef((props, bgAboutRef) => {
     const sectionRef = useRef(null);
     const titleRef = useRef(null);
     const textRef = useRef(null);
@@ -24,7 +24,7 @@ const AboutViva = () => {
         <section className="about-section" ref={sectionRef}>
             <div className="purple-stamp-container">
                 {/* Responsive Background Stamp (Gate for Mobile) */}
-                <div className="bg-about-stamp-wrapper">
+                <div className="bg-about-stamp-wrapper" ref={bgAboutRef}>
                     <picture>
                         <source media="(max-width: 768px)" srcSet={bgAboutPhn} />
                         <img
@@ -77,6 +77,6 @@ const AboutViva = () => {
             </div>
         </section>
     );
-};
+});
 
 export default AboutViva;

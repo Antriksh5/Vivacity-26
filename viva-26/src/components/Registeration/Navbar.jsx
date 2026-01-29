@@ -25,9 +25,15 @@ const Navbar = () => {
 
                 {/* Desktop Navigation */}
                 <div className="navbar-links">
-                    <Link to="/" className="nav-link">HOME</Link>
+                    <Link to="/home" className="nav-link">HOME</Link>
                     <Link to="/events" className="nav-link">EVENTS</Link>
-                    <Link to="/sponsors" className="nav-link">SPONSORS</Link>
+                    <div className="dropdown">
+                        <span className="nav-link">SPONSORS</span>
+                        <div className="dropdown-content">
+                            <Link to="/coming-soon" className="dropdown-item">FOOD MENU</Link>
+                            <Link to="/coming-soon" className="dropdown-item">VIBE CARD</Link>
+                        </div>
+                    </div>
                     <Link to="/our-team" className="nav-link">OUR TEAM</Link>
                 </div>
 
@@ -45,9 +51,13 @@ const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
-                <Link to="/" className="mobile-nav-link" onClick={closeMenu}>HOME</Link>
+                <Link to="/home" className="mobile-nav-link" onClick={closeMenu}>HOME</Link>
                 <Link to="/events" className="mobile-nav-link" onClick={closeMenu}>EVENTS</Link>
-                <Link to="/sponsors" className="mobile-nav-link" onClick={closeMenu}>SPONSORS</Link>
+                <div className="mobile-dropdown">
+                    <span className="mobile-nav-link disabled">SPONSORS</span>
+                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>FOOD MENU</Link>
+                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>VIBE CARD</Link>
+                </div>
                 <Link to="/our-team" className="mobile-nav-link" onClick={closeMenu}>OUR TEAM</Link>
             </div>
 
