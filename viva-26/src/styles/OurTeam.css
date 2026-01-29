@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'Lemon Milk';
-    src: url('../assets/Font/LEMONMILK-Regular.otf') format('opentype');
+    font-family: 'LEMON MILK';
+    src: url('../fonts/lemon milk/LEMONMILK-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Lemon Milk';
-    src: url('../assets/Font/LEMONMILK-Medium.otf') format('opentype');
+    font-family: 'LEMON MILK';
+    src: url('../fonts/lemon milk/LEMONMILK-Medium.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Lemon Milk';
-    src: url('../assets/Font/LEMONMILK-Bold.otf') format('opentype');
+    font-family: 'LEMON MILK';
+    src: url('../fonts/lemon milk/LEMONMILK-Bold.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
 }
@@ -26,7 +26,7 @@ html {
 }
 
 @theme {
-    --font-sans: 'Lemon Milk', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --font-sans: 'LEMON MILK', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     --color-brand-orange-light: #fcc096;
     --color-brand-orange-dark: #fba67b;
     --color-brand-blue-light: #a6e3ff;
@@ -42,7 +42,7 @@ html {
 @layer base {
     body.our-team-page {
         @apply m-0 p-0 min-h-screen flex flex-col relative overflow-x-hidden bg-[#4a0b0a] text-[#213547] w-full;
-        font-family: 'Lemon Milk', var(--font-sans);
+        font-family: 'LEMON MILK', var(--font-sans);
     }
 }
 

@@ -1,0 +1,220 @@
+.stamp-container {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    width: 100%;
+    height: 100%;
+}
+
+.legacy-stamp-border {
+    --stamp-color: #FDDEC0;
+    /* Matches the page background to create "holes" */
+    background-color: #656565;
+    border-radius: 90px;
+    background-image:
+        radial-gradient(circle at 50% 0%, var(--stamp-color) 28px, transparent 29px),
+        radial-gradient(circle at 50% 100%, var(--stamp-color) 28px, transparent 29px),
+        radial-gradient(circle at 0% 50%, var(--stamp-color) 28px, transparent 29px),
+        radial-gradient(circle at 100% 50%, var(--stamp-color) 28px, transparent 29px);
+    background-size: 72px 72px;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    position: relative;
+    width: 100%;
+    padding: 45px;
+    box-sizing: border-box;
+}
+
+.inner-white-border {
+    border: 2px solid white;
+    border-radius: 50px;
+    /* Increased slightly to match outer curve */
+    padding: 4px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.legacy-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 46px;
+    overflow: hidden;
+    padding: 0%;
+    /* Shrink image slightly to fit inside */
+    box-sizing: border-box;
+    background: #000;
+    /* Dark background behind image if needed */
+}
+
+.legacy-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Ensure full image is visible */
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 640px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    .legacy-stamp-border {
+        padding: 20px;
+        /* Smaller padding on mobile */
+        border-radius: 40px;
+        /* Smaller radius */
+        background-size: 40px 40px;
+        /* Smaller stamp holes */
+        background-image:
+            radial-gradient(circle at 50% 0%, var(--stamp-color) 15px, transparent 16px),
+            radial-gradient(circle at 50% 100%, var(--stamp-color) 15px, transparent 16px),
+            radial-gradient(circle at 0% 50%, var(--stamp-color) 15px, transparent 16px),
+            radial-gradient(circle at 100% 50%, var(--stamp-color) 15px, transparent 16px);
+    }
+
+    .inner-white-border {
+        border-radius: 25px;
+    }
+
+    .legacy-content {
+        border-radius: 20px;
+    }
+
+    .legacy-text-overlay {
+        display: none;
+    }
+
+    /* Mobile GIF Positions (Vertical Stack Estimates) */
+    .legacy-gif-purple {
+        top: 15%;
+        left: 50%;
+        width: 60%;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .legacy-gif-green {
+        top: 32%;
+        left: 50%;
+        width: 60%;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .legacy-gif-yellow {
+        top: 49%;
+        left: 50%;
+        width: 60%;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .legacy-gif-blue {
+        top: 66%;
+        left: 50%;
+        width: 50%;
+        /* Often smaller */
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .legacy-gif-red {
+        top: 83%;
+        left: 50%;
+        width: 60%;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.legacy-text-overlay {
+    position: absolute;
+    top: 14%;
+    left: 52%;
+    /* Slight horizontal adjustment if needed */
+    transform: translate(-50%, -50%);
+    width: 20%;
+    max-width: 400px;
+    z-index: 2;
+}
+
+/* Desktop GIF Positions (Estimated - need tuning) */
+.legacy-gif-purple {
+    position: absolute;
+    top: 50%;
+    /* Adjusted to be over the central purple TV */
+    left: 51%;
+    /* Align with the TV screen */
+    transform: translate(-47%, -52%);
+    width: 35%;
+    /* Estimated width to fit inside the screen */
+    height: 47%;
+    z-index: 1;
+    /* Behind text if they overlap, or on top? TV screen is usually behind text. */
+}
+
+.legacy-gif-blue {
+    position: absolute;
+    top: 65%;
+    /* Est: Bottom Left */
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: auto;
+    z-index: 1;
+}
+
+.legacy-gif-green {
+    position: absolute;
+    top: 25%;
+    /* Est: Top Left */
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: auto;
+    z-index: 1;
+}
+
+.legacy-gif-yellow {
+    position: absolute;
+    top: 65%;
+    /* Est: Bottom Right */
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 28%;
+    height: auto;
+    z-index: 1;
+}
+
+.legacy-gif-red {
+    position: absolute;
+    top: 25%;
+    /* Est: Top Right */
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 28%;
+    height: auto;
+    z-index: 1;
+}
+
+.legacy-gif-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 47%;
+
+}
