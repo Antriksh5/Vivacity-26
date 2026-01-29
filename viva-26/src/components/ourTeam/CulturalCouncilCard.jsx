@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import {
     leftBorder,
     rightBorder
@@ -8,34 +8,27 @@ import purpleGmail from '../../assets/ourTeam/purple_gmail.png'
 
 const CulturalCouncilCard = ({ imageUrl, name, role }) => {
     const cardRef = useRef(null);
-    const [labelWidth, setLabelWidth] = useState('auto');
 
-    const imageWidthClasses = "w-[80px] sm:w-[112px] md:w-[112px] lg:w-[138px] xl:w-[13vw] 2xl:w-[15vw]";
+    const imageWidthClasses = "w-[24vw] sm:w-[20vw] md:w-[18vw] lg:w-[12vw] xl:w-[11.5vw] 2xl:w-[13vw]";
 
-    const bottomClasses = "-bottom-[38px] sm:-bottom-[50px] md:-bottom-[45px] lg:-bottom-[50px] xl:-bottom-[75px] 2xl:-bottom-[95px]";
+    const bottomClasses = "-bottom-[32px] min-[370px]:max-[450px]:-bottom-[44px] sm:-bottom-[58px] md:-bottom-[58px] lg:-bottom-[48px] xl:-bottom-[75px] 2xl:-bottom-[95px]";
 
     const iconWidthClasses = "w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-[2.5vw] xl:h-[2.5vw] 2xl:w-[3vw] 2xl:h-[3vw]";
 
-    const nameTextSize = "text-[0.6rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-[0.8rem] xl:text-[0.9vw] 2xl:text-[1.1vw]";
-    const roleTextSize = "text-[0.5rem] sm:text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] xl:text-[0.7vw] 2xl:text-[0.9vw]";
+    const nameTextSize = "text-[0.6rem] sm:text-[0.75rem] md:text-[0.9rem] lg:text-[1.05rem] xl:text-[1.15vw] 2xl:text-[1.4vw]";
+    const roleTextSize = "text-[0.35rem] sm:text-[0.45rem] md:text-[0.55rem] lg:text-[0.6rem] xl:text-[0.55vw] 2xl:text-[0.75vw]";
 
-    useLayoutEffect(() => {
-        const updateWidth = () => {
-            if (cardRef.current) {
-                const multiplier = window.innerWidth < 640 ? 1.8 : 2.1;
-                setLabelWidth(cardRef.current.offsetWidth * multiplier);
-            }
-        };
 
-        updateWidth();
-        window.addEventListener('resize', updateWidth);
-        return () => window.removeEventListener('resize', updateWidth);
-    }, []);
+
+    const isLongName = name && name.length >= 11;
+    const nameDisplaySize = isLongName
+        ? "text-[0.5rem] sm:text-[0.65rem] md:text-[0.75rem] lg:text-[0.85rem] xl:text-[0.95vw] 2xl:text-[1.25vw]"
+        : nameTextSize;
 
     return (
         <div className="relative flex flex-col items-center">
             <div ref={cardRef} className="relative flex items-center bg-white p-[1.5px] sm:p-[2px] md:p-[2.5px] rounded-[12px] sm:rounded-[15px] md:rounded-[18px] shadow-xl transition-transform hover:scale-105 duration-300">
-                <img src={leftBorder} className="h-[96%] absolute top-[-3%] w-auto z-[2] pointer-events-none -left-3 sm:-left-4 md:-left-5 lg:-left-[24px]" alt="" />
+                <img src={leftBorder} className="h-[106%] absolute top-[-3%] w-auto z-[2] pointer-events-none -left-3 sm:-left-4 md:-left-5 lg:-left-[24px]" alt="" />
                 <div className={`${imageWidthClasses} aspect-[16/24] overflow-hidden relative rounded-[10.5px] sm:rounded-[13px] md:rounded-[16px]`}>
                     <img src={imageUrl} alt={name || "Cultural Council Member"} className="w-full h-full object-cover" />
                 </div>
@@ -48,13 +41,12 @@ const CulturalCouncilCard = ({ imageUrl, name, role }) => {
                 </a>
 
                 <div
-                    className="label-pill-ticket-purple label-pill-compact"
-                    style={{ width: labelWidth }}
+                    className={`label-pill-ticket-purple label-pill-compact px-4 text-center ${isLongName ? 'label-wide' : ''}`}
                 >
-                    <div className={`${nameTextSize} text-white font-semibold tracking-wider leading-[1.1] uppercase font-sans whitespace-nowrap`}>
+                    <div className={`${nameDisplaySize} text-white font-normal tracking-wider leading-[1.1] uppercase whitespace-nowrap`} style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                         {name}
                     </div>
-                    <div className={`${roleTextSize} text-white/95 font-normal tracking-[0.12em] uppercase font-sans leading-tight text-center`}>
+                    <div className={`${roleTextSize} text-white/95 font-normal tracking-[0.12em] uppercase leading-tight text-center`} style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                         {role}
                     </div>
                 </div>

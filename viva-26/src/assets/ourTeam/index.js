@@ -9,6 +9,9 @@ import vogue2 from './vogue 2.png';
 import rickshaw from './rickshaw.png';
 import culturalSign from './cultural.png';
 import memberImage from './image 330.png';
+import d1 from './d1.png';
+import d2 from './d2.png';
+import d3 from './d3.png';
 import instaIcon from './instagram.png';
 import mailIcon from './email.png';
 import sponsorBanner from './sponsor.png';
@@ -22,6 +25,25 @@ import festhead2 from './festhead2.png';
 import cultural1 from './cultural1.png';
 import cultural2 from './cultural2.png';
 import cultural3 from './cultural3.png';
+import s1 from './s1.png';
+import s2 from './s2.png';
+import s4 from './s4.png';
+import s5 from './s5.png';
+import s6 from './s6.png';
+import s7 from './s7.png';
+import p1 from './p1.png';
+import p2 from './p2.png';
+import p3 from './p3.png';
+import p4 from './p4.png';
+import c1 from './c1.png';
+import c2 from './c2.png';
+import c3 from './c3.png';
+import c4 from './c4.png';
+import operationalBanner from './opertaional.png';
+import o1 from './o1.png';
+import o2 from './o2.png';
+import o3 from './o3.png';
+import o4 from './o4.png';
 
 export {
     vivaLogo,
@@ -35,6 +57,9 @@ export {
     rickshaw,
     culturalSign,
     memberImage,
+    d1,
+    d2,
+    d3,
     instaIcon,
     mailIcon,
     sponsorBanner,
@@ -47,5 +72,24 @@ export {
     festhead2,
     cultural1,
     cultural2,
-    cultural3
+    cultural3,
+    s1,
+    s2,
+    s4,
+    s5,
+    s6,
+    s7,
+    p1,
+    p2,
+    p3,
+    p4,
+    c1,
+    c2,
+    c3,
+    c4,
+    operationalBanner,
+    o1,
+    o2,
+    o3,
+    o4
 };
