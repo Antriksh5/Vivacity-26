@@ -1,4 +1,4 @@
-.stamp-border {
+.team-stamp-border {
   background-color: #FA7305;
   border-radius: 90px;
   background-image:
@@ -11,7 +11,7 @@
   background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
   position: relative;
   width: 100%;
-  padding:45px;
+  padding: 45px;
 }
 
 .inner-container {
