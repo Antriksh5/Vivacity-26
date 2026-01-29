@@ -213,11 +213,11 @@ const EventLanding = () => {
 
     return (
         <div
-            className='w-full h-dvh overflow-hidden flex items-center justify-center duration-300 p-[1vh] md:p-[2vh]'
+            className='w-full h-dvh overflow-x-hidden overflow-y-hidden flex items-center justify-center duration-300 p-[1vh] md:p-[2vh] lg:p-[2vh] xl:p-[3vh]'
             style={{ backgroundColor: border }}
         >
             <div
-                className='relative w-full max-w-7xl h-full stamp-border-past p-[2vh] md:p-[4vh] flex flex-col items-center '
+                className='relative w-full  h-full stamp-border-past p-[2vh] md:p-[4vh] flex flex-col items-center '
                 style={{ '--stamp-color': border, backgroundColor: '#692A40' }}
             >
                 <div className="stamp-inner-line-past z-30 pointer-events-none"></div>
@@ -231,7 +231,7 @@ const EventLanding = () => {
                     />
                 </div>
 
-                <div className="relative z-10 w-[80%] md:w-[70%] h-full flex flex-col items-center gap-[2vh] md:gap-[3vh]">
+                <div className="relative z-10 w-[80%] md:w-[60%] h-full flex flex-col items-center gap-[2vh] md:gap-[3vh]">
 
                     {/* Main Title */}
                     <h1
@@ -246,7 +246,7 @@ const EventLanding = () => {
 
                     {/* Content Container */}
                     <div
-                        className="w-full bg-black border-4 border-white flex flex-col lg:flex-row-reverse relative flex-grow h-0 mb-[2vh]"
+                        className="w-full lg:w-[90%] bg-black border-4 border-white flex flex-col lg:flex-row-reverse relative flex-grow h-0 lg:mb-[6vh]"
                         onTouchStart={onTouchStart}
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEnd}
@@ -286,9 +286,9 @@ const EventLanding = () => {
                                             />
 
                                             {/* Prize Text */}
-                                            <div className="flex flex-col justify-center leading-none text-[#5C1A4E] rumble-brave text-[2vh] md:text-[3vh] lg:text-[5vh] tracking-widest lg:p-10 z-10 relative ">
+                                            <div className="flex flex-col justify-center leading-none text-[#5C1A4E] rumble-brave text-[2vh] md:text-[3vh] lg:text-[4vh] tracking-widest lg:p-4 z-10 relative ">
                                                 <span>PRIZE</span>
-                                                <span className="text-[2.5vh] md:text-[3vh] lg:text-[5vh] ">WORTH</span>
+                                                <span className="text-[2.5vh] md:text-[3vh] lg:text-[4vh] ">WORTH</span>
                                             </div>
                                         </div>
 
@@ -356,7 +356,7 @@ const EventLanding = () => {
                             <div className="flex-grow p-[1vh] md:p-[1vh] lg:p-[2vh] w-full flex flex-col justify-center gap-[0.5vh] md:gap-[1vh] lg:gap-[2vh]">
                                 <ul className="space-y-[0.05vh] md:space-y-[0.2vh] lg:space-y-[2vh] text-white w-full">
                                     {currentEvent.subEvents.map((event, idx) => (
-                                        <li key={idx} className={`flex items-start text-[1.5vh] sm:text-[2.2vh] md:text-[1.6vh] lg:text-[2.5vh] tracking-wider ${idx >= 4 ? 'hidden lg:flex' : ''}`}>
+                                        <li key={idx} className={`flex items-start text-[1.5vh] sm:text-[2.2vh] md:text-[1.6vh] lg:text-[2vh] tracking-wider ${idx >= 4 ? 'hidden lg:flex' : ''}`}>
                                             <span className="mr-[0.5vw] text-[1.5vh]">•</span>
                                             <span className="uppercase">{event}</span>
                                         </li>
@@ -365,7 +365,7 @@ const EventLanding = () => {
                             </div>
 
                             {/* Desktop "Know More" Button Area (Hidden on Mobile) */}
-                            <div className="hidden lg:flex relative h-[12vh] lg:h-[18vh] bg-[#FE55B2] border-t-4 border-black flex-col items-center justify-between p-0 overflow-hidden cursor-pointer group">
+                            <div className="hidden lg:flex relative h-[12vh] lg:h-[16vh] bg-[#FE55B2] border-t-4 border-black flex-col items-center justify-between p-0 overflow-hidden cursor-pointer group">
                                 <div className="w-full h-[60%] relative overflow-hidden">
                                     <img
                                         src={EyesGif}

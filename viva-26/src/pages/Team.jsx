@@ -20,7 +20,7 @@ const Team = () => {
       style={{ backgroundColor: "#FDDEC0" }}
     >
       <div
-        className="stamp-border w-full max-w-[1200px] mx-auto box-border"
+        className="team-stamp-border w-full max-w-[1200px] mx-auto box-border"
         style={{ "--stamp-color": "#FDDEC0" }}
       >
 
