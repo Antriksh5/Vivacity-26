@@ -6,8 +6,8 @@ import '../styles/Legacy.css'
 
 const Legacy = () => {
     return (
-        <div className="py-10 px-4 w-full min-h-screen flex justify-center text-center items-center bg-[#FDDEC0]">
-            <div className="legacy-stamp-border w-full max-w-[90%] box-border">
+        <div className="px-1 w-full h-screen flex justify-center text-center items-center bg-[#FDDEC0] overflow-hidden">
+            <div className="legacy-stamp-border w-full max-w-[100vw] h-[calc(100vh-2rem)] max-h-[100vh] box-border">
                 <div className="inner-white-border">
                     <div className="legacy-content">
                         <img src={LegacyBg} alt="Legacy Background" className="legacy-bg-image desktop-only" />
