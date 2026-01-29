@@ -7,11 +7,12 @@ const EventCard = ({
   title,
   description,
   artistImage,
+  border,
 }) => {
   return (
-    <div className="card-wrapper" style={{ "--card-red": "#ff0000" }}>
-      <div className="card-border" style={{ "--card-red": "#ff0000" }}>
-        <div className="card-inner" style={{ "--card-red": "#ff0000" }}>
+    <div className="card-wrapper" style={{ "--card-red": border }}>
+      <div className="card-border" style={{ "--card-red": border }}>
+        <div className="card-inner" style={{ "--card-red": border }}>
 
           <div className="white_div">
             <div className="artist">

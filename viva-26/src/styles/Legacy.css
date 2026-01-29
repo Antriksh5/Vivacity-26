@@ -96,46 +96,39 @@
         display: none;
     }
 
-    /* Mobile GIF Positions (Vertical Stack Estimates) */
+    /* Mobile GIF/YouTube Positions (Vertical Stack) */
+    .legacy-gif-purple,
+    .legacy-gif-green,
+    .legacy-gif-yellow,
+    .legacy-gif-blue,
+    .legacy-gif-red {
+        position: absolute;
+        left: 50%;
+        width: 55%;
+        height: 12%;
+        transform: translate(-50%, -50%);
+        rotate: 0deg;
+        border-radius: 8px;
+    }
+
     .legacy-gif-purple {
         top: 15%;
-        left: 50%;
-        width: 60%;
-        height: auto;
-        transform: translate(-50%, -50%);
     }
 
     .legacy-gif-green {
         top: 32%;
-        left: 50%;
-        width: 60%;
-        height: auto;
-        transform: translate(-50%, -50%);
     }
 
     .legacy-gif-yellow {
         top: 49%;
-        left: 50%;
-        width: 60%;
-        height: auto;
-        transform: translate(-50%, -50%);
     }
 
     .legacy-gif-blue {
         top: 66%;
-        left: 50%;
-        width: 50%;
-        /* Often smaller */
-        height: auto;
-        transform: translate(-50%, -50%);
     }
 
     .legacy-gif-red {
         top: 83%;
-        left: 50%;
-        width: 60%;
-        height: auto;
-        transform: translate(-50%, -50%);
     }
 }
 
@@ -150,31 +143,30 @@
     z-index: 2;
 }
 
-/* Desktop GIF Positions (Estimated - need tuning) */
+/* //correct */
 .legacy-gif-purple {
     position: absolute;
     top: 50%;
-    /* Adjusted to be over the central purple TV */
     left: 51%;
-    /* Align with the TV screen */
     transform: translate(-45%, -53%);
     width: 24%;
-    /* Estimated width to fit inside the screen */
     height: 32%;
     z-index: 1;
-    /* Behind text if they overlap, or on top? TV screen is usually behind text. */
 }
 
+/* yellow */
 .legacy-gif-blue {
     position: absolute;
     top: 65%;
     /* Est: Bottom Left */
     left: 20%;
-    transform: translate(-50%, -50%);
-    width: 25%;
-    height: auto;
+    transform: translate(-38%, -39%);
+    width: 16%;
+    height: 22%;
     z-index: 1;
 }
+
+/* blue */
 
 .legacy-gif-green {
     position: absolute;
@@ -187,34 +179,27 @@
     z-index: 1;
 }
 
+/* red */
 .legacy-gif-yellow {
     position: absolute;
     top: 65%;
     /* Est: Bottom Right */
     left: 80%;
-    transform: translate(-50%, -50%);
-    width: 28%;
+    transform: translate(-60%, -74%);
+    width: 19%;
     height: auto;
     z-index: 1;
 }
 
+/* green */
 .legacy-gif-red {
     position: absolute;
     top: 25%;
     /* Est: Top Right */
     left: 75%;
-    transform: translate(-50%, -50%);
-    width: 28%;
-    height: auto;
+    transform: translate(-26%, 68%);
+    width: 21%;
+    height: 23%;
+    rotate: 90deg;
     z-index: 1;
-}
-
-.legacy-gif-2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 35%;
-    height: 47%;
-
 }

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import './CursorLetterTrail.css'
+import '../styles/CursorLetterTrail.css'
 
 const CursorLetterTrail = () => {
     const containerRef = useRef(null)
@@ -9,11 +9,11 @@ const CursorLetterTrail = () => {
     // Hindi Devanagari syllables (Akshars) kept intact
     // Using an array prevents breaking complex characters like 'वि' into 'व' + 'ि'
     const letters = [
-        'वि', 'वा', 'सि', 'टी', // Vivacity
+        'वि', 'वा', 'सिटी', // Vivacity
         'वि', 'वा', 'सि', 'टी',
         '2026',             // 2026
         'ॐ', 'श्री', 'देसी',          // Auspicious symbols (optional, fits ceremonial theme)
-        'वि', 'वा', 'सि', 'टी'
+        'वि', 'वा', 'सिटी'
     ];
 
     useEffect(() => {

@@ -103,7 +103,7 @@ const eventsData = [
     },
     {
         id: 'Speaking',
-        title: 'Speaking Arts Event',
+        title: 'Speaking Event',
         prize: '1.0 Lakh +',
         mainImage: SpeakingImage,
         color: '#FFAB00', // Amber
@@ -207,13 +207,13 @@ const EventLanding = () => {
         const length = title.length;
         if (length <= 8) return 'text-4xl md:text-5xl';
         if (length <= 12) return 'text-4xl md:text-5xl';
-        if (length <= 16) return 'text-4xl md:text-5xl';
-        return 'text-2xl md:text-4xl';
+        if (length <= 16) return 'text-4xl md:text-4xl';
+        return 'text-2xl md:text-3xl';
     };
 
     return (
         <div
-            className='w-full h-dvh overflow-x-hidden overflow-y-hidden flex items-center justify-center duration-300 p-[1vh] md:p-[2vh] lg:p-[2vh] xl:p-[3vh]'
+            className='w-full h-screen overflow-x-hidden overflow-y-hidden flex items-center justify-center duration-300 p-1'
             style={{ backgroundColor: border }}
         >
             <div

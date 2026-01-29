@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+    import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import VivaCountdown from '../components/LandingPage/VivaCountdown';
 import AboutViva from '../components/LandingPage/AboutViva';
 import AboutTheme from '../components/LandingPage/AboutTheme';
+import Landing from './Landing';
 import '../styles/LandingPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -248,6 +249,9 @@ const LandingPage = () => {
                 {/* Overlay for cinematic zoom */}
                 <div className="zoom-overlay" ref={zoomOverlayRef}></div>
             </div>
+
+            {/* Section 3: Landing sections appear AFTER the door closes */}
+            <Landing />
         </div>
     );
 };

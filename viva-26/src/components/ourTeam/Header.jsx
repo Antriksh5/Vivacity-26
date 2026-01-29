@@ -67,7 +67,7 @@ const Header = () => {
 
                     <Link to="/our-team" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">OUR TEAM</Link>
                     <Link to="/registration" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors border border-[#3d1c10] px-3 py-1 rounded-full hover:bg-[#3d1c10] hover:text-[#f7d0ab]">REGISTER</Link>
-                </nav >
+                </nav> >
 
                 <div className="lg:hidden z-50 relative mt-4 sm:mt-6 md:mt-0">
                     <button onClick={() => setMenuOpen(!menuOpen)} className="flex flex-col gap-1.5 p-2 focus:outline-none group">

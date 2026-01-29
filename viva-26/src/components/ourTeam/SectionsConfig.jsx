@@ -62,6 +62,7 @@ export const getSections = (refs) => {
             bannerAlt: 'Our Mentors',
             showHeader: true,
             bannerRef: banner1Ref,
+            cardHeight: "h-[105vh] sm:h-[110vh] md:h-[105vh]",
             vogueHands: (
                 <>
                     <div ref={banner1Ref} className="absolute top-[30px] md:top-[30px] left-1/2 -translate-x-1/2 ml-[25px] md:ml-0 z-[15] pointer-events-none opacity-100">
@@ -116,8 +117,8 @@ export const getSections = (refs) => {
             ),
             content: (
                 <div className="flex flex-col sm:flex-row gap-24 sm:gap-24 md:gap-24 lg:gap-32 xl:gap-32 justify-center items-center -mt-20 sm:mt-4 md:mt-6 lg:mt-8 relative z-[2] flex-wrap">
-                    <PhotoCard imageUrl={festhead1} name="VEDANT WADHWA" role="FEST HEAD" size="medium" />
-                    <PhotoCard imageUrl={festhead2} name="VEDANG DIXIT" role="FEST HEAD" size="medium" />
+                    <PhotoCard imageUrl={festhead1} name="VEDANT WADHWA" role="FEST HEAD" size="medium" instagram="https://www.instagram.com/v_edant.w28?igsh=NmVqOHZjajhmOTFk" email="23ucc612@lnmiit.ac.in" />
+                    <PhotoCard imageUrl={festhead2} name="VEDANG DIXIT" role="FEST HEAD" size="medium" instagram="https://www.instagram.com/vedang_dixit?igsh=ZTlzeGxuenBmNzE2" email="23uec641@lnmiit.ac.in" />
                 </div>
             )
         },
@@ -147,11 +148,12 @@ export const getSections = (refs) => {
                 <div className="flex flex-col items-center w-full relative z-[2] mt-8 sm:mt-18 md:mt-24 lg:mt-32">
                     <div className="flex flex-col lg:flex-row gap-24 sm:gap-20 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center mt-8 min-[370px]:max-[450px]:mt-28 min-[451px]:mt-10 sm:mt-12 md:mt-16 relative z-[2] w-full">
                         <div className="flex flex-col md:flex-row gap-24 sm:gap-12 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center">
-                            <CulturalCouncilCard imageUrl={cultural1} name="KANISHQ SINGHAL" role="GENERAL SECRETARY" />
-                            <CulturalCouncilCard imageUrl={cultural2} name="ISHITA KHANDELWAL" role="ASSOCIATE G. SEC" />
+                            <CulturalCouncilCard imageUrl={cultural1} name="KANISHQ SINGHAL" role="GENERAL SECRETARY" instagram="https://www.instagram.com/kanishqsinghal?igsh=aThxa2YwdDNsMnFz" email="23ucs605@lnmiit.ac.in" />
+                            <CulturalCouncilCard imageUrl={cultural2} name="ISHITA KHANDELWAL" role="ASSOCIATE G. SEC" instagram="https://www.instagram.com/_ishitaa__13?igsh=eGpzcm1mcWw4Z3Jp" email="23ucs598@lnmiit.ac.in" />
+
                         </div>
                         <div className="flex justify-center items-center lg:contents">
-                            <CulturalCouncilCard imageUrl={cultural3} name="TANMAY JAIN" role="FINANCE CONVENOR" />
+                            <CulturalCouncilCard imageUrl={cultural3} name="TANMAY JAIN" role="FINANCE CONVENOR" instagram="https://www.instagram.com/tanmay_._jain_?igsh=MXRkc2Mwb2JxZXdocw%3D%3D" email="23ucc606@lnmiit.ac.in" />
                         </div>
                     </div>
                     <div className="mt-24 min-[370px]:max-[450px]:mt-20 min-[451px]:mt-26 sm:mt-28 md:mt-32 lg:mt-40 text-center max-w-[65vw] px-4 mb-20">
@@ -196,16 +198,16 @@ export const getSections = (refs) => {
                 <div className="flex flex-col items-center w-full relative z-[2] mt-4 sm:mt-14 md:mt-20 lg:mt-28">
                     <div className="flex flex-col lg:flex-row gap-24 sm:gap-20 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center -mt-32 min-[370px]:max-[450px]:mt-2 min-[451px]:mt-12 sm:mt-14 md:mt-18 lg:mt-22 relative z-[2] w-full">
                         <div className="flex flex-col md:flex-row gap-24 sm:gap-12 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center">
-                            <PhotoCard imageUrl={d1} name="SANKALP JAIN" role="DEVELOPER" size="small" theme="orange" />
-                            <PhotoCard imageUrl={d2} name="SHARDUL P CHORGHADE" role="DEVELOPER" size="small" theme="orange" />
+                            <PhotoCard imageUrl={d1} name="SANKALP JAIN" role="DEVELOPER" size="small" theme="orange" instagram="https://www.instagram.com/_sankalp.j?igsh=dXM4b3UzdndoOGdm" email="23ucs696@lnmiit.ac.in" />
+                            <PhotoCard imageUrl={d2} name="SHARDUL P CHORGHADE" role="DEVELOPER" size="small" theme="orange" instagram="https://www.instagram.com/shardul.28?igsh=ZGdhcWdsNjJ3Y2s5" email="23ucs701@lnmiit.ac.in" />
                         </div>
                         <div className="flex justify-center items-center lg:contents">
-                            <PhotoCard imageUrl={d3} name="NILESH GOYAL" role="DEVELOPER" size="small" theme="orange" />
+                            <PhotoCard imageUrl={d3} name="NILESH GOYAL" role="DEVELOPER" size="small" theme="orange" instagram="https://www.instagram.com/nileshgoyal_14?igsh=NWE3NHA4cmdkOHk4" email="23ucc624@lnmiit.ac.in" />
                         </div>
                     </div>
                     <div className="mt-36 min-[370px]:max-[450px]:mt-28 min-[451px]:mt-32 sm:mt-34 md:mt-36 lg:mt-40 text-center max-w-[65vw] px-4 mb-10 sm:mb-20">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1000px] mx-auto" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
-                            TEAM MEMBERS - Laxita Bhimsaria, Garvita Joshi, Anushka Jain, Ishita Agrawal, Antriksh Nahar, Aditya Jakar, Anshul Agrawal
+                            TEAM MEMBERS - Laxita Bhimsaria, Garvita Joshi, Anushka Jain, Ishita Agarwal, Anshul Agarwal, Antriksh Nahar, Aditya Jakhar
                         </p>
                     </div>
                 </div>
@@ -225,7 +227,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner4Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={sponsorBanner} alt="Sponsorship Team" className="w-[45vw] sm:w-[36vw] md:w-[32vw] lg:w-[26vw] xl:w-[22vw] 2xl:w-[15vw] h-auto" />
+                            <img src={sponsorBanner} alt="Sponsorship Team" className="w-[40vw] sm:w-[32vw] md:w-[28vw] lg:w-[22vw] xl:w-[18vw] 2xl:w-[13vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute top-[33px] md:top-[53px] left-0 right-0 w-full px-10 sm:px-12 md:px-14 lg:px-20 xl:px-28 flex justify-between pointer-events-none z-[15]">
@@ -236,13 +238,13 @@ export const getSections = (refs) => {
             ),
             content: (
                 <div className="flex flex-col items-center w-full relative z-[2] mt-16 sm:mt-32 md:mt-36 lg:mt-40">
-                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-20 md:gap-x-16 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-12 xl:gap-x-2 2xl:gap-x-0 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1050px] 2xl:max-w-[980px] px-4 items-center">
-                        <PhotoCard imageUrl={s1} name="VIDIT SHARMA" role="SPONSORSHIP HEAD" size="small" />
-                        <PhotoCard imageUrl={s2} name="RUDRA BANERJEE" role="SPONSORSHIP HEAD" size="small" />
-                        <PhotoCard imageUrl={s4} name="ANURAG YADAV" role="SPONSORSHIP HEAD" size="small" />
-                        <PhotoCard imageUrl={s5} name="KARTIKEYA SINGH" role="SPONSORSHIP HEAD" size="small" />
-                        <PhotoCard imageUrl={s6} name="SAJAL JAGGI" role="SPONSORSHIP HEAD" size="small" />
-                        <PhotoCard imageUrl={s7} name="JAYESH JHAMNANI" role="SPONSORSHIP HEAD" size="small" />
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-20 min-[390px]:gap-60 md:gap-x-32 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-32 xl:gap-x-24 2xl:gap-x-32 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1050px] 2xl:max-w-[980px] px-4 items-center">
+                        <PhotoCard imageUrl={s1} name="VIDIT SHARMA" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/vidit_sharma.14?igsh=cGd0c3J6NzdqMTBz" email="23uec644@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={s2} name="RUDRA BANERJEE" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/rudrabanerjee397?igsh=MXUwanBiczZ1c3FnaQ%3D%3D" email="23uec606@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={s4} name="ANURAG YADAV" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/i_am.anurag?igsh=cjZ1enhrY3d6aGV3" email="23uec519@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={s5} name="KARTIKEYA SINGH" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/kart.ik_3085?igsh=MWF1eHR4MnI5dmswNQ%3D%3D" email="23ucs612@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={s6} name="SAJAL JAGGI" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/sajal_jaggi?igsh=OTc3bmttMjZzZTdo" email="23ucs695@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={s7} name="JAYESH JHAMNANI" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/jayesh._.2309?igsh=MTd5d2RsOXZpaGpvOQ%3D%3D" email="23uec556@lnmiit.ac.in" />
                     </div>
                     <div className="mt-20 sm:mt-28 md:mt-32 lg:mt-40 text-center max-w-[65vw] px-4 mb-8 sm:mb-16">
                         <p className="font-sans font-normal text-[#3d1c10] text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
@@ -278,16 +280,16 @@ export const getSections = (refs) => {
                 <div className="flex flex-col items-center w-full relative z-[2] -mt-2 sm:mt-26 md:mt-32 lg:mt-36">
                     {/* Creative team cards - 2x2 on md, 3+1 on lg+ */}
                     <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-24 min-[390px]:gap-20 md:gap-x-10 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
-                        <PhotoCard imageUrl={c1} name="RISHABH SRIVASTAVA" role="CREATIVE HEAD" size="medium" theme="purple" />
-                        <PhotoCard imageUrl={c3} name="ADITYA MEHTA" role="CREATIVE HEAD" size="medium" theme="purple" />
-                        <PhotoCard imageUrl={c2} name="PRASOON AGARWAL" role="CREATIVE HEAD" size="medium" theme="purple" />
+                        <PhotoCard imageUrl={c1} name="RISHABH SRIVASTAVA" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/roxrishabh_?igsh=M2M3end1NHZtMDgz" email="23ucc625@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={c3} name="ADITYA MEHTA" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/aditya.1464_?igsh=ZDlodGM5ZnRwd2R5" email="23uec507@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={c2} name="PRASOON AGARWAL" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/prasoon_rcolor?igsh=MXZkdGlxNm03OTU2eg%3D%3D" email="23ume540@lnmiit.ac.in" />
                         <div className="md:block lg:hidden w-full flex justify-center">
-                            <PhotoCard imageUrl={c4} name="KRISHNA GOPAL RATHI" role="CREATIVE HEAD" size="medium" theme="purple" />
+                            <PhotoCard imageUrl={c4} name="KRISHNA GOPAL RATHI" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/myselfkgr?igsh=ZGgyMGxnNnU0ZmU%3D" email="23ucs622@lnmiit.ac.in" />
                         </div>
                     </div>
                     {/* Second row: 1 card centered - only visible on lg+ */}
                     <div className="hidden lg:flex justify-center items-center w-full px-4">
-                        <PhotoCard imageUrl={c4} name="KRISHNA GOPAL RATHI" role="CREATIVE HEAD" size="medium" theme="purple" />
+                        <PhotoCard imageUrl={c4} name="KRISHNA GOPAL RATHI" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/myselfkgr?igsh=ZGgyMGxnNnU0ZmU%3D" email="23ucs622@lnmiit.ac.in" />
                     </div>
                     <div className="mt-24 sm:mt-32 md:mt-40 lg:mt-52 text-center max-w-[65vw] px-4 mb-6 sm:mb-12">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
@@ -310,7 +312,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner8Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={prEventsBanner} alt="PR and Events Team" className="w-[40vw] sm:w-[32vw] md:w-[32vw] lg:w-[26vw] xl:w-[22vw] 2xl:w-[15vw] h-auto" />
+                            <img src={prEventsBanner} alt="PR and Events Team" className="w-[38vw] sm:w-[30vw] md:w-[30vw] lg:w-[24vw] xl:w-[20vw] 2xl:w-[14vw] h-auto" />
                         </div>
                     </div>
                     <img
@@ -332,16 +334,16 @@ export const getSections = (refs) => {
                     {/* First row: 3 cards */}
                     {/* First row: 3 cards */}
                     <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-24 min-[390px]:gap-20 md:gap-x-10 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
-                        <PhotoCard imageUrl={p1} name="VIKRANT SINGH RATHORE" role="EVENTS HEAD" size="medium" theme="orange" />
-                        <PhotoCard imageUrl={p2} name="RAGHAV PATHAK" role="EVENTS HEAD" size="medium" theme="orange" />
-                        <PhotoCard imageUrl={p3} name="PARTH GOYAL" role="EVENTS HEAD" size="medium" theme="orange" />
+                        <PhotoCard imageUrl={p1} name="VIKRANT SINGH RATHORE" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/vikrant_singh_rathore?igsh=MWxhbDd3OXM4YjJ3ag%3D%3D" email="23ume556@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={p2} name="RAGHAV PATHAK" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/raghavvpathakk?igsh=MTZwcG05dHN2dzR5bw%3D%3D" email="23ucs685@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={p3} name="PARTH GOYAL" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/parth.goyal_?igsh=MXQ1ZTZ1ZTB5MjNudw%3D%3D" email="23ucs663@lnmiit.ac.in" />
                         <div className="md:block lg:hidden w-full flex justify-center">
-                            <PhotoCard imageUrl={p4} name="TAVISHI VERMA" role="EVENTS HEAD" size="medium" theme="orange" />
+                            <PhotoCard imageUrl={p4} name="TAVISHI VERMA" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/tavi_shee?igsh=MTc5dnNsZjFuaTlpYQ%3D%3D" email="23ume549@lnmiit.ac.in" />
                         </div>
                     </div>
                     {/* Second row: 1 card centered */}
                     <div className="hidden lg:flex justify-center items-center w-full px-4">
-                        <PhotoCard imageUrl={p4} name="TAVISHI VERMA" role="EVENTS HEAD" size="medium" theme="orange" />
+                        <PhotoCard imageUrl={p4} name="TAVISHI VERMA" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/tavi_shee?igsh=MTc5dnNsZjFuaTlpYQ%3D%3D" email="23ume549@lnmiit.ac.in" />
                     </div>
                     <div className="mt-20 sm:mt-20 md:mt-24 lg:mt-52 text-center max-w-[65vw] px-4 mb-8 sm:mb-16">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
@@ -382,16 +384,16 @@ export const getSections = (refs) => {
                     {/* First row: 3 cards */}
                     {/* First row: 3 cards */}
                     <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-24 min-[390px]:gap-20 md:gap-x-12 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
-                        <PhotoCard imageUrl={o1} name="HITESH SHEE" role="OPERATIONAL HEAD" size="operational" theme="purple" />
-                        <PhotoCard imageUrl={o2} name="SHREYANSH AGARWAL" role="OPERATIONAL HEAD" size="operational" theme="purple" />
-                        <PhotoCard imageUrl={o3} name="HITESH RAWAT" role="OPERATIONAL HEAD" size="operational" theme="purple" />
+                        <PhotoCard imageUrl={o1} name="HITESH SHEE" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/hiteshshee_10557?igsh=MWM2b216dWk1ejB2Zg%3D%3D" email="23ucs594@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={o2} name="SHREYANSH AGARWAL" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/_shreyansh.10?igsh=YnJ5ZGJ5dzk2ajEx" email="23ucs709@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={o3} name="HITESH RAWAT" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/its.hitesh_rawat?igsh=MXMxNnV3dGJrajZ0OQ%3D%3D" email="23ucs595@lnmiit.ac.in" />
                         <div className="md:block lg:hidden w-full flex justify-center">
-                            <PhotoCard imageUrl={o4} name="PRANJALI MANEK" role="OPERATIONAL HEAD" size="operational" theme="purple" />
+                            <PhotoCard imageUrl={o4} name="PRANJALI MANEK" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/_prxjxli_?igsh=MWxnb2IwYnIydzhyMw%3D%3D" email="23dcs507@lnmiit.ac.in" />
                         </div>
                     </div>
                     {/* Second row: 1 card centered */}
                     <div className="hidden lg:flex justify-center items-center w-full px-4">
-                        <PhotoCard imageUrl={o4} name="PRANJALI MANEK" role="OPERATIONAL HEAD" size="operational" theme="purple" />
+                        <PhotoCard imageUrl={o4} name="PRANJALI MANEK" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/_prxjxli_?igsh=MWxnb2IwYnIydzhyMw%3D%3D" email="23dcs507@lnmiit.ac.in" />
                     </div>
                     <div className="mt-20 sm:mt-28 md:mt-32 lg:mt-40 text-center max-w-[65vw] px-4 mb-8 sm:mb-16">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>

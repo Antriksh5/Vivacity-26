@@ -7,87 +7,64 @@ import araLogo from "../assets/MascotLanding/ara.png";
 import backgroundImg from "../assets/MascotLanding/background1.png";
 
 const MascotLanding = () => {
-
   return (
-    <section className="w-full h-screen max-h-screen overflow-hidden box-border flex justify-center items-center p-2 sm:p-3 md:p-4 bg-[#FDDEC0]">
+    <section className="w-full h-screen flex justify-center items-center p-1 bg-[#FDDEC0] overflow-hidden">
+      {/* STAMP BORDER WRAPPER */}
+      <div className="mascot-stamp relative w-full max-w-[100vw] h-[calc(100vh-2rem)] max-h-[100vh] p-4 sm:p-4 md:p-5 lg:p-7 rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] ">
 
-      {/* ✅ STAMP BORDER WRAPPER */}
-      <div className="mascot-stamp relative w-full max-w-[92rem] flex justify-center items-center">
+        {/* OUTER CONTAINER */}
+        <div className="mascot-outer relative w-full h-full rounded-xl sm:rounded-2xl md:rounded-3xl shadow-xl overflow-hidden">
 
-        <div className="mascot-outer relative w-full max-md:max-w-[500px] md:max-w-[78rem] shrink md:aspect-[16/11] max-md:aspect-[9/16] box-border shadow-lg sm:shadow-xl md:shadow-2xl">
-          <div className="mascot-inner-bg absolute overflow-hidden">
-            {/* Background Image - like PastArtist */}
+          {/* INNER BACKGROUND */}
+          <div className="relative w-full h-full p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden border-4 border-[#fff]">
+
+            {/* Background Image */}
             <img
               src={backgroundImg}
               alt="Background"
-              className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none scale-125"
+              className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none scale-110"
             />
-            {/* ========== MOBILE/TABLET LAYOUT (< 768px) ========== */}
-            <div className="md:hidden flex flex-col h-full w-full p-3">
-              {/* Top row: Title + Logo side by side - 50% each */}
-              <div className="flex flex-row gap-3 w-full shrink-0 mb-3">
-                {/* Title Card - 50% */}
-                <div className="mascot-right-top w-1/2 h-[70px] sm:h-[90px] bg-[rgba(108,13,46,0.767)] flex items-center justify-center rounded-xl relative">
-                  <div className="mascot-title flex flex-col items-center justify-center text-center w-full h-full box-border leading-none">
-                    <span className="font-['Lemon'] font-black text-transparent tracking-wide leading-none text-xs sm:text-sm">MEET</span>
-                    <span className="font-['Lemon'] font-black text-transparent tracking-wide leading-none text-xs sm:text-sm">OUR</span>
-                    <span className="font-['Lemon'] font-black text-transparent tracking-wide leading-none text-xs sm:text-sm">MASCOT</span>
-                  </div>
-                </div>
-                {/* Logo Card - 50% */}
-                <div className="mascot-right-bottom w-1/2 h-[70px] sm:h-[90px] bg-[rgba(108,13,46,0.767)] flex items-center justify-center overflow-hidden rounded-xl relative">
-                  <img src={araLogo} alt="Logo" className="w-[70%] h-auto max-h-[80%] object-contain" />
-                </div>
-              </div>
 
-              {/* Video - auto height to match video content */}
-              <div className="mascot-left w-full overflow-hidden rounded-xl bg-black/15 shrink-0">
+            {/* Content Grid */}
+            <div className="relative z-10 flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-12 lg:gap-10 xl:gap-10 w-full h-full justify-center items-center">
+
+              {/* LEFT SIDE - Mascot (Bottom on Mobile) */}
+              <div className="relative w-full flex-1 md:h-[90%] md:w-[45%] lg:w-[40%]  rounded-xl sm:rounded-2xl flex justify-center items-center overflow-hidden order-2 md:order-1 min-h-0 ">
                 <video
-                  className="w-full h-auto object-contain rounded-inherit block"
                   src={mascotVideo}
                   autoPlay
-                  muted
                   loop
+                  muted
                   playsInline
+                  className="relative z-5 h-[95%] w-auto max-w-full object-contain border-4 border-[#fff]"
                 />
               </div>
 
-              {/* Empty space at bottom - flex-1 takes remaining space */}
-              <div className="flex-1"></div>
-            </div>
+              {/* RIGHT SIDE - Title and Logo (Top on Mobile) */}
+              <div className="flex flex-row md:flex-col gap-3 sm:gap-4 md:gap-6 w-full h-[30%] sm:h-[35%] md:h-auto md:w-[40%] lg:w-[30%] order-1 md:order-2 shrink-0 md:-translate-x-8 lg:-translate-x-12">
 
-            {/* ========== DESKTOP LAYOUT (≥ 768px) ========== */}
-            {/* Left Video Container */}
-            <div className="mascot-left hidden md:block overflow-hidden bg-black/15 absolute left-[15%] top-[6%]">
-              <video
-                className="w-full h-auto object-cover rounded-inherit block"
-                src={mascotVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            </div>
+                {/* Title Card */}
+                <div className="mascot-right-card relative w-1/2 md:w-full h-full md:h-[40%] bg-[rgba(108,13,46,0.9)] rounded-xl sm:rounded-2xl flex items-center justify-center p-2 sm:p-4 ">
+                  <div className="mascot-title flex flex-col items-center justify-center text-center gap-0.5 sm:gap-1">
+                    <span className="text-[clamp(1.2rem,5vw,5rem)] lg:text-[clamp(1.5rem,4vw,6rem)] leading-none font-black tracking-wide">MEET</span>
+                    <span className="text-[clamp(1.2rem,5vw,5rem)] lg:text-[clamp(1.5rem,4vw,6rem)] leading-none font-black tracking-wide">OUR</span>
+                    <span className="text-[clamp(1.2rem,5vw,5rem)] lg:text-[clamp(1.5rem,4vw,6rem)] leading-none font-black tracking-wide">MASCOT</span>
+                  </div>
+                </div>
 
-            {/* Right Top - Title */}
-            <div className="mascot-right-top hidden md:flex bg-[rgba(108,13,46,0.767)] items-center justify-center absolute right-[15%] top-[6%] w-[30%] h-[32%] max-h-[35%]">
-              <div className="mascot-title flex flex-col items-center justify-center text-center w-full h-full box-border leading-none">
-                <span className="font-['Lemon'] font-black text-transparent tracking-wide leading-none">MEET</span>
-                <span className="font-['Lemon'] font-black text-transparent tracking-wide leading-none">OUR</span>
-                <span className="font-['Lemon'] font-black text-transparent tracking-wide leading-none">MASCOT</span>
+                {/* Logo Card */}
+                <div className="mascot-right-card relative w-1/2 md:w-full h-full md:flex-1 bg-[rgba(108,13,46,0.9)] rounded-xl sm:rounded-2xl flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+                  <img
+                    src={araLogo}
+                    alt="Ara Logo"
+                    className="w-[80%] h-auto max-h-[90%] object-contain"
+                  />
+                </div>
               </div>
-            </div>
-
-            {/* Right Bottom - Logo */}
-            <div className="mascot-right-bottom hidden md:flex bg-[rgba(108,13,46,0.767)] items-center justify-center overflow-hidden absolute right-[15%] bottom-[6%] w-[30%] h-[55%] max-h-[58%]">
-              <img src={araLogo} alt="Logo" className="w-[70%] h-auto max-h-[90%] object-contain" />
             </div>
           </div>
         </div>
-
       </div>
-      {/* ✅ END STAMP WRAPPER */}
-
     </section>
   );
 };
