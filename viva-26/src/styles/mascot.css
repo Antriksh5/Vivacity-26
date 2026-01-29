@@ -12,7 +12,7 @@
   --stamp-color: #f4b183;
 
   position: relative;
-  width: 100%;
+  width: 100vw;
   max-width: 92rem;
 
   padding: 3.5rem;
