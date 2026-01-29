@@ -1,298 +1,117 @@
 .mascot-stamp {
   --stamp-color: #FDDEC0;
-
-  position: relative;
-  width: 100%;
-  max-width: 92rem;
-
-  padding: 3.5rem;
-  border-radius: 4.5rem;
-
+  max-height: calc(100vh - 2rem);
+  padding: clamp(1.5rem, 3vw, 3.5rem);
+  border-radius: clamp(2rem, 4vw, 4.5rem);
   background-color: #c8643b;
-
   background-image:
-    radial-gradient(circle at 50% 0%, var(--stamp-color) 28px, transparent 29px),
-    radial-gradient(circle at 50% 100%, var(--stamp-color) 28px, transparent 29px),
-    radial-gradient(circle at 0% 50%, var(--stamp-color) 28px, transparent 29px),
-    radial-gradient(circle at 100% 50%, var(--stamp-color) 28px, transparent 29px);
-
-  background-size: 72px 72px;
+    radial-gradient(circle at 50% 0%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px),
+    radial-gradient(circle at 50% 100%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px),
+    radial-gradient(circle at 0% 50%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px),
+    radial-gradient(circle at 100% 50%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px);
+  background-size: 44px 44px;
   background-position: 0 0, 0 100%, 0 0, 100% 0;
   background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* Inner thin border line */
+/* Stamp inner border line */
 .mascot-stamp::after {
   content: "";
   position: absolute;
-  inset: 2.8rem;
+  inset: clamp(1.2rem, 2.5vw, 2.8rem);
   border: 2px solid #9E5D47;
-  border-radius: 3rem;
+  border-radius: clamp(1.5rem, 2.5vw, 3rem);
   pointer-events: none;
   z-index: 2;
 }
 
-/* Ensure mascot poster stays above stamp line */
-.mascot-stamp>.mascot-outer {
-  position: relative;
+/* Outer poster frame */
+.mascot-outer {
+  max-height: calc(100vh - 6rem);
+  height: calc(100vh - 6rem);
+  border-radius: clamp(1.5rem, 2.5vw, 2.8rem);
+  padding: clamp(0.8rem, 1.5vw, 1.6rem);
   z-index: 3;
 }
 
-
-/* CENTER THE POSTER */
-.mascot-section {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0;
-  /* 🔥 let StampFrame control spacing */
-}
-
-
-/* 🖼️ OUTER POSTER FRAME */
-.mascot-outer {
-  width: 100%;
-  max-width: 78rem;
-
-  /* 🔥 KEY: aspect ratio */
-  aspect-ratio: 16 / 11;
-  border-radius: 2.8rem;
-  padding: 1.6rem;
-
-  position: relative;
-  flex-shrink: 0;
-
-  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.25);
-}
-
-/* WHITE INNER BORDER */
+/* White inner border */
 .mascot-outer::before {
   content: "";
   position: absolute;
-  inset: 2.4rem;
-
+  inset: clamp(1rem, 2vw, 2.4rem);
   border: 0.22rem solid #ffffff;
-  border-radius: 2.2rem;
-
-  pointer-events: none;
-}
-
-/* INNER AREA (inside white border) */
-.mascot-inner-bg {
-  position: absolute;
-
-  /* match the white border inset */
-  inset: 2.4rem;
-
-  border-radius: 2.2rem;
-
-  /* 🔥 KEY PART */
-  overflow: hidden;
-
-  /* background image */
-  background-image: url("image 314.png");
-  /* adjust path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.mascot-outer::before {
-  content: "";
-  position: absolute;
-  inset: 2.4rem;
-
-  border: 0.22rem solid #ffffff;
-  border-radius: 2.2rem;
-
+  border-radius: clamp(1.2rem, 2vw, 2.2rem);
   pointer-events: none;
   z-index: 2;
 }
 
-.mascot-left {
-  position: absolute;
-  left: 6%;
-  top: 5%;
-
-  width: 54%;
-  aspect-ratio: 1 / 1.06;
-  background: rgba(0, 0, 0, 0.15);
-  /* temp */
-  border-radius: 1.7rem;
+/* Inner background area */
+.mascot-inner-bg {
+  inset: clamp(1rem, 2vw, 2.4rem);
+  border-radius: clamp(1.2rem, 2vw, 2.2rem);
 }
 
-.mascot-right-top {
-  position: absolute;
-  right: 3%;
-  top: 6%;
-
-  width: 30%;
-  aspect-ratio: 1 / 0.75;
-
-  background: rgba(108, 13, 46, 0.767);
-  /* temp */
-  border-radius: 1.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Left container - responsive width (desktop only) */
+@media (min-width: 768px) {
+  .mascot-left {
+    width: clamp(22%, 30vw, 40%);
+    height: auto;
+    border-radius: clamp(1rem, 1.5vw, 1.7rem);
+  }
 }
 
-.mascot-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  line-height: 1.05;
-  gap: 0.2em;
-
-  width: 100%;
-}
-
-/* EACH WORD */
-.mascot-title span {
-  font-family: 'Lemon', cursive;
-
-  /* 🔥 MAKE TEXT HEAVIER */
-  font-weight: 900;
-
-  /* 🔥 RESPONSIVE SIZE (slightly larger) */
-  font-size: clamp(1.6rem, 3.6vw, 3.6rem);
-
-  /* 🔥 THINNER BORDER */
-  color: transparent;
-  -webkit-text-stroke: clamp(0.8px, 0.1vw, 1.6px) #ffffff;
-  text-stroke: clamp(0.8px, 0.1vw, 1.6px) #ffffff;
-
-  letter-spacing: 0.06em;
-  line-height: 1.05;
-}
-
+/* Right containers - responsive border radius */
+.mascot-right-top,
 .mascot-right-bottom {
-  position: absolute;
-  right: 3%;
-  bottom: 6%;
-
-  width: 30%;
-  aspect-ratio: 1 / 1;
-
-  background: rgba(108, 13, 46, 0.767);
-  /* temp */
-  border-radius: 1.6rem;
+  border-radius: clamp(1rem, 1.4vw, 1.6rem);
 }
 
-/* allow content inside without breaking design */
-.mascot-right-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* image inside right bottom card */
-.mascot-right-bottom img {
-  width: 80%;
-  height: 500%;
-  object-fit: contain;
-}
-
-/* WHITE BORDER — ADD ONLY */
+/* White border on cards */
 .mascot-left::after,
 .mascot-right-top::after,
 .mascot-right-bottom::after {
   content: "";
   position: absolute;
   inset: 0;
-
-  /* 🔥 Responsive border thickness */
   border: clamp(0.15rem, 0.4vw, 0.3rem) solid #ffffff;
-
   border-radius: inherit;
   pointer-events: none;
 }
 
-/* CONTAIN MEDIA INSIDE LEFT CARD */
-.mascot-left {
-  overflow: hidden;
-  /* important */
+/* Title text styling */
+.mascot-title {
+  gap: clamp(0.1em, 0.5vh, 0.2em);
+  padding: clamp(0.3rem, 1vh, 0.5rem);
 }
 
-/* VIDEO + IMAGE COMMON */
-.mascot-video,
-.mascot-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* IMPORTANT */
-  border-radius: inherit;
+.mascot-title span {
+  font-family: 'Lemon', cursive;
+  font-size: clamp(1.2rem, min(4.5vw, 5.5vh), 4rem);
+  -webkit-text-stroke: clamp(0.6px, 0.08vw, 1.4px) #ffffff;
+  text-stroke: clamp(0.6px, 0.08vw, 1.4px) #ffffff;
 }
 
-.mascot-image {
-  opacity: 0;
-  /* hidden initially */
-  pointer-events: none;
-  width: 101%;
-}
-
-@media (max-width: 652px) and (min-width: 530px) {
-  .mascot-title span {
-    font-family: 'Lemon', cursive;
-    font-weight: 900;
-
-    /* 🔽 REDUCED RESPONSIVE SIZE */
-    font-size: clamp(1.2rem, 2.6vw, 2.8rem);
-
-    color: transparent;
-
-    /* 🔽 MATCHING STROKE (slightly thinner) */
-    -webkit-text-stroke: clamp(0.6px, 0.08vw, 1.2px) #ffffff;
-    text-stroke: clamp(0.6px, 0.08vw, 1.2px) #ffffff;
-
-    letter-spacing: 0.05em;
-    line-height: 1.05;
-
+/* ===== MOBILE STYLES (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  .mascot-stamp {
+    background-image:
+      radial-gradient(circle at 50% 0%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px),
+      radial-gradient(circle at 50% 100%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px),
+      radial-gradient(circle at 0% 50%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px),
+      radial-gradient(circle at 100% 50%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px);
+    background-size: 36px 36px;
+    padding: clamp(1rem, 2.5vw, 2rem);
   }
 }
 
-@media (max-width: 530px) and (min-width: 426px) {
-  .mascot-title span {
-    font-family: 'Lemon', cursive;
-    font-weight: 900;
-
-    /* 🔽 MORE REDUCED SIZE */
-    font-size: clamp(0.95rem, 2.1vw, 2.2rem);
-
-    color: transparent;
-
-    /* 🔽 PROPORTIONALLY REDUCED STROKE */
-    -webkit-text-stroke: clamp(0.45px, 0.06vw, 0.9px) #ffffff;
-    text-stroke: clamp(0.45px, 0.06vw, 0.9px) #ffffff;
-
-    letter-spacing: 0.045em;
-    line-height: 1.05;
-  }
-}
-
+/* ===== SMALL MOBILE STYLES (max-width: 426px) ===== */
 @media (max-width: 426px) {
-
   .mascot-outer {
     aspect-ratio: 9 / 16;
     padding: 0.8rem;
     border-radius: 2rem;
   }
 
-  /* 🔥 FIXED WHITE BORDER LOGIC */
   .mascot-outer::before {
     inset: 0.5rem;
     border-radius: 1.4rem;
@@ -302,10 +121,6 @@
     inset: 0.5rem;
     border-radius: 1.4rem;
     padding: 0.8rem;
-    box-sizing: border-box;
-  }
-
-  .mascot-inner-bg {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
@@ -317,7 +132,6 @@
   .mascot-right-bottom {
     position: relative !important;
     inset: auto !important;
-    margin: 0;
     width: auto;
     height: auto;
   }
@@ -327,9 +141,6 @@
     grid-row: 1 / 2;
     aspect-ratio: 1 / 1;
     border-radius: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .mascot-right-bottom {
@@ -337,15 +148,11 @@
     grid-row: 1 / 2;
     aspect-ratio: 1 / 1;
     border-radius: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .mascot-left {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
-    overflow: hidden;
   }
 
   .mascot-video,
@@ -354,32 +161,16 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* 🔥 KEY FIX */
-  }
-
-  .mascot-image {
-    width: 100%;
-    height: 100%;
     object-fit: contain;
   }
 
   .mascot-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-
-    /* 🔥 THIS FIXES THE GAP */
     transform: scale(1.085);
   }
-
 
   .mascot-title span {
     font-size: clamp(0.9rem, 4.8vw, 1.35rem);
     -webkit-text-stroke: 0.5px #ffffff;
-    text-stroke: 0.5px #ffffff;
   }
 
   .mascot-right-bottom img {
