@@ -6,6 +6,7 @@ import VivaCountdown from '../components/LandingPage/VivaCountdown';
 import AboutViva from '../components/LandingPage/AboutViva';
 import AboutTheme from '../components/LandingPage/AboutTheme';
 import Landing from './Landing';
+import CursorLetterTrail from './CursorLetterTrail';
 import '../styles/LandingPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -216,6 +217,7 @@ const LandingPage = () => {
 
     return (
         <div className="landing-page-container" ref={mainRef}>
+            <CursorLetterTrail />
             {/* Section 1: Countdown */}
             <VivaCountdown />
 

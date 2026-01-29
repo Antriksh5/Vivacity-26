@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/EventLanding.css';
 import SideBorder from '../assets/EventLanding/SideBorder.png';
 import BottomBorder from '../assets/EventLanding/Bottom Border.png';
@@ -176,6 +176,17 @@ const EventLanding = () => {
     const handlePrev = () => {
         setActiveIndex((prev) => (prev - 1 + eventsData.length) % eventsData.length);
     };
+
+    // Auto-scroll functionality
+    const handleNextRef = useRef(handleNext);
+    handleNextRef.current = handleNext;
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNextRef.current();
+        }, 3500);
+        return () => clearInterval(interval);
+    }, [activeIndex]);
 
     // Touch swipe handlers for mobile
     const [touchStart, setTouchStart] = useState(null);

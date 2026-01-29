@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import '../styles/CursorLetterTrail.css'
 
 const CursorLetterTrail = () => {
@@ -18,7 +19,7 @@ const CursorLetterTrail = () => {
 
     useEffect(() => {
         let lastTime = 0
-        const throttleDelay = 50 // Slower, more deliberate spawning for premium feel
+        const throttleDelay = 20 // Faster spawning for denser trail
 
         const handleMouseMove = (e) => {
             const currentTime = Date.now()
@@ -28,8 +29,8 @@ const CursorLetterTrail = () => {
             const dy = e.clientY - lastPositionRef.current.y
             const distance = Math.sqrt(dx * dx + dy * dy)
 
-            // Only create letters if mouse moved significantly - higher threshold for elegance
-            if (distance > 8 && currentTime - lastTime > throttleDelay) {
+            // Lower threshold for more sensitivity
+            if (distance > 4 && currentTime - lastTime > throttleDelay) {
                 createLetter(e.clientX, e.clientY)
                 lastTime = currentTime
             }
@@ -73,7 +74,10 @@ const CursorLetterTrail = () => {
         }
     }, [])
 
-    return <div ref={containerRef} className="cursor-letter-container" />
+    return createPortal(
+        <div ref={containerRef} className="cursor-letter-container" />,
+        document.body
+    )
 }
 
 export default CursorLetterTrail

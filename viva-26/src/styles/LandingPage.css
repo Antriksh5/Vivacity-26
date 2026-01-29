@@ -19,6 +19,7 @@ body,
     position: relative;
     isolation: isolate;
     /* Creates a new stacking context for its children */
+    cursor: none;
 }
 
 .transition-container {
