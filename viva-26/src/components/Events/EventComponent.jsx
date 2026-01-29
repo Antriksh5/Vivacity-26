@@ -43,6 +43,7 @@ const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea 
                                                 artistImage={event.img}
                                                 description={event.desc}
                                                 yellowText={TextAreaImage}
+                                                border={border}
                                             />
                                         </div>
                                     );
