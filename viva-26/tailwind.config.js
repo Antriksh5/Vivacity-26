@@ -6,6 +6,9 @@ export default {
     ],
     theme: {
         extend: {
+            screens: {
+                'nav': '1400px',
+            },
             animation: {
                 'form-fade-in': 'formFadeIn 1.2s ease-out forwards',
                 'form-appear': 'formFadeIn 1.5s ease-out 0.8s backwards',

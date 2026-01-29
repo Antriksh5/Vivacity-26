@@ -10,6 +10,7 @@ import vivaLogo from '../../assets/ourTeam/viva-logo.png';
 import jugnooGround from '../../assets/landingPage/jugnooGround.png';
 import mobileJugnooGround from '../../assets/landingPage/mobileJugnooGround.png';
 import ferrisWheel from '../../assets/landingPage/ferrisWheel.png';
+import tediuxLogo from '../../assets/landingPage/tediux-logo.png';
 
 
 const VivaCountdown = () => {
@@ -63,15 +64,9 @@ const VivaCountdown = () => {
                     </div>
 
                     <div className="nav-center">
-                        <Link to="/home">HOME</Link>
                         <Link to="/events">EVENTS</Link>
-                        <div className="nav-dropdown-wrapper">
-                            <a href="#sponsers" className="dropdown-trigger">SPONSORS</a>
-                            <div className="nav-dropdown">
-                                <Link to="/coming-soon">FOOD MENU</Link>
-                                <Link to="/coming-soon">VIBE CARD</Link>
-                            </div>
-                        </div>
+                        <Link to="/coming-soon">SPONSORS</Link>
+                        <Link to="/coming-soon">VIBE CARDS</Link>
                         <Link to="/our-team">OUR TEAM</Link>
                     </div>
 
@@ -91,15 +86,9 @@ const VivaCountdown = () => {
                     {/* Mobile Navigation Overlay */}
                     <div className={`mobile-nav-overlay ${menuOpen ? 'active' : ''}`}>
                         <div className="mobile-nav-links">
-                            <Link to="/home" onClick={toggleMenu}>HOME</Link>
                             <Link to="/events" onClick={toggleMenu}>EVENTS</Link>
-                            <div className="mobile-dropdown-container">
-                                <span className="mobile-dropdown-title">SPONSORS</span>
-                                <div className="mobile-dropdown-options">
-                                    <Link to="/coming-soon" onClick={toggleMenu}>FOOD MENU</Link>
-                                    <Link to="/coming-soon" onClick={toggleMenu}>VIBE CARD</Link>
-                                </div>
-                            </div>
+                            <Link to="/coming-soon" onClick={toggleMenu}>SPONSORS</Link>
+                            <Link to="/coming-soon" onClick={toggleMenu}>VIBE CARDS</Link>
                             <Link to="/our-team" onClick={toggleMenu}>OUR TEAM</Link>
                         </div>
                     </div>
@@ -146,6 +135,7 @@ const VivaCountdown = () => {
                                 <div className="timer-flip-back">
                                     <div className="timer-overlay">
                                         <h2 className="timer-title">Sponsored By :</h2>
+                                        <img src={tediuxLogo} alt="Tediux Logo" className="tediux-sponsor-logo" />
                                     </div>
                                 </div>
                             </div>

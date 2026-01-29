@@ -326,6 +326,18 @@
     letter-spacing: 1px;
 }
 
+.tediux-sponsor-logo {
+    display: block;
+    width: clamp(50px, 8vw, 120px);
+    height: auto;
+    object-fit: contain;
+    margin: 5px auto 0;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+
+
+
 .timer-display {
     display: flex;
     justify-content: center;

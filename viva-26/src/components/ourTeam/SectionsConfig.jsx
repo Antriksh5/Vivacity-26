@@ -116,7 +116,7 @@ export const getSections = (refs) => {
                 </>
             ),
             content: (
-                <div className="flex flex-col sm:flex-row gap-24 sm:gap-24 md:gap-24 lg:gap-32 xl:gap-32 justify-center items-center -mt-20 sm:mt-4 md:mt-6 lg:mt-8 relative z-[2] flex-wrap">
+                <div className="flex flex-col sm:flex-row gap-24 sm:gap-24 md:gap-24 lg:gap-32 min-[1000px]:gap-64 min-[1200px]:gap-32 xl:gap-32 justify-center items-center -mt-20 sm:mt-4 md:mt-6 lg:mt-8 relative z-[2] flex-wrap">
                     <PhotoCard imageUrl={festhead1} name="VEDANT WADHWA" role="FEST HEAD" size="medium" instagram="https://www.instagram.com/v_edant.w28?igsh=NmVqOHZjajhmOTFk" email="23ucc612@lnmiit.ac.in" />
                     <PhotoCard imageUrl={festhead2} name="VEDANG DIXIT" role="FEST HEAD" size="medium" instagram="https://www.instagram.com/vedang_dixit?igsh=ZTlzeGxuenBmNzE2" email="23uec641@lnmiit.ac.in" />
                 </div>
@@ -238,7 +238,7 @@ export const getSections = (refs) => {
             ),
             content: (
                 <div className="flex flex-col items-center w-full relative z-[2] mt-16 sm:mt-32 md:mt-36 lg:mt-40">
-                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-20 min-[390px]:gap-60 md:gap-x-32 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-32 xl:gap-x-24 2xl:gap-x-32 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1050px] 2xl:max-w-[980px] px-4 items-center">
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-20 min-[390px]:gap-60 md:gap-x-32 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-32 min-[1000px]:gap-x-8 min-[1000px]:gap-y-16 min-[1300px]:gap-x-32 min-[1300px]:gap-y-40 xl:gap-x-24 2xl:gap-x-32 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1050px] 2xl:max-w-[980px] px-4 items-center">
                         <PhotoCard imageUrl={s1} name="VIDIT SHARMA" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/vidit_sharma.14?igsh=cGd0c3J6NzdqMTBz" email="23uec644@lnmiit.ac.in" />
                         <PhotoCard imageUrl={s2} name="RUDRA BANERJEE" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/rudrabanerjee397?igsh=MXUwanBiczZ1c3FnaQ%3D%3D" email="23uec606@lnmiit.ac.in" />
                         <PhotoCard imageUrl={s4} name="ANURAG YADAV" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/i_am.anurag?igsh=cjZ1enhrY3d6aGV3" email="23uec519@lnmiit.ac.in" />
