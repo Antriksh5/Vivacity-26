@@ -1,0 +1,335 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* PAGE BACKGROUND */
+body {
+  font-family: sans-serif;
+  background-color: #f4b183;
+}
+
+/* CENTER THE POSTER */
+.mascot-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* 🖼️ OUTER POSTER FRAME */
+.mascot-outer {
+  width: 100%;
+  max-width: 78rem;
+
+  /* 🔥 KEY: aspect ratio */
+  aspect-ratio: 16 / 11;
+
+  background-color: #c8643b;
+  border-radius: 2.8rem;
+  padding: 1.6rem;
+
+  position: relative;
+
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.25);
+}
+
+/* WHITE INNER BORDER */
+.mascot-outer::before {
+  content: "";
+  position: absolute;
+  inset: 2.4rem;
+
+  border: 0.22rem solid #ffffff;
+  border-radius: 2.2rem;
+
+  pointer-events: none;
+}
+/* INNER AREA (inside white border) */
+.mascot-inner-bg {
+  position: absolute;
+
+  /* match the white border inset */
+  inset: 2.4rem;
+
+  border-radius: 2.2rem;
+
+  /* 🔥 KEY PART */
+  overflow: hidden;
+
+  /* background image */
+  background-image: url("image 314.png"); /* adjust path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.mascot-outer::before {
+  content: "";
+  position: absolute;
+  inset: 2.4rem;
+
+  border: 0.22rem solid #ffffff;
+  border-radius: 2.2rem;
+
+  pointer-events: none;
+  z-index: 2;
+}
+.mascot-left {
+  position: absolute;
+  left: 6%;
+  top: 5%;
+
+  width: 54%;
+  aspect-ratio: 1 / 1.06;
+  background: rgba(0, 0, 0, 0.15); /* temp */
+  border-radius: 1.7rem;
+}
+
+.mascot-right-top {
+  position: absolute;
+  right: 3%;
+  top: 6%;
+
+  width: 30%;
+  aspect-ratio: 1 / 0.75;
+
+  background: rgba(108, 13, 46, 0.767); /* temp */
+  border-radius: 1.6rem;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mascot-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  line-height: 1.05;
+  gap: 0.2em;
+
+  width: 100%;
+}
+
+/* EACH WORD */
+.mascot-title span {
+  font-family: 'Lemon', cursive;
+
+  /* 🔥 MAKE TEXT HEAVIER */
+  font-weight: 900;
+
+  /* 🔥 RESPONSIVE SIZE (slightly larger) */
+  font-size: clamp(1.6rem, 3.6vw, 3.6rem);
+
+  /* 🔥 THINNER BORDER */
+  color: transparent;
+  -webkit-text-stroke: clamp(0.8px, 0.1vw, 1.6px) #ffffff;
+  text-stroke: clamp(0.8px, 0.1vw, 1.6px) #ffffff;
+
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+}
+
+.mascot-right-bottom {
+  position: absolute;
+  right: 3%;
+  bottom: 6%;
+
+  width: 30%;
+  aspect-ratio: 1 / 1;
+
+  background: rgba(108, 13, 46, 0.767)
+; /* temp */
+  border-radius: 1.6rem;
+}
+/* allow content inside without breaking design */
+.mascot-right-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* image inside right bottom card */
+.mascot-right-bottom img {
+  width: 80%;
+  height: 500%;
+  object-fit: contain;
+}
+
+/* WHITE BORDER — ADD ONLY */
+.mascot-left::after,
+.mascot-right-top::after,
+.mascot-right-bottom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 🔥 Responsive border thickness */
+  border: clamp(0.15rem, 0.4vw, 0.3rem) solid #ffffff;
+
+  border-radius: inherit;
+  pointer-events: none;
+}
+/* CONTAIN MEDIA INSIDE LEFT CARD */
+.mascot-left {
+  overflow: hidden; /* important */
+}
+
+/* VIDEO + IMAGE COMMON */
+.mascot-video,
+.mascot-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* IMPORTANT */
+  border-radius: inherit;
+}
+
+.mascot-image {
+  opacity: 0;            /* hidden initially */
+  pointer-events: none;
+  width : 101%;
+}
+@media (max-width: 652px) and (min-width: 530px) {
+  .mascot-title span{
+  font-family: 'Lemon', cursive;
+  font-weight: 900;
+
+  /* 🔽 REDUCED RESPONSIVE SIZE */
+  font-size: clamp(1.2rem, 2.6vw, 2.8rem);
+
+  color: transparent;
+
+  /* 🔽 MATCHING STROKE (slightly thinner) */
+  -webkit-text-stroke: clamp(0.6px, 0.08vw, 1.2px) #ffffff;
+  text-stroke: clamp(0.6px, 0.08vw, 1.2px) #ffffff;
+
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+
+  }
+}
+@media (max-width: 530px) and (min-width: 426px){
+    .mascot-title span{
+      font-family: 'Lemon', cursive;
+      font-weight: 900;
+
+      /* 🔽 MORE REDUCED SIZE */
+      font-size: clamp(0.95rem, 2.1vw, 2.2rem);
+
+      color: transparent;
+
+      /* 🔽 PROPORTIONALLY REDUCED STROKE */
+      -webkit-text-stroke: clamp(0.45px, 0.06vw, 0.9px) #ffffff;
+      text-stroke: clamp(0.45px, 0.06vw, 0.9px) #ffffff;
+
+      letter-spacing: 0.045em;
+      line-height: 1.05;
+  }
+}
+@media (max-width: 426px) {
+
+  .mascot-outer {
+    aspect-ratio: 9 / 16;
+    padding: 0.8rem;
+    border-radius: 2rem;
+  }
+
+  /* 🔥 FIXED WHITE BORDER LOGIC */
+  .mascot-outer::before {
+    inset: 0.5rem;
+    border-radius: 1.4rem;
+  }
+
+  .mascot-inner-bg {
+    inset: 0.5rem;
+    border-radius: 1.4rem;
+    padding: 0.8rem;
+    box-sizing: border-box;
+  }
+
+  .mascot-inner-bg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0.6rem;
+  }
+
+  .mascot-left,
+  .mascot-right-top,
+  .mascot-right-bottom {
+    position: relative !important;
+    inset: auto !important;
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .mascot-right-top {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mascot-right-bottom {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mascot-left {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    overflow: hidden;
+  }
+
+.mascot-video,
+.mascot-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 🔥 KEY FIX */
+}
+  .mascot-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .mascot-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  /* 🔥 THIS FIXES THE GAP */
+  transform: scale(1.085);
+}
+
+
+  .mascot-title span {
+    font-size: clamp(0.9rem, 4.8vw, 1.35rem);
+    -webkit-text-stroke: 0.5px #ffffff;
+    text-stroke: 0.5px #ffffff;
+  }
+
+  .mascot-right-bottom img {
+    width: 60%;
+    height: auto;
+  }
+}
