@@ -28,39 +28,47 @@ const MascotLanding = () => {
 
   return (
     <section className="mascot-section">
-      <div className="mascot-outer">
-        <div
-          className="mascot-inner-bg"
-          style={{ backgroundImage: `url(${backgroundImg})` }}
-        >
-          <div className="mascot-left">
-            <video
-              className="mascot-video"
-              src={mascotVideo}
-              autoPlay
-              muted
-              playsInline
-            />
-            <img
-              className="mascot-image"
-              src={mascotImage}
-              alt="Mascot Final"
-            />
-          </div>
 
-          <div className="mascot-right-top">
-            <div className="mascot-title">
-              <span>MEET</span>
-              <span>OUR</span>
-              <span>MASCOT</span>
+      {/* ✅ STAMP BORDER WRAPPER (ADDED ONLY) */}
+      <div className="mascot-stamp">
+
+        <div className="mascot-outer">
+          <div
+            className="mascot-inner-bg"
+            style={{ backgroundImage: `url(${backgroundImg})` }}
+          >
+            <div className="mascot-left">
+              <video
+                className="mascot-video"
+                src={mascotVideo}
+                autoPlay
+                muted
+                playsInline
+              />
+              <img
+                className="mascot-image"
+                src={mascotImage}
+                alt="Mascot Final"
+              />
+            </div>
+
+            <div className="mascot-right-top">
+              <div className="mascot-title">
+                <span>MEET</span>
+                <span>OUR</span>
+                <span>MASCOT</span>
+              </div>
+            </div>
+
+            <div className="mascot-right-bottom">
+              <img src={araLogo} alt="Logo" className="mascot-logo" />
             </div>
           </div>
-
-          <div className="mascot-right-bottom">
-            <img src={araLogo} alt="Logo" className="mascot-logo" />
-          </div>
         </div>
+
       </div>
+      {/* ✅ END STAMP WRAPPER */}
+
     </section>
   );
 };
