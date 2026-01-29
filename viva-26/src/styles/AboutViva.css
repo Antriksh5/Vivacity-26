@@ -127,6 +127,14 @@
   text-shadow: none;
 }
 
+.desktop-text {
+  display: block;
+}
+
+.mobile-text {
+  display: none;
+}
+
 @media (max-width: 1440px) {
   .text-content {
     max-width: 800px;
@@ -299,6 +307,14 @@
     font-weight: 700;
   }
 
+  .desktop-text {
+    display: none;
+  }
+
+  .mobile-text {
+    display: block;
+  }
+
   .hanging-decor {
     width: 60px;
     top: 2%;
@@ -344,20 +360,21 @@
   }
 
   .title-wrapper {
-    width: 100%;
-    max-width: 300px;
+    width: 65%;
+    max-width: 220px;
     margin-top: 5%;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
   }
 
   .text-content {
     padding: 0 5%;
-    max-width: 450px;
+    max-width: 250px;
   }
 
   .text-content p {
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
-    line-height: 1.5;
+    font-size: clamp(0.6rem, 2.5vw, 0.75rem);
+    line-height: 1.4;
+    padding-bottom: 0;
   }
 }
 

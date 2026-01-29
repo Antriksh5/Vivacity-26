@@ -54,8 +54,11 @@ const AboutViva = React.forwardRef((props, bgAboutRef) => {
 
                         {/* Text Block */}
                         <div className="text-content" ref={textRef}>
-                            <p>
+                            <p className="desktop-text">
                                 Vivacity, the annual cultural fest of LNMIIT, embodies the vibrant spirit of Gen Z and Millennials, presenting an enticing mix of music, dance, and numerous engaging activities. With exhilarating performances and insightful exhibitions, Vivacity captures the true essence of a lively and memorable cultural celebration.
+                            </p>
+                            <p className="mobile-text">
+                                Vivacity, the annual cultural fest of LNMIIT, embodies the vibrant spirit of Gen Z and Millennials. With exhilarating performances and exhibitions, it captures the essence of a lively, memorable celebration.
                             </p>
                         </div>
 
