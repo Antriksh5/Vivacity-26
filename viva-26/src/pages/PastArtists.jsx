@@ -29,7 +29,7 @@ import LeftTopCorner from '../assets/PastArtist/LeftTopCorner.png';
 import RightTopCorner from '../assets/PastArtist/RightTopCorner.png';
 import LeftBottomCorner from '../assets/PastArtist/LeftBottomCorner.png';
 import RightBottomCorner from '../assets/PastArtist/RightBottomCorner.png';
-
+import Raftaar from '../assets/PastArtist/Raftaar.jpg';
 const PastArtists = () => {
     console.log("PastArtists Component Rendered");
     const artists = [
@@ -44,6 +44,18 @@ const PastArtists = () => {
                 topRight: RightTopCorner,
                 bottomLeft: LeftBottomCorner,
                 bottomRight: RightBottomCorner
+            }
+        },
+        {
+            name: 'Raftaar',
+            color1: '#F75D02',
+            color2: '#FBC43F',
+            image: Raftaar,
+            corners: {
+                topLeft: TopLeftCornerYellow,
+                topRight: TopRightCornerYellow,
+                bottomLeft: BottomLeftCornerYellow,
+                bottomRight: BottomRightCornerYellow
             }
         },
         {
