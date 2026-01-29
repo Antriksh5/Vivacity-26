@@ -6,6 +6,7 @@ import PastArtists from './pages/PastArtists.jsx'
 import Team from './pages/Team.jsx'
 import MascotLanding from './pages/mascotLanding.jsx';
 import EventLanding from './pages/EventLanding.jsx'
+import Legacy from './pages/Legacy.jsx'
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/events" element={<EventPage />} />
             <Route path="/past-artists" element={<PastArtists />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/legacy" element={<Legacy />} />
             <Route path="/eventLanding" element={<EventLanding />} />
             <Route path="/mascot" element={<MascotLanding />} />
         </Routes>

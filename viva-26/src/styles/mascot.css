@@ -1,15 +1,55 @@
+<<<<<<< HEAD
 /* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+=======
+.mascot-stamp {
+  --stamp-color: #f4b183;
+
+  position: relative;
+  width: 100%;
+  max-width: 92rem;
+
+  padding: 3.5rem;
+  border-radius: 4.5rem;
+
+  background-color: #c8643b;
+
+  background-image:
+    radial-gradient(circle at 50% 0%, var(--stamp-color) 28px, transparent 29px),
+    radial-gradient(circle at 50% 100%, var(--stamp-color) 28px, transparent 29px),
+    radial-gradient(circle at 0% 50%, var(--stamp-color) 28px, transparent 29px),
+    radial-gradient(circle at 100% 50%, var(--stamp-color) 28px, transparent 29px);
+
+  background-size: 72px 72px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* PAGE BACKGROUND */
-body {
-  font-family: sans-serif;
-  background-color: #f4b183;
+/* Inner thin border line */
+.mascot-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 2.8rem;
+  border: 2px solid #9E5D47;
+  border-radius: 3rem;
+  pointer-events: none;
+  z-index: 2;
 }
+
+/* Ensure mascot poster stays above stamp line */
+.mascot-stamp > .mascot-outer {
+  position: relative;
+  z-index: 3;
+>>>>>>> da3d26f1733714b27dd484a3f4513d7976db5be0
+}
+
 
 /* CENTER THE POSTER */
 .mascot-section {

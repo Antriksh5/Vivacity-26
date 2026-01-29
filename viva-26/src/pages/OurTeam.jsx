@@ -9,20 +9,27 @@ import Footer from '../components/Footer/Footer'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const PageSection = ({ theme, children, showHeader, vogueHands, sectionRef, extraClasses = "" }) => {
+const PageSection = ({ theme, children, showHeader, vogueHands, sectionRef, extraClasses = "", cardHeight = "h-[95vh] md:h-[96vh]" }) => {
     const rayClass = theme.replace('-theme', '-rays');
     return (
         <section ref={sectionRef} className={`w-full min-h-screen flex justify-center items-center py-1 px-2 md:py-2 md:px-6 bg-[#4a0b0a] ${extraClasses}`}>
-            <div className={`relative w-full h-[95vh] md:h-[96vh] rounded-[30px] md:rounded-[80px] overflow-hidden ${theme}`}>
+            <div className={`relative w-full ${cardHeight} rounded-[30px] md:rounded-[80px] overflow-hidden ${theme}`}>
                 <div className={`absolute inset-[35px] md:inset-[55px] ${rayClass} z-10 rounded-[20px] md:rounded-[35px]`}></div>
                 <div className="stamp-inner-line z-20"></div>
+                {/* Camouflaged Hanging Strip to mask chains */}
+                <div
+                    className="hidden md:block absolute top-[38px] md:top-[35px] left-[35px] md:left-[55px] right-[35px] md:right-[55px] h-[10px] md:h-[20px] z-[25]"
+                    style={{
+                        backgroundColor: theme.includes('purple') ? '#d1b3ff' : theme.includes('orange') ? '#fcc096' : '#a6e3ff'
+                    }}
+                ></div>
 
                 {/* Decorative elements pinned to frame */}
-                <div className="absolute inset-0 z-40 pointer-events-none">
+                <div className="absolute inset-0 pointer-events-none">
                     {vogueHands}
                 </div>
 
-                <div className="relative z-30 w-full h-full flex flex-col items-center overflow-y-auto no-scrollbar pt-2">
+                <div className="relative z-[45] w-full h-full flex flex-col items-center overflow-y-auto no-scrollbar pt-0">
                     {showHeader && <Header />}
                     <div className="flex-1 flex flex-col justify-center items-center w-full relative z-20 pt-12">
                         {children}
@@ -45,6 +52,7 @@ function OurTeam() {
     const section6Ref = useRef(null)
     const section7Ref = useRef(null)
     const section8Ref = useRef(null)
+    const section9Ref = useRef(null)
 
     const lanternLeftRef = useRef(null)
     const lanternRightRef = useRef(null)
@@ -56,6 +64,10 @@ function OurTeam() {
     const rickshawRightRef = useRef(null)
     const rickshawLeft7Ref = useRef(null)
     const rickshawRight7Ref = useRef(null)
+    const lanternLeftOperationalRef = useRef(null)
+    const lanternRightOperationalRef = useRef(null)
+    const rickshawLeft9Ref = useRef(null)
+    const rickshawRight9Ref = useRef(null)
     const vogue5Ref = useRef(null)
     const vogue6Ref = useRef(null)
     const vogue7Ref = useRef(null)
@@ -67,6 +79,7 @@ function OurTeam() {
     const banner6Ref = useRef(null)
     const banner7Ref = useRef(null)
     const banner8Ref = useRef(null)
+    const banner9Ref = useRef(null)
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -124,160 +137,83 @@ function OurTeam() {
     }, [])
 
     useLayoutEffect(() => {
-        // Reset defaults to window for standard scrolling
         ScrollTrigger.defaults({ scroller: window });
 
-        if (vogue1Ref.current && vogue2Ref.current) {
-            gsap.fromTo([vogue1Ref.current, vogue2Ref.current],
-                { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1.5, ease: "power3.out", delay: 0.2 }
-            );
-        }
+        const revealSet = [
+            { hands: [vogue1Ref, vogue2Ref], section: section1Ref },
+            { hands: [vogue3Ref, vogue4Ref], section: section6Ref },
+            { hands: [vogue5Ref, vogue6Ref], section: section8Ref },
+            { ships: [rickshawLeftRef, rickshawRightRef], section: section3Ref },
+            { ships: [rickshawLeft7Ref, rickshawRight7Ref], section: section7Ref },
+            { ships: [rickshawLeft9Ref, rickshawRight9Ref], section: section9Ref }
+        ];
 
-        if (vogue1Ref.current && vogue2Ref.current && section1Ref.current) {
-            const getHandMovement = () => {
-                const vw = window.innerWidth;
-                if (vw < 480) return 300;
-                if (vw < 768) return 400;
-                return 500;
-            };
+        // Initial setup - hide everything
+        revealSet.forEach(item => {
+            const elements = item.hands || item.ships;
+            if (elements[0].current && elements[1].current) {
+                gsap.set(elements[0].current, { opacity: 0, y: 100 });
+                gsap.set(elements[1].current, { opacity: 0, y: 100 });
 
-            const handMovement = getHandMovement();
-
-            gsap.fromTo(vogue1Ref.current, { x: 0 }, {
-                x: -handMovement,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section1Ref.current,
-                    start: "bottom bottom",
-                    end: "bottom 60%",
-                    scrub: true
+                // Specifically flip left side rickshaws
+                if (item.ships) {
+                    gsap.set(elements[0].current, { scaleX: -1 });
                 }
-            });
+            }
+        });
 
-            gsap.fromTo(vogue2Ref.current, { x: 0 }, {
-                x: handMovement,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section1Ref.current,
-                    start: "bottom bottom",
-                    end: "bottom 60%",
-                    scrub: true
-                }
-            });
-        }
+        const getMovement = () => {
+            const vw = window.innerWidth;
+            if (vw < 480) return 300;
+            if (vw < 768) return 400;
+            return 500;
+        };
 
-        // Scroll reveal animation removed for section 2 banners and lanterns
+        // Create individual animations for each section
+        revealSet.forEach(item => {
+            const elements = item.hands || item.ships;
+            const left = elements[0].current;
+            const right = elements[1].current;
+            const triggerSection = item.section.current;
 
-        // Scroll reveal animations removed for all banners and lanterns to keep them constant
+            if (left && right && triggerSection) {
+                // Entry animation (Slide up and fade in)
+                gsap.fromTo([left, right],
+                    { opacity: 0, y: 100 },
+                    { opacity: 1, y: 0, duration: 2, ease: "power3.out", delay: 0.3 }
+                );
 
-        // Scroll reveal animation removed for section 4 banners and lanterns
+                // Scrub animation (Spread outward)
+                const movement = getMovement();
 
-        if (section4Ref.current) {
-            gsap.set([vogue7Ref.current, vogue8Ref.current], { opacity: 0, y: 100 });
+                gsap.to(left, {
+                    x: -movement,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: triggerSection,
+                        start: "bottom bottom",
+                        end: "bottom 40%",
+                        scrub: true
+                    }
+                });
 
-            ScrollTrigger.create({
-                trigger: section4Ref.current,
-                start: "top 95%",
-                end: "bottom 5%",
-                onEnter: () => {
-                    gsap.to([vogue7Ref.current, vogue8Ref.current], { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" });
-                },
-                onLeave: () => {
-                    gsap.to([vogue7Ref.current, vogue8Ref.current], { opacity: 0, duration: 0.3 });
-                },
-                onEnterBack: () => {
-                    gsap.to([vogue7Ref.current, vogue8Ref.current], { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" });
-                },
-                onLeaveBack: () => {
-                    gsap.to([vogue7Ref.current, vogue8Ref.current], { opacity: 0, duration: 0.3 });
-                }
-            });
-
-            // Section 4 Hand Scroll Animation (Sideways)
-            const getHandMovement = () => {
-                const vw = window.innerWidth;
-                if (vw < 480) return 500;
-                if (vw < 768) return 700;
-                return 1000;
-            };
-            const handMovement = getHandMovement();
-
-            gsap.fromTo(vogue7Ref.current, { x: 0 }, {
-                x: -handMovement,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section4Ref.current,
-                    start: "bottom bottom",
-                    end: "bottom 60%",
-                    scrub: true
-                }
-            });
-
-            gsap.fromTo(vogue8Ref.current, { x: 0 }, {
-                x: handMovement,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section4Ref.current,
-                    start: "bottom bottom",
-                    end: "bottom 60%",
-                    scrub: true
-                }
-            });
-        }
-
-        if (section6Ref.current) {
-            gsap.set([vogue3Ref.current, vogue4Ref.current], { opacity: 0, y: 100 });
-
-            ScrollTrigger.create({
-                trigger: section6Ref.current,
-                start: "top 95%",
-                end: "bottom 5%",
-                onEnter: () => {
-                    gsap.to([vogue3Ref.current, vogue4Ref.current], { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" });
-                },
-                onLeave: () => {
-                    gsap.to([vogue3Ref.current, vogue4Ref.current], { opacity: 0, duration: 0.3 });
-                },
-                onEnterBack: () => {
-                    gsap.to([vogue3Ref.current, vogue4Ref.current], { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" });
-                },
-                onLeaveBack: () => {
-                    gsap.to([vogue3Ref.current, vogue4Ref.current], { opacity: 0, duration: 0.3 });
-                }
-            });
-        }
-
-        // Rickshaw animations removed
-
-        // Scroll reveal animations removed
-
-        if (section8Ref.current) {
-            gsap.set([vogue5Ref.current, vogue6Ref.current], { opacity: 0, y: 100 });
-
-            ScrollTrigger.create({
-                trigger: section8Ref.current,
-                start: "top 95%",
-                end: "bottom 5%",
-                onEnter: () => {
-                    gsap.to([vogue5Ref.current, vogue6Ref.current], { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" });
-                },
-                onLeave: () => {
-                    gsap.to([vogue5Ref.current, vogue6Ref.current], { opacity: 0, duration: 0.3 });
-                },
-                onEnterBack: () => {
-                    gsap.to([vogue5Ref.current, vogue6Ref.current], { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" });
-                },
-                onLeaveBack: () => {
-                    gsap.to([vogue5Ref.current, vogue6Ref.current], { opacity: 0, duration: 0.3 });
-                }
-            });
-        }
+                gsap.to(right, {
+                    x: movement,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: triggerSection,
+                        start: "bottom bottom",
+                        end: "bottom 40%",
+                        scrub: true
+                    }
+                });
+            }
+        });
 
         return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-        }
-    }, [])
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, []);
 
     useLayoutEffect(() => {
         const handleResize = () => { ScrollTrigger.refresh() }
@@ -286,11 +222,11 @@ function OurTeam() {
     }, [])
 
     const sections = getSections({
-        section1Ref, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, section7Ref, section8Ref,
-        banner1Ref, banner2Ref, banner3Ref, banner4Ref, banner6Ref, banner7Ref, banner8Ref,
+        section1Ref, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, section7Ref, section8Ref, section9Ref,
+        banner1Ref, banner2Ref, banner3Ref, banner4Ref, banner6Ref, banner7Ref, banner8Ref, banner9Ref,
         vogue1Ref, vogue2Ref, vogue3Ref, vogue4Ref, vogue5Ref, vogue6Ref, vogue7Ref, vogue8Ref,
-        lanternLeftRef, lanternRightRef, lanternLeftSponsorRef, lanternRightSponsorRef,
-        rickshawLeftRef, rickshawRightRef, rickshawLeft7Ref, rickshawRight7Ref
+        lanternLeftRef, lanternRightRef, lanternLeftSponsorRef, lanternRightSponsorRef, lanternLeftOperationalRef, lanternRightOperationalRef,
+        rickshawLeftRef, rickshawRightRef, rickshawLeft7Ref, rickshawRight7Ref, rickshawLeft9Ref, rickshawRight9Ref
     })
 
     return (
@@ -305,6 +241,7 @@ function OurTeam() {
                     showHeader={section.showHeader}
                     vogueHands={section.vogueHands}
                     extraClasses={section.extraClasses}
+                    cardHeight={section.cardHeight}
                 >
                     {section.content}
                 </PageSection>

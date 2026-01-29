@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "Rumble Brave";
-  src: url("./assets/fonts/RumbleBrave.ttf") format("truetype");
+  src: url("./fonts/Rumble_brave/Rumble Brave.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
