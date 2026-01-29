@@ -213,7 +213,7 @@ const EventLanding = () => {
 
     return (
         <div
-            className='w-full h-dvh overflow-x-hidden overflow-y-hidden flex items-center justify-center duration-300 p-[1vh] md:p-[2vh] lg:p-[2vh] xl:p-[3vh]'
+            className='w-full h-screen overflow-x-hidden overflow-y-hidden flex items-center justify-center duration-300 p-1'
             style={{ backgroundColor: border }}
         >
             <div

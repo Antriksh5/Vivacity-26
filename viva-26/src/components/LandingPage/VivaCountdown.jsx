@@ -63,8 +63,8 @@ const VivaCountdown = () => {
                     </div>
 
                     <div className="nav-center">
-                        <a href="#home">HOME</a>
-                        <a href="#events">EVENTS</a>
+                        <Link to="/">HOME</Link>
+                        <Link to="/events">EVENTS</Link>
                         <div className="nav-dropdown-wrapper">
                             <a href="#sponsers" className="dropdown-trigger">SPONSORS</a>
                             <div className="nav-dropdown">
@@ -91,8 +91,8 @@ const VivaCountdown = () => {
                     {/* Mobile Navigation Overlay */}
                     <div className={`mobile-nav-overlay ${menuOpen ? 'active' : ''}`}>
                         <div className="mobile-nav-links">
-                            <a href="#home" onClick={toggleMenu}>HOME</a>
-                            <a href="#events" onClick={toggleMenu}>EVENTS</a>
+                            <Link to="/" onClick={toggleMenu}>HOME</Link>
+                            <Link to="/events" onClick={toggleMenu}>EVENTS</Link>
                             <div className="mobile-dropdown-container">
                                 <span className="mobile-dropdown-title">SPONSORS</span>
                                 <div className="mobile-dropdown-options">

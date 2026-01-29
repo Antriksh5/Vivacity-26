@@ -230,12 +230,12 @@ const PastArtists = () => {
 
     return (
         <div
-            className='p-2 sm:p-3 md:p-4 w-full h-auto transition-colors duration-300'
+            className='w-full h-screen overflow-hidden flex justify-center items-center p-1 transition-colors duration-300'
             style={{ backgroundColor: border }}
         >
 
             <div
-                className='relative w-full min-h-[60vh] md:min-h-[70vh] stamp-border-past p-5 md:p-7 flex flex-col'
+                className='relative w-full max-w-[100vw] h-[calc(100vh-2rem)] max-h-[100vh] stamp-border-past p-5 md:p-7 flex flex-col box-border'
                 style={{ '--stamp-color': border, backgroundColor: '#787E3C' }}
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
@@ -250,10 +250,10 @@ const PastArtists = () => {
                         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-40"
                     />
 
-                    <div className="relative z-10 flex flex-col items-center py-4 md:py-8 w-full h-full">
+                    <div className="relative z-10 flex flex-col items-center py-2 md:py-4 w-full h-full">
 
                         <h1
-                            className="rumble-brave text-4xl sm:text-6xl md:text-8xl mb-8 z-20 relative text-center tracking-wider"
+                            className="rumble-brave text-5xl sm:text-6xl md:text-8xl mb-[6vh] lg:mb-[10vh] z-20 relative text-center tracking-wider"
                             style={{
                                 color: '#FFD900',
                                 textShadow: '3px 3px 0px #FF8000, 6px 6px 0px rgba(0,0,0,0.2)'

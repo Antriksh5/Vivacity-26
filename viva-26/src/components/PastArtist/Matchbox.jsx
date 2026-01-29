@@ -38,7 +38,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
     }, [delay, isOpen]);
 
     return (
-        <div ref={containerRef} className="relative w-full max-w-[14rem] sm:max-w-[16rem] md:max-w-[18rem] h-[19rem] sm:h-[30rem] flex justify-center shrink-0 transition-all duration-300">
+        <div ref={containerRef} className="relative w-full max-w-[13rem] sm:max-w-[14rem] md:max-w-[16rem] h-[21rem] sm:h-[22rem] md:h-[26rem] flex justify-center shrink-0 transition-all duration-300">
             <div
                 ref={trayRef}
                 className="absolute w-full h-[50%] top-0 z-0 flex items-end justify-center pb-4"
