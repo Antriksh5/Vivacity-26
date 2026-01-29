@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+.about-section {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  /* Changed to transparent to let AboutTheme bg show if needed */
+  padding: 2rem;
+  overflow: visible;
+}
+
+.bg-about-stamp-wrapper {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-about-stamp {
+  width: 90%;
+  height: 85vh;
+  max-height: 900px;
+  object-fit: contain;
+}
+
+.purple-stamp-container {
+  width: 100%;
+  max-width: 1600px;
+  height: 85vh;
+  max-height: 950px;
+  min-height: auto;
+  /* Increased height */
+  /* Removed background-color to remove pink border */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.content-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card {
+  width: 100%;
+  /* Maximize width */
+  height: 100%;
+  /* Maximize height */
+  background-size: 100% 100%;
+  /* Keep stretched to container */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 5%;
+  overflow: visible;
+}
+
+.title-wrapper {
+  width: 60%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.about-title-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.text-content {
+  max-width: 850px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.text-content p {
+  font-family: 'Public Sans', 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.6rem);
+  line-height: 1.5;
+  color: #4a2c2a;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.hanging-decor {
+  display: none;
+  position: absolute;
+  top: 5%;
+  width: 150px;
+  z-index: 20;
+}
+
+.hanging-decor.left {
+  left: 12%;
+}
+
+.hanging-decor.right {
+  right: 13.5%;
+}
+
+.nimbu-mirchi {
+  width: 100%;
+  height: auto;
+  animation: swing 3s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+@keyframes swing {
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(5deg);
+  }
+}
+
+.decorative-hand {
+  display: none;
+  position: absolute;
+  bottom: 18%;
+  width: 240px;
+  z-index: 15;
+}
+
+.hand-left {
+  left: 10%;
+  transform: rotate(-23deg);
+}
+
+.hand-right {
+  right: 10%;
+  transform: rotate(23deg);
+}
+
+.bottom-character {
+  display: none;
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  z-index: 25;
+}
+
+.uncle-img {
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .text-content p {
+    font-size: clamp(0.9rem, 1.5vw, 1.4rem);
+  }
+
+  .title-wrapper {
+    width: 80%;
+  }
+
+  .decorative-hand {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 0;
+    height: 100vh;
+    background-color: transparent;
+  }
+
+  .purple-stamp-container {
+    height: 100vh;
+    max-height: none;
+    padding: 0;
+  }
+
+  .bg-about-stamp-wrapper {
+    display: flex;
+    width: 110%;
+    height: 115%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .bg-about-stamp {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill;
+    /* Use fill for the stamp effect on mobile */
+    object-position: center;
+  }
+
+  .content-container {
+    width: 60%;
+    height: 55%;
+    border-radius: 0;
+    z-index: 2;
+  }
+
+  .about-card {
+    padding: 4rem 1.5rem;
+    justify-content: flex-start;
+    background-image: url('../../assets/landingPage/aboutBgPhn.png');
+    background-size: 100% 100%;
+  }
+
+  .title-wrapper {
+    width: 90%;
+    margin-bottom: 2.5rem;
+    margin-top: 5%;
+  }
+
+  .text-content {
+    width: 100%;
+    padding: 0 5%;
+  }
+
+  .text-content p {
+    font-size: clamp(1rem, 4.5vw, 1.25rem);
+    line-height: 1.6;
+    color: #4a2c2a;
+    font-weight: 700;
+  }
+
+  .hanging-decor {
+    width: 60px;
+    top: 2%;
+  }
+
+  .hanging-decor.left {
+    left: 10%;
+  }
+
+  .hanging-decor.right {
+    right: 10%;
+  }
+
+  .decorative-hand {
+    width: 120px;
+    bottom: 12%;
+  }
+
+  .hand-left {
+    left: 0%;
+    transform: rotate(-15deg);
+  }
+
+  .hand-right {
+    right: 0%;
+    transform: rotate(15deg);
+  }
+
+  .bottom-character {
+    width: 140px;
+    bottom: 2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    width: 55%;
+    height: 50%;
+  }
+
+  .about-card {
+    padding: 3.5rem 1rem;
+  }
+
+  .title-wrapper {
+    margin-top: 5%;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-content p {
+    font-size: 0.85rem;
+    /* Slightly smaller text */
+    line-height: 1.3;
+  }
+
+  .decorative-hand {
+    width: 80px;
+    /* Scaled down */
+    bottom: 12%;
+  }
+
+  .bottom-character {
+    width: 70px;
+    /* Scaled down */
+  }
+}

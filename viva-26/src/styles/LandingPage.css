@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+/* Global Reset for Fullscreen Landing Page */
+html,
+body,
+#root {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 100%;
+    max-width: 100% !important;
+    overflow-x: hidden;
+}
+
+.landing-page-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1a0b2e;
+    position: relative;
+    isolation: isolate;
+    /* Creates a new stacking context for its children */
+}
+
+.transition-container {
+    position: relative;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a0b2e;
+    overflow: hidden;
+    z-index: 9999;
+    /* Massive z-index to stay above everything else */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .transition-container {
+        margin-top: 0 !important;
+    }
+}
+
+.reveal-container {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+}
+
+.reveal-item {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    margin-top: 0vh;
+    /* Aligned with gate assembly */
+    z-index: 2;
+}
+
+.static-bg {
+    opacity: 1 !important;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.reveal-item[style*="opacity: 1"],
+.reveal-item[style*="opacity: 0.9"],
+.reveal-item[style*="opacity: 0.8"] {
+    pointer-events: auto;
+}
+
+.stamp-assembly {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    /* Absolute highest priority */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+
+
+.door-canvas-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.gate-visual {
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    transform-origin: center center;
+    image-rendering: high-quality;
+    display: block !important;
+    /* Removed initial transform here as it will be managed by GSAP for precision */
+}
+
+@media (max-width: 768px) {
+    .gate-visual {
+        height: 120vh !important;
+        /* Increased height to cover cream borders on small screens */
+        object-fit: cover !important;
+    }
+}
+
+.zoom-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, #1a0b2e 100%);
+    z-index: 15;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.shared-info-card {
+    width: 90%;
+    max-width: 1400px;
+    height: 85vh;
+    max-height: 900px;
+    position: relative;
+    /* Center it */
+    display: grid;
+    place-items: center;
+    /* Shared Background Styles */
+    background: linear-gradient(180deg, #841457 0%, #DA2828 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.shared-info-card>* {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+}
+
+.card-frame {
+    width: 90% !important;
+    height: 90% !important;
+    pointer-events: none;
+    z-index: 20;
+    align-self: center;
+    justify-self: center;
+    object-fit: fill;
+}
+
+.info-content-layer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+}
+
+/* Ensure inner components fit */
+.info-content-layer>section {
+    width: 100%;
+    height: 100%;
+    background: transparent !important;
+    padding: 0 !important;
+}

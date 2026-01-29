@@ -1,0 +1,184 @@
+.about-theme-section {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    /* Reduced top padding to shift section up */
+    background-color: #FDDEC0;
+    position: relative;
+    z-index: 10;
+}
+
+.theme-stamp-container {
+    position: relative;
+    width: 100%;
+    max-width: 1800px;
+    height: 95vh;
+    max-height: 1100px;
+    min-height: auto;
+    background-image: var(--desktop-bg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: 52% center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 5%;
+}
+
+.theme-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-border-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    max-width: 7000px;
+    max-height: 8000px;
+    object-fit: contain;
+}
+
+.bg-about-img {
+    width: 105%;
+    height: 105%;
+    max-width: 9000px;
+    max-height: 9000px;
+    left: 52%;
+}
+
+.theme-border-large {
+    width: 110%;
+    height: 110%;
+    max-width: 9000px;
+    max-height: 9000px;
+}
+
+.mobile-theme-border {
+    display: none;
+}
+
+.theme-text-overlay {
+    position: absolute;
+    top: 45%;
+    /* Shifted up to center better on screen */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding-top: 0;
+}
+
+.theme-title-wrapper {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 1.2rem;
+}
+
+.theme-title-img {
+    width: 100%;
+    height: auto;
+    /* Apply filter if the source image is black and we want it white as per the reference design */
+    filter: brightness(0) invert(1);
+}
+
+.theme-description {
+    color: #ffffff;
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    line-height: 1.4;
+    font-family: 'Public Sans', 'Inter', sans-serif;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    max-width: 450px;
+}
+
+@media (max-width: 1024px) {
+    .theme-text-overlay {
+        width: 60%;
+    }
+
+    .theme-description {
+        font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-theme-section {
+        padding: 50px 10px;
+    }
+
+    .theme-stamp-container {
+        width: 90vw;
+        height: 90vh;
+        background-image: var(--mobile-bg);
+        background-size: 100% 100%;
+        margin-top: -2vh;
+        margin-left: 0;
+    }
+
+    .desktop-theme-border,
+    .bg-about-img {
+        display: none;
+    }
+
+    .mobile-theme-border {
+        display: block;
+        width: 86% !important;
+        height: 88% !important;
+        top: 51% !important;
+        left: 50.5% !important;
+    }
+
+    .theme-text-overlay {
+        width: 80vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* Balanced centering for rotated state */
+    }
+
+    .theme-title-wrapper {
+        margin-bottom: 1rem;
+    }
+
+    .theme-title-img {
+        width: 70%;
+        /* Reduced size for aboutTheme.png on mobile */
+        margin: 0 auto;
+        /* Center it */
+        display: block;
+    }
+
+    .theme-description {
+        font-size: clamp(0.7rem, 3vw, 0.8rem);
+        /* Reduced from 0.8rem/0.9rem */
+        line-height: 1.4;
+        max-width: 200px;
+        /* Forced wrapping into 3-4 lines */
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Rotation maintained from 768px query */
+}
