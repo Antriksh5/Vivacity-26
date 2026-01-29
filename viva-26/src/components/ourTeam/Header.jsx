@@ -35,14 +35,14 @@ const Header = () => {
 
     return (
         <>
-            <header className="w-full flex flex-row justify-between items-center z-[110] max-[360px]:pt-10 pt-6 min-[370px]:max-[450px]:pt-[45px] min-[451px]:pt-14 md:pt-[65px] lg:pt-20 max-[360px]:px-8 px-6 min-[370px]:max-[450px]:px-[45px] min-[451px]:px-12 md:px-[65px] lg:px-20 xl:px-24 2xl:px-32 relative">
-                <div className="flex-shrink-0 z-50 relative mt-4 sm:mt-6 md:mt-0 -translate-x-[2px] md:-translate-x-[5px] -translate-y-[3px] md:-translate-y-[8px]">
+            <header className="w-full flex flex-row justify-between items-center z-[110] max-[360px]:pt-8 pt-7 min-[370px]:max-[450px]:pt-9 min-[451px]:pt-10 md:pt-12 lg:pt-14 max-[360px]:px-8 px-6 min-[370px]:max-[450px]:px-[45px] min-[451px]:px-12 md:px-[65px] lg:px-20 xl:px-24 2xl:px-32 relative">
+                <div className="flex-shrink-0 z-50 relative mt-2 sm:mt-2.5 md:mt-3 -translate-x-[2px] md:-translate-x-[5px] -translate-y-[3px] md:-translate-y-[8px]">
                     <Link to="/">
                         <img src={vivaLogo} alt="Vivacity'26 Logo" className="w-[36vw] max-[630px]:w-[30vw] max-[390px]:w-[24vw] sm:w-[26vw] md:w-[24vw] lg:w-[22vw] xl:w-[16vw] 2xl:w-[14vw] h-auto transition-all" />
                     </Link>
                 </div>
 
-                <nav className="hidden lg:flex items-center gap-4 lg:gap-6 xl:gap-8 pt-0 -mt-4 md:-mt-6 lg:-mt-10 mr-0">
+                <nav className="hidden lg:flex items-center gap-4 lg:gap-6 xl:gap-8 pt-0 -mt-4 md:-mt-6 lg:-mt-10 ml-auto mr-0">
                     <Link to="/home" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</Link>
                     <Link to="/events" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</Link>
 
