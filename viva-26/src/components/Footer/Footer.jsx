@@ -46,8 +46,8 @@ const Footer = () => {
 
                     <div className="footer-queries">
                         <p className="query-title">FOR FURTHER QUERIES,</p>
-                        <p className="query-contact">VEDANT WADHWA : <span className="phone">+91 XXXXX XXXXX</span></p>
-                        <p className="query-contact">VEDANG DIXIT : <span className="phone">+91 XXXXX XXXXX</span></p>
+                        <p className="query-contact">VEDANT WADHWA : <span className="phone">+91 98977 74430</span></p>
+                        <p className="query-contact">VEDANG DIXIT : <span className="phone">+91 82909 56788</span></p>
                     </div>
                 </div>
             </div>
