@@ -43,30 +43,12 @@ const Header = () => {
                 </div>
 
                 <nav className="hidden min-[1400px]:flex items-center gap-4 min-[1400px]:gap-6 xl:gap-8 pt-0 -mt-4 md:-mt-6 min-[1400px]:-mt-10 ml-auto mr-0">
-                    <Link to="/home" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] min-[1400px]:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</Link>
-                    <Link to="/events" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] min-[1400px]:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</Link>
+                    <Link to="/home" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</Link>
+                    <Link to="/events" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</Link>
+                    <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</Link>
+                    <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">VIBE CARD</Link>
+                    <Link to="/registration" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors border border-[#3d1c10] px-4 py-1.5 rounded-full hover:bg-[#3d1c10] hover:text-[#f7d0ab]">REGISTER</Link>
 
-                    {/* Sponsors Dropdown */}
-                    <div
-                        className="relative group py-2"
-                        onMouseEnter={() => setSponsorsOpen(true)}
-                        onMouseLeave={() => setSponsorsOpen(false)}
-                    >
-                        <button className="no-underline text-[#3d1c10] font-medium text-[0.65rem] min-[1400px]:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors flex items-center gap-1 uppercase">
-                            Sponsors
-                            <svg className={`w-2.5 h-2.5 transition-transform duration-300 ${sponsorsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div className={`absolute top-full left-0 mt-1 w-40 bg-[#f7d0ab] shadow-lg rounded-md overflow-hidden transition-all duration-300 origin-top z-[120] ${sponsorsOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
-                            <Link to="/coming-soon" className="block px-4 py-2.5 text-[0.65rem] min-[1400px]:text-[0.75rem] font-medium text-[#3d1c10] hover:bg-[#eec29a] hover:text-[#9E5D47] transition-colors tracking-wider">FOOD MENU</Link>
-                            <Link to="/coming-soon" className="block px-4 py-2.5 text-[0.65rem] min-[1400px]:text-[0.75rem] font-medium text-[#3d1c10] hover:bg-[#eec29a] hover:text-[#9E5D47] transition-colors tracking-wider border-t border-[#eec29a]">VIBE CARD</Link>
-                        </div>
-                    </div>
-
-                    <Link to="/our-team" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] min-[1400px]:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors">OUR TEAM</Link>
-                    <Link to="/registration" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] min-[1400px]:text-[0.75rem] xl:text-[0.85rem] tracking-wider hover:text-[#9E5D47] transition-colors border border-[#3d1c10] px-3 py-1 rounded-full hover:bg-[#3d1c10] hover:text-[#f7d0ab]">REGISTER</Link>
                 </nav>
 
                 <div className="min-[1400px]:hidden z-50 relative mt-4 sm:mt-6 md:mt-0">
@@ -80,17 +62,14 @@ const Header = () => {
 
             <div ref={menuRef} className="absolute inset-0 bg-[#f7d0ab] z-[100] flex flex-col justify-center items-end min-[1400px]:hidden pr-10 sm:pr-20 pointer-events-none opacity-0">
                 <nav ref={linksRef} className="flex flex-col gap-6 text-right pointer-events-auto">
-                    <Link to="/home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">HOME</Link>
-                    <Link to="/events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">EVENTS</Link>
+                    <Link to="/home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">HOME</Link>
+                    <Link to="/events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">EVENTS</Link>
 
-                    <div className="flex flex-col gap-4">
-                        <span className="text-[#3d1c10] opacity-50 font-medium text-[10px] sm:text-xs tracking-[0.4em] uppercase">Sponsors</span>
-                        <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 pr-2">FOOD MENU</Link>
-                        <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 pr-2">VIBE CARD</Link>
-                    </div>
+                    <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">SPONSORS</Link>
+                    <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">VIBE CARD</Link>
 
-                    <Link to="/our-team" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">OUR TEAM</Link>
-                    <Link to="/registration" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">REGISTER</Link>
+                    <Link to="/registration" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">REGISTER</Link>
+
                 </nav>
             </div>
         </>

@@ -134,7 +134,7 @@ const VivaCountdown = () => {
                                 </div>
                                 <div className="timer-flip-back">
                                     <div className="timer-overlay">
-                                        <h2 className="timer-title">Sponsored By :</h2>
+                                        <h2 className="timer-title">Tech Partner</h2>
                                         <img src={tediuxLogo} alt="Tediux Logo" className="tediux-sponsor-logo" />
                                     </div>
                                 </div>

@@ -27,13 +27,8 @@ const Navbar = () => {
                 <div className="navbar-links">
                     <Link to="/home" className="nav-link">HOME</Link>
                     <Link to="/events" className="nav-link">EVENTS</Link>
-                    <div className="dropdown">
-                        <span className="nav-link">SPONSORS</span>
-                        <div className="dropdown-content">
-                            <Link to="/coming-soon" className="dropdown-item">FOOD MENU</Link>
-                            <Link to="/coming-soon" className="dropdown-item">VIBE CARD</Link>
-                        </div>
-                    </div>
+                    <Link to="/coming-soon" className="nav-link">SPONSORS</Link>
+                    <Link to="/coming-soon" className="nav-link">VIBE CARD</Link>
                     <Link to="/our-team" className="nav-link">OUR TEAM</Link>
                 </div>
 
@@ -53,11 +48,8 @@ const Navbar = () => {
             <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
                 <Link to="/home" className="mobile-nav-link" onClick={closeMenu}>HOME</Link>
                 <Link to="/events" className="mobile-nav-link" onClick={closeMenu}>EVENTS</Link>
-                <div className="mobile-dropdown">
-                    <span className="mobile-nav-link disabled">SPONSORS</span>
-                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>FOOD MENU</Link>
-                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>VIBE CARD</Link>
-                </div>
+                <Link to="/coming-soon" className="mobile-nav-link" onClick={closeMenu}>SPONSORS</Link>
+                <Link to="/coming-soon" className="mobile-nav-link" onClick={closeMenu}>VIBE CARD</Link>
                 <Link to="/our-team" className="mobile-nav-link" onClick={closeMenu}>OUR TEAM</Link>
             </div>
 

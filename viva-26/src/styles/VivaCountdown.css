@@ -318,7 +318,7 @@
 
 .timer-title {
     font-family: 'Rum Raisin', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 3.5rem);
+    font-size: clamp(0.9rem, 2.2vw, 2.5rem);
     /* Reduced size for full screen */
     color: #8b0000;
     margin: 0;
@@ -356,14 +356,14 @@
 .timer-item .label {
     font-family: 'Rum Raisin', sans-serif;
     color: #c98c3e;
-    font-size: clamp(0.7rem, 1.8vw, 2.2rem);
+    font-size: clamp(0.5rem, 1.3vw, 1.6rem);
     /* Reduced size for full screen */
     line-height: 1.2;
 }
 
 .timer-item .val {
     font-family: 'Rum Raisin', sans-serif;
-    font-size: clamp(1.8rem, 5vw, 5rem);
+    font-size: clamp(1.4rem, 3.8vw, 4rem);
     /* Reduced size for full screen */
     color: #c98c3e;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -372,7 +372,7 @@
 
 .timer-display .sep {
     font-family: 'Rum Raisin', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 3.5rem);
+    font-size: clamp(0.9rem, 2.2vw, 2.5rem);
     /* Reduced size for full screen */
     color: #c98c3e;
     margin-top: 1.5rem;

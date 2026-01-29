@@ -15,7 +15,7 @@
 .bg-about-stamp-wrapper {
   position: absolute;
   top: 50%;
-  left: 56%;
+  left: 54%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
@@ -249,50 +249,52 @@
     width: 110%;
     height: 115%;
     position: absolute;
-    top: 50%;
-    left: 30%;
+    top: 38%;
+    left: 32%;
     transform: translate(-50%, -50%);
     z-index: 1;
   }
 
   .bg-about-stamp {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: fill;
-    /* Use fill for the stamp effect on mobile */
+    width: 120% !important;
+    height: 110% !important;
+    object-fit: contain;
     object-position: center;
   }
 
   .content-container {
-    width: 60%;
-    height: 55%;
+    width: 90%;
+    height: 65%;
     border-radius: 0;
     z-index: 2;
+    position: relative;
+    top: -5%;
+    left: 2%;
   }
 
   .about-card {
-    padding: 4rem 1.5rem;
-    justify-content: flex-start;
+    padding: 3rem 1rem;
+    justify-content: center;
     background-image: url('../../assets/landingPage/aboutBgPhn.png');
     background-size: 100% 100%;
   }
 
   .title-wrapper {
-    width: 95%;
-    max-width: 400px;
-    margin-bottom: 2rem;
-    margin-top: 3%;
+    width: 85%;
+    max-width: 350px;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
   }
 
   .text-content {
     width: 100%;
-    max-width: 550px;
-    padding: 0 8%;
+    max-width: 600px;
+    padding: 0 10%;
   }
 
   .text-content p {
-    font-size: clamp(0.95rem, 3.5vw, 1.2rem);
-    line-height: 1.65;
+    font-size: clamp(0.85rem, 4vw, 1.1rem);
+    line-height: 1.5;
     color: #4a2c2a;
     font-weight: 700;
   }
@@ -333,12 +335,12 @@
 
 @media (max-width: 480px) {
   .content-container {
-    width: 55%;
-    height: 50%;
+    width: 100%;
+    height: 60%;
   }
 
   .about-card {
-    padding: 3.5rem 1rem;
+    padding: 2rem 0.5rem;
   }
 
   .title-wrapper {
@@ -354,8 +356,8 @@
   }
 
   .text-content p {
-    font-size: clamp(0.75rem, 3vw, 0.9rem);
-    line-height: 1.4;
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    line-height: 1.5;
   }
 }
 
@@ -372,8 +374,8 @@
   }
 
   .text-content p {
-    font-size: clamp(0.7rem, 2.8vw, 0.85rem);
-    line-height: 1.35;
+    font-size: clamp(0.8rem, 3.2vw, 0.95rem);
+    line-height: 1.4;
   }
 
   .decorative-hand {

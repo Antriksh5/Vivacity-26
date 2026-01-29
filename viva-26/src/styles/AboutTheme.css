@@ -39,7 +39,7 @@
 
 .theme-border-img {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -145,7 +145,7 @@
         display: block;
         width: 86% !important;
         height: 88% !important;
-        top: 51% !important;
+        top: 53% !important;
         left: 50.5% !important;
     }
 
