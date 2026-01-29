@@ -27,7 +27,7 @@ const MascotLanding = () => {
   }, []);
 
   return (
-    <section className="mascot-section bg-[#f4b183]">
+    <section className="mascot-section bg-[#FDDEC0]">
 
       {/* ✅ STAMP BORDER WRAPPER (ADDED ONLY) */}
       <div className="mascot-stamp">

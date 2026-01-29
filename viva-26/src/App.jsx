@@ -7,6 +7,7 @@ import Team from './pages/Team.jsx'
 import MascotLanding from './pages/mascotLanding.jsx';
 import EventLanding from './pages/EventLanding.jsx'
 import Legacy from './pages/Legacy.jsx'
+import Landing from './pages/Landing.jsx'
 
 function App() {
     return (
@@ -20,8 +21,10 @@ function App() {
             <Route path="/legacy" element={<Legacy />} />
             <Route path="/eventLanding" element={<EventLanding />} />
             <Route path="/mascot" element={<MascotLanding />} />
+            <Route path="/landing" element={<Landing />} />
         </Routes>
     )
 }
 
 export default App
+

@@ -157,10 +157,10 @@
     /* Adjusted to be over the central purple TV */
     left: 51%;
     /* Align with the TV screen */
-    transform: translate(-47%, -52%);
-    width: 35%;
+    transform: translate(-45%, -53%);
+    width: 24%;
     /* Estimated width to fit inside the screen */
-    height: 47%;
+    height: 32%;
     z-index: 1;
     /* Behind text if they overlap, or on top? TV screen is usually behind text. */
 }
@@ -178,12 +178,12 @@
 
 .legacy-gif-green {
     position: absolute;
-    top: 25%;
+    top: 31%;
     /* Est: Top Left */
     left: 25%;
-    transform: translate(-50%, -50%);
-    width: 30%;
-    height: auto;
+    transform: translate(-47%, -50%);
+    width: 21%;
+    height: 25%;
     z-index: 1;
 }
 
