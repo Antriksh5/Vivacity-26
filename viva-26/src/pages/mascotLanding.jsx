@@ -26,58 +26,47 @@ const MascotLanding = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <section
-      className="mascot-section"
-      style={{ backgroundImage: `url(${backgroundImg})` }}
-    >
-      <div className="mascot-outer">
-        <div className="mascot-inner-bg">
+return (
+  <section className="mascot-section">
+    <div className="mascot-outer">
+      <div
+        className="mascot-inner-bg"
+        style={{ backgroundImage: `url(${backgroundImg})` }}
+      >
 
-          {/* LEFT : Mascot Card */}
-          <div className="mascot-left">
+        <div className="mascot-left">
+          <video
+            className="mascot-video"
+            src={mascotVideo}
+            autoPlay
+            muted
+            playsInline
+          />
 
-            {/* VIDEO */}
-            <video
-              className="mascot-video"
-              src={mascotVideo}
-              autoPlay
-              muted
-              playsInline
-            />
-
-            {/* IMAGE */}
-            <img
-              className="mascot-image"
-              src={mascotImage}
-              alt="Mascot Final"
-              style={{ opacity: 0 }}
-            />
-
-          </div>
-
-          {/* RIGHT TOP : Title Card */}
-          <div className="mascot-right-top">
-            <div className="mascot-title">
-              <span>MEET</span>
-              <span>OUR</span>
-              <span>MASCOT</span>
-            </div>
-          </div>
-
-          {/* RIGHT BOTTOM : Logo Card */}
-          <div className="mascot-right-bottom">
-            <img
-              src={araLogo}
-              alt="Logo"
-              className="mascot-logo"
-            />
-          </div>
-
+          <img
+            className="mascot-image"
+            src={mascotImage}
+            alt="Mascot Final"
+            style={{ opacity: 0 }}
+          />
         </div>
+
+        <div className="mascot-right-top">
+          <div className="mascot-title">
+            <span>MEET</span>
+            <span>OUR</span>
+            <span>MASCOT</span>
+          </div>
+        </div>
+
+        <div className="mascot-right-bottom">
+          <img src={araLogo} alt="Logo" className="mascot-logo" />
+        </div>
+
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
 
 export default MascotLanding;
