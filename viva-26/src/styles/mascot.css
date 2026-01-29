@@ -1,180 +1,96 @@
+/* Mascot Landing Page Styles */
+
+/* Stamp border effect */
 .mascot-stamp {
   --stamp-color: #FDDEC0;
-  max-height: calc(100vh - 2rem);
-  padding: clamp(1.5rem, 3vw, 3.5rem);
-  border-radius: clamp(2rem, 4vw, 4.5rem);
   background-color: #c8643b;
+  border-radius: 40px;
   background-image:
     radial-gradient(circle at 50% 0%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px),
     radial-gradient(circle at 50% 100%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px),
     radial-gradient(circle at 0% 50%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px),
-    radial-gradient(circle at 100% 50%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px);
-  background-size: 44px 44px;
-  background-position: 0 0, 0 100%, 0 0, 100% 0;
-  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    radial-gradient(circle at 100% 50%, var(--stamp-color) 16px, #000000 16px, #000000 18px, transparent 19px),
+    linear-gradient(to bottom, #000000 2px, transparent 2px),
+    linear-gradient(to top, #000000 2px, transparent 2px),
+    linear-gradient(to right, #000000 2px, transparent 2px),
+    linear-gradient(to left, #000000 2px, transparent 2px);
+  background-size:
+    44px 44px, 44px 44px, 44px 44px, 44px 44px,
+    100% 44px, 100% 44px, 44px 100%, 44px 100%;
+  background-position:
+    0 0, 0 100%, 0 0, 100% 0,
+    0 0, 0 100%, 0 0, 100% 0;
+  background-repeat:
+    repeat-x, repeat-x, repeat-y, repeat-y,
+    no-repeat, no-repeat, no-repeat, no-repeat;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
 }
 
 /* Stamp inner border line */
 .mascot-stamp::after {
   content: "";
   position: absolute;
-  inset: clamp(1.2rem, 2.5vw, 2.8rem);
+  inset: clamp(1rem, 2.5vw, 2.5rem);
   border: 2px solid #9E5D47;
-  border-radius: clamp(1.5rem, 2.5vw, 3rem);
+  border-radius: clamp(1rem, 2vw, 2.5rem);
   pointer-events: none;
   z-index: 2;
 }
 
-/* Outer poster frame */
-.mascot-outer {
-  max-height: calc(100vh - 6rem);
-  height: calc(100vh - 6rem);
-  border-radius: clamp(1.5rem, 2.5vw, 2.8rem);
-  padding: clamp(0.8rem, 1.5vw, 1.6rem);
-  z-index: 3;
-}
+/* White inner border on outer container */
 
-/* White inner border */
-.mascot-outer::before {
-  content: "";
-  position: absolute;
-  inset: clamp(1rem, 2vw, 2.4rem);
-  border: 0.22rem solid #ffffff;
-  border-radius: clamp(1.2rem, 2vw, 2.2rem);
-  pointer-events: none;
-  z-index: 2;
-}
 
-/* Inner background area */
-.mascot-inner-bg {
-  inset: clamp(1rem, 2vw, 2.4rem);
-  border-radius: clamp(1.2rem, 2vw, 2.2rem);
-}
-
-/* Left container - responsive width (desktop only) */
-@media (min-width: 768px) {
-  .mascot-left {
-    width: clamp(22%, 30vw, 40%);
-    height: auto;
-    border-radius: clamp(1rem, 1.5vw, 1.7rem);
-  }
-}
-
-/* Right containers - responsive border radius */
-.mascot-right-top,
-.mascot-right-bottom {
-  border-radius: clamp(1rem, 1.4vw, 1.6rem);
-}
-
-/* White border on cards */
-.mascot-left::after,
-.mascot-right-top::after,
-.mascot-right-bottom::after {
+/* White border on right side cards only */
+.mascot-right-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  border: clamp(0.15rem, 0.4vw, 0.3rem) solid #ffffff;
+  border: 3px solid #ffffff;
   border-radius: inherit;
   pointer-events: none;
 }
 
 /* Title text styling */
-.mascot-title {
-  gap: clamp(0.1em, 0.5vh, 0.2em);
-  padding: clamp(0.3rem, 1vh, 0.5rem);
-}
-
 .mascot-title span {
   font-family: 'Lemon', cursive;
-  font-size: clamp(1.2rem, min(4.5vw, 5.5vh), 4rem);
-  -webkit-text-stroke: clamp(0.6px, 0.08vw, 1.4px) #ffffff;
-  text-stroke: clamp(0.6px, 0.08vw, 1.4px) #ffffff;
+  -webkit-text-stroke: 1.5px #ffffff;
+  text-stroke: 1.5px #ffffff;
+  color: transparent;
 }
 
-/* ===== MOBILE STYLES (max-width: 768px) ===== */
+/* Mobile adjustments to match PastArtist */
 @media (max-width: 768px) {
   .mascot-stamp {
+    background-size:
+      32px 32px, 32px 32px, 32px 32px, 32px 32px,
+      100% 32px, 100% 32px, 32px 100%, 32px 100%;
+
+    border-radius: 30px;
+
     background-image:
-      radial-gradient(circle at 50% 0%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px),
-      radial-gradient(circle at 50% 100%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px),
-      radial-gradient(circle at 0% 50%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px),
-      radial-gradient(circle at 100% 50%, var(--stamp-color) 12px, #000000 12px, #000000 14px, transparent 15px);
-    background-size: 36px 36px;
-    padding: clamp(1rem, 2.5vw, 2rem);
-  }
-}
+      radial-gradient(circle at 50% 0%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      radial-gradient(circle at 50% 100%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      radial-gradient(circle at 0% 50%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      radial-gradient(circle at 100% 50%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      linear-gradient(to bottom, #000000 2px, transparent 2px),
+      linear-gradient(to top, #000000 2px, transparent 2px),
+      linear-gradient(to right, #000000 2px, transparent 2px),
+      linear-gradient(to left, #000000 2px, transparent 2px);
 
-/* ===== SMALL MOBILE STYLES (max-width: 426px) ===== */
-@media (max-width: 426px) {
-  .mascot-outer {
-    aspect-ratio: 9 / 16;
-    padding: 0.8rem;
-    border-radius: 2rem;
-  }
-
-  .mascot-outer::before {
-    inset: 0.5rem;
-    border-radius: 1.4rem;
-  }
-
-  .mascot-inner-bg {
-    inset: 0.5rem;
-    border-radius: 1.4rem;
-    padding: 0.8rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 0.6rem;
-  }
-
-  .mascot-left,
-  .mascot-right-top,
-  .mascot-right-bottom {
-    position: relative !important;
-    inset: auto !important;
-    width: auto;
-    height: auto;
-  }
-
-  .mascot-right-top {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    aspect-ratio: 1 / 1;
-    border-radius: 1.4rem;
-  }
-
-  .mascot-right-bottom {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    aspect-ratio: 1 / 1;
-    border-radius: 1.4rem;
-  }
-
-  .mascot-left {
-    grid-column: 1 / -1;
-    grid-row: 2 / 3;
-  }
-
-  .mascot-video,
-  .mascot-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .mascot-image {
-    transform: scale(1.085);
+    background-repeat:
+      repeat-x, repeat-x, repeat-y, repeat-y,
+      no-repeat, no-repeat, no-repeat, no-repeat;
   }
 
   .mascot-title span {
-    font-size: clamp(0.9rem, 4.8vw, 1.35rem);
-    -webkit-text-stroke: 0.5px #ffffff;
+    -webkit-text-stroke: 1px #ffffff;
+    text-stroke: 1px #ffffff;
   }
+}
 
-  .mascot-right-bottom img {
-    width: 60%;
-    height: auto;
-  }
+@media (max-width: 480px) {
+  /* Inherits from 768px mostly, just keeping size strict if needed or can just rely on 768px */
 }

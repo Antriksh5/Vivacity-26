@@ -16,11 +16,11 @@ import "../styles/Team.css";
 const Team = () => {
   return (
     <div
-      className="py-10 px-4 w-full min-h-screen flex justify-center items-center"
+      className="px-1 w-full min-h-screen flex justify-center items-center"
       style={{ backgroundColor: "#FDDEC0" }}
     >
       <div
-        className="team-stamp-border w-full max-w-[1200px] mx-auto box-border"
+        className="team-stamp-border w-full max-w-[100vw] h-[calc(100vh-2rem)] max-h-[100vh] mx-auto box-border"
         style={{ "--stamp-color": "#FDDEC0" }}
       >
 
