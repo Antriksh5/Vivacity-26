@@ -58,6 +58,7 @@ const Registration = () => {
 
     const [showGif, setShowGif] = useState(true)
     const [showPng, setShowPng] = useState(false)
+    const [isZoomed, setIsZoomed] = useState(false)
     const [showSuccess, setShowSuccess] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
@@ -146,9 +147,15 @@ const Registration = () => {
             setShowGif(false)
         }, 1600)
 
+        // Start zoom animation after GIF finishes (for mobile)
+        const zoomTimer = setTimeout(() => {
+            setIsZoomed(true)
+        }, 1800)
+
         return () => {
             clearTimeout(timer)
             clearTimeout(pngTimer)
+            clearTimeout(zoomTimer)
         }
     }, [gifSrc])
 
@@ -270,13 +277,13 @@ const Registration = () => {
     }
 
     return (
-        <div className={`w-full ${isSmallScreen ? 'min-h-screen scroll-smooth overflow-y-auto overflow-x-auto' : (addedEvents.length > 0 ? 'min-h-screen overflow-y-auto' : 'h-screen overflow-hidden')} relative ${isVerySmallScreen ? 'pt-[80vh] pb-[50vh]' : (isSmallScreen ? 'pb-[50vh]' : '')}`}>
+        <div className={`w-full ${isSmallScreen ? 'min-h-screen scroll-smooth overflow-y-auto overflow-x-hidden' : (addedEvents.length > 0 ? 'min-h-screen overflow-y-auto' : 'h-screen overflow-hidden')} relative ${isVerySmallScreen ? 'pt-[10vh] pb-[20vh]' : (isSmallScreen ? 'pb-[50vh]' : '')}`}>
             <Navbar />
             <div className={`flex items-center justify-center w-full ${isSmallScreen ? 'min-h-screen' : 'h-screen'} relative z-0 flex-shrink-0`}>
                 <div
                     ref={doorRef}
                     className={`relative flex-shrink-0 flex items-center justify-center transform-gpu backface-hidden transition-all duration-300 ${isVerySmallScreen
-                        ? 'w-[400px] h-[550px]'
+                        ? 'w-[95vw] max-w-[400px] h-[85vh] max-h-[600px]'
                         : 'w-320 h-320'
                         }`}>
                     <img
