@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/mascot.css";
 
 // Assets
-import mascotImage from "../assets/MascotLanding/mascot-final.png";
+import mascotVideo from "../assets/MascotLanding/mascot-video.mp4";
 import araLogo from "../assets/MascotLanding/ara.png";
 import backgroundImg from "../assets/MascotLanding/background1.png";
 
@@ -29,11 +29,14 @@ const MascotLanding = () => {
             <div className="relative z-10 flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-12 lg:gap-10 xl:gap-10 w-full h-full justify-center items-center">
 
               {/* LEFT SIDE - Mascot (Bottom on Mobile) */}
-              <div className="relative w-full flex-1 md:h-[90%] md:w-[45%] lg:w-[40%]  rounded-xl sm:rounded-2xl flex justify-center items-center overflow-hidden order-2 md:order-1 min-h-0">
-                <img
-                  src={mascotImage}
-                  alt="Mascot"
-                  className="relative z-5 h-[95%] w-auto max-w-full object-contain"
+              <div className="relative w-full flex-1 md:h-[90%] md:w-[45%] lg:w-[40%]  rounded-xl sm:rounded-2xl flex justify-center items-center overflow-hidden order-2 md:order-1 min-h-0 ">
+                <video
+                  src={mascotVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="relative z-5 h-[95%] w-auto max-w-full object-contain border-4 border-[#fff]"
                 />
               </div>
 
