@@ -8,9 +8,9 @@ import backgroundImg from "../assets/MascotLanding/background1.png";
 
 const MascotLanding = () => {
   return (
-    <section className="w-full h-screen flex justify-center items-center p-3 bg-[#FDDEC0] overflow-hidden">
+    <section className="w-full h-screen flex justify-center items-center p-1 bg-[#FDDEC0] overflow-hidden">
       {/* STAMP BORDER WRAPPER */}
-      <div className="mascot-stamp relative w-full max-w-[100vw] h-[calc(100vh-2rem)] max-h-[700px] p-4 sm:p-4 md:p-5 lg:p-7 rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] ">
+      <div className="mascot-stamp relative w-full max-w-[100vw] h-[calc(100vh-2rem)] max-h-[100vh] p-4 sm:p-4 md:p-5 lg:p-7 rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] ">
 
         {/* OUTER CONTAINER */}
         <div className="mascot-outer relative w-full h-full rounded-xl sm:rounded-2xl md:rounded-3xl shadow-xl overflow-hidden">

@@ -61,15 +61,28 @@
   color: transparent;
 }
 
-/* Mobile adjustments */
+/* Mobile adjustments to match PastArtist */
 @media (max-width: 768px) {
   .mascot-stamp {
+    background-size:
+      32px 32px, 32px 32px, 32px 32px, 32px 32px,
+      100% 32px, 100% 32px, 32px 100%, 32px 100%;
+
+    border-radius: 30px;
+
     background-image:
-      radial-gradient(circle at 50% 0%, var(--stamp-color) 10px, #000000 10px, #000000 12px, transparent 13px),
-      radial-gradient(circle at 50% 100%, var(--stamp-color) 10px, #000000 10px, #000000 12px, transparent 13px),
-      radial-gradient(circle at 0% 50%, var(--stamp-color) 10px, #000000 10px, #000000 12px, transparent 13px),
-      radial-gradient(circle at 100% 50%, var(--stamp-color) 10px, #000000 10px, #000000 12px, transparent 13px);
-    background-size: 30px 30px;
+      radial-gradient(circle at 50% 0%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      radial-gradient(circle at 50% 100%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      radial-gradient(circle at 0% 50%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      radial-gradient(circle at 100% 50%, var(--stamp-color) 11px, #000000 11px, #000000 13px, transparent 14px),
+      linear-gradient(to bottom, #000000 2px, transparent 2px),
+      linear-gradient(to top, #000000 2px, transparent 2px),
+      linear-gradient(to right, #000000 2px, transparent 2px),
+      linear-gradient(to left, #000000 2px, transparent 2px);
+
+    background-repeat:
+      repeat-x, repeat-x, repeat-y, repeat-y,
+      no-repeat, no-repeat, no-repeat, no-repeat;
   }
 
   .mascot-title span {
@@ -79,12 +92,5 @@
 }
 
 @media (max-width: 480px) {
-  .mascot-stamp {
-    background-image:
-      radial-gradient(circle at 50% 0%, var(--stamp-color) 8px, #000000 8px, #000000 9px, transparent 10px),
-      radial-gradient(circle at 50% 100%, var(--stamp-color) 8px, #000000 8px, #000000 9px, transparent 10px),
-      radial-gradient(circle at 0% 50%, var(--stamp-color) 8px, #000000 8px, #000000 9px, transparent 10px),
-      radial-gradient(circle at 100% 50%, var(--stamp-color) 8px, #000000 8px, #000000 9px, transparent 10px);
-    background-size: 24px 24px;
-  }
+  /* Inherits from 768px mostly, just keeping size strict if needed or can just rely on 768px */
 }
