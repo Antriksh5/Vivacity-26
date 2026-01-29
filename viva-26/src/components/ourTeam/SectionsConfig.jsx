@@ -207,7 +207,7 @@ export const getSections = (refs) => {
                     </div>
                     <div className="mt-36 min-[370px]:max-[450px]:mt-28 min-[451px]:mt-32 sm:mt-34 md:mt-36 lg:mt-40 text-center max-w-[65vw] px-4 mb-10 sm:mb-20">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1000px] mx-auto" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
-                            TEAM MEMBERS - Laxita Bhimsaria, Garvita Joshi, Anushka Jain, Ishita Agrawal, Antriksh Nahar, Aditya Jakar, Anshul Agrawal
+                            TEAM MEMBERS - Laxita Bhimsaria, Garvita Joshi, Anushka Jain, Ishita Agarwal,Anshul Agarwal, Antriksh Nahar, Aditya Jakhar
                         </p>
                     </div>
                 </div>

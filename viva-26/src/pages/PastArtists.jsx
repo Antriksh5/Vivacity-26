@@ -255,7 +255,7 @@ const PastArtists = () => {
             >
                 <div className="stamp-inner-line-past z-30"></div>
 
-                <div className='relative w-full h-full rounded-[2rem] overflow-hidden flex flex-col grow z-20'>
+                <div className='relative w-full h-full rounded-[2rem] overflow-hidden flex flex-col grow z-20  sm:pt-10 md:pt-0'>
                     <img
                         src={BackgroundImage}
                         alt="Background"

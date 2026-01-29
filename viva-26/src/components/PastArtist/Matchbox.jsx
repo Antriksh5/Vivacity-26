@@ -13,10 +13,10 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
     // Dynamic font size based on name length
     const getNameFontSize = (name) => {
         const length = name.length;
-        if (length <= 6) return 'text-2xl sm:text-4xl'; // Very short names (e.g., "Kullu", "Ritviz")
-        if (length <= 10) return 'text-xl sm:text-3xl'; // Short names (e.g., "Asees Kaur")
-        if (length <= 14) return 'text-lg sm:text-2xl'; // Medium names (e.g., "Amit Trivedi")
-        return 'text-base sm:text-xl'; // Longer names (e.g., "Mohit Chauhan")
+        if (length <= 6) return 'text-4xl sm:text-4xl'; // Very short names (e.g., "Kullu", "Ritviz")
+        if (length <= 10) return 'text-3xl sm:text-3xl'; // Short names (e.g., "Asees Kaur")
+        if (length <= 14) return 'text-2xl sm:text-2xl'; // Medium names (e.g., "Amit Trivedi")
+        return 'text-xl sm:text-xl'; // Longer names (e.g., "Mohit Chauhan")
     };
 
     const {
@@ -38,7 +38,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
     }, [delay, isOpen]);
 
     return (
-        <div ref={containerRef} className="relative w-full max-w-[13rem] sm:max-w-[14rem] md:max-w-[16rem] h-[21rem] sm:h-[22rem] md:h-[26rem] flex justify-center shrink-0 transition-all duration-300">
+        <div ref={containerRef} className="relative w-full max-w-[13rem] sm:max-w-[14rem] md:max-w-[16rem] h-[32rem] sm:h-[22rem] md:h-[26rem] flex justify-center shrink-0 transition-all duration-300">
             <div
                 ref={trayRef}
                 className="absolute w-full h-[50%] top-0 z-0 flex items-end justify-center pb-4"
@@ -48,7 +48,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
                     backgroundRepeat: 'no-repeat',
                 }}
             >
-                <span className={`text-[#790000] rumble-brave ${getNameFontSize(artistName)} drop-shadow-md md:mb-1 uppercase font-[500] text-center px-2 leading-tight`}>{artistName}</span>
+                <span className={`text-[#790000] rumble-brave ${getNameFontSize(artistName)} drop-shadow-md mb-4 md:mb-1 uppercase font-[500] text-center px-2 leading-tight`}>{artistName}</span>
             </div>
 
             {/* Three-color border frame */}
