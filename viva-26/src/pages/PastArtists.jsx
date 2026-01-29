@@ -238,6 +238,17 @@ const PastArtists = () => {
         }
     };
 
+    // Auto-scroll functionality
+    const handleNextRef = useRef(handleNext);
+    handleNextRef.current = handleNext;
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNextRef.current();
+        }, 3500);
+        return () => clearInterval(interval);
+    }, [startIndex]);
+
     const border = '#fddec0';
 
     return (
@@ -255,17 +266,17 @@ const PastArtists = () => {
             >
                 <div className="stamp-inner-line-past z-30"></div>
 
-                <div className='relative w-full h-full rounded-[2rem] overflow-hidden flex flex-col grow z-20  sm:pt-10 md:pt-0'>
+                <div className='relative w-full h-full rounded-[2rem] overflow-hidden flex flex-col grow z-20  '>
                     <img
                         src={BackgroundImage}
                         alt="Background"
                         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-40"
                     />
 
-                    <div className="relative z-10 flex flex-col items-center py-2 md:py-4 w-full h-full">
+                    <div className="relative z-10 flex flex-col items-center py-1 md:py-[2vh] w-full h-full">
 
                         <h1
-                            className="rumble-brave text-5xl sm:text-6xl md:text-8xl mb-[6vh] lg:mb-[10vh] z-20 relative text-center tracking-wider"
+                            className="rumble-brave text-5xl sm:text-6xl  md:text-8xl mb-[6vh] lg:mb-[10vh] z-20 relative text-center tracking-wider pt-[10vh] md:pt-0 lg:pt-0 "
                             style={{
                                 color: '#FFD900',
                                 textShadow: '3px 3px 0px #FF8000, 6px 6px 0px rgba(0,0,0,0.2)'
@@ -301,7 +312,7 @@ const PastArtists = () => {
                         disabled={isAnimating}
                         className="absolute left-2 md:left-5 top-1/2 -translate-y-1/2 z-40 transition-transform active:scale-95 hover:scale-105 disabled:opacity-50"
                     >
-                        <img src={LeftButton} alt="Previous" className="w-10 sm:w-12 md:w-16 h-auto" />
+                        <img src={LeftButton} alt="Previous" className="w-8 sm:w-10 md:w-12 h-auto" />
                     </button>
 
                     <button
@@ -309,7 +320,7 @@ const PastArtists = () => {
                         disabled={isAnimating}
                         className="absolute right-2 md:right-5 top-1/2 -translate-y-1/2 z-40 transition-transform active:scale-95 hover:scale-105 disabled:opacity-50"
                     >
-                        <img src={RightButton} alt="Next" className="w-10 sm:w-12 md:w-16 h-auto" />
+                        <img src={RightButton} alt="Next" className="w-8 sm:w-10 md:w-12 h-auto" />
                     </button>
                 </div>
 
