@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import "../styles/mascot.css";
 
-// ✅ Assets (RENAMED FILE USED HERE)
+import { StampFrame, StampScrollContainer } 
+  from "../components/StampBorder/StampLayout";
+
 import mascotVideo from "../assets/MascotLanding/mascot-video.mp4";
 import mascotImage from "../assets/MascotLanding/mascot-final.png";
 import araLogo from "../assets/MascotLanding/ara.png";
