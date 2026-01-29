@@ -6,7 +6,7 @@ import {
 import purpleInsta from '../../assets/ourTeam/purple_insta.png'
 import purpleGmail from '../../assets/ourTeam/purple_gmail.png'
 
-const CulturalCouncilCard = ({ imageUrl, name, role }) => {
+const CulturalCouncilCard = ({ imageUrl, name, role, instagram, email }) => {
     const cardRef = useRef(null);
 
     const imageWidthClasses = "w-[24vw] sm:w-[20vw] md:w-[18vw] lg:w-[12vw] xl:w-[11.5vw] 2xl:w-[13vw]";
@@ -36,7 +36,12 @@ const CulturalCouncilCard = ({ imageUrl, name, role }) => {
             </div>
 
             <div className={`absolute ${bottomClasses} flex items-center gap-0.5 sm:gap-1 md:gap-1.5 z-10`}>
-                <a href="#" className={`${iconWidthClasses} flex items-center justify-center transition-transform hover:scale-110`}>
+                <a
+                    href={instagram || "#"}
+                    target={instagram ? "_blank" : "_self"}
+                    rel={instagram ? "noopener noreferrer" : ""}
+                    className={`${iconWidthClasses} flex items-center justify-center transition-transform hover:scale-110`}
+                >
                     <img src={purpleInsta} className="max-w-full max-h-full object-contain drop-shadow-md" alt="Instagram" />
                 </a>
 
@@ -51,7 +56,10 @@ const CulturalCouncilCard = ({ imageUrl, name, role }) => {
                     </div>
                 </div>
 
-                <a href="#" className={`${iconWidthClasses} flex items-center justify-center transition-transform hover:scale-110`}>
+                <a
+                    href={email ? `mailto:${email}` : "#"}
+                    className={`${iconWidthClasses} flex items-center justify-center transition-transform hover:scale-110`}
+                >
                     <img src={purpleGmail} className="max-w-full max-h-full object-contain drop-shadow-md" alt="Email" />
                 </a>
             </div>
