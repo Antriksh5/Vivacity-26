@@ -39,10 +39,10 @@ const Header = () => {
                 </div>
 
                 <nav className="hidden lg:flex items-center gap-4 lg:gap-6 xl:gap-10 pt-0 -mt-4 md:-mt-6 lg:-mt-10 mr-0">
-                    <a href="#home" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</a>
-                    <a href="#events" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</a>
-                    <a href="#sponsors" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</a>
-                    <a href="#team" className="no-underline text-[#3d1c10] font-medium text-[0.65rem] lg:text-[0.75rem] xl:text-[0.95rem] tracking-wider hover:text-[#9E5D47] transition-colors">OUR TEAM</a>
+                    <a href="#home" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] lg:text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</a>
+                    <a href="#events" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] lg:text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</a>
+                    <a href="#sponsors" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] lg:text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</a>
+                    <a href="#team" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] lg:text-[0.95rem] xl:text-[1.15rem] tracking-wider hover:text-[#9E5D47] transition-colors">OUR TEAM</a>
                 </nav >
 
                 <div className="lg:hidden z-50 relative mt-4 sm:mt-6 md:mt-0">
@@ -56,10 +56,10 @@ const Header = () => {
 
             <div ref={menuRef} className="absolute inset-0 bg-[#f7d0ab] z-[100] flex flex-col justify-center items-end lg:hidden pr-10 sm:pr-20 pointer-events-none opacity-0">
                 <nav ref={linksRef} className="flex flex-col gap-8 text-right pointer-events-auto">
-                    <a href="#home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">HOME</a>
-                    <a href="#events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">EVENTS</a>
-                    <a href="#sponsors" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">SPONSORS</a>
-                    <a href="#team" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-xs sm:text-sm tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">OUR TEAM</a>
+                    <a href="#home" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-base tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">HOME</a>
+                    <a href="#events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-base tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">EVENTS</a>
+                    <a href="#sponsors" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-base tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">SPONSORS</a>
+                    <a href="#team" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-base tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300 hover:pr-4">OUR TEAM</a>
                 </nav>
             </div>
         </>
