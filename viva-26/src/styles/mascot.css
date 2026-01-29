@@ -1,4 +1,15 @@
 /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* PAGE BACKGROUND */
+body {
+  font-family: sans-serif;
+  background-color: #f4b183;
+}
 
 /* CENTER THE POSTER */
 .mascot-section {
@@ -21,8 +32,6 @@
 
   /* 🔥 KEY: aspect ratio */
   aspect-ratio: 16 / 11;
-
-  background-color: #c8643b;
   border-radius: 2.8rem;
   padding: 1.6rem;
 
