@@ -9,7 +9,7 @@
 =============================== */
 
 .mascot-stamp {
-  --stamp-color: #c8643b;
+  --stamp-color: #f7d0ab;
 
   position: relative;
   width: 100%;
@@ -18,7 +18,7 @@
   padding: 3.5rem;
   border-radius: 4.5rem;
 
-  background-color: #f7d0ab;
+  background-color: #c8643b;
 
   background-image:
     radial-gradient(circle at 50% 0%, var(--stamp-color) 28px, transparent 29px),
@@ -78,8 +78,6 @@ body {
 
   /* 🔥 KEY: aspect ratio */
   aspect-ratio: 16 / 11;
-
-  background-color: #c8643b;
   border-radius: 2.8rem;
   padding: 1.6rem;
 
