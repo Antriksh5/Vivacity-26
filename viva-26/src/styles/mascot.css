@@ -36,15 +36,7 @@
 }
 
 /* Inner thin border line */
-.mascot-stamp::after {
-  content: "";
-  position: absolute;
-  inset: 2.8rem;
-  border: 2px solid #9E5D47;
-  border-radius: 3rem;
-  pointer-events: none;
-  z-index: 2;
-}
+
 
 /* Ensure mascot poster stays above stamp line */
 .mascot-stamp > .mascot-outer {
@@ -54,7 +46,7 @@
 
 /* PAGE BACKGROUND */
 body {
-  font-family: sans-serif;
+  font-family: sans-serif;  
 }
 
 /* CENTER THE POSTER */
@@ -73,7 +65,7 @@ body {
 /* 🖼️ OUTER POSTER FRAME */
 .mascot-outer {
   width: 100%;
-  max-width: 78rem;
+  max-width: 85rem;
 
   /* 🔥 KEY: aspect ratio */
   aspect-ratio: 16 / 11;
