@@ -1,9 +1,10 @@
 import React from 'react';
 import PastArtists from './PastArtists';
-import EventPage from './EventPage';
+import EventLanding from './EventLanding';
 import MascotLanding from './mascotLanding';
 import Legacy from './Legacy';
 import Team from './Team';
+
 import Footer from '../components/Footer/Footer';
 
 const Landing = () => {
@@ -12,6 +13,9 @@ const Landing = () => {
             {/* Section 1: Past Artists */}
             <section id="past-artists">
                 <PastArtists />
+            </section>
+            <section id="eventLanding">
+                <EventLanding />
             </section>
 
             {/* Section 2: Mascot */}
