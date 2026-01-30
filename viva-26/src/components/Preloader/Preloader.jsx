@@ -23,7 +23,7 @@ const Preloader = ({ isLoading }) => {
 
     return (
         <div
-            className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-1000 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-1000 ${isLoading ? 'opacity-100 cursor-none' : 'opacity-0 pointer-events-none'
                 }`}
         >
             <img
