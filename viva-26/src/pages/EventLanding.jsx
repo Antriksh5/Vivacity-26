@@ -1,28 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/EventLanding.css';
-import SideBorder from '../assets/EventLanding/SideBorder.png';
-import BottomBorder from '../assets/EventLanding/Bottom Border.png';
-import BackgroundImage from '../assets/EventLanding/Backgound.png';
-import HandImage from '../assets/EventLanding/Hand.png';
-import EyesGif from '../assets/EventLanding/AakheGIF.gif';
-import MusicImage from '../assets/Events/MusicEvent/First/BattleOfBands.png';
-import DramaImage from '../assets/Events/DramaEvent/First/Rangshala_1.png';
-import FashionImage from '../assets/EventLanding/FashionImage.jpg';
-import DanceImage from '../assets/EventLanding/Dance1.jpg';
-import ArtImage from '../assets/EventLanding/ArtImage.jpg';
-import PhotoGraphyImage from '../assets/EventLanding/PhotoGraphyImage.jpg';
-import SpeakingImage from '../assets/EventLanding/SpeakingImage.jpg';
-import SocialImage from '../assets/EventLanding/SocialImage.jpg';
-import ExcitingImage from '../assets/EventLanding/ExcitingImage.jpg';
-import QuizEventImage from '../assets/EventLanding/QuizEvent.jpg';
+import { EventLanding as EventLandingImages, Events } from '../utils/cloudinaryUrls';
 
 const eventsData = [
     {
         id: 'dance',
         title: 'Dance Event',
         prize: '2.5 LAKH+',
-        mainImage: DanceImage,
+        mainImage: EventLandingImages.Dance1,
         color: '#FF1744', // Red/Pink
         subEvents: [
             'RAZZMATAZZ (GROUP DANCE)',
@@ -38,7 +24,7 @@ const eventsData = [
         title: 'Music Event',
         prize: '1.5 LAKH+',
 
-        mainImage: MusicImage,
+        mainImage: Events.Music.BattleOfBands,
         color: '#FFAB00', // Amber
         subEvents: [
             'BATTLE OF BANDS',
@@ -52,7 +38,7 @@ const eventsData = [
         id: 'drama',
         title: 'Drama Event',
         prize: '2.0 LAKH+',
-        mainImage: DramaImage,
+        mainImage: Events.Drama.Rangshala,
         color: '#D500F9', // Purple
         subEvents: [
             'Rangshala',
@@ -65,7 +51,7 @@ const eventsData = [
         id: 'photography',
         title: 'Photography Event',
         prize: '1.5 Lakh +',
-        mainImage: PhotoGraphyImage,
+        mainImage: EventLandingImages.PhotoGraphyImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'FMC',
@@ -79,7 +65,7 @@ const eventsData = [
         id: 'fashion',
         title: 'Fashion Event',
         prize: '2.0 LAKH+',
-        mainImage: FashionImage,
+        mainImage: EventLandingImages.FashionImage,
         color: '#00E5FF', // Cyan
         subEvents: [
             'FASHION PARADE',
@@ -90,7 +76,7 @@ const eventsData = [
         id: 'art',
         title: 'Art Event',
         prize: '1.0 Lakh +',
-        mainImage: ArtImage,
+        mainImage: EventLandingImages.ArtImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Tattoo Tales',
@@ -106,7 +92,7 @@ const eventsData = [
         id: 'Speaking',
         title: 'Speaking Event',
         prize: '1.0 Lakh +',
-        mainImage: SpeakingImage,
+        mainImage: EventLandingImages.SpeakingImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Duologue',
@@ -124,7 +110,7 @@ const eventsData = [
     {
         id: 'Social',
         title: 'Social Event',
-        mainImage: SocialImage,
+        mainImage: EventLandingImages.SocialImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Sahyog',
@@ -137,7 +123,7 @@ const eventsData = [
         id: 'Quizzing',
         title: 'Quizzing Event',
         prize: '20K +',
-        mainImage: QuizEventImage,
+        mainImage: EventLandingImages.QuizEvent,
         color: '#FFAB00', // Amber
         subEvents: [
             'Bamboozled',
@@ -150,7 +136,7 @@ const eventsData = [
     {
         id: 'Exciting',
         title: 'Exciting Event',
-        mainImage: ExcitingImage,
+        mainImage: EventLandingImages.ExcitingImage,
         color: '#FFAB00', // Amber
         subEvents: [
             'Prom Night',
@@ -238,7 +224,7 @@ const EventLanding = () => {
                 {/* Background Pattern */}
                 <div className="absolute inset-[14px] md:inset-[25px] lg:inset-[28px] rounded-[1rem] md:rounded-[1.3rem] lg:rounded-[2rem] overflow-hidden z-0">
                     <img
-                        src={BackgroundImage}
+                        src={EventLandingImages.Background}
                         alt="Background"
                         className="w-full h-full object-cover"
                     />
@@ -293,7 +279,7 @@ const EventLanding = () => {
                                         <div className="bg-[#FD9F19] flex items-center relative overflow-hidden w-1/2">
                                             {/* Hand Image */}
                                             <img
-                                                src={HandImage}
+                                                src={EventLandingImages.Hand}
                                                 alt="Hand"
                                                 className="h-[110%] w-[40%] md:w-[50%] lg:w-[60%] object-contain mix-blend-multiply -ml-2 md:-ml-4 lg:-ml-6"
                                             />
@@ -316,17 +302,17 @@ const EventLanding = () => {
                                 <div className="hidden lg:flex w-[10vw] flex-shrink-0 bg-[#FFAB00] flex-col items-center justify-center gap-[1vh] relative overflow-hidden">
                                     {/* Left ZigZag Border Asset */}
                                     <div className="absolute left-0 top-0 bottom-0 w-[1.5vw] z-10">
-                                        <img src={SideBorder} alt="Border" className="w-full h-full object-cover" />
+                                        <img src={EventLandingImages.SideBorder} alt="Border" className="w-full h-full object-cover" />
                                     </div>
 
                                     {/* Right ZigZag Border Asset */}
                                     <div className="absolute right-0 top-0 bottom-0 w-[1.5vw] z-10">
-                                        <img src={SideBorder} alt="Border" className="w-full h-full object-cover " />
+                                        <img src={EventLandingImages.SideBorder} alt="Border" className="w-full h-full object-cover " />
                                     </div>
 
                                     {/* Bottom Border Asset */}
                                     <div className="absolute left-0 right-0 bottom-0 h-[3vh] z-10">
-                                        <img src={BottomBorder} alt="Border" className="w-full h-full object-cover" />
+                                        <img src={EventLandingImages.BottomBorder} alt="Border" className="w-full h-full object-cover" />
                                     </div>
 
                                     <div className="flex gap-[2vh] z-20">
@@ -381,7 +367,7 @@ const EventLanding = () => {
                             <div onClick={() => navigate('/events')} className="hidden lg:flex relative h-[12vh] lg:h-[16vh] bg-[#FE55B2] border-t-4 border-black flex-col items-center justify-between p-0 overflow-hidden cursor-pointer group">
                                 <div className="w-full h-[60%] relative overflow-hidden">
                                     <img
-                                        src={EyesGif}
+                                        src={EventLandingImages.AakheGIF}
                                         alt="Eyes"
                                         className="w-full h-full object-cover scale-125"
                                     />
@@ -399,7 +385,7 @@ const EventLanding = () => {
                             {/* Know More Button */}
                             <div onClick={() => navigate('/event')} className="w-1/2 bg-[#FE55B2] border-r-4 border-black flex flex-col items-center justify-between relative overflow-hidden cursor-pointer">
                                 <div className="w-full h-[60%] overflow-hidden">
-                                    <img src={EyesGif} alt="Eyes" className="w-full h-full object-cover scale-150" />
+                                    <img src={EventLandingImages.AakheGIF} alt="Eyes" className="w-full h-full object-cover scale-150" />
                                 </div>
                                 <div className="w-full h-[40%] flex items-center justify-center bg-[#FE55B2]">
                                     <span className="font-bold text-[2vh] md:text-[2.4vh] lg:text-[4vh] text-white drop-shadow-[1px_1px_0_#000] tracking-widest rumble-brave uppercase leading-none">

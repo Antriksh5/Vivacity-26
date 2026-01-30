@@ -1,48 +1,32 @@
-import {
-    mentorsBanner,
-    festheadBanner,
+import { OurTeam } from '../../utils/cloudinaryUrls'
+import TeamCard from './TeamCard'
+import PhotoCard from './PhotoCard'
+import CulturalCouncilCard from './CulturalCouncilCard'
+
+// Destructure all needed URLs from OurTeam for easier usage
+const {
+    mentors: mentorsBanner,
+    festhead: festheadBanner,
     lantern,
     vogue1,
     vogue2,
     rickshaw,
-    culturalSign,
-    memberImage,
-    sponsorBanner,
-    developmentBanner,
-    d1,
-    d2,
-    d3,
-    creativeBanner,
-    prEventsBanner,
+    cultural: culturalSign,
     mentorImage,
-    festhead1,
-    festhead2,
-    cultural1,
-    cultural2,
-    cultural3,
-    s1,
-    s2,
-    s4,
-    s5,
-    s6,
-    s7,
-    p1,
-    p2,
-    p3,
-    p4,
-    c1,
-    c2,
-    c3,
-    c4,
-    operationalBanner,
-    o1,
-    o2,
-    o3,
-    o4
-} from '../../assets/ourTeam'
-import TeamCard from './TeamCard'
-import PhotoCard from './PhotoCard'
-import CulturalCouncilCard from './CulturalCouncilCard'
+    memberImage,
+    sponsor: sponsorBanner,
+    development: developmentBanner,
+    d1, d2, d3,
+    creative: creativeBanner,
+    prEvents: prEventsBanner,
+    festhead1, festhead2,
+    cultural1, cultural2, cultural3,
+    s1, s2, s4, s5, s6, s7,
+    p1, p2, p3, p4,
+    c1, c2, c3, c4,
+    operational: operationalBanner,
+    o1, o2, o3, o4
+} = OurTeam;
 
 export const getSections = (refs) => {
     const {

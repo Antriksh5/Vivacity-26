@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import comingSoonImg from '../assets/landingPage/comingSoon.png';
+import { LandingPage } from '../utils/cloudinaryUrls';
 
 const ComingSoon = () => {
     return (
@@ -34,7 +34,7 @@ const ComingSoon = () => {
             </Link>
 
             <img
-                src={comingSoonImg}
+                src={LandingPage.comingSoon}
                 alt="Coming Soon"
                 style={{
                     maxWidth: '90%',
@@ -48,3 +48,4 @@ const ComingSoon = () => {
 };
 
 export default ComingSoon;
+

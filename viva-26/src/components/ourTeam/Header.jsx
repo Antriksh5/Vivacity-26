@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { Link } from 'react-router-dom'
-import { vivaLogo } from '../../assets/ourTeam'
+import { OurTeam } from '../../utils/cloudinaryUrls'
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -38,7 +38,7 @@ const Header = () => {
             <header className="w-full flex flex-row justify-between items-center z-[110] max-[360px]:pt-5 pt-5 min-[370px]:max-[450px]:pt-6 min-[451px]:pt-7 md:pt-8 lg:pt-10 max-[360px]:px-8 px-6 min-[370px]:max-[450px]:px-[45px] min-[451px]:px-12 md:px-[65px] lg:px-20 xl:px-24 2xl:px-32 relative">
                 <div className="flex-shrink-0 z-50 relative mt-2 sm:mt-2.5 md:mt-3 -translate-x-[2px] md:-translate-x-[5px] -translate-y-[3px] md:-translate-y-[8px]">
                     <Link to="/">
-                        <img src={vivaLogo} alt="Vivacity'26 Logo" className="w-[36vw] max-[630px]:w-[30vw] max-[390px]:w-[24vw] sm:w-[26vw] md:w-[24vw] lg:w-[22vw] xl:w-[16vw] 2xl:w-[14vw] h-auto transition-all" />
+                        <img src={OurTeam.vivaLogo} alt="Vivacity'26 Logo" className="w-[36vw] max-[630px]:w-[30vw] max-[390px]:w-[24vw] sm:w-[26vw] md:w-[24vw] lg:w-[22vw] xl:w-[16vw] 2xl:w-[14vw] h-auto transition-all" />
                     </Link>
                 </div>
 

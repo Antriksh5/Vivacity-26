@@ -1,14 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import '../styles/Registration.css'
+import { Registration as RegistrationImages } from '../utils/cloudinaryUrls'
+// Keep the animated GIF local for animation timing control
 import doorGif from '../assets/registration/door.gif'
-import doorPng from '../assets/registration/doorPng.png'
-import doorOnlyPng from '../assets/registration/door_only.png'
-import nextButton from '../assets/registration/next.png'
-import preRegisterImg from '../assets/registration/Pre register here.png'
-import doorHoriB from '../assets/registration/doorHoriB.png'
-import proceedBtn from '../assets/registration/procced.png'
-import addEventBtn from '../assets/registration/addEvent.png'
 import Navbar from '../components/Registeration/Navbar'
 
 const eventData = {
@@ -125,8 +120,8 @@ const Registration = () => {
             checkAllLoaded()
         }
 
-        pngImg.src = doorPng
-        doorOnlyImg.src = doorOnlyPng
+        pngImg.src = RegistrationImages.doorPng
+        doorOnlyImg.src = RegistrationImages.doorOnly
         preGif.src = doorGif
 
         return () => {
@@ -287,7 +282,7 @@ const Registration = () => {
                         : 'w-320 h-320'
                         }`}>
                     <img
-                        src={isVerySmallScreen ? doorOnlyPng : doorPng}
+                        src={isVerySmallScreen ? RegistrationImages.doorOnly : RegistrationImages.doorPng}
                         alt="Door"
                         className={`absolute w-full h-full object-contain block z-10 m-auto transition-opacity duration-500 ${isVerySmallScreen ? '' : '-translate-x-1'
                             } ${showPng ? 'opacity-100' : 'opacity-0'}`}
@@ -342,7 +337,7 @@ const Registration = () => {
                         ) : step === 1 ? (
                             <>
                                 <img
-                                    src={preRegisterImg}
+                                    src={RegistrationImages.preRegisterHere}
                                     alt="Pre Register Here"
                                     className={`w-full mx-auto block h-auto uppercase ${isVerySmallScreen
                                         ? 'max-w-[180px] mt-1 mb-1'
@@ -543,7 +538,7 @@ const Registration = () => {
                                 }`}
                         >
                             <img
-                                src={nextButton}
+                                src={RegistrationImages.next}
                                 alt="Next"
                                 className="w-full h-auto border-none outline-none"
                             />
@@ -556,13 +551,13 @@ const Registration = () => {
                                 onClick={handleAddAnotherEvent}
                                 className={`transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'w-24' : 'w-[140px]'}`}
                             >
-                                <img src={addEventBtn} alt="Add Event" className="w-full h-auto border-none outline-none" />
+                                <img src={RegistrationImages.addEvent} alt="Add Event" className="w-full h-auto border-none outline-none" />
                             </button>
                             <button
                                 onClick={handleNext}
                                 className={`transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'w-24' : 'w-[140px]'}`}
                             >
-                                <img src={proceedBtn} alt="Proceed" className="w-full h-auto border-none outline-none" />
+                                <img src={RegistrationImages.proceed} alt="Proceed" className="w-full h-auto border-none outline-none" />
                             </button>
                         </div>
                     )}
@@ -582,7 +577,7 @@ const Registration = () => {
                             }`}>
                         <div className="relative w-full aspect-[2/1] md:aspect-[2.5/1] flex flex-col items-center justify-center">
                             <img
-                                src={doorHoriB}
+                                src={RegistrationImages.doorHoriB}
                                 alt="Events Added Background"
                                 className="absolute inset-0 w-full h-full object-contain"
                             />
@@ -610,7 +605,7 @@ const Registration = () => {
                                         }`}
                                 >
                                     <img
-                                        src={proceedBtn}
+                                        src={RegistrationImages.proceed}
                                         alt="Proceed"
                                         className={`${isVerySmallScreen ? 'w-[110px]' : 'w-[140px] md:w-[180px]'} h-auto border-none outline-none`}
                                     />
