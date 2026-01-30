@@ -8,8 +8,16 @@
     <!-- Preconnect to critical origins - HIGH priority -->
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
     <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com" crossorigin>
+    <link rel="dns-prefetch" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload critical S3 assets (preloader GIFs) -->
+    <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/Main.gif" as="image" type="image/gif">
+    <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/Main_Vertical.gif" as="image" type="image/gif">
+    <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/billBoard.gif" as="image" type="image/gif">
+    <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/shops.gif" as="image" type="image/gif">
 
     <!-- Preload critical fonts with font-display: swap -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Lemon&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">

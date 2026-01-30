@@ -1,8 +1,9 @@
 import React, { useState, useEffect, memo } from 'react';
+import { S3Assets } from '../../utils/cloudinaryUrls';
 
-// Import GIFs directly for faster bundling (Vite will optimize)
-import MainGif from '../../assets/PreLoader/Main.gif';
-import MainVerticalGif from '../../assets/PreLoader/Main_Vertical.gif';
+// CDN-hosted preloader GIFs from AWS S3
+const MainGif = S3Assets.mainGif;
+const MainVerticalGif = S3Assets.mainVerticalGif;
 
 const Preloader = memo(({ isLoading }) => {
     const [gifKey, setGifKey] = useState(0);
