@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DesktopGif from '../../assets/PreLoader/Main.gif';
 import MobileGif from '../../assets/PreLoader/Main_Vertical.gif';
-import './Preloader.css';
+
 
 const Preloader = ({ isLoading }) => {
     const [isMobile, setIsMobile] = useState(false);
@@ -21,10 +21,11 @@ const Preloader = ({ isLoading }) => {
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
-    if (!isLoading) return null;
-
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black animate-fade-in">
+        <div
+            className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-1000 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
+        >
             <img
                 src={isMobile ? MobileGif : DesktopGif}
                 alt="Loading..."
