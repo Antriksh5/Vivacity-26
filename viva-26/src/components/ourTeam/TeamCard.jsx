@@ -1,4 +1,6 @@
-import { leftBorder, rightBorder } from '../../assets/ourTeam'
+import { OurTeam } from '../../utils/cloudinaryUrls';
+
+const { leftBorder, rightBorder } = OurTeam;
 
 const TeamCard = ({ imageUrl, footerText }) => {
     return (

@@ -1,18 +1,24 @@
 import React from 'react';
 import './Footer.css';
-import footerBg from '../../assets/Footer/footer.png';
-import footerLogo from '../../assets/Footer/footerLogo.png';
+import gdgLogo from '../../assets/gdg.png';
+
+// const FooterLogo = FooterImage.footerLogo;
+// const FooterBg = FooterImage.footer;
+
+import { FooterImg } from '../../utils/cloudinaryUrls';
+
+const { footerLogo: FooterLogo, footer: FooterBg } = FooterImg;
 
 const Footer = () => {
     return (
-        <footer className="viva-footer" style={{ backgroundImage: `url(${footerBg})` }}>
+        <footer className="viva-footer" style={{ backgroundImage: `url(${FooterBg})` }}>
             <div className="footer-container">
                 <div className="footer-left">
                     <div className="footer-logo-section">
-                        <img src={footerLogo} alt="Vivacity'26 Logo" className="footer-viva-logo" />
+                        <img src={FooterLogo} alt="Vivacity'26 Logo" className="footer-viva-logo" />
                     </div>
                     <div className="footer-credits">
-                        <p className="credit-text">DEVELOPED BY &lt;&gt; <span className="highlight">GDG ON CAMPUS, LNMIIT</span></p>
+                        <p className="credit-text">DEVELOPED BY <img className='size-[2.65rem]! pb-1' src={gdgLogo} alt="GDG Logo" style={{ display: 'inline-block', height: '20px', verticalAlign: 'middle', margin: '0 6px' }} /> <span className="highlight">GDG ON CAMPUS LNMIIT</span></p>
                         <p className="credit-text">DESIGNED BY <span className="highlight">VIVACITY. ALL RIGHTS RESERVED.</span></p>
                     </div>
                 </div>

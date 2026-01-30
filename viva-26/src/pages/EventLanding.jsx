@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/EventLanding.css';
 import { EventLanding as EventLandingImages, Events } from '../utils/cloudinaryUrls';
-import Aakhe from '../assets/EventLanding/AakheGIF.gif';
+
 const eventsData = [
     {
         id: 'dance',
@@ -227,6 +227,8 @@ const EventLanding = () => {
                         src={EventLandingImages.Background}
                         alt="Background"
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
 
@@ -342,6 +344,8 @@ const EventLanding = () => {
                                     src={currentEvent.mainImage}
                                     alt={currentEvent.title}
                                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 {/* Overlay Gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
@@ -367,7 +371,7 @@ const EventLanding = () => {
                             <div onClick={() => navigate('/events')} className="hidden lg:flex relative h-[12vh] lg:h-[16vh] bg-[#FE55B2] border-t-4 border-black flex-col items-center justify-between p-0 overflow-hidden cursor-pointer group">
                                 <div className="w-full h-[60%] relative overflow-hidden">
                                     <img
-                                        src={Aakhe}
+                                        src={EventLandingImages.AakheGIF}
                                         alt="Eyes"
                                         className="w-full h-full object-cover scale-125"
                                     />

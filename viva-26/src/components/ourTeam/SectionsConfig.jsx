@@ -72,7 +72,7 @@ export const getSections = (refs) => {
                 <div className="flex flex-col justify-center items-center w-full -mt-32 md:-mt-8">
                     <TeamCard
                         imageUrl={mentorImage}
-                        footerText="OUR MENTORS - Shubhanshu, dhanesha, samkit, prateek, vineet, divyansh, ankur, bhavyam, chirag, bhupesh, guneet, abde, divya, saurav, karan"
+                        footerText="OUR MENTORS - Shubhanshu, Dhanesha, Sanidhya, Samkit, Prateek, Vineet, Divyansh, Ankur, Bhavyam, Chirag, Bhupesh, Guneet, Abde, Divya, Saurav, Karan, Harsh"
                     />
                 </div>
             )
@@ -223,13 +223,12 @@ export const getSections = (refs) => {
             content: (
                 <div className="flex flex-col items-center w-full relative z-[2] mt-0 sm:mt-16 md:mt-20 lg:mt-24">
                     <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-12 min-[390px]:gap-24 md:gap-x-32 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-32 min-[1000px]:gap-x-8 min-[1000px]:gap-y-16 min-[1300px]:gap-x-32 min-[1300px]:gap-y-40 xl:gap-x-24 2xl:gap-x-32 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1050px] 2xl:max-w-[980px] px-4 items-center">
-
-                        <PhotoCard imageUrl={s1} name="VIDIT SHARMA" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/vidit_sharma.14?igsh=cGd0c3J6NzdqMTBz" email="23uec644@lnmiit.ac.in" />
-                        <PhotoCard imageUrl={s2} name="RUDRA BANERJEE" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/rudrabanerjee397?igsh=MXUwanBiczZ1c3FnaQ%3D%3D" email="23uec606@lnmiit.ac.in" />
-                        <PhotoCard imageUrl={s4} name="ANURAG YADAV" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/i_am.anurag?igsh=cjZ1enhrY3d6aGV3" email="23uec519@lnmiit.ac.in" />
-                        <PhotoCard imageUrl={s5} name="KARTIKEYA SINGH" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/kart.ik_3085?igsh=MWF1eHR4MnI5dmswNQ%3D%3D" email="23ucs612@lnmiit.ac.in" />
-                        <PhotoCard imageUrl={s6} name="SAJAL JAGGI" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/sajal_jaggi?igsh=OTc3bmttMjZzZTdo" email="23ucs695@lnmiit.ac.in" />
-                        <PhotoCard imageUrl={s7} name="JAYESH JHAMNANI" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/jayesh._.2309?igsh=MTd5d2RsOXZpaGpvOQ%3D%3D" email="23uec556@lnmiit.ac.in" />
+                        <PhotoCard imageUrl={s5} name="KARTIKEYA SINGH" role="SPONSORSHIP HEAD" size="small" />
+                        <PhotoCard imageUrl={s4} name="ANURAG YADAV" role="SPONSORSHIP HEAD" size="small" />
+                        <PhotoCard imageUrl={s2} name="RUDRA BANERJEE" role="SPONSORSHIP HEAD" size="small" />
+                        <PhotoCard imageUrl={s1} name="VIDIT SHARMA" role="SPONSORSHIP HEAD" size="small" />
+                        <PhotoCard imageUrl={s7} name="JAYESH JHAMNANI" role="SPONSORSHIP HEAD" size="small" />
+                        <PhotoCard imageUrl={s6} name="SAJAL JAGGI" role="SPONSORSHIP HEAD" size="small" />
                     </div>
                     <div className="mt-16 sm:mt-24 md:mt-28 lg:mt-36 text-center max-w-[65vw] px-4 mb-4 sm:mb-8">
                         <p className="font-sans font-normal text-[#3d1c10] text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>

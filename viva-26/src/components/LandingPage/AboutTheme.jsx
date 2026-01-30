@@ -31,6 +31,8 @@ const AboutTheme = React.forwardRef((props, ref) => {
                             src={aboutThemeBorder}
                             alt="Theme Border"
                             className="theme-border-img theme-border-large desktop-theme-border"
+                            loading="lazy"
+                            decoding="async"
                         />
 
                         {/* mobileThemeBorder - Mobile version */}
@@ -38,6 +40,8 @@ const AboutTheme = React.forwardRef((props, ref) => {
                             src={mobileThemeBorder}
                             alt="Theme Border"
                             className="theme-border-img theme-border-large mobile-theme-border"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
 
@@ -47,6 +51,8 @@ const AboutTheme = React.forwardRef((props, ref) => {
                                 src={aboutThemeTitle}
                                 alt="ABOUT THEME"
                                 className="theme-title-img"
+                                loading="lazy"
+                                decoding="async"
                             />
                         </div>
 

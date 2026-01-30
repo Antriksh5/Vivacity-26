@@ -36,7 +36,6 @@ const LeftBottomCorner = PastArtist.LeftBottomCorner;
 const RightBottomCorner = PastArtist.RightBottomCorner;
 
 const PastArtists = () => {
-    console.log("PastArtists Component Rendered");
     const artists = [
         {
             name: 'Amit Trivedi',
@@ -276,6 +275,8 @@ const PastArtists = () => {
                         src={BackgroundImage}
                         alt="Background"
                         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-40"
+                        loading="lazy"
+                        decoding="async"
                     />
 
                     <div className="relative z-10 flex flex-col items-center py-1 md:py-[2vh] w-full h-full">

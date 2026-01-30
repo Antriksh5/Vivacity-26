@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -9,6 +9,41 @@ import Landing from './Landing';
 import CursorLetterTrail from './CursorLetterTrail';
 import { GateAnimationFrames } from '../utils/cloudinaryUrls';
 import '../styles/LandingPage.css';
+
+// Tediux Promotional Banner Component
+const TediuxBanner = () => {
+    const [isVisible, setIsVisible] = useState(true);
+
+    if (!isVisible) return null;
+
+    return (
+        <div className="tediux-banner">
+            <div className="tediux-banner-content">
+                <div className="tediux-banner-lights left"></div>
+                <div className="tediux-banner-text">
+                    <span className="tediux-sparkle">✨</span>
+                    <span className="tediux-main-text">
+                        Love this <span className="tediux-highlight">carnival magic</span>?&nbsp; We craft digital experiences that dazzle!
+                    </span>
+                    <span className="tediux-sparkle">🎪</span>
+                </div>
+                <a 
+                    href="https://tediux.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="tediux-banner-btn"
+                >
+                    <span>Visit Tediux</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7 17L17 7"/>
+                        <path d="M7 7h10v10"/>
+                    </svg>
+                </a>
+                <div className="tediux-banner-lights right"></div>
+            </div>
+        </div>
+    );
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,30 +62,45 @@ const LandingPage = () => {
     const themeTextRef = useRef(null);
     const zoomOverlayRef = useRef(null);
 
-    // Image preloading and canvas rendering
+    // Image preloading and canvas rendering - optimized for performance
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        const images = [];
+        const images = new Array(frameUrls.length).fill(null);
         const totalFrames = frameUrls.length;
-        let imagesLoaded = 0;
 
         // Define animation state object to be tweened
         const frameState = { index: 0 };
 
-        // Preload images
-        frameUrls.forEach((url, i) => {
-            const img = new Image();
-            img.src = url;
-            img.onload = () => {
-                imagesLoaded++;
-                if (imagesLoaded === 1 && i === 0) {
-                    // Draw first frame immediately when loaded
-                    renderFrame(0);
+        // Priority load first frame for immediate display
+        const loadImage = (index) => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = frameUrls[index];
+                img.onload = () => {
+                    images[index] = img;
+                    resolve(img);
+                };
+                img.onerror = () => resolve(null);
+            });
+        };
+
+        // Load first frame immediately, then load rest progressively
+        const loadFrames = async () => {
+            // Load first frame with high priority
+            await loadImage(0);
+            renderFrame(0);
+
+            // Load remaining frames in batches for better performance
+            const batchSize = 5;
+            for (let i = 1; i < totalFrames; i += batchSize) {
+                const batch = [];
+                for (let j = i; j < Math.min(i + batchSize, totalFrames); j++) {
+                    batch.push(loadImage(j));
                 }
-            };
-            images.push(img);
-        });
+                await Promise.all(batch);
+            }
+        };
 
         const renderFrame = (index) => {
             const img = images[Math.round(index)];
@@ -61,6 +111,8 @@ const LandingPage = () => {
                 ctx.drawImage(img, 0, 0);
             }
         };
+
+        loadFrames();
 
         const lenis = new Lenis({
             duration: 2.5,
@@ -214,6 +266,7 @@ const LandingPage = () => {
 
     return (
         <div className="landing-page-container" ref={mainRef}>
+            <TediuxBanner />
             <CursorLetterTrail />
             {/* Section 1: Countdown */}
             <VivaCountdown />

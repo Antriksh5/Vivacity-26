@@ -27,17 +27,19 @@ const CloudinaryImage = ({
     height,
     className = '',
     crop = 'fill',
-    quality = 'auto',
+    quality = 'auto:eco',
     sizes = '100vw',
     loading = 'lazy',
     responsive = true,
-    responsiveWidths = [320, 640, 960, 1280, 1920],
+    responsiveWidths = [320, 640, 960, 1280],
+    fetchPriority,
+    decoding = 'async',
     ...props
 }) => {
-    // Generate the main src URL
+    // Generate the main src URL with optimized quality
     const src = getCloudinaryUrl(publicId, { width, height, crop, quality });
 
-    // Generate srcset for responsive images
+    // Generate srcset for responsive images (fewer sizes for faster loading)
     const srcSet = responsive ? getCloudinarySrcSet(publicId, responsiveWidths) : undefined;
 
     return (
@@ -49,6 +51,8 @@ const CloudinaryImage = ({
             width={width}
             height={height}
             loading={loading}
+            decoding={decoding}
+            fetchPriority={fetchPriority}
             className={className}
             {...props}
         />

@@ -1,10 +1,12 @@
 import { useRef } from 'react'
-import {
+import { OurTeam } from '../../utils/cloudinaryUrls';
+
+const {
     leftBorder,
-    rightBorder
-} from '../../assets/ourTeam'
-import purpleInsta from '../../assets/ourTeam/purple_insta.png'
-import purpleGmail from '../../assets/ourTeam/purple_gmail.png'
+    rightBorder,
+    purpleInsta,
+    purpleGmail
+} = OurTeam;
 
 const CulturalCouncilCard = ({ imageUrl, name, role, instagram, email }) => {
     const cardRef = useRef(null);

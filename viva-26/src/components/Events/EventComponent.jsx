@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BackGroundImage from '../../assets/Events/BackGroundImage.png'
-import TextArea from '../../assets/Events/DanceEvent/YellowTextArea.png'
+import { Events } from '../../utils/cloudinaryUrls';
+
+const BackGroundImage = Events.BackGroundImage;
+const TextArea = Events.Dance.YellowTextArea;
 
 import EventCard from './EventCard';
 

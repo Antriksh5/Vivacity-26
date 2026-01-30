@@ -5,6 +5,7 @@
     src: url('../fonts/lemon milk/LEMONMILK-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     src: url('../fonts/lemon milk/LEMONMILK-Bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -19,6 +21,7 @@
     src: url('../fonts/vetoSans/veto-sans-w05-light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 :root {
@@ -70,7 +73,7 @@ body.registration-page select {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('../assets/registration/graffiti-wall.png');
+        background-image: url('https://res.cloudinary.com/dilxriyf3/image/upload/v1769763715/viva-26/registration/graffiti-wall.png');
         background-size: 100% 100%;
         background-position: top center;
         background-repeat: no-repeat;

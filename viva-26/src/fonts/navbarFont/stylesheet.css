@@ -8,6 +8,7 @@
         url('ReadyforAnythingBB-Regular.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -20,6 +21,7 @@
         url('ReadyforAnythingBB-BoldItalic.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -32,6 +34,7 @@
         url('ReadyforAnythingBB-Bold.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -44,5 +47,5 @@
         url('ReadyforAnythingBB-Italic.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
 }
-

@@ -8,8 +8,15 @@
 const CLOUD_NAME = 'dilxriyf3';
 const BASE_URL = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
 
-// Helper to generate optimized URL
-const url = (publicId) => `${BASE_URL}/f_auto,q_auto/${publicId}`;
+// Helper to generate optimized URL with better compression
+// f_auto: auto format (WebP/AVIF), q_auto:eco: eco quality for better performance
+const url = (publicId) => `${BASE_URL}/f_auto,q_auto:eco/${publicId}`;
+
+// Helper for high-priority above-the-fold images (better quality)
+const urlHQ = (publicId) => `${BASE_URL}/f_auto,q_auto:good/${publicId}`;
+
+// Helper for responsive images with max width
+const urlWithWidth = (publicId, width) => `${BASE_URL}/f_auto,q_auto:eco,w_${width}/${publicId}`;
 
 // Legacy Page Images
 export const Legacy = {
@@ -72,7 +79,7 @@ export const GateAnimationFrames = Array.from({ length: 27 }, (_, i) => {
 });
 
 // Footer Images
-export const Footer = {
+export const FooterImg = {
     footerLogo: url('viva-26/Footer/footerLogo'),
     footer: url('viva-26/Footer/footer'),
 };
@@ -98,6 +105,7 @@ export const EventLanding = {
     SideBorder: url('viva-26/EventLanding/SideBorder'),
     SpeakingImage: url('viva-26/EventLanding/SpeakingImage'),
     SocialImage: url('viva-26/EventLanding/SocialImage'),
+    AakheGIF: `https://res.cloudinary.com/dilxriyf3/image/upload/v1769790106/AakheGIF_1_haefx7.gif`,
 
 };
 
@@ -313,7 +321,7 @@ export default {
     Team,
     LandingPage,
     GateAnimationFrames,
-    Footer,
+    FooterImg,
     MascotLanding,
     EventLanding,
     PastArtist,

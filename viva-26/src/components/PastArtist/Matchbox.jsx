@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import LeftTopCorner from '../../assets/PastArtist/LeftTopCorner.png';
-import RightTopCorner from '../../assets/PastArtist/RightTopCorner.png';
-import LeftBottomCorner from '../../assets/PastArtist/LeftBottomCorner.png';
-import RightBottomCorner from '../../assets/PastArtist/RightBottomCorner.png';
-import MatchBoxOpen from '../../assets/PastArtist/MatchBoxOpen.png';
+import { PastArtist } from '../../utils/cloudinaryUrls';
+
+const LeftBottomCorner = PastArtist.LeftBottomCorner;
+const RightBottomCorner = PastArtist.RightBottomCorner;
+const LeftTopCorner = PastArtist.LeftTopCorner;
+const RightTopCorner = PastArtist.RightTopCorner;
+const MatchBoxOpen = PastArtist.MatchBoxOpen;
 
 const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen = true, corners }) => {
     const containerRef = useRef(null);

@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import '../styles/Registration.css'
 import { Registration as RegistrationImages } from '../utils/cloudinaryUrls'
-// Keep the animated GIF local for animation timing control
 import doorGif from '../assets/registration/door.gif'
 import Navbar from '../components/Registeration/Navbar'
 
@@ -18,7 +17,7 @@ const eventData = {
     "Fashion Events": ["Vogue", "Mr. and Miss Viva"]
 };
 
-const Registration = () => {
+const Registration = ({ isPreloaderComplete }) => {
     const doorRef = useRef(null)
     const finalRef = useRef(null)
     const [searchParams, setSearchParams] = useSearchParams()
@@ -101,8 +100,8 @@ const Registration = () => {
         let gifLoaded = false
 
         const checkAllLoaded = () => {
-            if (pngLoaded && doorOnlyLoaded && gifLoaded) {
-                // Now that it's cached, setting the src will be instant
+            if (pngLoaded && doorOnlyLoaded && gifLoaded && isPreloaderComplete) {
+                // Now that it's cached and preloader is complete, setting the src will be instant
                 setGifSrc(`${doorGif}?t=${Date.now()}`)
             }
         }
@@ -127,7 +126,7 @@ const Registration = () => {
         return () => {
             document.body.classList.remove('registration-page')
         }
-    }, [])
+    }, [isPreloaderComplete])
 
     useEffect(() => {
         if (!gifSrc) return

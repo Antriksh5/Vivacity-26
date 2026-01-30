@@ -46,7 +46,7 @@ const Header = () => {
                     <Link to="/home" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</Link>
                     <Link to="/events" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</Link>
                     <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</Link>
-                    <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">VIBE CARD</Link>
+                    <Link to="https://tediux.com/cards" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">VIBE CARD</Link>
                     <Link to="/registration" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors border border-[#3d1c10] px-3 py-1 rounded-full hover:bg-[#3d1c10] hover:text-[#f7d0ab]">REGISTER</Link>
 
                 </nav>
@@ -66,7 +66,7 @@ const Header = () => {
                     <Link to="/events" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">EVENTS</Link>
 
                     <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">SPONSORS</Link>
-                    <Link to="/coming-soon" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">VIBE CARD</Link>
+                    <Link to="https://tediux.com/cards" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">VIBE CARD</Link>
 
                     <Link to="/registration" onClick={() => setMenuOpen(false)} className="text-[#3d1c10] font-medium text-sm sm:text-lg tracking-[0.4em] hover:text-[#9E5D47] transition-all duration-300">REGISTER</Link>
 
