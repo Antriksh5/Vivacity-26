@@ -42,7 +42,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/registration" element={<Registration />} />
+                <Route path="/registration" element={!isLoading ? <Registration /> : null} />
                 <Route path="/our-team" element={<OurTeam />} />
                 <Route path="/events" element={<EventPage />} />
                 <Route path="/home" element={<LandingPage />} />
