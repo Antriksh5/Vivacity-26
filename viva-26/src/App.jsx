@@ -42,11 +42,12 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/registration" element={<Registration />} />
+                <Route path="/registration" element={<Registration isPreloaderComplete={!isLoading} />} />
                 <Route path="/our-team" element={<OurTeam />} />
                 <Route path="/events" element={<EventPage />} />
                 <Route path="/home" element={<LandingPage />} />
                 <Route path="/coming-soon" element={<ComingSoon />} />
+                <Route path="/*" element={<LandingPage />} />
             </Routes>
 
         </>

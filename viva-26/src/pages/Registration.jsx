@@ -18,13 +18,14 @@ const eventData = {
     "Fashion Events": ["Vogue", "Mr. and Miss Viva"]
 };
 
-const Registration = () => {
+const Registration = ({ isPreloaderComplete = false }) => {
     const doorRef = useRef(null)
     const finalRef = useRef(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1024)
     const [isVerySmallScreen, setIsVerySmallScreen] = useState(window.innerWidth < 500)
     const [isExtremelySmallScreen, setIsExtremelySmallScreen] = useState(window.innerWidth < 330)
+    const [assetsLoaded, setAssetsLoaded] = useState(false)
 
     useEffect(() => {
         const handleResize = () => {
@@ -102,8 +103,8 @@ const Registration = () => {
 
         const checkAllLoaded = () => {
             if (pngLoaded && doorOnlyLoaded && gifLoaded) {
-                // Now that it's cached, setting the src will be instant
-                setGifSrc(`${doorGif}?t=${Date.now()}`)
+                // Mark assets as loaded, but don't play GIF yet
+                setAssetsLoaded(true)
             }
         }
 
@@ -116,8 +117,11 @@ const Registration = () => {
             checkAllLoaded()
         }
         preGif.onload = () => {
-            gifLoaded = true
-            checkAllLoaded()
+            // Additional delay to ensure GIF is fully cached and ready to play
+            setTimeout(() => {
+                gifLoaded = true
+                checkAllLoaded()
+            }, 200)
         }
 
         pngImg.src = RegistrationImages.doorPng
@@ -128,6 +132,16 @@ const Registration = () => {
             document.body.classList.remove('registration-page')
         }
     }, [])
+
+    // Play GIF only when both assets are loaded AND preloader is complete
+    useEffect(() => {
+        if (assetsLoaded && isPreloaderComplete) {
+            // Small delay to ensure smooth transition after preloader fades out
+            setTimeout(() => {
+                setGifSrc(`${doorGif}?t=${Date.now()}`)
+            }, 100)
+        }
+    }, [assetsLoaded, isPreloaderComplete])
 
     useEffect(() => {
         if (!gifSrc) return
