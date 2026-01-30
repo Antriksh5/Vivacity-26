@@ -13,14 +13,13 @@ import Preloader from './components/Preloader/Preloader.jsx'
 function App() {
     const [isLoading, setIsLoading] = useState(true)
     const location = useLocation()
-
     const isFirstLoad = useRef(true)
 
-    // Initial page load - reduced delay for better LCP
+    // Initial page load - let GIF play completely
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 2000) // Reduced from 5s to 2s for better Lighthouse score
+        }, 5000) // 5 seconds to let GIF play
 
         return () => clearTimeout(timer)
     }, [])
@@ -31,10 +30,11 @@ function App() {
             isFirstLoad.current = false
             return
         }
+
         setIsLoading(true)
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 1500) // Reduced from 6s to 1.5s for route transitions
+        }, 4000) // 4 seconds for route transitions
 
         return () => clearTimeout(timer)
     }, [location.pathname])
@@ -54,7 +54,6 @@ function App() {
                     <Route path="/*" element={<LandingPage />} />
                 </Routes>
             </Suspense>
-
         </>
     )
 }
