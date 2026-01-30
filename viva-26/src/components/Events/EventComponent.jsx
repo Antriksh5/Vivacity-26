@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import BackGroundImage from '../../assets/Events/BackGroundImage.png'
 import TextArea from '../../assets/Events/DanceEvent/YellowTextArea.png'
 
@@ -6,7 +7,7 @@ import EventCard from './EventCard';
 
 import '../../styles/Event.css'
 
-const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea }) => {
+const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea, rulebookUrl }) => {
     return (
         <>
             <div
@@ -49,15 +50,23 @@ const EventComponent = ({ HeaderImage, Events, border, TextAreaImage = TextArea 
                                     );
                                 })}
                             </div>
-                            <div className='mt-auto flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 w-full pb-4'
+                            <div className='mt-auto flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 w-full pb-4 relative z-50'
                             >
-                                <button
-                                    className='w-full sm:w-auto px-8 py-3 bg-[#FFF600] shadow-[0_4px_0_#FF4193] active:shadow-none active:translate-y-[4px] transition-all rounded-md text-[red] border-[#00D9FF] border-[1.5px]  text-sm sm:text-base tracking-wide rum-raisin-regular'>
-                                    DOWNLOAD RULEBOOK
-                                </button>
-                                <button className='w-full sm:w-auto px-8 py-3 bg-[#FFF600] shadow-[0_4px_0_#FF4193] active:shadow-none active:translate-y-[4px] transition-all rounded-md text-[red] border-[#00D9FF] border-[1.5px]  text-sm sm:text-base tracking-wide rum-raisin-regular'>
+                                {rulebookUrl && (
+                                    <a
+                                        href={rulebookUrl}
+                                        download
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className='w-full sm:w-auto px-8 py-3 bg-[#FFF600] shadow-[0_4px_0_#FF4193] active:shadow-none active:translate-y-[4px] transition-all rounded-md text-[red] border-[#00D9FF] border-[1.5px] text-sm sm:text-base tracking-wide rum-raisin-regular text-center'>
+                                        DOWNLOAD RULEBOOK
+                                    </a>
+                                )}
+                                <Link
+                                    to="/registration"
+                                    className='w-full sm:w-auto px-8 py-3 bg-[#FFF600] shadow-[0_4px_0_#FF4193] active:shadow-none active:translate-y-[4px] transition-all rounded-md text-[red] border-[#00D9FF] border-[1.5px] text-sm sm:text-base tracking-wide rum-raisin-regular text-center'>
                                     REGISTER NOW
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
