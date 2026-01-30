@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/EventLanding.css';
 import { EventLanding as EventLandingImages, Events } from '../utils/cloudinaryUrls';
-
+import Aakhe from '../assets/EventLanding/AakheGIF.gif';
 const eventsData = [
     {
         id: 'dance',
@@ -367,7 +367,7 @@ const EventLanding = () => {
                             <div onClick={() => navigate('/events')} className="hidden lg:flex relative h-[12vh] lg:h-[16vh] bg-[#FE55B2] border-t-4 border-black flex-col items-center justify-between p-0 overflow-hidden cursor-pointer group">
                                 <div className="w-full h-[60%] relative overflow-hidden">
                                     <img
-                                        src={EventLandingImages.AakheGIF}
+                                        src={Aakhe}
                                         alt="Eyes"
                                         className="w-full h-full object-cover scale-125"
                                     />
