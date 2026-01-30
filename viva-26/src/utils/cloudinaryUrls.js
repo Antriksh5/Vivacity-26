@@ -98,7 +98,7 @@ export const EventLanding = {
     SideBorder: url('viva-26/EventLanding/SideBorder'),
     SpeakingImage: url('viva-26/EventLanding/SpeakingImage'),
     SocialImage: url('viva-26/EventLanding/SocialImage'),
-    AakheGIF: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/f_auto,q_auto/viva-26/EventLanding/AakheGIF`,
+    AakheGIF: `https://res.cloudinary.com/dilxriyf3/image/upload/v1769790106/AakheGIF_1_haefx7.gif`,
 
 };
 

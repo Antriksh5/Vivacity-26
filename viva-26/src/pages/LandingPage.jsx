@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -9,6 +9,41 @@ import Landing from './Landing';
 import CursorLetterTrail from './CursorLetterTrail';
 import { GateAnimationFrames } from '../utils/cloudinaryUrls';
 import '../styles/LandingPage.css';
+
+// Tediux Promotional Banner Component
+const TediuxBanner = () => {
+    const [isVisible, setIsVisible] = useState(true);
+
+    if (!isVisible) return null;
+
+    return (
+        <div className="tediux-banner">
+            <div className="tediux-banner-content">
+                <div className="tediux-banner-lights left"></div>
+                <div className="tediux-banner-text">
+                    <span className="tediux-sparkle">✨</span>
+                    <span className="tediux-main-text">
+                        Love this <span className="tediux-highlight">carnival magic</span>?&nbsp; We craft digital experiences that dazzle!
+                    </span>
+                    <span className="tediux-sparkle">🎪</span>
+                </div>
+                <a 
+                    href="https://tediux.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="tediux-banner-btn"
+                >
+                    <span>Visit Tediux</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7 17L17 7"/>
+                        <path d="M7 7h10v10"/>
+                    </svg>
+                </a>
+                <div className="tediux-banner-lights right"></div>
+            </div>
+        </div>
+    );
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -214,6 +249,7 @@ const LandingPage = () => {
 
     return (
         <div className="landing-page-container" ref={mainRef}>
+            <TediuxBanner />
             <CursorLetterTrail />
             {/* Section 1: Countdown */}
             <VivaCountdown />
