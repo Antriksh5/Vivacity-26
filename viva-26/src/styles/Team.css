@@ -48,7 +48,7 @@
   color: #F6BC7B;
   font-family: serif;
   font-weight: bold;
-  font-size: clamp(10px, 1.4vw, 18px);
+  font-size: clamp(11px, 2.5vw, 18px);
   line-height: 1.4;
   margin: 0 auto;
   text-transform: uppercase;
@@ -72,6 +72,7 @@
     background-repeat:
       repeat-x, repeat-x, repeat-y, repeat-y,
       no-repeat, no-repeat, no-repeat, no-repeat;
+    padding: 20px;
   }
 }
 

@@ -67,7 +67,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner1Ref} className="absolute top-[30px] md:top-[30px] left-1/2 -translate-x-1/2 ml-[25px] md:ml-0 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={mentorsBanner} alt="Our Mentors" className="w-[48vw] sm:w-[38vw] md:w-[33vw] lg:w-[28vw] xl:w-[23vw] 2xl:w-[18vw] h-auto" />
+                            <img src={mentorsBanner} alt="Our Mentors" className="w-[35vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[16vw] 2xl:w-[12vw] h-auto" />
                         </div>
                     </div>
                     <img
@@ -106,7 +106,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner2Ref} className="absolute top-[30px] md:top-[35px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={festheadBanner} alt="Fest Head" className="w-[48vw] sm:w-[38vw] md:w-[33vw] lg:w-[28vw] xl:w-[23vw] 2xl:w-[18vw] h-auto" />
+                            <img src={festheadBanner} alt="Fest Head" className="w-[35vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[16vw] 2xl:w-[12vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute top-[33px] md:top-[53px] left-0 right-0 w-full px-10 sm:px-12 md:px-14 lg:px-20 xl:px-28 flex justify-between pointer-events-none z-[15]">
@@ -135,7 +135,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner3Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={culturalSign} alt="Cultural Council" className="w-[48vw] sm:w-[38vw] md:w-[33vw] lg:w-[28vw] xl:w-[23vw] 2xl:w-[18vw] h-auto" />
+                            <img src={culturalSign} alt="Cultural Council" className="w-[35vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[16vw] 2xl:w-[12vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute bottom-[45px] left-14 sm:left-12 md:left-16 lg:left-20 right-14 sm:right-12 md:right-16 lg:right-20 w-auto flex justify-between items-end pointer-events-none z-30">
@@ -156,7 +156,7 @@ export const getSections = (refs) => {
                             <CulturalCouncilCard imageUrl={cultural3} name="TANMAY JAIN" role="FINANCE CONVENOR" instagram="https://www.instagram.com/tanmay_._jain_?igsh=MXRkc2Mwb2JxZXdocw%3D%3D" email="23ucc606@lnmiit.ac.in" />
                         </div>
                     </div>
-                    <div className="mt-24 min-[370px]:max-[450px]:mt-20 min-[451px]:mt-26 sm:mt-28 md:mt-32 lg:mt-40 text-center max-w-[65vw] px-4 mb-20">
+                    <div className="mt-20 min-[370px]:max-[450px]:mt-16 min-[451px]:mt-20 sm:mt-22 md:mt-26 lg:mt-32 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1000px] mx-auto" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - Aadya Rastogi, Harshil Agarwal, Gourav Bansal, Madhur Jain, Shriman Bhagat
                         </p>
@@ -177,7 +177,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner6Ref} className="absolute top-[30px] md:top-[50px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={developmentBanner} alt="Development Team" className="w-[40vw] sm:w-[32vw] md:w-[28vw] lg:w-[24vw] xl:w-[20vw] 2xl:w-[16vw] h-auto" />
+                            <img src={developmentBanner} alt="Development Team" className="w-[32vw] sm:w-[26vw] md:w-[22vw] lg:w-[18vw] xl:w-[15vw] 2xl:w-[12vw] h-auto" />
                         </div>
                     </div>
                     <img
@@ -205,7 +205,7 @@ export const getSections = (refs) => {
                             <PhotoCard imageUrl={d3} name="NILESH GOYAL" role="DEVELOPER" size="small" theme="orange" instagram="https://www.instagram.com/nileshgoyal_14?igsh=NWE3NHA4cmdkOHk4" email="23ucc624@lnmiit.ac.in" />
                         </div>
                     </div>
-                    <div className="mt-36 min-[370px]:max-[450px]:mt-28 min-[451px]:mt-32 sm:mt-34 md:mt-36 lg:mt-40 text-center max-w-[65vw] px-4 mb-10 sm:mb-20">
+                    <div className="mt-18 min-[370px]:max-[450px]:mt-20 min-[451px]:mt-22 sm:mt-24 md:mt-26 lg:mt-28 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1000px] mx-auto" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - Laxita Bhimsaria, Garvita Joshi, Anushka Jain, Ishita Agarwal, Anshul Agarwal, Antriksh Nahar, Aditya Jakhar
                         </p>
@@ -227,18 +227,19 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner4Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={sponsorBanner} alt="Sponsorship Team" className="w-[40vw] sm:w-[32vw] md:w-[28vw] lg:w-[22vw] xl:w-[18vw] 2xl:w-[13vw] h-auto" />
+                            <img src={sponsorBanner} alt="Sponsorship Team" className="w-[32vw] sm:w-[26vw] md:w-[22vw] lg:w-[17vw] xl:w-[14vw] 2xl:w-[10vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute top-[33px] md:top-[53px] left-0 right-0 w-full px-10 sm:px-12 md:px-14 lg:px-20 xl:px-28 flex justify-between pointer-events-none z-[15]">
-                        <img ref={lanternLeftSponsorRef} src={lantern} className="lantern-swing h-[110px] sm:h-[140px] md:h-[170px] lg:h-[210px] xl:h-[250px] 2xl:h-[18vw] w-auto" alt="Lantern" />
-                        <img ref={lanternRightSponsorRef} src={lantern} className="lantern-swing h-[110px] sm:h-[140px] md:h-[170px] lg:h-[210px] xl:h-[250px] 2xl:h-[18vw] w-auto " alt="Lantern" />
+                        <img ref={lanternLeftSponsorRef} src={lantern} className="lantern-swing h-[95px] sm:h-[120px] md:h-[145px] lg:h-[180px] xl:h-[210px] 2xl:h-[15vw] w-auto" alt="Lantern" />
+                        <img ref={lanternRightSponsorRef} src={lantern} className="lantern-swing h-[95px] sm:h-[120px] md:h-[145px] lg:h-[180px] xl:h-[210px] 2xl:h-[15vw] w-auto " alt="Lantern" />
                     </div>
                 </>
             ),
             content: (
-                <div className="flex flex-col items-center w-full relative z-[2] mt-16 sm:mt-32 md:mt-36 lg:mt-40">
+                <div className="flex flex-col items-center w-full relative z-[2] mt-0 sm:mt-16 md:mt-20 lg:mt-24">
                     <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-12 min-[390px]:gap-24 md:gap-x-32 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-32 min-[1000px]:gap-x-8 min-[1000px]:gap-y-16 min-[1300px]:gap-x-32 min-[1300px]:gap-y-40 xl:gap-x-24 2xl:gap-x-32 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1050px] 2xl:max-w-[980px] px-4 items-center">
+
                         <PhotoCard imageUrl={s1} name="VIDIT SHARMA" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/vidit_sharma.14?igsh=cGd0c3J6NzdqMTBz" email="23uec644@lnmiit.ac.in" />
                         <PhotoCard imageUrl={s2} name="RUDRA BANERJEE" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/rudrabanerjee397?igsh=MXUwanBiczZ1c3FnaQ%3D%3D" email="23uec606@lnmiit.ac.in" />
                         <PhotoCard imageUrl={s4} name="ANURAG YADAV" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/i_am.anurag?igsh=cjZ1enhrY3d6aGV3" email="23uec519@lnmiit.ac.in" />
@@ -246,7 +247,7 @@ export const getSections = (refs) => {
                         <PhotoCard imageUrl={s6} name="SAJAL JAGGI" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/sajal_jaggi?igsh=OTc3bmttMjZzZTdo" email="23ucs695@lnmiit.ac.in" />
                         <PhotoCard imageUrl={s7} name="JAYESH JHAMNANI" role="SPONSORSHIP HEAD" size="small" instagram="https://www.instagram.com/jayesh._.2309?igsh=MTd5d2RsOXZpaGpvOQ%3D%3D" email="23uec556@lnmiit.ac.in" />
                     </div>
-                    <div className="mt-20 sm:mt-28 md:mt-32 lg:mt-40 text-center max-w-[65vw] px-4 mb-8 sm:mb-16">
+                    <div className="mt-16 sm:mt-24 md:mt-28 lg:mt-36 text-center max-w-[65vw] px-4 mb-4 sm:mb-8">
                         <p className="font-sans font-normal text-[#3d1c10] text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - TEJAS MISHRA, AMRENDRA VIKRAM SINGH, SHUBH KAPOOR, AYUSH RAJ, SNEHIT RAJ, MUKUND MAHESHWARI, BHAVYA SARAN, HARSH VARDHAN THAKUR, HARSHIL AGARWAL, RITISH NAGPAL, AYUSH SAINI, YATISH SINGHAL, TANISHQ GANGWANI
                         </p>
@@ -267,7 +268,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner7Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={creativeBanner} alt="Creative Team" className="w-[40vw] sm:w-[30vw] md:w-[26vw] lg:w-[22vw] xl:w-[18vw] 2xl:w-[14vw] h-auto" />
+                            <img src={creativeBanner} alt="Creative Team" className="w-[32vw] sm:w-[24vw] md:w-[20vw] lg:w-[17vw] xl:w-[14vw] 2xl:w-[11vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute bottom-[45px] left-14 sm:left-12 md:left-16 lg:left-20 right-14 sm:right-12 md:right-16 lg:right-20 w-auto flex justify-between items-end pointer-events-none z-30">
@@ -291,7 +292,7 @@ export const getSections = (refs) => {
                     <div className="hidden lg:flex justify-center items-center w-full px-4">
                         <PhotoCard imageUrl={c4} name="KRISHNA GOPAL RATHI" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/myselfkgr?igsh=ZGgyMGxnNnU0ZmU%3D" email="23ucs622@lnmiit.ac.in" />
                     </div>
-                    <div className="mt-24 sm:mt-32 md:mt-40 lg:mt-52 text-center max-w-[65vw] px-4 mb-6 sm:mb-12">
+                    <div className="mt-20 sm:mt-26 md:mt-32 lg:mt-42 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - ANJALI WADHWA, KINJAL BHARIL, PARAS GUPTA, ARUSH DAKHERA, KRISH SHANDILYA, KSHITIZE SINGH, RUTWIK RAHUL NAIK, ANISH KOTHARI, PARTH SHARMA
                         </p>
@@ -312,7 +313,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner8Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={prEventsBanner} alt="PR and Events Team" className="w-[38vw] sm:w-[30vw] md:w-[30vw] lg:w-[24vw] xl:w-[20vw] 2xl:w-[14vw] h-auto" />
+                            <img src={prEventsBanner} alt="PR and Events Team" className="w-[30vw] sm:w-[24vw] md:w-[22vw] lg:w-[18vw] xl:w-[15vw] 2xl:w-[11vw] h-auto" />
                         </div>
                     </div>
                     <img
@@ -330,7 +331,7 @@ export const getSections = (refs) => {
                 </>
             ),
             content: (
-                <div className="flex flex-col items-center w-full relative z-[2] mt-8 sm:mt-32 md:mt-36 lg:mt-40">
+                <div className="flex flex-col items-center w-full relative z-[2] mt-0 sm:mt-16 md:mt-20 lg:mt-24">
                     {/* First row: 3 cards */}
                     {/* First row: 3 cards */}
                     <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-24 min-[390px]:gap-20 md:gap-x-10 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
@@ -345,7 +346,7 @@ export const getSections = (refs) => {
                     <div className="hidden lg:flex justify-center items-center w-full px-4">
                         <PhotoCard imageUrl={p4} name="TAVISHI VERMA" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/tavi_shee?igsh=MTc5dnNsZjFuaTlpYQ%3D%3D" email="23ume549@lnmiit.ac.in" />
                     </div>
-                    <div className="mt-20 sm:mt-20 md:mt-24 lg:mt-52 text-center max-w-[65vw] px-4 mb-8 sm:mb-16">
+                    <div className="mt-16 sm:mt-20 md:mt-24 lg:mt-40 text-center max-w-[65vw] px-4 mb-4 sm:mb-8">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - PALLAV SURANA, AADYA RASTOGI, CHINMAY CHANDALIYA, MARDAV JAIN, HARSH MAURYA, MIHIR KUMAWAT, MADHUSUDAN SINGLA, VIDIT PAREKH, ANTRIKSH NAHAR, PALOMA JAIN, LAMIA KHAN, ARJAV JAIN, SHIVIKA BANSAL, ISHIKA, ARNAV DUBEY, SANSKRITI TRIPATHI, AKANSHA GARG, MADHUR JAIN
                         </p>
@@ -366,7 +367,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner9Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={operationalBanner} alt="Operational Team" className="w-[32vw] sm:w-[24vw] md:w-[24vw] lg:w-[20vw] xl:w-[16vw] 2xl:w-[12vw] h-auto" />
+                            <img src={operationalBanner} alt="Operational Team" className="w-[26vw] sm:w-[20vw] md:w-[18vw] lg:w-[15vw] xl:w-[12vw] 2xl:w-[9vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute top-[33px] md:top-[53px] left-0 right-0 w-full px-10 sm:px-12 md:px-14 lg:px-20 xl:px-28 flex justify-between pointer-events-none z-[15]">
@@ -395,7 +396,7 @@ export const getSections = (refs) => {
                     <div className="hidden lg:flex justify-center items-center w-full px-4">
                         <PhotoCard imageUrl={o4} name="PRANJALI MANEK" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/_prxjxli_?igsh=MWxnb2IwYnIydzhyMw%3D%3D" email="23dcs507@lnmiit.ac.in" />
                     </div>
-                    <div className="mt-20 sm:mt-28 md:mt-32 lg:mt-40 text-center max-w-[65vw] px-4 mb-8 sm:mb-16">
+                    <div className="mt-16 sm:mt-22 md:mt-26 lg:mt-32 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - DHRUV AGARWAL, TANMAY POSWALIA, DIWAS PANDEY, DEVANSH MISHRA
                         </p>

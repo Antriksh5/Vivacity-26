@@ -72,7 +72,7 @@ const Team = () => {
                 <img src={TeamMidBorderMobile} className="w-full object-contain block sm:hidden" alt="decoration" />
               </div>
 
-              <div className="relative w-full flex-1 flex justify-center min-h-0">
+              <div className="relative w-full flex-1 flex justify-center min-h-0 max-h-[60vh] sm:max-h-none">
                 <div className="absolute inset-0 w-full h-full z-0">
                   <img src={TeamMidMobile} className="w-full h-full block sm:hidden" style={{ objectFit: "fill" }} alt="content background mobile" />
 

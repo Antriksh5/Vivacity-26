@@ -29,9 +29,9 @@ const PageSection = ({ theme, children, showHeader, vogueHands, sectionRef, extr
                     {vogueHands}
                 </div>
 
-                <div className="relative z-[45] w-full h-full flex flex-col items-center overflow-y-auto no-scrollbar pt-0">
+                <div className="relative z-[45] w-full h-full flex flex-col items-center overflow-y-auto overflow-x-hidden no-scrollbar pt-0">
                     {showHeader && <Header />}
-                    <div className="flex-1 flex flex-col justify-center items-center w-full relative z-20 pt-12">
+                    <div className="flex-1 flex flex-col justify-center items-center w-full relative z-20 pt-6 md:pt-8 lg:pt-10 overflow-x-hidden">
                         {children}
                     </div>
                 </div>

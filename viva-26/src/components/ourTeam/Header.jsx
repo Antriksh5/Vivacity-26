@@ -35,19 +35,19 @@ const Header = () => {
 
     return (
         <>
-            <header className="w-full flex flex-row justify-between items-center z-[110] max-[360px]:pt-8 pt-7 min-[370px]:max-[450px]:pt-9 min-[451px]:pt-10 md:pt-12 lg:pt-14 max-[360px]:px-8 px-6 min-[370px]:max-[450px]:px-[45px] min-[451px]:px-12 md:px-[65px] lg:px-20 xl:px-24 2xl:px-32 relative">
+            <header className="w-full flex flex-row justify-between items-center z-[110] max-[360px]:pt-5 pt-5 min-[370px]:max-[450px]:pt-6 min-[451px]:pt-7 md:pt-8 lg:pt-10 max-[360px]:px-8 px-6 min-[370px]:max-[450px]:px-[45px] min-[451px]:px-12 md:px-[65px] lg:px-20 xl:px-24 2xl:px-32 relative">
                 <div className="flex-shrink-0 z-50 relative mt-2 sm:mt-2.5 md:mt-3 -translate-x-[2px] md:-translate-x-[5px] -translate-y-[3px] md:-translate-y-[8px]">
                     <Link to="/">
                         <img src={vivaLogo} alt="Vivacity'26 Logo" className="w-[36vw] max-[630px]:w-[30vw] max-[390px]:w-[24vw] sm:w-[26vw] md:w-[24vw] lg:w-[22vw] xl:w-[16vw] 2xl:w-[14vw] h-auto transition-all" />
                     </Link>
                 </div>
 
-                <nav className="hidden min-[1400px]:flex items-center gap-4 min-[1400px]:gap-6 xl:gap-8 pt-0 -mt-4 md:-mt-6 min-[1400px]:-mt-10 ml-auto mr-0">
-                    <Link to="/home" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</Link>
-                    <Link to="/events" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</Link>
-                    <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</Link>
-                    <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors">VIBE CARD</Link>
-                    <Link to="/registration" className="no-underline text-[#3d1c10] font-medium text-[0.85rem] min-[1400px]:text-[1rem] xl:text-[1.1rem] tracking-wider hover:text-[#9E5D47] transition-colors border border-[#3d1c10] px-4 py-1.5 rounded-full hover:bg-[#3d1c10] hover:text-[#f7d0ab]">REGISTER</Link>
+                <nav className="hidden min-[1400px]:flex items-center gap-3 min-[1400px]:gap-4 xl:gap-5 pt-0 -mt-2 md:-mt-3 min-[1400px]:-mt-4 ml-auto mr-0">
+                    <Link to="/home" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">HOME</Link>
+                    <Link to="/events" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">EVENTS</Link>
+                    <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">SPONSORS</Link>
+                    <Link to="/coming-soon" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors">VIBE CARD</Link>
+                    <Link to="/registration" className="no-underline text-[#3d1c10] font-medium text-[0.75rem] min-[1400px]:text-[0.8rem] xl:text-[0.9rem] tracking-wider hover:text-[#9E5D47] transition-colors border border-[#3d1c10] px-3 py-1 rounded-full hover:bg-[#3d1c10] hover:text-[#f7d0ab]">REGISTER</Link>
 
                 </nav>
 
