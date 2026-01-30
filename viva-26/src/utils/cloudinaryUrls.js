@@ -1,12 +1,26 @@
 /**
  * Cloudinary Image URL Mappings
- * 
+ *
  * Auto-generated optimized Cloudinary URLs with f_auto (format) and q_auto (quality).
  * Use these instead of local imports for CDN-served, optimized images.
  */
 
 const CLOUD_NAME = 'dilxriyf3';
 const BASE_URL = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+
+// AWS S3 CDN URLs for GIF assets (better performance than local files)
+const S3_BASE_URL = 'https://viva-bucket-2026.s3.us-east-1.amazonaws.com';
+
+export const S3Assets = {
+    billBoard: `${S3_BASE_URL}/billBoard.gif`,
+    jugnoo: `${S3_BASE_URL}/jugnoo.gif`,
+    shops: `${S3_BASE_URL}/shops.gif`,
+    tediuxLogo: `${S3_BASE_URL}/tediux-logo.png`,
+    thadiJugnoo: `${S3_BASE_URL}/thadi+jugnoo.gif`,
+    // Preloader GIFs
+    mainGif: `${S3_BASE_URL}/Main.gif`,
+    mainVerticalGif: `${S3_BASE_URL}/Main_Vertical.gif`,
+};
 
 // Helper to generate optimized URL with better compression
 // f_auto: auto format (WebP/AVIF), q_auto:eco: eco quality for better performance
@@ -328,4 +342,5 @@ export default {
     OurTeam,
     Registration,
     Events,
+    S3Assets,
 };

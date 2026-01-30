@@ -1,5 +1,19 @@
 import { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { S3Assets } from './utils/cloudinaryUrls'
+
+// Preload critical S3 assets immediately on module load
+const criticalAssets = [
+    S3Assets.mainGif,
+    S3Assets.mainVerticalGif,
+    S3Assets.billBoard,
+    S3Assets.shops,
+    S3Assets.tediuxLogo,
+]
+criticalAssets.forEach((src) => {
+    const img = new Image()
+    img.src = src
+})
 
 // Lazy load route components for better code splitting
 const Registration = lazy(() => import('./pages/Registration.jsx'))

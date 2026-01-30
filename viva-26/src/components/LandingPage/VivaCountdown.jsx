@@ -1,11 +1,11 @@
 import React, { useState, useEffect, memo } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/VivaCountdown.css';
-import { LandingPage, OurTeam } from '../../utils/cloudinaryUrls';
+import { LandingPage, OurTeam, S3Assets } from '../../utils/cloudinaryUrls';
 
-// GIF Assets - kept local as they are animated (consider converting to WebM/MP4 for better performance)
-import billBoard from '../../assets/landingPage/billBoard.gif';
-import shops from '../../assets/landingPage/shops.gif';
+// CDN-hosted assets from AWS S3 for better performance
+const billBoard = S3Assets.billBoard;
+const shops = S3Assets.shops;
 
 // Cloudinary-hosted static images with optimized URLs
 const registerNow = LandingPage.registerNow;
@@ -13,7 +13,7 @@ const vivaLogo = OurTeam.vivaLogo;
 const jugnooGround = LandingPage.jugnooGround;
 const mobileJugnooGround = LandingPage.mobileJugnooGround;
 const ferrisWheel = LandingPage.ferrisWheel;
-const tediuxLogo = LandingPage.tediuxLogo;
+const tediuxLogo = S3Assets.tediuxLogo;
 
 // Memoized Timer Item to prevent unnecessary re-renders
 const TimerItem = memo(({ label, value }) => (
