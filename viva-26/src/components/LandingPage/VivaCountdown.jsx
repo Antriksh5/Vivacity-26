@@ -69,7 +69,7 @@ const VivaCountdown = () => {
                     <div className="nav-center">
                         <Link to="/events">EVENTS</Link>
                         <Link to="/coming-soon">SPONSORS</Link>
-                        <Link to="/coming-soon">VIBE CARDS</Link>
+                        <Link to="/coming-soon">VIBE CARD</Link>
                         <Link to="/our-team">OUR TEAM</Link>
                     </div>
 
@@ -91,7 +91,7 @@ const VivaCountdown = () => {
                         <div className="mobile-nav-links">
                             <Link to="/events" onClick={toggleMenu}>EVENTS</Link>
                             <Link to="/coming-soon" onClick={toggleMenu}>SPONSORS</Link>
-                            <Link to="/coming-soon" onClick={toggleMenu}>VIBE CARDS</Link>
+                            <Link to="/coming-soon" onClick={toggleMenu}>VIBE CARD</Link>
                             <Link to="/our-team" onClick={toggleMenu}>OUR TEAM</Link>
                         </div>
                     </div>
