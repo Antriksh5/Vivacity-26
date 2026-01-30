@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import bgAbout from '../../assets/landingPage/bgAbout.png';
-import bgAboutPhn from '../../assets/landingPage/bgAboutPhn.png';
-import aboutBgPhn from '../../assets/landingPage/aboutBgPhn.png';
-import aboutVivaTitle from '../../assets/landingPage/aboutViva.png';
-import leftHand from '../../assets/landingPage/leftHand.png';
-import rightHand from '../../assets/landingPage/rightHand.png';
-import nimbuMirchi from '../../assets/landingPage/nimbuMirchi.png';
-import uncle from '../../assets/landingPage/uncle.png';
+import { LandingPage } from '../../utils/cloudinaryUrls';
 import '../../styles/AboutViva.css';
+
+const bgAbout = LandingPage.bgAbout;
+const bgAboutPhn = LandingPage.bgAboutPhn;
+const aboutBgPhn = LandingPage.aboutBgPhn;
+const aboutVivaTitle = LandingPage.aboutViva;
+const leftHand = LandingPage.leftHand;
+const rightHand = LandingPage.rightHand;
+const nimbuMirchi = LandingPage.nimbuMirchi;
+const uncle = LandingPage.uncle;
 
 
 const AboutViva = React.forwardRef((props, bgAboutRef) => {

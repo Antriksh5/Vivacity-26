@@ -1,8 +1,9 @@
-import LegacyBg from "../assets/Legacy/Television.png"
-import LegacyBgMobile from "../assets/Legacy/LegacyBgMobile.png"
-import LegacyText from "../assets/Legacy/LegacyText.png"
+import { Legacy as LegacyImages } from '../utils/cloudinaryUrls';
 import '../styles/Legacy.css'
 
+const LegacyBg = LegacyImages.Television;
+const LegacyBgMobile = LegacyImages.LegacyBgMobile;
+const LegacyText = LegacyImages.LegacyText;
 
 const Legacy = () => {
     return (

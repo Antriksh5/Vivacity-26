@@ -2,34 +2,39 @@ import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import '../styles/PastArtist.css';
 import Matchbox from '../components/PastArtist/Matchbox';
-import BackgroundImage from '../assets/PastArtist/PastArtistBackGround.png';
-import LeftButton from '../assets/PastArtist/LeftButton.png';
-import RightButton from '../assets/PastArtist/RightButton.png';
+import { PastArtist } from '../utils/cloudinaryUrls';
 
-// Import Artist Images
-import AmitTrivedi from '../assets/PastArtist/AmitTrivedi.png';
-import DarshanRaval from '../assets/PastArtist/DarshanRaval.png';
-import JubinNautyal from '../assets/PastArtist/JubinNautyal.jpg';
-import MohitChauhan from '../assets/PastArtist/MohitChauhan.png';
-import AssesKaur from '../assets/PastArtist/AssesKaur.png';
-import Kullu from '../assets/PastArtist/Kullu.png';
-import Ritviz from '../assets/PastArtist/Ritviz.png';
-// Import Corner Images
-import TopLeftCornerPurple from '../assets/PastArtist/TopLeftCornerPurple.png';
-import TopRightCornerPurple from '../assets/PastArtist/TopRightCornerPurple.png';
-import BottomLeftCornerPurple from '../assets/PastArtist/BottomLeftCornerPurple.png';
-import BottomRightCornerPurple from '../assets/PastArtist/BottomRightCornerPurple.png';
+// Cloudinary URLs for images
+const BackgroundImage = PastArtist.PastArtistBackGround;
+const LeftButton = PastArtist.LeftButton;
+const RightButton = PastArtist.RightButton;
 
-import TopLeftCornerYellow from '../assets/PastArtist/TopLeftCornerYellow.png';
-import TopRightCornerYellow from '../assets/PastArtist/TopRightCornerYellow.png';
-import BottomLeftCornerYellow from '../assets/PastArtist/BottomLeftCornerYellow.png';
-import BottomRightCornerYellow from '../assets/PastArtist/BottomRightCornerYellow.png';
+// Artist Images
+const AmitTrivedi = PastArtist.AmitTrivedi;
+const DarshanRaval = PastArtist.DarshanRaval;
+const JubinNautyal = PastArtist.JubinNautyal;
+const MohitChauhan = PastArtist.MohitChauhan;
+const AssesKaur = PastArtist.AssesKaur;
+const Kullu = PastArtist.Kullu;
+const Ritviz = PastArtist.Ritviz;
+const Raftaar = PastArtist.Raftaar;
 
-import LeftTopCorner from '../assets/PastArtist/LeftTopCorner.png';
-import RightTopCorner from '../assets/PastArtist/RightTopCorner.png';
-import LeftBottomCorner from '../assets/PastArtist/LeftBottomCorner.png';
-import RightBottomCorner from '../assets/PastArtist/RightBottomCorner.png';
-import Raftaar from '../assets/PastArtist/Raftaar.jpg';
+// Corner Images
+const TopLeftCornerPurple = PastArtist.TopLeftCornerPurple;
+const TopRightCornerPurple = PastArtist.TopRightCornerPurple;
+const BottomLeftCornerPurple = PastArtist.BottomLeftCornerPurple;
+const BottomRightCornerPurple = PastArtist.BottomRightCornerPurple;
+
+const TopLeftCornerYellow = PastArtist.TopLeftCornerYellow;
+const TopRightCornerYellow = PastArtist.TopRightCornerYellow;
+const BottomLeftCornerYellow = PastArtist.BottomLeftCornerYellow;
+const BottomRightCornerYellow = PastArtist.BottomRightCornerYellow;
+
+const LeftTopCorner = PastArtist.LeftTopCorner;
+const RightTopCorner = PastArtist.RightTopCorner;
+const LeftBottomCorner = PastArtist.LeftBottomCorner;
+const RightBottomCorner = PastArtist.RightBottomCorner;
+
 const PastArtists = () => {
     console.log("PastArtists Component Rendered");
     const artists = [

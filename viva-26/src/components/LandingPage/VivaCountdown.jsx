@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/VivaCountdown.css';
+import { LandingPage, OurTeam } from '../../utils/cloudinaryUrls';
 
-// Assets
+// GIF Assets - kept local as they are animated
 import billBoard from '../../assets/landingPage/billBoard.gif';
 import shops from '../../assets/landingPage/shops.gif';
-import registerNow from '../../assets/landingPage/registerNow.png';
-import vivaLogo from '../../assets/ourTeam/viva-logo.png';
-import jugnooGround from '../../assets/landingPage/jugnooGround.png';
-import mobileJugnooGround from '../../assets/landingPage/mobileJugnooGround.png';
-import ferrisWheel from '../../assets/landingPage/ferrisWheel.png';
-import tediuxLogo from '../../assets/landingPage/tediux-logo.png';
+
+// Cloudinary-hosted static images
+const registerNow = LandingPage.registerNow;
+const vivaLogo = OurTeam.vivaLogo;
+const jugnooGround = LandingPage.jugnooGround;
+const mobileJugnooGround = LandingPage.mobileJugnooGround;
+const ferrisWheel = LandingPage.ferrisWheel;
+const tediuxLogo = LandingPage.tediuxLogo;
 
 
 const VivaCountdown = () => {
@@ -59,7 +62,7 @@ const VivaCountdown = () => {
             <section className="countdown-section">
                 {/* Navigation Bar */}
                 <nav className="countdown-nav">
-                    <div className="nav-left">
+                    <div className="nav-left flex flex-start">
                         <img src={vivaLogo} alt="Vivacity Logo" className="viva-main-logo" />
                     </div>
 

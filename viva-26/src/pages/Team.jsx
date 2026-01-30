@@ -1,17 +1,20 @@
-import VivaLogo from "../assets/Team/VivaLogo.png";
-import Flower from "../assets/Team/Flower.png";
-import FlowerY from "../assets/Team/FlowerY.png";
-import Circle from "../assets/Team/Circle.png";
-import TeamHeader from "../assets/Team/TeamHeader.png";
-import TeamMid1 from "../assets/Team/TeamMid1.png";
-import TeamMid2 from "../assets/Team/TeamMid2.png";
-import TeamMidBorder from "../assets/Team/TeamMidBorder.png";
-import TeamMidBorderMobile from "../assets/Team/TeamMidBorderMobile.png";
-import TeamMidMobile from "../assets/Team/TeamMidMobile.png";
-import TeamFooter from "../assets/Team/TeamFooter.png";
-import BottomBg from "../assets/Team/BottomBg.png";
-import TeamBg from "../assets/Team/TeamBg.png";
+import { Team as TeamImages } from '../utils/cloudinaryUrls';
 import "../styles/Team.css";
+
+const VivaLogo = TeamImages.VivaLogo;
+const Flower = TeamImages.Flower;
+const FlowerY = TeamImages.FlowerY;
+const Circle = TeamImages.Circle;
+const TeamHeader = TeamImages.TeamHeader;
+const TeamMid1 = TeamImages.TeamMid1;
+const TeamMid2 = TeamImages.TeamMid2;
+const TeamMidBorder = TeamImages.TeamMidBorder;
+const TeamMidBorderMobile = TeamImages.TeamMidBorderMobile;
+const TeamMidMobile = TeamImages.TeamMidMobile;
+const TeamFooter = TeamImages.TeamFooter;
+const BottomBg = TeamImages.BottomBg;
+const TeamBg = TeamImages.TeamBg;
+
 
 const Team = () => {
   return (

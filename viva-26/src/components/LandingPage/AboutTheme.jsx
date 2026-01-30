@@ -1,11 +1,14 @@
 import React from 'react';
-import aboutThemebg from '../../assets/landingPage/aboutThemebg.png';
-import mbabTheme from '../../assets/landingPage/mbabTheme.png';
-import bgAbout from '../../assets/landingPage/bgAbout.png';
-import aboutThemeBorder from '../../assets/landingPage/aboutThemeBorder.png';
-import mobileThemeBorder from '../../assets/landingPage/mobileThemeBorder.png';
-import aboutThemeTitle from '../../assets/landingPage/aboutTheme.png';
+import { LandingPage } from '../../utils/cloudinaryUrls';
 import '../../styles/AboutTheme.css';
+
+const aboutThemebg = LandingPage.aboutThemebg;
+const mbabTheme = LandingPage.mbabTheme;
+const bgAbout = LandingPage.bgAbout;
+const aboutThemeBorder = LandingPage.aboutThemeBorder;
+const mobileThemeBorder = LandingPage.mobileThemeBorder;
+const aboutThemeTitle = LandingPage.aboutTheme;
+
 
 const AboutTheme = React.forwardRef((props, ref) => {
     const { borderRef, bgAboutRef, textRef } = props;

@@ -585,6 +585,7 @@
     .countdown-nav {
         padding: 1rem 30px;
         display: grid;
+        justify-content: flex-start;
         grid-template-columns: 1fr auto;
         grid-template-areas:
             "logo hamburger"
@@ -595,6 +596,8 @@
 
     .nav-left {
         grid-area: logo;
+        display: flex;
+        justify-content: flex-start;
     }
 
     .nav-center {

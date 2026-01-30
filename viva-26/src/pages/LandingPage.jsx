@@ -7,17 +7,14 @@ import AboutViva from '../components/LandingPage/AboutViva';
 import AboutTheme from '../components/LandingPage/AboutTheme';
 import Landing from './Landing';
 import CursorLetterTrail from './CursorLetterTrail';
+import { GateAnimationFrames } from '../utils/cloudinaryUrls';
 import '../styles/LandingPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const framesGlob = import.meta.glob('../assets/landingPage/gate-animation/frame_*.png', { eager: true, import: 'default' });
-const frameKeys = Object.keys(framesGlob).sort((a, b) => {
-    const numA = parseInt(a.match(/frame_(\d+)/)[1]);
-    const numB = parseInt(b.match(/frame_(\d+)/)[1]);
-    return numA - numB;
-});
-const frameUrls = frameKeys.map(key => framesGlob[key]);
+// Use Cloudinary-hosted frames for better performance
+const frameUrls = GateAnimationFrames;
+
 
 const LandingPage = () => {
     const mainRef = useRef(null);

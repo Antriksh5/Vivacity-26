@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/mascot.css";
+import { MascotLanding as MascotImages } from '../utils/cloudinaryUrls';
 
-// Assets
+// Assets - video from local, images from Cloudinary
 import mascotVideo from "../assets/MascotLanding/mascot-video.mp4";
-import araLogo from "../assets/MascotLanding/ara.png";
-import backgroundImg from "../assets/MascotLanding/background1.png";
+const araLogo = MascotImages.ara;
+const backgroundImg = MascotImages.background1;
+
 
 const MascotLanding = () => {
   return (
