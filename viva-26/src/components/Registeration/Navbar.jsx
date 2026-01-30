@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './Navbar.css'
-import vivaLogo from '../../assets/registration/vivacityLogo.png'
+import { Registration } from '../../utils/cloudinaryUrls';
+const vivaLogo = Registration.vivacityLogo;
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)

@@ -17,7 +17,7 @@ function App() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 6500) // 6.5 seconds for initial load
+        }, 5000) // 4.3 seconds for initial load
 
         return () => clearTimeout(timer)
     }, [])
@@ -31,7 +31,7 @@ function App() {
         setIsLoading(true)
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 6500) // 6.5 seconds for route transitions
+        }, 6000) // 4.3 seconds for route transitions
 
         return () => clearTimeout(timer)
     }, [location.pathname])

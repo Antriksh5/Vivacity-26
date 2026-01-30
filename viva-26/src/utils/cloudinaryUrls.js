@@ -72,7 +72,7 @@ export const GateAnimationFrames = Array.from({ length: 27 }, (_, i) => {
 });
 
 // Footer Images
-export const Footer = {
+export const FooterImg = {
     footerLogo: url('viva-26/Footer/footerLogo'),
     footer: url('viva-26/Footer/footer'),
 };
@@ -98,6 +98,7 @@ export const EventLanding = {
     SideBorder: url('viva-26/EventLanding/SideBorder'),
     SpeakingImage: url('viva-26/EventLanding/SpeakingImage'),
     SocialImage: url('viva-26/EventLanding/SocialImage'),
+    AakheGIF: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/f_auto,q_auto/viva-26/EventLanding/AakheGIF`,
 
 };
 
@@ -313,7 +314,7 @@ export default {
     Team,
     LandingPage,
     GateAnimationFrames,
-    Footer,
+    FooterImg,
     MascotLanding,
     EventLanding,
     PastArtist,
