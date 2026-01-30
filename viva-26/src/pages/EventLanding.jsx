@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/EventLanding.css';
 import SideBorder from '../assets/EventLanding/SideBorder.png';
 import BottomBorder from '../assets/EventLanding/Bottom Border.png';
@@ -166,6 +167,7 @@ const eventsData = [
 ];
 
 const EventLanding = () => {
+    const navigate = useNavigate();
     const [activeIndex, setActiveIndex] = useState(0);
     const border = '#fddec0';
 
@@ -297,14 +299,14 @@ const EventLanding = () => {
                                             />
 
                                             {/* Prize Text */}
-                                            <div className="flex flex-col justify-center leading-none text-[#5C1A4E] rumble-brave text-[2vh] md:text-[3vh] lg:text-[4vh] tracking-widest lg:p-4 z-10 relative ">
+                                            <div className="flex flex-col justify-center leading-none text-[#5C1A4E] rumble-brave text-[2vh] md:text-[3vh] lg:text-[4vh] tracking-widest lg:p-[0.2vw] z-10 relative ">
                                                 <span>PRIZE</span>
-                                                <span className="text-[2.5vh] md:text-[3vh] lg:text-[4vh] ">WORTH</span>
+                                                <span className="text-[2.5vh] md:text-[2vw] lg:text-[1.8vw] ">WORTH</span>
                                             </div>
                                         </div>
 
                                         {/* Right: Amount */}
-                                        <div className="bg-[#7B02E7] text-white w-1/2 flex items-center justify-center font-bold text-[2.5vh] md:text-[3vh] lg:text-[5vh] tracking-widest uppercase rumble-brave whitespace-nowrap px-2">
+                                        <div className="bg-[#7B02E7] text-white w-1/2 flex items-center justify-center font-bold text-[2.5vh] md:text-[3vh] lg:text-[4vh] tracking-widest uppercase rumble-brave whitespace-nowrap px-2">
                                             {currentEvent.prize}
                                         </div>
                                     </div>
@@ -376,7 +378,7 @@ const EventLanding = () => {
                             </div>
 
                             {/* Desktop "Know More" Button Area (Hidden on Mobile) */}
-                            <div className="hidden lg:flex relative h-[12vh] lg:h-[16vh] bg-[#FE55B2] border-t-4 border-black flex-col items-center justify-between p-0 overflow-hidden cursor-pointer group">
+                            <div onClick={() => navigate('/events')} className="hidden lg:flex relative h-[12vh] lg:h-[16vh] bg-[#FE55B2] border-t-4 border-black flex-col items-center justify-between p-0 overflow-hidden cursor-pointer group">
                                 <div className="w-full h-[60%] relative overflow-hidden">
                                     <img
                                         src={EyesGif}
@@ -395,7 +397,7 @@ const EventLanding = () => {
                         {/* MOBILE FOOTER: Know More + Navigation (Visible only on Mobile) */}
                         <div className="flex lg:hidden w-full border-t-4 border-black h-[10vh]">
                             {/* Know More Button */}
-                            <div className="w-1/2 bg-[#FE55B2] border-r-4 border-black flex flex-col items-center justify-between relative overflow-hidden cursor-pointer">
+                            <div onClick={() => navigate('/event')} className="w-1/2 bg-[#FE55B2] border-r-4 border-black flex flex-col items-center justify-between relative overflow-hidden cursor-pointer">
                                 <div className="w-full h-[60%] overflow-hidden">
                                     <img src={EyesGif} alt="Eyes" className="w-full h-full object-cover scale-150" />
                                 </div>
