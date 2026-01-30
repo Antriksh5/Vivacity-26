@@ -227,6 +227,8 @@ const EventLanding = () => {
                         src={EventLandingImages.Background}
                         alt="Background"
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
 
@@ -342,6 +344,8 @@ const EventLanding = () => {
                                     src={currentEvent.mainImage}
                                     alt={currentEvent.title}
                                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 {/* Overlay Gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>

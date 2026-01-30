@@ -29,7 +29,7 @@ const Navbar = () => {
                     <Link to="/home" className="nav-link">HOME</Link>
                     <Link to="/events" className="nav-link">EVENTS</Link>
                     <Link to="/coming-soon" className="nav-link">SPONSORS</Link>
-                    <Link to="/coming-soon" className="nav-link">VIBE CARD</Link>
+                    <Link to="https://tediux.com/cards" className="nav-link">VIBE CARD</Link>
                     <Link to="/our-team" className="nav-link">OUR TEAM</Link>
                 </div>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <Link to="/home" className="mobile-nav-link" onClick={closeMenu}>HOME</Link>
                 <Link to="/events" className="mobile-nav-link" onClick={closeMenu}>EVENTS</Link>
                 <Link to="/coming-soon" className="mobile-nav-link" onClick={closeMenu}>SPONSORS</Link>
-                <Link to="/coming-soon" className="mobile-nav-link" onClick={closeMenu}>VIBE CARD</Link>
+                <Link to="https://tediux.com/cards" className="mobile-nav-link" onClick={closeMenu}>VIBE CARD</Link>
                 <Link to="/our-team" className="mobile-nav-link" onClick={closeMenu}>OUR TEAM</Link>
             </div>
 

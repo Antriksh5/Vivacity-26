@@ -5,6 +5,7 @@
     src: url('../fonts/lemon milk/LEMONMILK-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     src: url('../fonts/lemon milk/LEMONMILK-Bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -19,6 +21,7 @@
     src: url('../fonts/vetoSans/veto-sans-w05-light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 :root {

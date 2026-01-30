@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/VivaCountdown.css';
 import { LandingPage, OurTeam } from '../../utils/cloudinaryUrls';
 
-// GIF Assets - kept local as they are animated
+// GIF Assets - kept local as they are animated (consider converting to WebM/MP4 for better performance)
 import billBoard from '../../assets/landingPage/billBoard.gif';
 import shops from '../../assets/landingPage/shops.gif';
 
-// Cloudinary-hosted static images
+// Cloudinary-hosted static images with optimized URLs
 const registerNow = LandingPage.registerNow;
 const vivaLogo = OurTeam.vivaLogo;
 const jugnooGround = LandingPage.jugnooGround;
 const mobileJugnooGround = LandingPage.mobileJugnooGround;
 const ferrisWheel = LandingPage.ferrisWheel;
 const tediuxLogo = LandingPage.tediuxLogo;
+
+// Memoized Timer Item to prevent unnecessary re-renders
+const TimerItem = memo(({ label, value }) => (
+    <div className="timer-item">
+        <span className="label">{label}</span>
+        <span className="val">{value}</span>
+    </div>
+));
 
 
 const VivaCountdown = () => {
@@ -63,13 +71,13 @@ const VivaCountdown = () => {
                 {/* Navigation Bar */}
                 <nav className="countdown-nav">
                     <div className="nav-left flex flex-start">
-                        <img src={vivaLogo} alt="Vivacity Logo" className="viva-main-logo" />
+                        <img src={vivaLogo} alt="Vivacity Logo" className="viva-main-logo" fetchPriority="high" decoding="async" />
                     </div>
 
                     <div className="nav-center">
                         <Link to="/events">EVENTS</Link>
                         <Link to="/coming-soon">SPONSORS</Link>
-                        <Link to="/coming-soon">VIBE CARD</Link>
+                        <Link to="https://tediux.com/cards">VIBE CARD</Link>
                         <Link to="/our-team">OUR TEAM</Link>
                     </div>
 
@@ -91,7 +99,7 @@ const VivaCountdown = () => {
                         <div className="mobile-nav-links">
                             <Link to="/events" onClick={toggleMenu}>EVENTS</Link>
                             <Link to="/coming-soon" onClick={toggleMenu}>SPONSORS</Link>
-                            <Link to="/coming-soon" onClick={toggleMenu}>VIBE CARD</Link>
+                            <Link to="https://tediux.com/cards" onClick={toggleMenu}>VIBE CARD</Link>
                             <Link to="/our-team" onClick={toggleMenu}>OUR TEAM</Link>
                         </div>
                     </div>
@@ -100,12 +108,12 @@ const VivaCountdown = () => {
                 <div className="carnival-scene">
                     {/* Ferris Wheel */}
                     <div className="ferris-wheel-container">
-                        <img src={ferrisWheel} alt="Ferris Wheel" className="ferris-wheel-img" />
+                        <img src={ferrisWheel} alt="Ferris Wheel" className="ferris-wheel-img" loading="eager" decoding="async" />
                     </div>
 
                     {/* Main Billboard Area */}
                     <div className="billboard-container">
-                        <img src={billBoard} alt="Billboard" className="billboard-bg" />
+                        <img src={billBoard} alt="Billboard" className="billboard-bg" loading="eager" decoding="async" />
 
                         <div className={`timer-flip-wrapper ${isFlipped ? 'is-flipped' : ''}`}>
                             <div className="timer-flip-inner">
@@ -113,25 +121,13 @@ const VivaCountdown = () => {
                                     <div className="timer-overlay">
                                         <h2 className="timer-title">VIVACITY BEGINS IN</h2>
                                         <div className="timer-display">
-                                            <div className="timer-item">
-                                                <span className="label">DAYS</span>
-                                                <span className="val">{String(timeLeft.days).padStart(2, '0')}</span>
-                                            </div>
+                                            <TimerItem label="DAYS" value={String(timeLeft.days).padStart(2, '0')} />
                                             <span className="sep">:</span>
-                                            <div className="timer-item">
-                                                <span className="label">HOURS</span>
-                                                <span className="val">{String(timeLeft.hours).padStart(2, '0')}</span>
-                                            </div>
+                                            <TimerItem label="HOURS" value={String(timeLeft.hours).padStart(2, '0')} />
                                             <span className="sep">:</span>
-                                            <div className="timer-item">
-                                                <span className="label">MINS</span>
-                                                <span className="val">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                                            </div>
+                                            <TimerItem label="MINS" value={String(timeLeft.minutes).padStart(2, '0')} />
                                             <span className="sep">:</span>
-                                            <div className="timer-item">
-                                                <span className="label">SECS</span>
-                                                <span className="val">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                                            </div>
+                                            <TimerItem label="SECS" value={String(timeLeft.seconds).padStart(2, '0')} />
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +143,7 @@ const VivaCountdown = () => {
 
                     {/* Stalls / Shops Area */}
                     <div className="shops-container">
-                        <img src={shops} alt="Carnival Shops" className="shops-img" />
+                        <img src={shops} alt="Carnival Shops" className="shops-img" loading="lazy" decoding="async" />
                     </div>
                 </div>
             </section>
@@ -156,8 +152,8 @@ const VivaCountdown = () => {
             <section className="transition-section">
                 {/* Jugnoo Ground Effect - Between Shops and Bottom */}
                 <div className="jugnoo-ground-container">
-                    <img src={jugnooGround} alt="Jugnoo Ground" className="jugnoo-ground-img desktop-ground" />
-                    <img src={mobileJugnooGround} alt="Jugnoo Ground" className="jugnoo-ground-img mobile-ground" />
+                    <img src={jugnooGround} alt="Jugnoo Ground" className="jugnoo-ground-img desktop-ground" loading="lazy" decoding="async" />
+                    <img src={mobileJugnooGround} alt="Jugnoo Ground" className="jugnoo-ground-img mobile-ground" loading="lazy" decoding="async" />
                 </div>
 
 
