@@ -312,7 +312,7 @@ const PastArtists = () => {
                         disabled={isAnimating}
                         className="absolute left-2 md:left-5 top-1/2 -translate-y-1/2 z-40 transition-transform active:scale-95 hover:scale-105 disabled:opacity-50"
                     >
-                        <img src={LeftButton} alt="Previous" className="w-8 sm:w-10 md:w-12 h-auto" />
+                        <img src={LeftButton} alt="Previous" className="w-6 sm:w-8 md:w-10 h-auto" />
                     </button>
 
                     <button
@@ -320,7 +320,7 @@ const PastArtists = () => {
                         disabled={isAnimating}
                         className="absolute right-2 md:right-5 top-1/2 -translate-y-1/2 z-40 transition-transform active:scale-95 hover:scale-105 disabled:opacity-50"
                     >
-                        <img src={RightButton} alt="Next" className="w-8 sm:w-10 md:w-12 h-auto" />
+                        <img src={RightButton} alt="Next" className="w-6 sm:w-8 md:w-10 h-auto" />
                     </button>
                 </div>
 

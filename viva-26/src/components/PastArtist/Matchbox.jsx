@@ -29,7 +29,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
     useEffect(() => {
         if (trayRef.current) {
             gsap.to(trayRef.current, {
-                y: isOpen ? '70%' : '0%',
+                y: isOpen ? '80%' : '0%',
                 duration: 0.9,
                 ease: 'power2.out',
                 delay: isOpen ? 0.6 : 0.3, // More delay when opening (after card appears)
@@ -41,7 +41,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
         <div ref={containerRef} className="relative w-full max-w-[13rem] sm:max-w-[14rem] md:max-w-[16rem] h-[32rem] sm:h-[22rem] md:h-[26rem] flex justify-center shrink-0 transition-all duration-300">
             <div
                 ref={trayRef}
-                className="absolute w-full h-[50%] top-0 z-0 flex items-end justify-center pb-4"
+                className="absolute w-full h-[52%] top-0 z-0 flex items-end justify-center pb-6"
                 style={{
                     backgroundImage: `url(${MatchBoxOpen})`,
                     backgroundSize: '100% 100%',
@@ -53,7 +53,7 @@ const Matchbox = ({ color1, color2, color3, artistName, image, delay = 0, isOpen
 
             {/* Three-color border frame */}
             <div
-                className="absolute top-0 left-0 w-full h-[70%] z-10 p-1 border-3 border-black "
+                className="absolute top-0 left-0 w-full h-[80%] z-10 p-1 border-3 border-black "
                 style={{ backgroundColor: color1 }}
             >
                 <div className="w-full h-full p-1 border-3 border-white"
