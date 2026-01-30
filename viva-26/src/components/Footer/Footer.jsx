@@ -1,15 +1,20 @@
 import React from 'react';
 import './Footer.css';
-import footerBg from '../../assets/Footer/footer.png';
-import footerLogo from '../../assets/Footer/footerLogo.png';
+
+// const FooterLogo = FooterImage.footerLogo;
+// const FooterBg = FooterImage.footer;
+
+import { FooterImg } from '../../utils/cloudinaryUrls';
+
+const { footerLogo: FooterLogo, footer: FooterBg } = FooterImg;
 
 const Footer = () => {
     return (
-        <footer className="viva-footer" style={{ backgroundImage: `url(${footerBg})` }}>
+        <footer className="viva-footer" style={{ backgroundImage: `url(${FooterBg})` }}>
             <div className="footer-container">
                 <div className="footer-left">
                     <div className="footer-logo-section">
-                        <img src={footerLogo} alt="Vivacity'26 Logo" className="footer-viva-logo" />
+                        <img src={FooterLogo} alt="Vivacity'26 Logo" className="footer-viva-logo" />
                     </div>
                     <div className="footer-credits">
                         <p className="credit-text">DEVELOPED BY &lt;&gt; <span className="highlight">GDG ON CAMPUS, LNMIIT</span></p>

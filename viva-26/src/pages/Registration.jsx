@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import '../styles/Registration.css'
 import { Registration as RegistrationImages } from '../utils/cloudinaryUrls'
 // Keep the animated GIF local for animation timing control
-import doorGif from '../assets/registration/door.gif'
+const doorGif = RegistrationImages.door;
 import Navbar from '../components/Registeration/Navbar'
 
 const eventData = {

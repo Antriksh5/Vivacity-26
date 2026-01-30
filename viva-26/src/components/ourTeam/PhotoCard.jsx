@@ -1,14 +1,16 @@
 import { useRef } from 'react'
-import {
+import { OurTeam } from '../../utils/cloudinaryUrls';
+
+const {
     leftBorder,
     rightBorder,
-    instaIcon,
-    mailIcon
-} from '../../assets/ourTeam'
-import purpleInsta from '../../assets/ourTeam/purple_insta.png'
-import purpleGmail from '../../assets/ourTeam/purple_gmail.png'
-import orangeInsta from '../../assets/ourTeam/yellow_insta.png'
-import orangeGmail from '../../assets/ourTeam/yellow_email.png'
+    instagram: instaIcon,
+    email: mailIcon,
+    purpleInsta,
+    purpleGmail,
+    yellowInsta: orangeInsta,
+    yellowEmail: orangeGmail
+} = OurTeam;
 
 const PhotoCard = ({ imageUrl, name, role, size = "normal", theme = "blue", instagram, email }) => {
     const cardRef = useRef(null);
