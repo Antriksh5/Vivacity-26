@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import DesktopGif from '../../assets/PreLoader/Main.gif';
-import MobileGif from '../../assets/PreLoader/Main_Vertical.gif';
+import React, { useState, useEffect, memo } from 'react';
 
-
-const Preloader = ({ isLoading }) => {
+// Lazy load GIFs only when needed to avoid blocking initial render
+const Preloader = memo(({ isLoading }) => {
     const [gifKey, setGifKey] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [gifSrc, setGifSrc] = useState(null);
 
     useEffect(() => {
         if (isLoading) {
@@ -17,30 +16,42 @@ const Preloader = ({ isLoading }) => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-
-        // Initial check
         checkMobile();
-
-        // Add listener
         window.addEventListener('resize', checkMobile);
-
-        // Cleanup
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
+    // Lazy load GIF after component mounts to not block initial render
+    useEffect(() => {
+        const loadGif = async () => {
+            if (isMobile) {
+                const gif = await import('../../assets/PreLoader/Main_Vertical.gif');
+                setGifSrc(gif.default);
+            } else {
+                const gif = await import('../../assets/PreLoader/Main.gif');
+                setGifSrc(gif.default);
+            }
+        };
+        loadGif();
+    }, [isMobile]);
+
     return (
         <div
-            className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black ${isLoading ? 'opacity-100 cursor-none' : 'opacity-0 pointer-events-none transition-opacity duration-1000'
-                }`}
+            className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black ${isLoading ? 'opacity-100 cursor-none' : 'opacity-0 pointer-events-none transition-opacity duration-500'}`}
         >
-            <img
-                key={gifKey}
-                src={isMobile ? MobileGif : DesktopGif}
-                alt="Loading..."
-                className="w-full h-full object-cover"
-            />
+            {gifSrc ? (
+                <img
+                    key={gifKey}
+                    src={gifSrc}
+                    alt="Loading..."
+                    className="w-full h-full object-cover"
+                    decoding="async"
+                />
+            ) : (
+                <div className="text-white text-2xl font-bold animate-pulse">Loading...</div>
+            )}
         </div>
     );
-};
+});
 
 export default Preloader;

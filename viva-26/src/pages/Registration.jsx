@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import '../styles/Registration.css'
 import { Registration as RegistrationImages } from '../utils/cloudinaryUrls'
-// Keep the animated GIF local for animation timing control
-const doorGif = RegistrationImages.door;
+import doorGif from '../assets/registration/door.gif'
 import Navbar from '../components/Registeration/Navbar'
 
 const eventData = {
@@ -18,14 +17,13 @@ const eventData = {
     "Fashion Events": ["Vogue", "Mr. and Miss Viva"]
 };
 
-const Registration = ({ isPreloaderComplete = false }) => {
+const Registration = ({ isPreloaderComplete }) => {
     const doorRef = useRef(null)
     const finalRef = useRef(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1024)
     const [isVerySmallScreen, setIsVerySmallScreen] = useState(window.innerWidth < 500)
     const [isExtremelySmallScreen, setIsExtremelySmallScreen] = useState(window.innerWidth < 330)
-    const [assetsLoaded, setAssetsLoaded] = useState(false)
 
     useEffect(() => {
         const handleResize = () => {
@@ -102,9 +100,9 @@ const Registration = ({ isPreloaderComplete = false }) => {
         let gifLoaded = false
 
         const checkAllLoaded = () => {
-            if (pngLoaded && doorOnlyLoaded && gifLoaded) {
-                // Mark assets as loaded, but don't play GIF yet
-                setAssetsLoaded(true)
+            if (pngLoaded && doorOnlyLoaded && gifLoaded && isPreloaderComplete) {
+                // Now that it's cached and preloader is complete, setting the src will be instant
+                setGifSrc(`${doorGif}?t=${Date.now()}`)
             }
         }
 
@@ -117,11 +115,8 @@ const Registration = ({ isPreloaderComplete = false }) => {
             checkAllLoaded()
         }
         preGif.onload = () => {
-            // Additional delay to ensure GIF is fully cached and ready to play
-            setTimeout(() => {
-                gifLoaded = true
-                checkAllLoaded()
-            }, 200)
+            gifLoaded = true
+            checkAllLoaded()
         }
 
         pngImg.src = RegistrationImages.doorPng
@@ -131,17 +126,7 @@ const Registration = ({ isPreloaderComplete = false }) => {
         return () => {
             document.body.classList.remove('registration-page')
         }
-    }, [])
-
-    // Play GIF only when both assets are loaded AND preloader is complete
-    useEffect(() => {
-        if (assetsLoaded && isPreloaderComplete) {
-            // Small delay to ensure smooth transition after preloader fades out
-            setTimeout(() => {
-                setGifSrc(`${doorGif}?t=${Date.now()}`)
-            }, 100)
-        }
-    }, [assetsLoaded, isPreloaderComplete])
+    }, [isPreloaderComplete])
 
     useEffect(() => {
         if (!gifSrc) return

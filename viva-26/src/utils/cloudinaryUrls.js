@@ -8,8 +8,15 @@
 const CLOUD_NAME = 'dilxriyf3';
 const BASE_URL = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
 
-// Helper to generate optimized URL
-const url = (publicId) => `${BASE_URL}/f_auto,q_auto/${publicId}`;
+// Helper to generate optimized URL with better compression
+// f_auto: auto format (WebP/AVIF), q_auto:eco: eco quality for better performance
+const url = (publicId) => `${BASE_URL}/f_auto,q_auto:eco/${publicId}`;
+
+// Helper for high-priority above-the-fold images (better quality)
+const urlHQ = (publicId) => `${BASE_URL}/f_auto,q_auto:good/${publicId}`;
+
+// Helper for responsive images with max width
+const urlWithWidth = (publicId, width) => `${BASE_URL}/f_auto,q_auto:eco,w_${width}/${publicId}`;
 
 // Legacy Page Images
 export const Legacy = {

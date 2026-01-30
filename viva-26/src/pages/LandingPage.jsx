@@ -62,30 +62,45 @@ const LandingPage = () => {
     const themeTextRef = useRef(null);
     const zoomOverlayRef = useRef(null);
 
-    // Image preloading and canvas rendering
+    // Image preloading and canvas rendering - optimized for performance
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        const images = [];
+        const images = new Array(frameUrls.length).fill(null);
         const totalFrames = frameUrls.length;
-        let imagesLoaded = 0;
 
         // Define animation state object to be tweened
         const frameState = { index: 0 };
 
-        // Preload images
-        frameUrls.forEach((url, i) => {
-            const img = new Image();
-            img.src = url;
-            img.onload = () => {
-                imagesLoaded++;
-                if (imagesLoaded === 1 && i === 0) {
-                    // Draw first frame immediately when loaded
-                    renderFrame(0);
+        // Priority load first frame for immediate display
+        const loadImage = (index) => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = frameUrls[index];
+                img.onload = () => {
+                    images[index] = img;
+                    resolve(img);
+                };
+                img.onerror = () => resolve(null);
+            });
+        };
+
+        // Load first frame immediately, then load rest progressively
+        const loadFrames = async () => {
+            // Load first frame with high priority
+            await loadImage(0);
+            renderFrame(0);
+
+            // Load remaining frames in batches for better performance
+            const batchSize = 5;
+            for (let i = 1; i < totalFrames; i += batchSize) {
+                const batch = [];
+                for (let j = i; j < Math.min(i + batchSize, totalFrames); j++) {
+                    batch.push(loadImage(j));
                 }
-            };
-            images.push(img);
-        });
+                await Promise.all(batch);
+            }
+        };
 
         const renderFrame = (index) => {
             const img = images[Math.round(index)];
@@ -96,6 +111,8 @@ const LandingPage = () => {
                 ctx.drawImage(img, 0, 0);
             }
         };
+
+        loadFrames();
 
         const lenis = new Lenis({
             duration: 2.5,
