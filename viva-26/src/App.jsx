@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Registration from './pages/Registration.jsx'
 import OurTeam from './pages/OurTeam.jsx'
@@ -11,21 +11,27 @@ function App() {
     const [isLoading, setIsLoading] = useState(true)
     const location = useLocation()
 
+    const isFirstLoad = useRef(true)
+
     // Initial page load
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 1500) // 1.5 seconds for initial load
+        }, 6500) // 6.5 seconds for initial load
 
         return () => clearTimeout(timer)
     }, [])
 
-    // Route change detection
-    useEffect(() => {
+    // Route change detection - useLayoutEffect to trigger before paint
+    useLayoutEffect(() => {
+        if (isFirstLoad.current) {
+            isFirstLoad.current = false
+            return
+        }
         setIsLoading(true)
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 800) // 800ms for route transitions
+        }, 6500) // 6.5 seconds for route transitions
 
         return () => clearTimeout(timer)
     }, [location.pathname])
@@ -33,14 +39,16 @@ function App() {
     return (
         <>
             <Preloader isLoading={isLoading} />
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/registration" element={<Registration />} />
-                <Route path="/our-team" element={<OurTeam />} />
-                <Route path="/events" element={<EventPage />} />
-                <Route path="/home" element={<LandingPage />} />
-                <Route path="/coming-soon" element={<ComingSoon />} />
-            </Routes>
+            <div style={{ display: isLoading ? 'none' : 'block' }}>
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/registration" element={<Registration />} />
+                    <Route path="/our-team" element={<OurTeam />} />
+                    <Route path="/events" element={<EventPage />} />
+                    <Route path="/home" element={<LandingPage />} />
+                    <Route path="/coming-soon" element={<ComingSoon />} />
+                </Routes>
+            </div>
         </>
     )
 }
