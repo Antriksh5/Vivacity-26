@@ -60,6 +60,7 @@ const Legacy = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 export default Legacy;

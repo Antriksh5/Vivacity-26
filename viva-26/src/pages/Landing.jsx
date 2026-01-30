@@ -33,7 +33,8 @@ const Landing = () => {
                 </section>
 
                 {/* Section 3: Legacy */}
-                <section id="legacy">
+                {/* Section 3: Legacy */}
+                <section id="legacy" className="hidden lg:block">
                     <Legacy />
                 </section>
 
