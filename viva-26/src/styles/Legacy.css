@@ -103,32 +103,53 @@
     .legacy-gif-blue,
     .legacy-gif-red {
         position: absolute;
-        left: 50%;
-        width: 55%;
         aspect-ratio: 16/9;
-        transform: translate(-50%, -50%);
+        border-radius: 4px;
         rotate: 0deg;
-        border-radius: 8px;
     }
 
+    /* Green TV - top area, large screen */
     .legacy-gif-purple {
         top: 15%;
+        left: 50%;
+        width: 65%;
+        transform: translate(-50%, -50%);
     }
 
-    .legacy-gif-green {
-        top: 32%;
-    }
-
+    /* Purple TV - right side middle */
     .legacy-gif-yellow {
-        top: 49%;
+        top: 42%;
+        left: 68%;
+        width: 45%;
+        transform: translate(-50%, -50%);
     }
 
+    /* Olive/Yellow TV - left middle */
+    .legacy-gif-green {
+        top: 60%;
+        left: 32%;
+        width: 48%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Blue/Cyan TV - bottom left */
     .legacy-gif-blue {
-        top: 66%;
+        top: 82%;
+        left: 32%;
+        width: 45%;
+        transform: translate(-50%, -50%);
     }
 
+    /* Pink TV - bottom right */
     .legacy-gif-red {
-        top: 83%;
+        position: absolute;
+        top: 78%;
+        left: 66%;
+        transform: translate(-31%, 46%);
+        width: 29%;
+        aspect-ratio: 10/9;
+        rotate: 90deg;
+        z-index: 1;
     }
 }
 
@@ -142,7 +163,7 @@
     z-index: 2;
 }
 
-/* Desktop - Large screens (1280px+) */
+/* Desktop - Large screens (1280px+) - Base positioning for ~1496x689 */
 .legacy-gif-purple {
     position: absolute;
     top: 49%;
@@ -194,6 +215,171 @@
     z-index: 1;
 }
 
+/* Extra large screens (1600px+) */
+@media (min-width: 1601px) {
+    .legacy-gif-purple {
+        top: 48%;
+        left: 51%;
+        width: 24%;
+    }
+
+    .legacy-gif-blue {
+        top: 78%;
+        left: 19%;
+        width: 16%;
+    }
+
+    .legacy-gif-green {
+        top: 18%;
+        left: 24%;
+        width: 20%;
+    }
+
+    .legacy-gif-yellow {
+        top: 76%;
+        left: 81%;
+        width: 21%;
+    }
+
+    .legacy-gif-red {
+        top: 13%;
+        left: 77%;
+        width: 17%;
+    }
+}
+
+/* Large laptops (1537px - 1600px) */
+@media (min-width: 1537px) and (max-width: 1600px) {
+    .legacy-gif-purple {
+        top: 48%;
+        left: 51%;
+        width: 24%;
+    }
+
+    .legacy-gif-blue {
+        top: 77%;
+        left: 19%;
+        width: 16%;
+    }
+
+    .legacy-gif-green {
+        top: 18%;
+        left: 24%;
+        width: 20%;
+    }
+
+    .legacy-gif-yellow {
+        top: 75%;
+        left: 81%;
+        width: 21%;
+    }
+
+    .legacy-gif-red {
+        top: 13%;
+        left: 77%;
+        width: 17%;
+    }
+}
+
+/* Standard laptops (1441px - 1536px) - 1536x864, 1440x900 */
+@media (min-width: 1441px) and (max-width: 1536px) {
+    .legacy-gif-purple {
+        top: 49%;
+        left: 51%;
+        width: 24%;
+    }
+
+    .legacy-gif-blue {
+        top: 76%;
+        left: 20%;
+        width: 16%;
+    }
+
+    .legacy-gif-green {
+        top: 19%;
+        left: 25%;
+        width: 20%;
+    }
+
+    .legacy-gif-yellow {
+        top: 74%;
+        left: 80%;
+        width: 21%;
+    }
+
+    .legacy-gif-red {
+        top: 14%;
+        left: 76%;
+        width: 17%;
+    }
+}
+
+/* Common laptops (1367px - 1440px) - 1440x900 */
+@media (min-width: 1367px) and (max-width: 1440px) {
+    .legacy-gif-purple {
+        top: 49%;
+        left: 51%;
+        width: 24%;
+    }
+
+    .legacy-gif-blue {
+        top: 75%;
+        left: 20%;
+        width: 16%;
+    }
+
+    .legacy-gif-green {
+        top: 20%;
+        left: 25%;
+        width: 20%;
+    }
+
+    .legacy-gif-yellow {
+        top: 73%;
+        left: 80%;
+        width: 21%;
+    }
+
+    .legacy-gif-red {
+        top: 15%;
+        left: 76%;
+        width: 17%;
+    }
+}
+
+/* Small laptops (1281px - 1366px) - Common 1366x768 */
+@media (min-width: 1281px) and (max-width: 1366px) {
+    .legacy-gif-purple {
+        top: 49%;
+        left: 51%;
+        width: 24%;
+    }
+
+    .legacy-gif-blue {
+        top: 73%;
+        left: 20%;
+        width: 16%;
+    }
+
+    .legacy-gif-green {
+        top: 21%;
+        left: 25%;
+        width: 20%;
+    }
+
+    .legacy-gif-yellow {
+        top: 71%;
+        left: 80%;
+        width: 21%;
+    }
+
+    .legacy-gif-red {
+        top: 17%;
+        left: 76%;
+        width: 17%;
+    }
+}
+
 /* Medium screens - Tablets and small laptops (768px - 1280px) */
 @media (min-width: 641px) and (max-width: 1280px) {
     .legacy-stamp-border {
@@ -222,7 +408,7 @@
     }
 
     .legacy-gif-blue {
-        top: 64%;
+        top: 66%;
         left: 20%;
         transform: translate(-38%, -39%);
         width: 15%;
@@ -238,14 +424,14 @@
     .legacy-gif-yellow {
         top: 64%;
         left: 80%;
-        transform: translate(-60%, -74%);
-        width: 18%;
+        transform: translate(-59%, -72%);
+        width: 20%;
     }
 
     .legacy-gif-red {
-        top: 26%;
-        left: 75%;
-        transform: translate(-26%, 68%);
+        top: 12%;
+        left: 73%;
+        transform: translate(4%, 39%);
         width: 20%;
     }
 }
