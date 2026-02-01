@@ -71,7 +71,7 @@ const VivaCountdown = () => {
         <div className="viva-main-wrapper">
             <section className="countdown-section">
                 {/* Navigation Bar */}
-                <nav className="countdown-nav">
+                <nav className="countdown-nav mt-4">
                     <div className="nav-left flex flex-start">
                         <img src={vivaLogo} alt="Vivacity Logo" className="viva-main-logo" fetchPriority="high" decoding="async" />
                     </div>
