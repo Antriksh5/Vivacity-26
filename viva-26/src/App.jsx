@@ -2,10 +2,9 @@ import { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 're
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { S3Assets } from './utils/cloudinaryUrls'
 
-// Preload critical S3 assets immediately on module load
+// Preload critical S3 image assets immediately on module load
+// Note: Preloader videos (MP4) are preloaded via <link> tags in index.html
 const criticalAssets = [
-    S3Assets.mainGif,
-    S3Assets.mainVerticalGif,
     S3Assets.billBoard,
     S3Assets.shops,
     S3Assets.tediuxLogo,
@@ -29,11 +28,11 @@ function App() {
     const location = useLocation()
     const isFirstLoad = useRef(true)
 
-    // Initial page load - let GIF play completely
+    // Initial page load - let video play completely
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 5000) // 5 seconds to let GIF play
+        }, 5000) // 5 seconds to let video play
 
         return () => clearTimeout(timer)
     }, [])

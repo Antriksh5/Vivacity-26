@@ -17,9 +17,6 @@ export const S3Assets = {
     shops: `${S3_BASE_URL}/shops.gif`,
     tediuxLogo: `${S3_BASE_URL}/tediux-logo.png`,
     thadiJugnoo: `${S3_BASE_URL}/thadi+jugnoo.gif`,
-    // Preloader GIFs
-    mainGif: `${S3_BASE_URL}/Main.gif`,
-    mainVerticalGif: `${S3_BASE_URL}/Main_Vertical.gif`,
 };
 
 // Optimized URL helpers with aggressive compression
