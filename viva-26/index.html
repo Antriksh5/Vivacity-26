@@ -13,9 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload critical S3 assets (preloader GIFs) -->
-    <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/Main.gif" as="image" type="image/gif">
-    <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/Main_Vertical.gif" as="image" type="image/gif">
+    <!-- Preload critical preloader videos (MP4) - loaded before page renders -->
+    <link rel="preload" href="/src/assets/PreLoader/Main.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="/src/assets/PreLoader/Main_Vertical.mp4" as="video" type="video/mp4" media="(max-width: 768px)">
+
+    <!-- Preload critical S3 assets (billboard GIF) -->
     <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/billBoard.gif" as="image" type="image/gif">
     <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/billBoardPhn.png" as="image" type="image/png" media="(max-width: 768px)">
     <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/shops.gif" as="image" type="image/gif">
@@ -24,8 +26,10 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Lemon&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Lemon&display=swap" rel="stylesheet"></noscript>
 
-    <!-- Prefetch critical Cloudinary images for LCP (first gate frame) -->
-    <link rel="prefetch" href="https://res.cloudinary.com/dilxriyf3/image/upload/f_auto,q_auto:good,w_1920/v1/vivacity2026/gate/frame_001" as="image">
+    <!-- Prefetch critical Cloudinary images for gate animation (first 3 priority frames) -->
+    <link rel="preload" href="https://res.cloudinary.com/dilxriyf3/image/upload/f_auto,q_auto:good,w_1920/viva-26/landingPage/gate-animation/frame_02" as="image" fetchpriority="high">
+    <link rel="preload" href="https://res.cloudinary.com/dilxriyf3/image/upload/f_auto,q_auto:good,w_1920/viva-26/landingPage/gate-animation/frame_03" as="image">
+    <link rel="preload" href="https://res.cloudinary.com/dilxriyf3/image/upload/f_auto,q_auto:good,w_1920/viva-26/landingPage/gate-animation/frame_04" as="image">
 
     <!-- Performance hints for mobile -->
     <meta name="mobile-web-app-capable" content="yes">

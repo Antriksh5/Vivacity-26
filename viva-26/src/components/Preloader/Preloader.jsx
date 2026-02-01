@@ -1,55 +1,20 @@
 import React, { useState, useEffect, memo, useRef } from 'react';
-import { S3Assets } from '../../utils/cloudinaryUrls';
-import loaderAudio from '../../assets/PreLoader/loader.mp3';
-
-// CDN-hosted preloader GIFs from AWS S3
-const MainGif = S3Assets.mainGif;
-const MainVerticalGif = S3Assets.mainVerticalGif;
-
-// Create a singleton audio instance outside the component to keep it alive across renders
-const globalAudio = new Audio(loaderAudio);
-globalAudio.preload = 'auto';
+import MainVideo from '../../assets/PreLoader/Main.mp4';
+import MainVerticalVideo from '../../assets/PreLoader/Main_Vertical.mp4';
 
 const Preloader = memo(({ isLoading }) => {
-    const [gifKey, setGifKey] = useState(0);
+    const videoRef = useRef(null);
 
-    // Force GIF restart
+    // Video playback control
     useEffect(() => {
-        if (isLoading) {
-            setGifKey(prev => prev + 1);
-        }
-    }, [isLoading]);
-
-    // Attempt Playback
-    useEffect(() => {
-        if (isLoading) {
-            globalAudio.currentTime = 0;
-            globalAudio.play().catch(() => {
-                // Silently fails if blocked, waiting for interaction fallback below
-            });
-        } else {
-            globalAudio.pause();
-            globalAudio.currentTime = 0;
-        }
-    }, [isLoading]);
-
-    // THE "AUTO-UNBLOCKER"
-    // This triggers sound on ANY movement (mouse, scroll, touch) 
-    // satisfies the browser's 'user gesture' requirement without a forced click.
-    useEffect(() => {
-        const unblockAudio = () => {
-            if (isLoading && globalAudio.paused) {
-                globalAudio.play().catch(() => { });
+        if (videoRef.current) {
+            if (isLoading) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.play().catch(() => {});
+            } else {
+                videoRef.current.pause();
+                videoRef.current.currentTime = 0;
             }
-        };
-
-        if (isLoading) {
-            const events = ['mousedown', 'mousemove', 'touchstart', 'scroll', 'wheel', 'keydown'];
-            events.forEach(e => window.addEventListener(e, unblockAudio, { once: true }));
-
-            return () => {
-                events.forEach(e => window.removeEventListener(e, unblockAudio));
-            };
         }
     }, [isLoading]);
 
@@ -61,20 +26,20 @@ const Preloader = memo(({ isLoading }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const gifSrc = isMobile ? MainVerticalGif : MainGif;
+    const videoSrc = isMobile ? MainVerticalVideo : MainVideo;
 
     return (
         <div
             className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-500 ${isLoading ? 'opacity-100 cursor-none' : 'opacity-0 pointer-events-none'
                 }`}
         >
-            <img
-                key={gifKey}
-                src={gifSrc}
-                alt="Loading..."
+            <video
+                ref={videoRef}
+                src={videoSrc}
                 className="w-full h-full object-cover"
-                decoding="async"
-                fetchPriority="high"
+                muted
+                playsInline
+                preload="auto"
             />
         </div>
     );

@@ -7,7 +7,7 @@ import AboutViva from '../components/LandingPage/AboutViva';
 import AboutTheme from '../components/LandingPage/AboutTheme';
 import Landing from './Landing';
 import CursorLetterTrail from './CursorLetterTrail';
-import { GateAnimationFrames } from '../utils/cloudinaryUrls';
+import { GateAnimationFrames, GateAnimationFramesPriority } from '../utils/cloudinaryUrls';
 import '../styles/LandingPage.css';
 
 // Tediux Promotional Banner Component
@@ -65,38 +65,58 @@ const LandingPage = () => {
     // Image preloading and canvas rendering - optimized for performance
     useEffect(() => {
         const canvas = canvasRef.current;
+        if (!canvas) return;
+        
         const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        
         const images = new Array(frameUrls.length).fill(null);
         const totalFrames = frameUrls.length;
 
         // Define animation state object to be tweened
         const frameState = { index: 0 };
 
-        // Priority load first frame for immediate display
-        const loadImage = (index) => {
+        // Priority load with fetchPriority hint
+        const loadImage = (index, priority = 'auto') => {
             return new Promise((resolve) => {
                 const img = new Image();
-                img.src = frameUrls[index];
+                img.fetchPriority = priority;
+                img.decoding = 'async';
+                img.crossOrigin = 'anonymous';
+                // Use priority URL for first 3 frames, otherwise use regular frames
+                img.src = (index < 3 && GateAnimationFramesPriority[index]) 
+                    ? GateAnimationFramesPriority[index] 
+                    : frameUrls[index];
                 img.onload = () => {
                     images[index] = img;
                     resolve(img);
                 };
-                img.onerror = () => resolve(null);
+                img.onerror = (err) => {
+                    console.error(`Failed to load frame ${index}:`, frameUrls[index]);
+                    resolve(null);
+                };
             });
         };
 
-        // Load first frame immediately, then load rest progressively
+        // Optimized frame loading with parallel fetching
         const loadFrames = async () => {
-            // Load first frame with high priority
-            await loadImage(0);
-            renderFrame(0);
+            // Load first 3 frames with high priority in parallel
+            const priorityFrames = await Promise.all([
+                loadImage(0, 'high'),
+                loadImage(1, 'high'),
+                loadImage(2, 'high')
+            ]);
+            
+            if (priorityFrames[0]) {
+                renderFrame(0);
+            }
 
-            // Load remaining frames in batches for better performance
-            const batchSize = 5;
-            for (let i = 1; i < totalFrames; i += batchSize) {
+            // Load remaining frames in larger batches for better throughput
+            const batchSize = 8;
+            for (let i = 3; i < totalFrames; i += batchSize) {
                 const batch = [];
                 for (let j = i; j < Math.min(i + batchSize, totalFrames); j++) {
-                    batch.push(loadImage(j));
+                    batch.push(loadImage(j, 'low'));
                 }
                 await Promise.all(batch);
             }
@@ -104,7 +124,8 @@ const LandingPage = () => {
 
         const renderFrame = (index) => {
             const img = images[Math.round(index)];
-            if (img && img.complete) {
+            if (img && img.complete && img.naturalWidth > 0) {
+                // Set canvas size to match image
                 canvas.width = img.naturalWidth;
                 canvas.height = img.naturalHeight;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -238,8 +259,6 @@ const LandingPage = () => {
                     renderFrame(frameState.index);
                 }
             }, exitStartTime);
-
-
 
             // Zoom out AboutTheme while fading out (synced with gate closing)
             tl.fromTo(aboutThemeRef.current,
