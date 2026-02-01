@@ -51,7 +51,7 @@ export const getSections = (refs) => {
                 <>
                     <div ref={banner1Ref} className="absolute top-[30px] md:top-[30px] left-1/2 -translate-x-1/2 ml-[25px] md:ml-0 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={mentorsBanner} alt="Our Mentors" className="w-[35vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[16vw] 2xl:w-[12vw] h-auto" />
+                            <img src={mentorsBanner} alt="Our Mentors" className="w-[35vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[25vw] 2xl:w-[20vw] h-auto" />
                         </div>
                     </div>
                     <img
@@ -85,12 +85,12 @@ export const getSections = (refs) => {
             bannerAlt: 'Fest Head',
             showHeader: false,
             bannerRef: banner2Ref,
-            cardHeight: "h-[120vh] sm:h-[130vh] md:h-[110vh]",
+            cardHeight: "h-[150vh] sm:h-[130vh] md:h-[110vh]",
             vogueHands: (
                 <>
                     <div ref={banner2Ref} className="absolute top-[30px] md:top-[35px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={festheadBanner} alt="Fest Head" className="w-[35vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[16vw] 2xl:w-[12vw] h-auto" />
+                            <img src={festheadBanner} alt="Fest Head" className="w-[60vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[25vw] 2xl:w-[20vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute top-[33px] md:top-[53px] left-0 right-0 w-full px-10 sm:px-12 md:px-14 lg:px-20 xl:px-28 flex justify-between pointer-events-none z-[15]">
@@ -100,7 +100,7 @@ export const getSections = (refs) => {
                 </>
             ),
             content: (
-                <div className="flex flex-col sm:flex-row gap-24 sm:gap-24 md:gap-24 lg:gap-32 min-[1000px]:gap-64 min-[1200px]:gap-32 xl:gap-32 justify-center items-center -mt-20 sm:mt-4 md:mt-6 lg:mt-8 relative z-[2] flex-wrap">
+                <div className="flex flex-col sm:flex-row gap-[20vh] sm:gap-24 md:gap-24 lg:gap-32 min-[1000px]:gap-64 min-[1200px]:gap-32 xl:gap-32 justify-center items-center mt-12 sm:mt-4 md:mt-6 lg:mt-8 relative z-[2] flex-wrap">
                     <PhotoCard imageUrl={festhead1} name="VEDANT WADHWA" role="FEST HEAD" size="medium" instagram="https://www.instagram.com/v_edant.w28?igsh=NmVqOHZjajhmOTFk" email="23ucc612@lnmiit.ac.in" />
                     <PhotoCard imageUrl={festhead2} name="VEDANG DIXIT" role="FEST HEAD" size="medium" instagram="https://www.instagram.com/vedang_dixit?igsh=ZTlzeGxuenBmNzE2" email="23uec641@lnmiit.ac.in" />
                 </div>
@@ -114,12 +114,12 @@ export const getSections = (refs) => {
             bannerAlt: 'Cultural Council',
             showHeader: false,
             bannerRef: banner3Ref,
-            cardHeight: "h-[160vh] min-[390px]:h-[130vh] min-[450px]:h-[160vh] min-[500px]:h-[170vh] sm:h-[180vh] md:h-[125vh] lg:h-[115vh]",
+            cardHeight: "h-[240vh] min-[390px]:h-[240vh] min-[450px]:h-[240vh] min-[500px]:h-[240vh] sm:h-[180vh] md:h-[125vh] lg:h-[115vh]",
             vogueHands: (
                 <>
                     <div ref={banner3Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={culturalSign} alt="Cultural Council" className="w-[35vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[16vw] 2xl:w-[12vw] h-auto" />
+                            <img src={culturalSign} alt="Cultural Council" className="w-[60vw] sm:w-[28vw] md:w-[24vw] lg:w-[20vw] xl:w-[25vw] 2xl:w-[20vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute bottom-[45px] left-14 sm:left-12 md:left-16 lg:left-20 right-14 sm:right-12 md:right-16 lg:right-20 w-auto flex justify-between items-end pointer-events-none z-30">
@@ -129,9 +129,9 @@ export const getSections = (refs) => {
                 </>
             ),
             content: (
-                <div className="flex flex-col items-center w-full relative z-[2] mt-8 sm:mt-18 md:mt-24 lg:mt-32">
-                    <div className="flex flex-col lg:flex-row gap-24 sm:gap-20 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center mt-8 min-[370px]:max-[450px]:mt-28 min-[451px]:mt-10 sm:mt-12 md:mt-16 relative z-[2] w-full">
-                        <div className="flex flex-col md:flex-row gap-24 sm:gap-12 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center">
+                <div className="flex flex-col items-center w-full relative z-[2] mt-4 sm:mt-14 md:mt-20 lg:mt-28">
+                    <div className="flex flex-col lg:flex-row gap-[20vh] sm:gap-20 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center -mt-32 min-[370px]:max-[450px]:mt-2 min-[451px]:mt-12 sm:mt-14 md:mt-18 lg:mt-22 relative z-[2] w-full">
+                        <div className="flex flex-col md:flex-row gap-[20vh] sm:gap-12 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center">
                             <CulturalCouncilCard imageUrl={cultural1} name="KANISHQ SINGHAL" role="GENERAL SECRETARY" instagram="https://www.instagram.com/kanishqsinghal?igsh=aThxa2YwdDNsMnFz" email="23ucs605@lnmiit.ac.in" />
                             <CulturalCouncilCard imageUrl={cultural2} name="ISHITA KHANDELWAL" role="ASSOCIATE G. SEC" instagram="https://www.instagram.com/_ishitaa__13?igsh=eGpzcm1mcWw4Z3Jp" email="23ucs598@lnmiit.ac.in" />
 
@@ -140,7 +140,7 @@ export const getSections = (refs) => {
                             <CulturalCouncilCard imageUrl={cultural3} name="TANMAY JAIN" role="FINANCE CONVENOR" instagram="https://www.instagram.com/tanmay_._jain_?igsh=MXRkc2Mwb2JxZXdocw%3D%3D" email="23ucc606@lnmiit.ac.in" />
                         </div>
                     </div>
-                    <div className="mt-20 min-[370px]:max-[450px]:mt-16 min-[451px]:mt-20 sm:mt-22 md:mt-26 lg:mt-32 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
+                    <div className="mt-40 sm:mt-22 md:mt-26 lg:mt-32 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1000px] mx-auto" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - Aadya Rastogi, Harshil Agarwal, Gourav Bansal, Madhur Jain, Shriman Bhagat
                         </p>
@@ -156,12 +156,12 @@ export const getSections = (refs) => {
             bannerAlt: 'Development Team',
             showHeader: false,
             bannerRef: banner6Ref,
-            cardHeight: "h-[160vh] min-[390px]:h-[130vh] min-[450px]:h-[160vh] min-[500px]:h-[170vh] sm:h-[180vh] md:h-[125vh] lg:h-[115vh]",
+            cardHeight: "h-[240vh] min-[390px]:h-[240vh] min-[450px]:h-[240vh] min-[500px]:h-[240vh] sm:h-[180vh] md:h-[125vh] lg:h-[115vh]",
             vogueHands: (
                 <>
                     <div ref={banner6Ref} className="absolute top-[30px] md:top-[50px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={developmentBanner} alt="Development Team" className="w-[32vw] sm:w-[26vw] md:w-[22vw] lg:w-[18vw] xl:w-[15vw] 2xl:w-[12vw] h-auto" />
+                            <img src={developmentBanner} alt="Development Team" className="w-[60vw] sm:w-[26vw] md:w-[22vw] lg:w-[18vw] xl:w-[24vw] 2xl:w-[19vw] h-auto" />
                         </div>
                     </div>
                     <img
@@ -180,8 +180,8 @@ export const getSections = (refs) => {
             ),
             content: (
                 <div className="flex flex-col items-center w-full relative z-[2] mt-4 sm:mt-14 md:mt-20 lg:mt-28">
-                    <div className="flex flex-col lg:flex-row gap-24 sm:gap-20 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center -mt-32 min-[370px]:max-[450px]:mt-2 min-[451px]:mt-12 sm:mt-14 md:mt-18 lg:mt-22 relative z-[2] w-full">
-                        <div className="flex flex-col md:flex-row gap-24 sm:gap-12 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center">
+                    <div className="flex flex-col lg:flex-row gap-[20vh] sm:gap-20 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center -mt-32 min-[370px]:max-[450px]:mt-2 min-[451px]:mt-12 sm:mt-14 md:mt-18 lg:mt-22 relative z-[2] w-full">
+                        <div className="flex flex-col md:flex-row gap-[20vh] sm:gap-12 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center">
                             <PhotoCard imageUrl={d1} name="SANKALP JAIN" role="DEVELOPER" size="small" theme="orange" instagram="https://www.instagram.com/_sankalp.j?igsh=dXM4b3UzdndoOGdm" email="23ucs696@lnmiit.ac.in" />
                             <PhotoCard imageUrl={d2} name="SHARDUL P CHORGHADE" role="DEVELOPER" size="small" theme="orange" instagram="https://www.instagram.com/shardul.28?igsh=ZGdhcWdsNjJ3Y2s5" email="23ucs701@lnmiit.ac.in" />
                         </div>
@@ -189,7 +189,7 @@ export const getSections = (refs) => {
                             <PhotoCard imageUrl={d3} name="NILESH GOYAL" role="DEVELOPER" size="small" theme="orange" instagram="https://www.instagram.com/nileshgoyal_14?igsh=NWE3NHA4cmdkOHk4" email="23ucc624@lnmiit.ac.in" />
                         </div>
                     </div>
-                    <div className="mt-18 min-[370px]:max-[450px]:mt-20 min-[451px]:mt-22 sm:mt-24 md:mt-26 lg:mt-28 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
+                    <div className="mt-40 sm:mt-24 md:mt-26 lg:mt-28 text-center max-w-[65vw] px-4 mb-4 sm:mb-6">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1000px] mx-auto" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - Laxita Bhimsaria, Garvita Joshi, Anushka Jain, Ishita Agarwal, Anshul Agarwal, Antriksh Nahar, Aditya Jakhar
                         </p>
@@ -206,12 +206,12 @@ export const getSections = (refs) => {
             bannerAlt: 'Sponsorship Team',
             showHeader: false,
             bannerRef: banner4Ref,
-            cardHeight: "max-[370px]:h-[280vh] h-[240vh] min-[375px]:max-[380px]:h-[280vh] min-[370px]:max-[450px]:h-[230vh] min-[451px]:h-[260vh] sm:h-[270vh] md:h-[210vh] lg:h-[190vh]",
+            cardHeight: "max-[370px]:h-[420vh] h-[420vh] min-[375px]:max-[380px]:h-[420vh] min-[370px]:max-[450px]:h-[420vh] min-[451px]:h-[420vh] sm:h-[270vh] md:h-[210vh] lg:h-[190vh]",
             vogueHands: (
                 <>
                     <div ref={banner4Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={sponsorBanner} alt="Sponsorship Team" className="w-[32vw] sm:w-[26vw] md:w-[22vw] lg:w-[17vw] xl:w-[14vw] 2xl:w-[10vw] h-auto" />
+                            <img src={sponsorBanner} alt="Sponsorship Team" className="w-[60vw] sm:w-[26vw] md:w-[22vw] lg:w-[17vw] xl:w-[23vw] 2xl:w-[18vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute top-[33px] md:top-[53px] left-0 right-0 w-full px-10 sm:px-12 md:px-14 lg:px-20 xl:px-28 flex justify-between pointer-events-none z-[15]">
@@ -222,7 +222,7 @@ export const getSections = (refs) => {
             ),
             content: (
                 <div className="flex flex-col items-center w-full relative z-[2] mt-0 sm:mt-16 md:mt-20 lg:mt-24">
-                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-12 min-[390px]:gap-24 md:gap-x-32 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-32 min-[1000px]:gap-x-8 min-[1000px]:gap-y-16 min-[1300px]:gap-x-32 min-[1300px]:gap-y-40 xl:gap-x-24 2xl:gap-x-32 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1050px] 2xl:max-w-[980px] px-4 items-center">
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-[20vh] min-[390px]:gap-[20vh] md:gap-x-32 md:gap-y-32 lg:gap-y-40 xl:gap-y-48 lg:gap-x-32 min-[1000px]:gap-x-8 min-[1000px]:gap-y-16 min-[1300px]:gap-x-32 min-[1300px]:gap-y-40 xl:gap-x-36 2xl:gap-x-44 justify-items-center w-full max-w-full lg:max-w-[1200px] xl:max-w-[1150px] 2xl:max-w-[1300px] px-4 items-center">
                         <PhotoCard imageUrl={s5} name="KARTIKEYA SINGH" role="SPONSORSHIP HEAD" size="small" />
                         <PhotoCard imageUrl={s4} name="ANURAG YADAV" role="SPONSORSHIP HEAD" size="small" />
                         <PhotoCard imageUrl={s2} name="RUDRA BANERJEE" role="SPONSORSHIP HEAD" size="small" />
@@ -230,7 +230,7 @@ export const getSections = (refs) => {
                         <PhotoCard imageUrl={s7} name="JAYESH JHAMNANI" role="SPONSORSHIP HEAD" size="small" />
                         <PhotoCard imageUrl={s6} name="SAJAL JAGGI" role="SPONSORSHIP HEAD" size="small" />
                     </div>
-                    <div className="mt-16 sm:mt-24 md:mt-28 lg:mt-36 text-center max-w-[65vw] px-4 mb-4 sm:mb-8">
+                    <div className="mt-40 sm:mt-24 md:mt-28 lg:mt-36 text-center max-w-[65vw] px-4 mb-4 sm:mb-8">
                         <p className="font-sans font-normal text-[#3d1c10] text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
                             TEAM MEMBERS - TEJAS MISHRA, AMRENDRA VIKRAM SINGH, SHUBH KAPOOR, AYUSH RAJ, SNEHIT RAJ, MUKUND MAHESHWARI, BHAVYA SARAN, HARSH VARDHAN THAKUR, HARSHIL AGARWAL, RITISH NAGPAL, AYUSH SAINI, YATISH SINGHAL, TANISHQ GANGWANI
                         </p>
@@ -246,12 +246,12 @@ export const getSections = (refs) => {
             bannerAlt: 'Creative Team',
             showHeader: false,
             bannerRef: banner7Ref,
-            cardHeight: "h-[220vh] min-[370px]:h-[240vh] min-[390px]:h-[180vh] min-[450px]:h-[200vh] min-[500px]:h-[210vh] sm:h-[220vh] md:h-[160vh] lg:h-[200vh] xl:h-[190vh]",
+            cardHeight: "h-[280vh] min-[370px]:h-[280vh] min-[390px]:h-[280vh] min-[450px]:h-[280vh] min-[500px]:h-[280vh] sm:h-[220vh] md:h-[160vh] lg:h-[200vh] xl:h-[190vh]",
             vogueHands: (
                 <>
                     <div ref={banner7Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={creativeBanner} alt="Creative Team" className="w-[32vw] sm:w-[24vw] md:w-[20vw] lg:w-[17vw] xl:w-[14vw] 2xl:w-[11vw] h-auto" />
+                            <img src={creativeBanner} alt="Creative Team" className="w-[60vw] sm:w-[24vw] md:w-[20vw] lg:w-[17vw] xl:w-[23vw] 2xl:w-[18vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute bottom-[45px] left-14 sm:left-12 md:left-16 lg:left-20 right-14 sm:right-12 md:right-16 lg:right-20 w-auto flex justify-between items-end pointer-events-none z-30">
@@ -263,7 +263,7 @@ export const getSections = (refs) => {
             content: (
                 <div className="flex flex-col items-center w-full relative z-[2] -mt-2 sm:mt-26 md:mt-32 lg:mt-36">
                     {/* Creative team cards - 2x2 on md, 3+1 on lg+ */}
-                    <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-24 min-[390px]:gap-20 md:gap-x-10 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-[20vh] min-[390px]:gap-[20vh] md:gap-x-10 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
                         <PhotoCard imageUrl={c1} name="RISHABH SRIVASTAVA" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/roxrishabh_?igsh=M2M3end1NHZtMDgz" email="23ucc625@lnmiit.ac.in" />
                         <PhotoCard imageUrl={c3} name="ADITYA MEHTA" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/aditya.1464_?igsh=ZDlodGM5ZnRwd2R5" email="23uec507@lnmiit.ac.in" />
                         <PhotoCard imageUrl={c2} name="PRASOON AGARWAL" role="CREATIVE HEAD" size="medium" theme="purple" instagram="https://www.instagram.com/prasoon_rcolor?igsh=MXZkdGlxNm03OTU2eg%3D%3D" email="23ume540@lnmiit.ac.in" />
@@ -291,12 +291,12 @@ export const getSections = (refs) => {
             bannerAlt: 'PR and Events Team',
             showHeader: false,
             bannerRef: banner8Ref,
-            cardHeight: "h-[220vh] min-[370px]:h-[240vh] min-[390px]:h-[180vh] min-[450px]:h-[200vh] min-[500px]:h-[210vh] sm:h-[220vh] md:h-[150vh] lg:h-[220vh] xl:h-[210vh]",
+            cardHeight: "h-[310vh] min-[370px]:h-[310vh] min-[390px]:h-[310vh] min-[450px]:h-[310vh] min-[500px]:h-[310vh] sm:h-[220vh] md:h-[150vh] lg:h-[220vh] xl:h-[210vh]",
             vogueHands: (
                 <>
                     <div ref={banner8Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={prEventsBanner} alt="PR and Events Team" className="w-[30vw] sm:w-[24vw] md:w-[22vw] lg:w-[18vw] xl:w-[15vw] 2xl:w-[11vw] h-auto" />
+                            <img src={prEventsBanner} alt="PR and Events Team" className="w-[55vw] sm:w-[24vw] md:w-[22vw] lg:w-[18vw] xl:w-[24vw] 2xl:w-[19vw] h-auto" />
                         </div>
                     </div>
                     <img
@@ -317,7 +317,7 @@ export const getSections = (refs) => {
                 <div className="flex flex-col items-center w-full relative z-[2] mt-0 sm:mt-16 md:mt-20 lg:mt-24">
                     {/* First row: 3 cards */}
                     {/* First row: 3 cards */}
-                    <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-24 min-[390px]:gap-20 md:gap-x-10 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-[20vh] min-[390px]:gap-[20vh] md:gap-x-10 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
                         <PhotoCard imageUrl={p1} name="VIKRANT SINGH RATHORE" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/vikrant_singh_rathore?igsh=MWxhbDd3OXM4YjJ3ag%3D%3D" email="23ume556@lnmiit.ac.in" />
                         <PhotoCard imageUrl={p2} name="RAGHAV PATHAK" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/raghavvpathakk?igsh=MTZwcG05dHN2dzR5bw%3D%3D" email="23ucs685@lnmiit.ac.in" />
                         <PhotoCard imageUrl={p3} name="PARTH GOYAL" role="EVENTS HEAD" size="medium" theme="orange" instagram="https://www.instagram.com/parth.goyal_?igsh=MXQ1ZTZ1ZTB5MjNudw%3D%3D" email="23ucs663@lnmiit.ac.in" />
@@ -345,12 +345,12 @@ export const getSections = (refs) => {
             bannerAlt: 'Operational Team',
             showHeader: false,
             bannerRef: banner9Ref,
-            cardHeight: "h-[220vh] min-[370px]:h-[240vh] min-[390px]:h-[180vh] min-[450px]:h-[200vh] min-[500px]:h-[210vh] sm:h-[220vh] md:h-[150vh] lg:h-[180vh] xl:h-[170vh]",
+            cardHeight: "h-[310vh] min-[370px]:h-[310vh] min-[390px]:h-[310vh] min-[450px]:h-[310vh] min-[500px]:h-[310vh] sm:h-[220vh] md:h-[150vh] lg:h-[180vh] xl:h-[170vh]",
             vogueHands: (
                 <>
                     <div ref={banner9Ref} className="absolute top-[30px] md:top-[40px] left-1/2 -translate-x-1/2 z-[15] pointer-events-none opacity-100">
                         <div className="swing-banner">
-                            <img src={operationalBanner} alt="Operational Team" className="w-[26vw] sm:w-[20vw] md:w-[18vw] lg:w-[15vw] xl:w-[12vw] 2xl:w-[9vw] h-auto" />
+                            <img src={operationalBanner} alt="Operational Team" className="w-[50vw] sm:w-[20vw] md:w-[18vw] lg:w-[15vw] xl:w-[21vw] 2xl:w-[16vw] h-auto" />
                         </div>
                     </div>
                     <div className="absolute top-[33px] md:top-[53px] left-0 right-0 w-full px-10 sm:px-12 md:px-14 lg:px-20 xl:px-28 flex justify-between pointer-events-none z-[15]">
@@ -367,7 +367,7 @@ export const getSections = (refs) => {
                 <div className="flex flex-col items-center w-full relative z-[2] -mt-12 sm:mt-32 md:mt-36 lg:mt-40">
                     {/* First row: 3 cards */}
                     {/* First row: 3 cards */}
-                    <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-24 min-[390px]:gap-20 md:gap-x-12 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-[20vh] min-[390px]:gap-[20vh] md:gap-x-12 md:gap-y-32 lg:gap-28 xl:gap-36 2xl:gap-48 justify-center items-center w-full px-4 mb-16 sm:mb-20 md:mb-24 lg:mb-28 xl:mb-32 2xl:mb-36">
                         <PhotoCard imageUrl={o1} name="HITESH SHEE" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/hiteshshee_10557?igsh=MWM2b216dWk1ejB2Zg%3D%3D" email="23ucs594@lnmiit.ac.in" />
                         <PhotoCard imageUrl={o2} name="SHREYANSH AGARWAL" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/_shreyansh.10?igsh=YnJ5ZGJ5dzk2ajEx" email="23ucs709@lnmiit.ac.in" />
                         <PhotoCard imageUrl={o3} name="HITESH RAWAT" role="OPERATIONAL HEAD" size="operational" theme="purple" instagram="https://www.instagram.com/its.hitesh_rawat?igsh=MXMxNnV3dGJrajZ0OQ%3D%3D" email="23ucs595@lnmiit.ac.in" />

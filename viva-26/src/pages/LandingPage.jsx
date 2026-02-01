@@ -27,16 +27,16 @@ const TediuxBanner = () => {
                     </span>
                     <span className="tediux-sparkle">🎪</span>
                 </div>
-                <a 
-                    href="https://tediux.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                <a
+                    href="https://tediux.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="tediux-banner-btn"
                 >
                     <span>Visit Tediux</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M7 17L17 7"/>
-                        <path d="M7 7h10v10"/>
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
                     </svg>
                 </a>
                 <div className="tediux-banner-lights right"></div>
@@ -268,8 +268,10 @@ const LandingPage = () => {
         <div className="landing-page-container" ref={mainRef}>
             <TediuxBanner />
             <CursorLetterTrail />
-            {/* Section 1: Countdown */}
-            <VivaCountdown />
+            {/* Section 1: Countdown - Fixed Background Layer */}
+            <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 1 }}>
+                <VivaCountdown />
+            </div>
 
             {/* Section 2: Immersive Transition */}
             <div className="transition-container" ref={triggerRef}>
@@ -303,7 +305,9 @@ const LandingPage = () => {
             </div>
 
             {/* Section 3: Landing sections appear AFTER the door closes */}
-            <Landing />
+            <div style={{ position: 'relative', zIndex: 10, backgroundColor: '#1a0b2e' }}>
+                <Landing />
+            </div>
         </div>
     );
 };

@@ -2,6 +2,8 @@ import React, { useState, useEffect, memo } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/VivaCountdown.css';
 import { LandingPage, OurTeam, S3Assets } from '../../utils/cloudinaryUrls';
+import billBoardPhn from '../../assets/landingPage/billBoardPhn.png';
+import shopsImg from '../../assets/landingPage/shopsImg.png';
 
 // CDN-hosted assets from AWS S3 for better performance
 const billBoard = S3Assets.billBoard;
@@ -113,7 +115,8 @@ const VivaCountdown = () => {
 
                     {/* Main Billboard Area */}
                     <div className="billboard-container">
-                        <img src={billBoard} alt="Billboard" className="billboard-bg" loading="eager" decoding="async" />
+                        <img src={billBoard} alt="Billboard" className="billboard-bg billboard-desktop" loading="eager" decoding="async" />
+                        <img src={billBoardPhn} alt="Billboard" className="billboard-bg billboard-mobile" loading="eager" decoding="async" />
 
                         <div className={`timer-flip-wrapper ${isFlipped ? 'is-flipped' : ''}`}>
                             <div className="timer-flip-inner">
@@ -143,7 +146,8 @@ const VivaCountdown = () => {
 
                     {/* Stalls / Shops Area */}
                     <div className="shops-container">
-                        <img src={shops} alt="Carnival Shops" className="shops-img" loading="lazy" decoding="async" />
+                        <img src={shops} alt="Carnival Shops" className="shops-img shops-desktop" loading="lazy" decoding="async" />
+                        <img src={shopsImg} alt="Carnival Shops" className="shops-img shops-mobile" loading="lazy" decoding="async" />
                     </div>
                 </div>
             </section>

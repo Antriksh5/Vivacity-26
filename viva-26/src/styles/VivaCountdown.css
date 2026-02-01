@@ -256,7 +256,7 @@
 
 .billboard-container {
     position: absolute;
-    bottom: -3vh;
+    bottom: -10vh;
     /* Shifted back down to be visible */
     left: 47%;
     transform: translateX(-50%);
@@ -268,6 +268,24 @@
 .billboard-bg {
     width: 100%;
     filter: drop-shadow(0 0 60px rgba(255, 140, 0, 0.6));
+}
+
+/* Show desktop billboard by default, hide mobile */
+.billboard-desktop {
+    display: block;
+}
+
+.billboard-mobile {
+    display: none;
+}
+
+/* Show desktop shops by default, hide mobile */
+.shops-desktop {
+    display: block !important;
+}
+
+.shops-mobile {
+    display: none !important;
 }
 
 .timer-flip-wrapper {
@@ -544,7 +562,7 @@
 @media (max-width: 1200px) {
     .billboard-container {
         width: 65vw;
-        bottom: -8vh;
+        bottom: -15vh;
         /* Shifted down from -6vh */
         left: 47%;
     }
@@ -567,7 +585,7 @@
 
     .billboard-container {
         top: auto;
-        bottom: -10vh;
+        bottom: -18vh;
         /* Shifted down from 10vh */
         width: 75vw;
         left: 47%;
@@ -643,7 +661,7 @@
     }
 
     .viva-main-logo {
-        margin-top: 0;
+        margin-top: 45px;
         margin-left: 0;
         height: 65px;
         /* Reduced size to prevent cutoff on mobile */
@@ -654,8 +672,32 @@
         max-width: none;
         left: 47%;
         bottom: 5vh;
-        /* Shifted further down as requested */
+        /* Shifted down for better positioning */
         top: auto;
+    }
+
+    /* Switch to mobile billboard on smaller screens */
+    .billboard-desktop {
+        display: none;
+    }
+
+    .billboard-mobile {
+        display: block;
+    }
+
+    /* Switch to mobile shops on smaller screens */
+    .shops-desktop {
+        display: none !important;
+    }
+
+    .shops-mobile {
+        display: block !important;
+    }
+
+    /* Adjust timer position on mobile to be higher */
+    .timer-flip-wrapper {
+        top: 32%;
+        /* Moved up from 38% for better positioning on mobile billboard */
     }
 
     .timer-display {

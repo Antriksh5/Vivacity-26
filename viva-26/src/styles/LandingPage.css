@@ -32,13 +32,13 @@ body,
     overflow: hidden;
     z-index: 9999;
     /* Massive z-index to stay above everything else */
-    margin: 0 !important;
+    margin-top: 100vh;
     padding: 0 !important;
 }
 
 @media (max-width: 768px) {
     .transition-container {
-        margin-top: 0 !important;
+        margin-top: 100vh;
     }
 }
 
@@ -206,6 +206,7 @@ body,
         transform: translateY(-100%);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -247,8 +248,17 @@ body,
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
-    50% { opacity: 0.5; transform: translateY(-50%) scale(0.8); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translateY(-50%) scale(0.8);
+    }
 }
 
 .tediux-banner-text {
@@ -267,8 +277,15 @@ body,
 }
 
 @keyframes sparkle {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.2) rotate(10deg); }
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(10deg);
+    }
 }
 
 .tediux-main-text {
