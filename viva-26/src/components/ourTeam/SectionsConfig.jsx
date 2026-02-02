@@ -132,7 +132,7 @@ export const getSections = (refs) => {
                 <div className="flex flex-col items-center w-full relative z-[2] mt-4 sm:mt-14 md:mt-20 lg:mt-28">
                     <div className="flex flex-col lg:flex-row gap-[20vh] sm:gap-20 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center -mt-32 min-[370px]:max-[450px]:mt-2 min-[451px]:mt-12 sm:mt-14 md:mt-18 lg:mt-22 relative z-[2] w-full">
                         <div className="flex flex-col md:flex-row gap-[20vh] sm:gap-12 md:gap-24 lg:gap-32 xl:gap-48 justify-center items-center">
-                            <CulturalCouncilCard imageUrl={cultural1} name="KANISHQ SINGHAL" role="GENERAL SECRETARY" instagram="https://www.instagram.com/kanishqsinghal?igsh=aThxa2YwdDNsMnFz" email="23ucs605@lnmiit.ac.in" />
+                            <CulturalCouncilCard imageUrl={cultural1} name="KANISHQ SINGHAL" role="GENERAL SECRETARY" instagram="https://www.instagram.com/kanishqsinghal?igsh=aThxa2YwdDNsMnFz" email="gsec.cultural@lnmiit.ac.in" />
                             <CulturalCouncilCard imageUrl={cultural2} name="ISHITA KHANDELWAL" role="ASSOCIATE G. SEC" instagram="https://www.instagram.com/_ishitaa__13?igsh=eGpzcm1mcWw4Z3Jp" email="23ucs598@lnmiit.ac.in" />
 
                         </div>
@@ -232,7 +232,7 @@ export const getSections = (refs) => {
                     </div>
                     <div className="mt-40 sm:mt-24 md:mt-28 lg:mt-36 text-center max-w-[65vw] px-4 mb-4 sm:mb-8">
                         <p className="font-sans font-normal text-[#3d1c10] text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
-                            TEAM MEMBERS - TEJAS MISHRA, AMRENDRA VIKRAM SINGH, SHUBH KAPOOR, AYUSH RAJ, SNEHIT RAJ, MUKUND MAHESHWARI, BHAVYA SARAN, HARSH VARDHAN THAKUR, HARSHIL AGARWAL, RITISH NAGPAL, AYUSH SAINI, YATISH SINGHAL, TANISHQ GANGWANI
+                            TEAM MEMBERS - TEJAS MISHRA, AMRENDRA VIKRAM SINGH, SHUBH KAPOOR, AYUSH RAJ, SNEHIT RAJ, MUKUND MAHESHWARI, BHAVYA SARAN, HARSH WARDHAN THAKUR, HARSHIL AGARWAL, RITISH NAGPAL, AYUSH SAINI, YATISH SINGHAL, TANISHQ GANGWANI, MADHUSUDAN SINGLA
                         </p>
                     </div>
                 </div>
@@ -331,7 +331,7 @@ export const getSections = (refs) => {
                     </div>
                     <div className="mt-16 sm:mt-20 md:mt-24 lg:mt-40 text-center max-w-[65vw] px-4 mb-4 sm:mb-8">
                         <p className="font-sans font-normal text-black text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] tracking-[0.05em] uppercase leading-relaxed max-w-[1200px] mx-auto opacity-90" style={{ fontFamily: "'Lemon Milk', sans-serif" }}>
-                            TEAM MEMBERS - PALLAV SURANA, AADYA RASTOGI, CHINMAY CHANDALIYA, MARDAV JAIN, HARSH MAURYA, MIHIR KUMAWAT, MADHUSUDAN SINGLA, VIDIT PAREKH, ANTRIKSH NAHAR, PALOMA JAIN, LAMIA KHAN, ARJAV JAIN, SHIVIKA BANSAL, ISHIKA, ARNAV DUBEY, SANSKRITI TRIPATHI, AKANSHA GARG, MADHUR JAIN
+                            TEAM MEMBERS - PALLAV SURANA, AADYA RASTOGI, CHINMAY CHANDALIYA, MARDAV JAIN, HARSH MAURYA, MIHIR SINGH KUMAWAT, VIDIT PAREKH, ANTRIKSH NAHAR, PALOMA JAIN, LAMIA KHAN, ARJAV JAIN, SHIVIKA BANSAL, SHIVANSH SINGH, ISHIKA MITTAL, ARNAV DUBEY, SANSKRITI TRIPATHI, AAKANSHA GARG, MADHUR JAIN
                         </p>
                     </div>
                 </div>
