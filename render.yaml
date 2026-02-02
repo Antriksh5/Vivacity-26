@@ -1,0 +1,23 @@
+services:
+  # Backend Service (Node.js)
+  - type: web
+    name: viva-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node server.js
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://viva-frontend.onrender.com  # UPDATE THIS after frontend deploy or use * for testing
+
+  # Frontend Service (Vite + React)
+  - type: static
+    name: viva-frontend
+    env: static
+    buildCommand: cd viva-26 && npm install && npm run build
+    publishDir: viva-26/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: viva-backend
+          property: url

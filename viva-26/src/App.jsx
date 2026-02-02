@@ -1,6 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { S3Assets } from './utils/cloudinaryUrls'
+import { getApiUrl } from './utils/apiConfig'
 
 // Preload critical S3 image assets immediately on module load
 // Note: Preloader videos (MP4) are preloaded via <link> tags in index.html
@@ -38,7 +39,7 @@ function App() {
 
             // Fetch popup config to see if it is enabled
             try {
-                const res = await fetch('/api/popup');
+                const res = await fetch(getApiUrl('/popup'));
                 const config = await res.json();
 
                 if (config.isVisible && config.eventName && (location.pathname === '/' || location.pathname === '/home')) {

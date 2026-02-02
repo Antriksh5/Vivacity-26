@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getApiUrl } from '../utils/apiConfig';
 
 const Admin = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,7 +32,7 @@ const Admin = () => {
 
     const fetchConfig = async () => {
         try {
-            const res = await fetch('/api/popup');
+            const res = await fetch(getApiUrl('/popup'));
             const data = await res.json();
             setConfig(data);
         } catch (err) {
@@ -53,7 +54,7 @@ const Admin = () => {
         e.preventDefault();
         setSaveStatus('Saving...');
         try {
-            await fetch('/api/popup', {
+            await fetch(getApiUrl('/popup'), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(config)
