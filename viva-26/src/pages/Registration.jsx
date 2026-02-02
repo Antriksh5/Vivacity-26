@@ -210,7 +210,9 @@ const Registration = ({ isPreloaderComplete }) => {
             category: formData.eventCategory,
             name: formData.eventName,
             teamSize: formData.teamSize,
-            teamName: formData.teamName
+            teamName: formData.teamName,
+            isTeamCaptain: formData.isTeamCaptain,
+            teamMembers: formData.teamMembers
         }])
 
         // Reset only event-related fields, keep personal info
@@ -234,17 +236,83 @@ const Registration = ({ isPreloaderComplete }) => {
         }, 100)
     }
 
-    const handleSubmitAll = () => {
-        console.log('Final Registration Data:', { personal: formData, events: addedEvents })
+    const submitData = async (eventsList) => {
+        const url = import.meta.env.VITE_GOOGLE_SHEET_API_URL;
+        if (!url) {
+            alert("Critical Error: VITE_GOOGLE_SHEET_API_URL is missing. Please restart your terminal (npm run dev) to load the new .env file.");
+            console.error("VITE_GOOGLE_SHEET_API_URL is undefined");
+            return;
+        }
+
+        // Helper to send a single row
+        const sendRow = async (rowPayload) => {
+            try {
+                // Using 'no-cors' mode
+                await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8',
+                    },
+                    body: JSON.stringify(rowPayload),
+                    mode: 'no-cors'
+                });
+                console.log("Request sent to Google Sheet for:", rowPayload.eventName || "Registration");
+            } catch (error) {
+                console.error("Error sending to Google Sheet:", error);
+                alert("Error submitting form: " + error.message);
+            }
+        };
+
+        const baseData = {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.mobile,
+            college: formData.university,
+            referral: formData.referral,
+            isParticipant: formData.participant
+        };
+
+        if (!eventsList || eventsList.length === 0) {
+            // Send just the personal info if no events
+            await sendRow({
+                ...baseData,
+                eventCat: "",
+                eventName: "",
+                teamSize: "",
+                isCaptain: "",
+                teamName: "",
+                membersName: ""
+            });
+        } else {
+            // Send one request per event
+            for (const event of eventsList) {
+                await sendRow({
+                    ...baseData,
+                    eventCat: event.category,
+                    eventName: event.name,
+                    teamSize: event.teamSize,
+                    isCaptain: event.isTeamCaptain || formData.isTeamCaptain,
+                    teamName: event.teamName,
+                    membersName: event.teamMembers || ""
+                });
+            }
+        }
+    }
+
+    const handleSubmitAll = async () => {
+        await submitData(addedEvents);
         setShowSuccess(true)
     }
 
-    const handleNext = (e) => {
+    const handleNext = async (e) => {
         if (e) e.preventDefault()
+        // console.log("Processing Step:", step);
 
         const validationErrors = validate()
         if (Object.keys(validationErrors).length > 0) {
+            console.log("Validation Errors:", validationErrors);
             setErrors(validationErrors)
+            // alert("Please fix the errors in the form before proceeding.");
             return
         }
 
@@ -254,6 +322,8 @@ const Registration = ({ isPreloaderComplete }) => {
             if (formData.participant === 'yes') {
                 setStep(3)
             } else {
+                // Not a participant but registered
+                await submitData([]);
                 setShowSuccess(true)
             }
         } else if (step === 4) {
@@ -261,9 +331,19 @@ const Registration = ({ isPreloaderComplete }) => {
                 category: formData.eventCategory,
                 name: formData.eventName,
                 teamSize: formData.teamSize,
-                teamName: formData.teamName
+                teamName: formData.teamName,
+                isTeamCaptain: formData.isTeamCaptain,
+                teamMembers: formData.teamMembers
             }
+            const finalEvents = [...addedEvents, currentEvent]
             setAddedEvents(prev => [...prev, currentEvent])
+
+            // Submit data here because 'Proceed' implies finishing this addition and submitting?
+            // Actually, handleNext on Step 4 is "Proceed" (Next, or Finish for this flow?).
+            // The UI shows "Proceed" button.
+            // If user clicks "Add Another Event", it goes to handleAddAnotherEvent.
+            // If user clicks "Proceed", it goes here.
+            await submitData(finalEvents);
             setShowSuccess(true)
         } else {
             setStep(step + 1)
