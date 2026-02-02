@@ -6,7 +6,7 @@ import VivaCountdown from '../components/LandingPage/VivaCountdown';
 import AboutViva from '../components/LandingPage/AboutViva';
 import AboutTheme from '../components/LandingPage/AboutTheme';
 import Landing from './Landing';
-import CursorLetterTrail from './CursorLetterTrail';
+import CursorLetterTrail from '../components/CursorTrail/CursorLetterTrail';
 import { GateAnimationFrames, GateAnimationFramesPriority } from '../utils/cloudinaryUrls';
 import '../styles/LandingPage.css';
 
@@ -66,10 +66,10 @@ const LandingPage = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-        
+
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
-        
+
         const images = new Array(frameUrls.length).fill(null);
         const totalFrames = frameUrls.length;
 
@@ -84,8 +84,8 @@ const LandingPage = () => {
                 img.decoding = 'async';
                 img.crossOrigin = 'anonymous';
                 // Use priority URL for first 3 frames, otherwise use regular frames
-                img.src = (index < 3 && GateAnimationFramesPriority[index]) 
-                    ? GateAnimationFramesPriority[index] 
+                img.src = (index < 3 && GateAnimationFramesPriority[index])
+                    ? GateAnimationFramesPriority[index]
                     : frameUrls[index];
                 img.onload = () => {
                     images[index] = img;
@@ -106,7 +106,7 @@ const LandingPage = () => {
                 loadImage(1, 'high'),
                 loadImage(2, 'high')
             ]);
-            
+
             if (priorityFrames[0]) {
                 renderFrame(0);
             }

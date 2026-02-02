@@ -1,5 +1,5 @@
-import { Team as TeamImages } from '../utils/cloudinaryUrls';
-import "../styles/Team.css";
+import { Team as TeamImages } from '../../utils/cloudinaryUrls';
+import "../../styles/Team.css";
 
 const VivaLogo = TeamImages.VivaLogo;
 const Flower = TeamImages.Flower;

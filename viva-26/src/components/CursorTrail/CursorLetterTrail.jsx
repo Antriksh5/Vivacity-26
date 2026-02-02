@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import '../styles/CursorLetterTrail.css'
+import '../../styles/CursorLetterTrail.css'
 
 const CursorLetterTrail = () => {
     const containerRef = useRef(null)

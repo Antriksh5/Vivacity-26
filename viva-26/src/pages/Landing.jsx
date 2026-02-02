@@ -5,7 +5,7 @@ const PastArtists = lazy(() => import('./PastArtists'));
 const EventLanding = lazy(() => import('./EventLanding'));
 const MascotLanding = lazy(() => import('./mascotLanding'));
 const Legacy = lazy(() => import('./Legacy'));
-const Team = lazy(() => import('./Team'));
+const Team = lazy(() => import('../components/LandingPage/TeamSection'));
 const Footer = lazy(() => import('../components/Footer/Footer'));
 
 // Simple loading placeholder
