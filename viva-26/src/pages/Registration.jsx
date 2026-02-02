@@ -299,9 +299,10 @@ const Registration = ({ isPreloaderComplete }) => {
         }
     }
 
-    const handleSubmitAll = async () => {
-        await submitData(addedEvents);
+    const handleSubmitAll = () => {
+        // Optimistic update: Show success immediately to prevent double submission
         setShowSuccess(true)
+        submitData(addedEvents);
     }
 
     const handleNext = async (e) => {
@@ -323,8 +324,9 @@ const Registration = ({ isPreloaderComplete }) => {
                 setStep(3)
             } else {
                 // Not a participant but registered
-                await submitData([]);
+                // Optimistic update
                 setShowSuccess(true)
+                submitData([]);
             }
         } else if (step === 4) {
             const currentEvent = {
@@ -339,12 +341,9 @@ const Registration = ({ isPreloaderComplete }) => {
             setAddedEvents(prev => [...prev, currentEvent])
 
             // Submit data here because 'Proceed' implies finishing this addition and submitting?
-            // Actually, handleNext on Step 4 is "Proceed" (Next, or Finish for this flow?).
-            // The UI shows "Proceed" button.
-            // If user clicks "Add Another Event", it goes to handleAddAnotherEvent.
-            // If user clicks "Proceed", it goes here.
-            await submitData(finalEvents);
+            // Optimistic update
             setShowSuccess(true)
+            submitData(finalEvents);
         } else {
             setStep(step + 1)
         }
