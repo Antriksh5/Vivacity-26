@@ -20,19 +20,24 @@ import {
   ExcitingPursuitsEvents
 } from '../data/EventData';
 
+import SimpleNavbar from '../components/SimpleNavbar';
+
 const EventPage = () => {
   return (
     <>
-      <EventComponent HeaderImage={Events.Dance.Header} Events={DanceEvents} border="#EF0303" rulebookUrl={DanceRulebook} />
-      <EventComponent HeaderImage={Events.Music.Header} Events={MusicEvents} border="#3C9DF9" TextAreaImage={Events.Music.OrangeTextBox} rulebookUrl={MusicRulebook} />
-      <EventComponent HeaderImage={Events.Drama.Header} Events={DramaEvents} border="#04BD49" rulebookUrl={DramaRulebook} />
-      <EventComponent HeaderImage={Events.SpeakingArt.Header} Events={SpeakingArtsEvents} border="#F5B60C" />
-      <EventComponent HeaderImage={Events.Photography.Header} Events={PhotographyEvents} border="#A902D4" />
-      <EventComponent HeaderImage={Events.Art.Header} Events={ArtEvents} border="#E95F09" />
-      <EventComponent HeaderImage={Events.Quizzing.Header} Events={QuizzingEvents} border="#EF0303" />
-      <EventComponent HeaderImage={Events.Fashion.Header} Events={FashionEvents} border="#3C9DF9" rulebookUrl={FashionRulebook} />
-      <EventComponent HeaderImage={Events.Social.Header} Events={SocialEvents} border="#04BD49" />
-      <EventComponent HeaderImage={Events.ExcitingPursuits.Header} Events={ExcitingPursuitsEvents} border="#F5B60C" />
+      <SimpleNavbar />
+      <div> {/* Add padding top to account for fixed navbar */}
+        <EventComponent HeaderImage={Events.Dance.Header} Events={DanceEvents} border="#EF0303" rulebookUrl={DanceRulebook} />
+        <EventComponent HeaderImage={Events.Music.Header} Events={MusicEvents} border="#3C9DF9" TextAreaImage={Events.Music.OrangeTextBox} rulebookUrl={MusicRulebook} />
+        <EventComponent HeaderImage={Events.Drama.Header} Events={DramaEvents} border="#04BD49" rulebookUrl={DramaRulebook} />
+        <EventComponent HeaderImage={Events.SpeakingArt.Header} Events={SpeakingArtsEvents} border="#F5B60C" />
+        <EventComponent HeaderImage={Events.Photography.Header} Events={PhotographyEvents} border="#A902D4" />
+        <EventComponent HeaderImage={Events.Art.Header} Events={ArtEvents} border="#E95F09" />
+        <EventComponent HeaderImage={Events.Quizzing.Header} Events={QuizzingEvents} border="#EF0303" />
+        <EventComponent HeaderImage={Events.Fashion.Header} Events={FashionEvents} border="#3C9DF9" rulebookUrl={FashionRulebook} />
+        <EventComponent HeaderImage={Events.Social.Header} Events={SocialEvents} border="#04BD49" />
+        <EventComponent HeaderImage={Events.ExcitingPursuits.Header} Events={ExcitingPursuitsEvents} border="#F5B60C" />
+      </div>
     </>
   )
 }
