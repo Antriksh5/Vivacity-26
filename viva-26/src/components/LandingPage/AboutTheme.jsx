@@ -4,14 +4,12 @@ import '../../styles/AboutTheme.css';
 
 const aboutThemebg = LandingPage.aboutThemebg;
 const mbabTheme = LandingPage.mbabTheme;
-const bgAbout = LandingPage.bgAbout;
 const aboutThemeBorder = LandingPage.aboutThemeBorder;
 const mobileThemeBorder = LandingPage.mobileThemeBorder;
-const aboutThemeTitle = LandingPage.aboutTheme;
 
 
 const AboutTheme = React.forwardRef((props, ref) => {
-    const { borderRef, bgAboutRef, textRef } = props;
+    const { borderRef, textRef } = props;
 
     return (
         <section className="about-theme-section">
@@ -46,16 +44,6 @@ const AboutTheme = React.forwardRef((props, ref) => {
                     </div>
 
                     <div className="theme-text-overlay" ref={textRef} style={{ opacity: 0 }}>
-                        <div className="theme-title-wrapper">
-                            <img
-                                src={aboutThemeTitle}
-                                alt="ABOUT THEME"
-                                className="theme-title-img"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </div>
-
                         {/* Desktop version - Full text */}
                         <div className="theme-description desktop-only-text">
                             <p>
@@ -77,4 +65,3 @@ const AboutTheme = React.forwardRef((props, ref) => {
 });
 
 export default AboutTheme;
-

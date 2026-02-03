@@ -1,3 +1,6 @@
+import aboutThemeBorderImg from '../assets/landingPage/aboutTheme.png';
+import mobileThemeBorderImg from '../assets/landingPage/mobileAboutTheme.png';
+import aboutVivaBorderImg from '../assets/landingPage/aboutVivaBorder.png';
 /**
  * Cloudinary Image URL Mappings
  *
@@ -17,6 +20,8 @@ export const S3Assets = {
     shops: `${S3_BASE_URL}/shops.gif`,
     tediuxLogo: `${S3_BASE_URL}/tediux-logo.png`,
     thadiJugnoo: `${S3_BASE_URL}/thadi+jugnoo.gif`,
+    aboutThemeBorder: aboutThemeBorderImg,
+    aboutVivaBorder: aboutVivaBorderImg,
 };
 
 // Optimized URL helpers with aggressive compression
@@ -66,13 +71,12 @@ export const Team = {
 // Landing Page Images - critical for LCP
 export const LandingPage = {
     aboutThemebg: urlDesktop('viva-26/landingPage/aboutThemebg'),
-    aboutTheme: urlDesktop('viva-26/landingPage/aboutTheme'),
     aboutBgPhn: urlMobile('viva-26/landingPage/aboutBgPhn'),
     bgDoor: urlDesktop('viva-26/landingPage/bgDoor'),
     bgAboutPhn: urlMobile('viva-26/landingPage/bgAboutPhn'),
     aboutViva: urlDesktop('viva-26/landingPage/aboutViva'),
     bgAbout: urlDesktop('viva-26/landingPage/bgAbout'),
-    aboutThemeBorder: url('viva-26/landingPage/aboutThemeBorder'),
+    aboutThemeBorder: S3Assets.aboutThemeBorder,
     ferrisWheel: urlDesktop('viva-26/landingPage/ferrisWheel'),
     comingSoon: url('viva-26/landingPage/comingSoon'),
     doorImg: urlDesktop('viva-26/landingPage/doorImg'),
@@ -84,7 +88,7 @@ export const LandingPage = {
     mbabTheme: urlMobile('viva-26/landingPage/mbabTheme'),
     mobileJugnooGround: urlMobile('viva-26/landingPage/mobileJugnooGround'),
     nimbuMirchi: urlThumb('viva-26/landingPage/nimbuMirchi'),
-    mobileThemeBorder: urlMobile('viva-26/landingPage/mobileThemeBorder'),
+    mobileThemeBorder: mobileThemeBorderImg,
     registerNow: urlThumb('viva-26/landingPage/registerNow'),
     rightHand: url('viva-26/landingPage/rightHand'),
     tediuxLogo: urlThumb('viva-26/landingPage/tediux-logo'),
@@ -94,7 +98,7 @@ export const LandingPage = {
 
 // Gate Animation Frames (for LandingPage.jsx)
 // Optimized with: f_auto (WebP/AVIF), q_auto:low (smaller files), w_1920 (max width cap)
-const gateFrameUrl = (frameNum) => 
+const gateFrameUrl = (frameNum) =>
     `${BASE_URL}/f_auto,q_auto:low,w_1920/${`viva-26/landingPage/gate-animation/frame_${frameNum}`}`;
 
 export const GateAnimationFrames = Array.from({ length: 27 }, (_, i) => {
