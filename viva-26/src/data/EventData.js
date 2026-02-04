@@ -29,6 +29,9 @@ export const DramaEvents = [
 export const ArtEvents = [
     { id: 1, title: "Contrasto", img: Events.Art.Contrasto, desc: "Contrasto is an art event where bold contrasts collide and creativity breaks all boundaries." },
     { id: 2, title: "Photoframeia", img: Events.Art.HueNiverse, desc: "Design a frame at Photo Frameia and watch it frame memories all fest long at the Vivacity photo booth." },
+
+    { id: 3, title: "Splash", img: Events.Art.Splash, desc: "Relive the joy of colors at Splash—paint, laugh, and create captivating or comical faces." },
+
     { id: 4, title: "Tattoo tales", img: Events.Art.TatooTales, desc: "A mix of excitement and creativity—Tattoo Tales lets you ink your imagination on your partner's arm." },
     { id: 5, title: "Eclectic", img: Events.Art.Eclectic, desc: "A creative style that fuses contrasting eras and designs to create unmatched harmony." },
 ];
