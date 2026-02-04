@@ -86,12 +86,12 @@
 
 .theme-text-overlay {
     position: absolute;
-    top: 63%;
-    /* Shifted down further from 60% */
+    top: 68%;
+    /* Shifted down further from 63% */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -117,12 +117,12 @@
 
 .theme-description {
     color: #ffffff;
-    font-size: clamp(0.85rem, 1.3vw, 1.05rem);
-    line-height: 1.4;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.5;
     font-family: 'LEMON MILK', sans-serif;
     font-weight: 500;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    max-width: 450px;
+    max-width: 800px;
 }
 
 .mobile-only-text {
@@ -137,8 +137,8 @@
 
 @media (max-width: 1024px) {
     .theme-text-overlay {
-        width: 30%;
-        max-width: 250px;
+        width: 80%;
+        max-width: 600px;
     }
 
     .theme-title-wrapper {
@@ -147,7 +147,7 @@
     }
 
     .theme-description {
-        font-size: clamp(0.45rem, 1vw, 0.7rem);
+        font-size: clamp(0.8rem, 1.4vw, 1rem);
     }
 }
 
@@ -190,7 +190,10 @@
     }
 
     .theme-text-overlay {
-        display: none;
+        display: flex;
+        top: 65%;
+        width: 90%;
+        max-width: 400px;
     }
 
     .theme-title-wrapper {
@@ -206,11 +209,11 @@
     }
 
     .theme-description {
-        font-size: clamp(0.6rem, 2.5vw, 0.75rem);
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
         /* Reduced from 0.8rem/0.9rem */
         line-height: 1.4;
-        max-width: 140px;
-        /* Forced wrapping into 3-4 lines */
+        max-width: 280px;
+        /* Increased to spread text more */
         margin: 0 auto;
     }
 
