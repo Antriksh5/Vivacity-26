@@ -18,11 +18,11 @@ const VendorStamp = ({ name, description, websiteUrl, color1 = '#000', backgroun
                 <div className="vendor-inner-border" style={{ borderColor: 'rgba(0,0,0,0.2)' }}></div>
 
                 {/* Content Area */}
-                <div className="bg-[#FFFBF2] w-full h-full rounded-xl flex flex-col items-center justify-center p-3 z-10 relative overflow-hidden">
+                <div className="bg-[#F5E6D3] w-full h-full rounded-xl flex flex-col items-center justify-center p-3 z-10 relative overflow-hidden">
 
                     <div className="flex flex-col gap-2 items-center justify-center h-full w-full">
                         <h3
-                            className="font-['Lemon_Milk',_sans-serif] text-sm sm:text-base md:text-xl font-bold leading-tight uppercase mb-1 drop-shadow-sm tracking-wide"
+                            className="rumble-brave text-xl sm:text-2xl md:text-3xl font-normal leading-tight uppercase mb-1 drop-shadow-sm tracking-wide"
                             style={{ color: color1 }}
                         >
                             {name}
