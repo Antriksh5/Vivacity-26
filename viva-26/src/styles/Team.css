@@ -45,9 +45,8 @@
 }
 
 .content-box-text {
-  color: #F6BC7B;
-  font-family: serif;
-  font-weight: bold;
+  color: #FFFFFF;
+  font-family: "Lemon Milk", sans-serif;
   font-size: clamp(11px, 2.5vw, 18px);
   line-height: 1.4;
   margin: 0 auto;
