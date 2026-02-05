@@ -113,7 +113,7 @@ const FoodVendors = () => {
             id: 14,
             name: "MAINSTREET CHURROS",
             description: "Sweet crunchy churros paired with BOBA TEA + SOFT TOY.",
-            websiteUrl: "#",
+            websiteUrl: "https://build-huym3z6s.tediux.com",
             color1: '#F75D02',
             color2: '#FBC43F',
         },
@@ -184,9 +184,10 @@ const FoodVendors = () => {
                 </div>
 
                 {/* Vendors Grid - Max 3 cols per row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto w-full pb-10 px-4">
+                {/* Vendors List - Flexbox for centering */}
+                <div className="flex flex-wrap justify-center gap-8 md:gap-12 max-w-6xl mx-auto w-full pb-10 px-4">
                     {vendors.map((vendor) => (
-                        <div key={vendor.id} className="transform hover:scale-105 transition-transform duration-300">
+                        <div key={vendor.id} className="transform hover:scale-105 transition-transform duration-300 w-full max-w-[320px] sm:max-w-[380px]">
                             {/* Passing transparent as background since we use CSS masks */}
                             <VendorStamp {...vendor} backgroundColor="transparent" />
                         </div>
