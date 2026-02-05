@@ -54,6 +54,7 @@ const SimpleNavbar = () => {
         { name: 'HOME', path: '/' },
         { name: 'EVENTS', path: '/events' },
         { name: 'OUR TEAM', path: '/our-team' },
+        { name: 'FOOD STALLS', path: '/food-stalls' },
         { name: 'REGISTER', path: '/registration' },
     ]
 

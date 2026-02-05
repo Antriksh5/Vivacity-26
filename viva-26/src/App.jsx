@@ -22,6 +22,7 @@ const EventPage = lazy(() => import('./pages/EventPage.jsx'))
 const LandingPage = lazy(() => import('./pages/LandingPage.jsx'))
 const ComingSoon = lazy(() => import('./pages/ComingSoon.jsx'))
 const AdminPopup = lazy(() => import('./pages/Admin.jsx'))
+const FoodVendors = lazy(() => import('./pages/FoodVendors.jsx'))
 
 import Preloader from './components/Preloader/Preloader.jsx'
 import WelcomePopup from './components/WelcomePopup/WelcomePopup.jsx'
@@ -87,6 +88,7 @@ function App() {
                     <Route path="/registration" element={<Registration isPreloaderComplete={!isLoading} />} />
                     <Route path="/our-team" element={<OurTeam />} />
                     <Route path="/events" element={<EventPage />} />
+                    <Route path="/food-stalls" element={<FoodVendors />} />
                     <Route path="/home" element={<LandingPage />} />
                     <Route path="/coming-soon" element={<ComingSoon />} />
                     <Route path="/*" element={<LandingPage />} />
