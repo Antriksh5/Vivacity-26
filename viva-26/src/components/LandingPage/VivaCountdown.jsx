@@ -78,6 +78,29 @@ const VivaCountdown = () => {
 
                     <div className="nav-center">
                         <Link to="/events">EVENTS</Link>
+                        <div className="nav-dropdown-wrapper">
+                            <Link to="#">FOOD VENDORS</Link>
+                            <div className="nav-dropdown food-vendors-dropdown">
+                                <Link to="#">BEEPOPS</Link>
+                                <Link to="#">BELGIAN WAFFLE</Link>
+                                <Link to="#">BEVERAGES BY FRYGUY</Link>
+                                <Link to="#">BLONDIES</Link>
+                                <Link to="#">BUTTER BEANS</Link>
+                                <Link to="#">CHAAT KA CHASKA</Link>
+                                <Link to="#">CRISPY CHICKEN CO.</Link>
+                                <Link to="#">FRIEND CHIPS</Link>
+                                <Link to="#">HOME PIZZA</Link>
+                                <Link to="#">ICE CREAM MEWAR</Link>
+                                <Link to="#">ICHIRAKU RAMEN</Link>
+                                <Link to="#">KAFIEN</Link>
+                                <Link to="#">LOVE MOMOS</Link>
+                                <Link to="#">MAINSTREET CHURROS</Link>
+                                <Link to="#">PANDAR PURI</Link>
+                                <Link to="#">SALAD NATION</Link>
+                                <Link to="#">SHAWARMA TIMES</Link>
+                                <Link to="#">TEEKHA GAON</Link>
+                            </div>
+                        </div>
                         <Link to="/coming-soon">SPONSORS</Link>
                         <Link to="https://tediux.com/cards">VIBE CARD</Link>
                         <Link to="/our-team">OUR TEAM</Link>
@@ -100,6 +123,29 @@ const VivaCountdown = () => {
                     <div className={`mobile-nav-overlay ${menuOpen ? 'active' : ''}`}>
                         <div className="mobile-nav-links">
                             <Link to="/events" onClick={toggleMenu}>EVENTS</Link>
+                            <div className="mobile-dropdown-container">
+                                <span className="mobile-dropdown-title">FOOD VENDORS</span>
+                                <div className="mobile-dropdown-options food-vendors-mobile">
+                                    <Link to="#" onClick={toggleMenu}>BEEPOPS</Link>
+                                    <Link to="#" onClick={toggleMenu}>BELGIAN WAFFLE</Link>
+                                    <Link to="#" onClick={toggleMenu}>BEVERAGES BY FRYGUY</Link>
+                                    <Link to="#" onClick={toggleMenu}>BLONDIES</Link>
+                                    <Link to="#" onClick={toggleMenu}>BUTTER BEANS</Link>
+                                    <Link to="#" onClick={toggleMenu}>CHAAT KA CHASKA</Link>
+                                    <Link to="#" onClick={toggleMenu}>CRISPY CHICKEN CO.</Link>
+                                    <Link to="#" onClick={toggleMenu}>FRIEND CHIPS</Link>
+                                    <Link to="#" onClick={toggleMenu}>HOME PIZZA</Link>
+                                    <Link to="#" onClick={toggleMenu}>ICE CREAM MEWAR</Link>
+                                    <Link to="#" onClick={toggleMenu}>ICHIRAKU RAMEN</Link>
+                                    <Link to="#" onClick={toggleMenu}>KAFIEN</Link>
+                                    <Link to="#" onClick={toggleMenu}>LOVE MOMOS</Link>
+                                    <Link to="#" onClick={toggleMenu}>MAINSTREET CHURROS</Link>
+                                    <Link to="#" onClick={toggleMenu}>PANDAR PURI</Link>
+                                    <Link to="#" onClick={toggleMenu}>SALAD NATION</Link>
+                                    <Link to="#" onClick={toggleMenu}>SHAWARMA TIMES</Link>
+                                    <Link to="#" onClick={toggleMenu}>TEEKHA GAON</Link>
+                                </div>
+                            </div>
                             <Link to="/coming-soon" onClick={toggleMenu}>SPONSORS</Link>
                             <Link to="https://tediux.com/cards" onClick={toggleMenu}>VIBE CARD</Link>
                             <Link to="/our-team" onClick={toggleMenu}>OUR TEAM</Link>

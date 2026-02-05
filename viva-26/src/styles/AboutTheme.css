@@ -222,7 +222,7 @@
     }
 
     .mobile-only-text {
-        display: block;
+        display: none;
     }
 }
 

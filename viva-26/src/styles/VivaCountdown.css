@@ -232,6 +232,33 @@
     font-size: 1.4rem !important;
 }
 
+/* Specific styling for long food vendors list */
+.food-vendors-dropdown {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ffd700 rgba(26, 11, 46, 0.95);
+}
+
+.food-vendors-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.food-vendors-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.food-vendors-dropdown::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 10px;
+}
+
+.food-vendors-mobile {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 80%;
+}
+
 .mobile-register-btn {
     margin-top: 1rem;
     padding: 1rem 2.5rem;
