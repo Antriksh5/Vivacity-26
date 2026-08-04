@@ -20,12 +20,14 @@
   <link rel="preload" href="/src/assets/PreLoader/Main_Vertical.mp4" as="fetch" crossorigin="anonymous" type="video/mp4"
     media="(max-width: 768px)">
 
-  <!-- Preload critical S3 assets (billboard GIF) -->
-  <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/billBoard.gif" as="image"
+
+  <!-- Preload critical assets (billboard & shops GIFs served from public/) -->
+  <link rel="preload" href="/billBoard.gif" as="image"
     type="image/gif">
   <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/billBoardPhn.png" as="image"
     type="image/png" media="(max-width: 768px)">
-  <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/shops.gif" as="image" type="image/gif">
+  <link rel="preload" href="/shops.gif" as="image" type="image/gif">
+
 
   <!-- Preload critical fonts with font-display: swap -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Lemon&family=Ruwudu:wght@400;500;600;700&display=swap" as="style"

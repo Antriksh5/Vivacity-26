@@ -11,14 +11,17 @@ const BASE_URL = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
 // Helper to generate optimized URL
 const url = (publicId) => `${BASE_URL}/f_auto,q_auto/${publicId}`;
 
-// AWS S3 CDN URLs for GIF assets (oversized files)
+// AWS S3 CDN URLs for GIF assets still hosted on S3
 const S3_BASE_URL = 'https://viva-bucket-2026.s3.us-east-1.amazonaws.com';
 
 export const S3Assets = {
-    billBoard: `${S3_BASE_URL}/billBoard.gif`,
+    // billBoard.gif (33MB) & shops.gif (72MB) exceed Cloudinary 10MB free tier limit
+    // → served as static assets from public/ folder
+    billBoard: '/billBoard.gif',
+    shops: '/shops.gif',
     jugnoo: `${S3_BASE_URL}/jugnoo.gif`,
-    shops: `${S3_BASE_URL}/shops.gif`,
-    tediuxLogo: `${S3_BASE_URL}/tediux-logo.png`,
+    // tediux-logo.png uploaded to Cloudinary ✅
+    tediuxLogo: `${BASE_URL}/f_auto,q_auto/viva-26/landingPage/tediux-logo`,
     thadiJugnoo: `${S3_BASE_URL}/thadi+jugnoo.gif`,
 };
 
