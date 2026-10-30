@@ -37,3 +37,6 @@ backend/*.db
 artifacts/
 CA_V2/server/*.sqlite
 CA_V2/server/*.sqlite-*
+
+# CA registration video is delivered by Cloudinary.
+CA_V2/client/src/components/CARegistration/Viva.mp4

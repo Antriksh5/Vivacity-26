@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MoveLeft } from 'lucide-react';
-import Reel from './Viva.mp4';
 import CaRegistrationPage from './CARegistrationPage';
 import './Registration.css';
 import axios from 'axios';
 import stateAndDistricts from './states-districts.json';
 
 import { CircularProgress } from '@mui/material';
+
+const Reel = 'https://res.cloudinary.com/doxipu0v7/video/upload/Viva_vt5sr7.mp4';
 
 const production=import.meta.env.VITE_PRODUCTION;
 
@@ -292,8 +293,9 @@ const CaForm = () => {
                         autoPlay
                         muted
                         loop
+                        playsInline
                     >
-                        <source src={Reel}></source>
+                        <source src={Reel} type="video/mp4" />
                     </video>
                 </div>
 
