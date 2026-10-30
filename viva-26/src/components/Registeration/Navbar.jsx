@@ -1,63 +1,21 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import './Navbar.css'
-import { Registration } from '../../utils/cloudinaryUrls';
-const vivaLogo = Registration.vivacityLogo;
+import { Registration } from '../../utils/cloudinaryUrls'
 
-const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen)
-    }
-
-    const closeMenu = () => {
-        setIsMenuOpen(false)
-    }
-
-    return (
-        <nav className="registration-navbar">
-            <div className="navbar-container">
-                <div className="navbar-logo">
-                    <Link to="/">
-                        <img src={vivaLogo} alt="VIVASITY" className="logo-image" />
-                    </Link>
-                </div>
-
-                {/* Desktop Navigation */}
-                <div className="navbar-links">
-                    <Link to="/home" className="nav-link">HOME</Link>
-                    <Link to="/events" className="nav-link">EVENTS</Link>
-                    <Link to="/coming-soon" className="nav-link">SPONSORS</Link>
-                    <Link to="https://tediux.com/cards" className="nav-link">VIBE CARD</Link>
-                    <Link to="/our-team" className="nav-link">OUR TEAM</Link>
-                </div>
-
-                {/* Hamburger Menu Button */}
-                <button
-                    className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+const Navbar = () => (
+    <nav className="registration-navbar" aria-label="Registration portal">
+        <div className="navbar-container">
+            <div className="navbar-logo">
+                <a href={import.meta.env.VITE_MAIN_SITE_URL || '/'} aria-label="Vivacity home">
+                    <img src={Registration.vivacityLogo} alt="Vivacity" className="logo-image" />
+                </a>
             </div>
-
-            {/* Mobile Menu Overlay */}
-            <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
-                <Link to="/home" className="mobile-nav-link" onClick={closeMenu}>HOME</Link>
-                <Link to="/events" className="mobile-nav-link" onClick={closeMenu}>EVENTS</Link>
-                <Link to="/coming-soon" className="mobile-nav-link" onClick={closeMenu}>SPONSORS</Link>
-                <Link to="https://tediux.com/cards" className="mobile-nav-link" onClick={closeMenu}>VIBE CARD</Link>
-                <Link to="/our-team" className="mobile-nav-link" onClick={closeMenu}>OUR TEAM</Link>
+            <div className="flex items-center gap-4">
+                <Link to="/registration" className="nav-link">REGISTRATION</Link>
+                {import.meta.env.VITE_CA_PORTAL_URL && <a href={import.meta.env.VITE_CA_PORTAL_URL} className="nav-link">CA PORTAL</a>}
             </div>
-
-            {/* Overlay Background */}
-            {isMenuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
-        </nav>
-    )
-}
+        </div>
+    </nav>
+)
 
 export default Navbar

@@ -215,7 +215,7 @@ export const Registration = {
     preRegisterHere: url('viva-26/registration/Pre%20register%20here'),
     doorOnly: url('viva-26/registration/door_only'),
     nav: url('viva-26/registration/nav'),
-    graffitiWall: url('viva-26/registration/graffiti-wall'),
+    graffitiWall: url('viva-26/registration/graffiti-wall-new'),
     vivacityLogo: url('viva-26/registration/vivacityLogo'),
     proceed: url('viva-26/registration/procced'),
 };

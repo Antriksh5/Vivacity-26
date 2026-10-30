@@ -1,100 +1,33 @@
-import { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
-import { S3Assets } from './utils/cloudinaryUrls'
-import { getApiUrl } from './utils/apiConfig'
+import { useEffect } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import Registration from './pages/Registration.jsx'
 
-// Preload critical S3 image assets immediately on module load
-// Note: Preloader videos (MP4) are preloaded via <link> tags in index.html
-const criticalAssets = [
-    S3Assets.billBoard,
-    S3Assets.shops,
-    S3Assets.tediuxLogo,
-]
-criticalAssets.forEach((src) => {
-    const img = new Image()
-    img.src = src
-})
-
-// Lazy load route components for better code splitting
-const Registration = lazy(() => import('./pages/Registration.jsx'))
-const OurTeam = lazy(() => import('./pages/OurTeam.jsx'))
-const EventPage = lazy(() => import('./pages/EventPage.jsx'))
-const LandingPage = lazy(() => import('./pages/LandingPage.jsx'))
-const ComingSoon = lazy(() => import('./pages/ComingSoon.jsx'))
-const AdminPopup = lazy(() => import('./pages/Admin.jsx'))
-const FoodVendors = lazy(() => import('./pages/FoodVendors.jsx'))
-
-import Preloader from './components/Preloader/Preloader.jsx'
-import WelcomePopup from './components/WelcomePopup/WelcomePopup.jsx'
+function ExternalPage({ url }) {
+    const { search } = useLocation()
+    const target = new URL(url, window.location.origin)
+    new URLSearchParams(search).forEach((value, key) => target.searchParams.set(key, value))
+    const destination = target.href
+    useEffect(() => { window.location.replace(destination) }, [destination])
+    return <p className="p-8 text-white">Opening Vivacity…</p>
+}
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true)
-    const [showWelcome, setShowWelcome] = useState(false)
     const location = useLocation()
-    const isFirstLoad = useRef(true)
-
-    // Initial page load - let video play completely
-    useEffect(() => {
-        const timer = setTimeout(async () => {
-            setIsLoading(false)
-
-            // Fetch popup config to see if it is enabled
-            try {
-                const res = await fetch(getApiUrl('/popup'));
-                const config = await res.json();
-
-                if (config.isVisible && config.eventName && (location.pathname === '/' || location.pathname === '/home')) {
-                    setShowWelcome(true)
-                }
-            } catch (e) {
-                // Fallback if backend fails, always show
-                setShowWelcome(true);
-            }
-
-        }, 5000) // 5 seconds to let video play
-
-        return () => clearTimeout(timer)
-    }, [])
-
-    const handleWelcomeClose = () => {
-        setShowWelcome(false)
-    }
-
-    // Route change detection - useLayoutEffect to trigger before paint
-    useLayoutEffect(() => {
-        if (isFirstLoad.current) {
-            isFirstLoad.current = false
-            return
-        }
-
-        setIsLoading(true)
-        const timer = setTimeout(() => {
-            setIsLoading(false)
-        }, 4000) // 4 seconds for route transitions
-
-        return () => clearTimeout(timer)
-    }, [location.pathname])
+    const home = import.meta.env.VITE_MAIN_SITE_URL
+    const caPortal = import.meta.env.VITE_CA_PORTAL_URL
+    const caPaths = ['/caportal', '/caregistration', '/calogin', '/userprofile']
 
     return (
-        <>
-            <Preloader isLoading={isLoading} />
-
-            {!isLoading && showWelcome && <WelcomePopup onClose={handleWelcomeClose} />}
-
-            <Suspense fallback={null}>
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                    <Route path="/admin" element={<AdminPopup />} />
-                    <Route path="/registration" element={<Registration isPreloaderComplete={!isLoading} />} />
-                    <Route path="/our-team" element={<OurTeam />} />
-                    <Route path="/events" element={<EventPage />} />
-                    <Route path="/food-stalls" element={<FoodVendors />} />
-                    <Route path="/home" element={<LandingPage />} />
-                    <Route path="/coming-soon" element={<ComingSoon />} />
-                    <Route path="/*" element={<LandingPage />} />
-                </Routes>
-            </Suspense>
-        </>
+        <Routes>
+            <Route path="/" element={home
+                ? <ExternalPage url={home} />
+                : <Navigate to={{ pathname: '/registration', search: location.search }} replace />} />
+            <Route path="/registration" element={<Registration isPreloaderComplete={true} />} />
+            <Route path="/normalregistration" element={<Navigate to={{ pathname: '/registration', search: location.search }} replace />} />
+            {caPortal && caPaths.map(path => <Route key={path} path={path}
+                element={<ExternalPage url={new URL(path, new URL(caPortal, window.location.origin)).href} />} />)}
+            <Route path="*" element={<Navigate to={{ pathname: '/', search: location.search }} replace />} />
+        </Routes>
     )
 }
 

@@ -5,10 +5,18 @@ import compression from 'vite-plugin-compression'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // The registration portal has no dependency on the full site public assets.
+  publicDir: false,
   server: {
     host: true,
     port: 5173,
+    strictPort: true,
     proxy: {
+      '/ca-api': {
+        target: 'http://127.0.0.1:8001',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ca-api/, ''),
+      },
       '/api': {
         target: 'http://127.0.0.1:8000',
         changeOrigin: true,
@@ -56,8 +64,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-gsap': ['gsap'],
-          'vendor-lenis': ['lenis'],
         },
         // Optimize chunk file names for caching
         chunkFileNames: 'assets/js/[name]-[hash].js',

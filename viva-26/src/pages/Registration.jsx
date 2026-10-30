@@ -4,6 +4,7 @@ import '../styles/Registration.css'
 import { Registration as RegistrationImages } from '../utils/cloudinaryUrls'
 import doorGif from '../assets/registration/door.gif'
 import Navbar from '../components/Registeration/Navbar'
+import { cleanText, parseTeamMembers, normalizeTeamMembers, isValidTeamSize } from '../utils/registrationData'
 
 const eventData = {
     "Drama Events": ["Gully Gully", "Halla Bol", "Natyatumb", "Manchpan"],
@@ -47,19 +48,25 @@ const Registration = ({ isPreloaderComplete }) => {
     }, []);
 
     const setStep = (newStep) => {
-        setSearchParams({ step: newStep })
+        setSearchParams(prev => {
+            const next = new URLSearchParams(prev)
+            next.set('step', newStep)
+            return next
+        })
     }
 
     const [showGif, setShowGif] = useState(true)
     const [showPng, setShowPng] = useState(false)
     const [isZoomed, setIsZoomed] = useState(false)
     const [showSuccess, setShowSuccess] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const submittingRef = useRef(false)
     const [formData, setFormData] = useState({
         name: '',
         mobile: '',
         email: '',
         university: '',
-        referral: '',
+        referral: searchParams.get('ref') || '',
         participant: '',
         eventCategory: '',
         eventName: '',
@@ -182,7 +189,7 @@ const Registration = ({ isPreloaderComplete }) => {
             else if (!/^\d{10}$/.test(formData.mobile.trim())) newErrors.mobile = 'Enter a valid 10-digit number'
 
             if (!formData.email.trim()) newErrors.email = 'Email address is required'
-            else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Enter a valid email address'
+            else if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())) newErrors.email = 'Enter a valid email address'
 
             if (!formData.university.trim()) newErrors.university = 'University name is required'
         } else if (step === 2) {
@@ -191,7 +198,10 @@ const Registration = ({ isPreloaderComplete }) => {
             if (!formData.eventCategory) newErrors.eventCategory = 'Please select a category'
             if (!formData.eventName) newErrors.eventName = 'Please select an event'
         } else if (step === 4) {
-            if (!formData.teamSize.trim()) newErrors.teamSize = 'Team size is required'
+            if (!isValidTeamSize(formData.teamSize)) newErrors.teamSize = 'Enter a whole number of at least 1'
+            if (isValidTeamSize(formData.teamSize) && parseTeamMembers(formData.teamMembers).length > Number(formData.teamSize)) {
+                newErrors.teamMembers = 'The number of names exceeds the team size'
+            }
             if (!formData.isTeamCaptain) newErrors.isTeamCaptain = 'Required'
             if (!formData.teamName.trim()) newErrors.teamName = 'Team name is required'
         }
@@ -237,11 +247,44 @@ const Registration = ({ isPreloaderComplete }) => {
     }
 
     const submitData = async (eventsList) => {
+        const caApi = import.meta.env.VITE_CA_API_URL;
+        if (caApi) {
+            const response = await fetch(`${caApi.replace(/\/$/, '')}/register/registerUser`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    personaldetails: {
+                        name: cleanText(formData.name),
+                        email: formData.email.trim().toLowerCase(),
+                        mobile: formData.mobile.trim(),
+                        university: cleanText(formData.university),
+                        referralCode: formData.referral.trim().toUpperCase(),
+                        participant: formData.participant === 'yes',
+                    },
+                    eventdetails: (eventsList || []).map(event => ({
+                        category: event.category, eventName: event.name,
+                        teamSize: event.teamSize.trim(),
+                        captain: (event.isTeamCaptain || formData.isTeamCaptain) === 'yes',
+                        teamName: cleanText(event.teamName),
+                        teamMembers: parseTeamMembers(event.teamMembers || ''),
+                    })),
+                }),
+            });
+            const result = await response.json();
+            if (!response.ok || !result.success) {
+                if (response.status === 404) {
+                    setStep(1);
+                    setErrors({ referral: result.message });
+                }
+                throw new Error(result.message || 'Registration could not be saved.');
+            }
+            return;
+        }
         const url = import.meta.env.VITE_GOOGLE_SHEET_API_URL;
         if (!url) {
             alert("Critical Error: VITE_GOOGLE_SHEET_API_URL is missing. Please restart your terminal (npm run dev) to load the new .env file.");
             console.error("VITE_GOOGLE_SHEET_API_URL is undefined");
-            return;
+            throw new Error("Registration service is not configured.");
         }
 
         // Helper to send a single row
@@ -259,16 +302,16 @@ const Registration = ({ isPreloaderComplete }) => {
                 console.log("Request sent to Google Sheet for:", rowPayload.eventName || "Registration");
             } catch (error) {
                 console.error("Error sending to Google Sheet:", error);
-                alert("Error submitting form: " + error.message);
+                throw error;
             }
         };
 
         const baseData = {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.mobile,
-            college: formData.university,
-            referral: formData.referral,
+            name: cleanText(formData.name),
+            email: formData.email.trim().toLowerCase(),
+            phone: formData.mobile.trim(),
+            college: cleanText(formData.university),
+            referral: cleanText(formData.referral),
             isParticipant: formData.participant
         };
 
@@ -290,23 +333,35 @@ const Registration = ({ isPreloaderComplete }) => {
                     ...baseData,
                     eventCat: event.category,
                     eventName: event.name,
-                    teamSize: event.teamSize,
+                    teamSize: event.teamSize.trim(),
                     isCaptain: event.isTeamCaptain || formData.isTeamCaptain,
-                    teamName: event.teamName,
-                    membersName: event.teamMembers || ""
+                    teamName: cleanText(event.teamName),
+                    membersName: normalizeTeamMembers(event.teamMembers || "")
                 });
             }
         }
     }
 
-    const handleSubmitAll = () => {
-        // Optimistic update: Show success immediately to prevent double submission
-        setShowSuccess(true)
-        submitData(addedEvents);
+    const submitRegistration = async (events) => {
+        if (submittingRef.current) return;
+        submittingRef.current = true;
+        setIsSubmitting(true);
+        try {
+            await submitData(events);
+            setShowSuccess(true);
+        } catch (error) {
+            alert(error.message || 'Unable to submit. Please try again.');
+        } finally {
+            submittingRef.current = false;
+            setIsSubmitting(false);
+        }
     }
+
+    const handleSubmitAll = () => submitRegistration(addedEvents)
 
     const handleNext = async (e) => {
         if (e) e.preventDefault()
+        if (submittingRef.current) return;
         // console.log("Processing Step:", step);
 
         const validationErrors = validate()
@@ -323,10 +378,7 @@ const Registration = ({ isPreloaderComplete }) => {
             if (formData.participant === 'yes') {
                 setStep(3)
             } else {
-                // Not a participant but registered
-                // Optimistic update
-                setShowSuccess(true)
-                submitData([]);
+                await submitRegistration([]);
             }
         } else if (step === 4) {
             const currentEvent = {
@@ -338,12 +390,7 @@ const Registration = ({ isPreloaderComplete }) => {
                 teamMembers: formData.teamMembers
             }
             const finalEvents = [...addedEvents, currentEvent]
-            setAddedEvents(prev => [...prev, currentEvent])
-
-            // Submit data here because 'Proceed' implies finishing this addition and submitting?
-            // Optimistic update
-            setShowSuccess(true)
-            submitData(finalEvents);
+            await submitRegistration(finalEvents);
         } else {
             setStep(step + 1)
         }
@@ -352,6 +399,7 @@ const Registration = ({ isPreloaderComplete }) => {
     return (
         <div className={`w-full ${isSmallScreen ? 'min-h-screen scroll-smooth overflow-y-auto overflow-x-hidden' : (addedEvents.length > 0 ? 'min-h-screen overflow-y-auto' : 'h-screen overflow-hidden')} relative ${isVerySmallScreen ? 'pt-[10vh] pb-[20vh]' : (isSmallScreen ? 'pb-[50vh]' : '')}`}>
             <Navbar />
+            {isSubmitting && <div role="status" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] rounded-lg bg-slate-900 px-6 py-3 text-white">Saving registration…</div>}
             <div className={`flex items-center justify-center w-full ${isSmallScreen ? 'min-h-screen' : 'h-screen'} relative z-0 flex-shrink-0`}>
                 <div
                     ref={doorRef}
@@ -396,7 +444,7 @@ const Registration = ({ isPreloaderComplete }) => {
                                     <br />
                                     YOU HAVE SUCCESSFULLY
                                     <br />
-                                    REGISTERED FOR VIVACITY 2025
+                                    REGISTERED FOR VIVACITY 2027
                                 </h1>
                                 <p className="text-white font-lemon-milk text-[12px] md:text-[14px] mb-6 opacity-90 max-[480px]:text-[10px]">
                                     You will shortly receive the payment
@@ -406,7 +454,7 @@ const Registration = ({ isPreloaderComplete }) => {
                                     address
                                 </p>
                                 <button
-                                    onClick={() => window.location.href = '/'}
+                                    onClick={() => window.location.href = import.meta.env.VITE_MAIN_SITE_URL || '/'}
                                     className="bg-gradient-to-r from-[#4a3fad] to-[#216d7d] text-white font-lemon-milk text-[16px] px-8 py-2 rounded-full hover:scale-105 transition-transform duration-200 cursor-pointer border-none outline-none max-[480px]:text-[14px] max-[480px]:px-6 max-[480px]:py-1.5"
                                 >
                                     HOME
@@ -424,11 +472,11 @@ const Registration = ({ isPreloaderComplete }) => {
                                 />
                                 <form className="w-full" onSubmit={handleNext}>
                                     {[
-                                        { label: 'NAME', name: 'name', type: 'text' },
-                                        { label: 'MOBILE NO.', name: 'mobile', type: 'text' },
-                                        { label: 'EMAIL', name: 'email', type: 'email' },
-                                        { label: 'UNIVERSITY/ INSTITUTION/ ACADEMY', name: 'university', type: 'text' },
-                                        { label: 'REFERRAL CODE (OPTIONAL)', name: 'referral', type: 'text' }
+                                        { label: 'FULL NAME', name: 'name', type: 'text', placeholder: 'Your full name', autoComplete: 'name' },
+                                        { label: 'MOBILE NUMBER', name: 'mobile', type: 'tel', placeholder: '10-digit mobile number', autoComplete: 'tel-national' },
+                                        { label: 'EMAIL ADDRESS', name: 'email', type: 'email', placeholder: 'you@example.com', autoComplete: 'email' },
+                                        { label: 'COLLEGE / INSTITUTION', name: 'university', type: 'text', placeholder: 'Full institution name', autoComplete: 'organization' },
+                                        { label: 'REFERRAL CODE (OPTIONAL)', name: 'referral', type: 'text', placeholder: 'Referral code, if any' }
                                     ].map((field) => (
                                         <div key={field.name} className="mb-2 flex flex-col relative pb-4 max-[480px]:mb-1 max-[480px]:pb-4">
                                             <label className="text-white font-lemon-milk text-[14px] font-medium mb-1 text-left tracking-[0.5px] opacity-90 max-[768px]:text-[13px] max-[480px]:text-[10px] max-[480px]:mb-0.5">
@@ -439,7 +487,8 @@ const Registration = ({ isPreloaderComplete }) => {
                                                 name={field.name}
                                                 value={formData[field.name]}
                                                 onChange={handleChange}
-                                                placeholder="Enter text"
+                                                placeholder={field.placeholder}
+                                                autoComplete={field.autoComplete}
                                                 className={`gradient-input rounded-md px-3 py-1.5 text-white text-[14px] font-vito-sans font-semibold w-full outline-none transition-all duration-300 placeholder-white/30 focus:border-white/40 focus:bg-[#0d1321]/95 max-[768px]:text-[13px] max-[480px]:text-[10px] max-[480px]:px-2 max-[480px]:py-0 max-[480px]:h-[28px] ${errors[field.name] ? 'border-[#ff4d4d] bg-[#ff4d4d]/5' : ''
                                                     }`}
                                             />
@@ -534,7 +583,8 @@ const Registration = ({ isPreloaderComplete }) => {
                                                 name="teamSize"
                                                 value={formData.teamSize}
                                                 onChange={handleChange}
-                                                placeholder="Enter Team Size"
+                                                placeholder="Total number of team members"
+                                                inputMode="numeric"
                                                 className={`gradient-input rounded-md px-3 py-2 text-white text-[16px] font-vito-sans font-semibold w-full outline-none placeholder-white/30 ${errors.teamSize ? 'border-[#ff4d4d]' : ''}`}
                                             />
                                             {errors.teamSize && <span className="text-[#ff4d4d] text-[11px] absolute bottom-0 left-[8.33%] animate-shake">{errors.teamSize}</span>}
@@ -590,15 +640,21 @@ const Registration = ({ isPreloaderComplete }) => {
                                             <label className="block font-lemon-milk text-white text-left leading-none text-[15px] tracking-wider uppercase">
                                                 Team Members (Optional)
                                             </label>
-                                            <input
-                                                type="text"
+                                            <textarea
+                                                rows={2}
+                                                aria-label="Team member names"
+                                                aria-describedby="team-members-help"
+                                                aria-invalid={Boolean(errors.teamMembers)}
                                                 name="teamMembers"
                                                 value={formData.teamMembers}
                                                 onChange={handleChange}
-                                                placeholder="Comma separated names"
+                                                placeholder={"Aarav Sharma\nDiya Patel"}
                                                 className="gradient-input rounded-md px-3 py-2 text-white text-[16px] font-vito-sans font-semibold w-full outline-none placeholder-white/30 focus:border-white/40 focus:bg-[#0d1321]/95"
                                             />
-                                            <span className="text-[#ff4d4d] text-[10px] font-lemon-milk font-medium tracking-[0.2px]">* Separated by comma</span>
+                                            <span id="team-members-help" className="text-white/75 text-[10px] leading-snug">
+                                                One name per line, or separate names with commas. Extra spaces are removed automatically.
+                                            </span>
+                                            {errors.teamMembers && <span role="alert" className="text-[#ff4d4d] text-[11px]">{errors.teamMembers}</span>}
                                         </div>
                                     </div>
                                 </div>
@@ -611,6 +667,7 @@ const Registration = ({ isPreloaderComplete }) => {
                     {!showSuccess && step !== 3 && step !== 4 && (
                         <button
                             key={`btn-${step}`}
+                            disabled={isSubmitting}
                             onClick={handleNext}
                             className={`absolute z-50 transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer opacity-0 animate-formSlow left-1/2 -translate-x-1/2 ${isVerySmallScreen ? (step === 1 ? 'bottom-[10%] w-28' : 'bottom-[11%] w-28') : (step === 1 ? 'bottom-[27.8%] max-[480px]:bottom-[16.3%] w-[150px]' : 'bottom-[28.5%] max-[480px]:bottom-[17%] w-[150px]')
                                 }`}
@@ -626,13 +683,15 @@ const Registration = ({ isPreloaderComplete }) => {
                     {!showSuccess && step === 4 && (
                         <div className={`absolute z-50 flex gap-4 justify-center items-center opacity-0 animate-formSlow left-1/2 -translate-x-1/2 ${isVerySmallScreen ? 'bottom-[11%] w-full' : 'bottom-[28.5%] max-[480px]:bottom-[17%] w-full'}`}>
                             <button
-                                onClick={handleAddAnotherEvent}
+                                disabled={isSubmitting}
+                            onClick={handleAddAnotherEvent}
                                 className={`transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'w-24' : 'w-[140px]'}`}
                             >
                                 <img src={RegistrationImages.addEvent} alt="Add Event" className="w-full h-auto border-none outline-none" />
                             </button>
                             <button
-                                onClick={handleNext}
+                                disabled={isSubmitting}
+                            onClick={handleNext}
                                 className={`transition-all duration-200 hover:scale-105 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'w-24' : 'w-[140px]'}`}
                             >
                                 <img src={RegistrationImages.proceed} alt="Proceed" className="w-full h-auto border-none outline-none" />
@@ -678,7 +737,8 @@ const Registration = ({ isPreloaderComplete }) => {
                                     ))}
                                 </div>
                                 <button
-                                    onClick={handleSubmitAll}
+                                    disabled={isSubmitting}
+                            onClick={handleSubmitAll}
                                     className={`transition-all duration-200 hover:scale-110 active:scale-95 outline-none focus:outline-none cursor-pointer ${isVerySmallScreen ? 'translate-y-6' : 'translate-y-12'
                                         }`}
                                 >

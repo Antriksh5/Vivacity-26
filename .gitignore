@@ -30,3 +30,10 @@ Thumbs.db
 backend/popup_store.json
 backend/*.db
 *.log
+
+# Private ERP handoff files and local environment configuration
+.env.local
+.env.example
+artifacts/
+CA_V2/server/*.sqlite
+CA_V2/server/*.sqlite-*

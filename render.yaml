@@ -1,27 +1,28 @@
+# Disposable test deployment. Free Render storage does not persist SQLite data.
+# For retained accounts, use a persistent disk or the existing MySQL configuration.
 services:
-  # Backend Service (Node.js)
   - type: web
-    name: viva-backend
-    env: node
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && node server.js
+    name: vivacity-27-api
+    runtime: node
+    rootDir: CA_V2/server
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
     envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_DIALECT
+        value: sqlite
+      - key: SQLITE_STORAGE
+        value: /tmp/vivacity-ca.sqlite
+      - key: SECRET_TOKEN
+        generateValue: true
+      - key: REGISTRATION_SHEET_URL
+        sync: false
       - key: CORS_ORIGINS
-        value: "*"  # Allow all origins for testing/hybrid workflow
-
-  # Frontend Service (Vite + React)
-  - type: static
-    name: viva-frontend
-    env: static
-    buildCommand: cd viva-26 && npm install && npm run build
-    publishDir: viva-26/dist
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: viva-backend
-          property: url
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+        sync: false

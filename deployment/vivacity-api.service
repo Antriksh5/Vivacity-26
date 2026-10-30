@@ -1,0 +1,15 @@
+[Unit]
+Description=Vivacity 27 registration and campus ambassador API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/vivacity-27/CA_V2/server
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node dist/index.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

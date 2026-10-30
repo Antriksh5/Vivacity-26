@@ -4,7 +4,9 @@ const dotenv = require('dotenv');
 const eventsRouter = require('./routes/events');
 const popupRouter = require('./routes/popup');
 
-dotenv.config();
+// Match the .env.local file used for this handoff; allow .env as a fallback.
+dotenv.config({ path: require('path').join(__dirname, '.env.local') });
+dotenv.config({ path: require('path').join(__dirname, '.env') });
 
 const app = express();
 const PORT = process.env.PORT || 8000;

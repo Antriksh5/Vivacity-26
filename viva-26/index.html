@@ -1,92 +1,15 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-
-  <!-- Preconnect to critical origins - HIGH priority -->
-  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="dns-prefetch" href="https://res.cloudinary.com">
-  <link rel="preconnect" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com" crossorigin>
-  <link rel="dns-prefetch" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Preload critical preloader videos (MP4) - loaded before page renders -->
-  <link rel="preload" href="/src/assets/PreLoader/Main.mp4" as="fetch" crossorigin="anonymous" type="video/mp4">
-  <link rel="preload" href="/src/assets/PreLoader/Main_Vertical.mp4" as="fetch" crossorigin="anonymous" type="video/mp4"
-    media="(max-width: 768px)">
-
-
-  <!-- Preload critical assets (billboard & shops GIFs served from public/) -->
-  <link rel="preload" href="/billBoard.gif" as="image"
-    type="image/gif">
-  <link rel="preload" href="https://viva-bucket-2026.s3.us-east-1.amazonaws.com/billBoardPhn.png" as="image"
-    type="image/png" media="(max-width: 768px)">
-  <link rel="preload" href="/shops.gif" as="image" type="image/gif">
-
-
-  <!-- Preload critical fonts with font-display: swap -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Lemon&family=Ruwudu:wght@400;500;600;700&display=swap" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Lemon&family=Ruwudu:wght@400;500;600;700&display=swap" rel="stylesheet">
-  </noscript>
-
-  <!-- Prefetch critical Cloudinary images for gate animation (first 3 priority frames) -->
-  <link rel="preload"
-    href="https://res.cloudinary.com/doxipu0v7/image/upload/f_auto,q_auto:good,w_1920/viva-26/landingPage/gate-animation/frame_02"
-    as="image" fetchpriority="high">
-  <link rel="preload"
-    href="https://res.cloudinary.com/doxipu0v7/image/upload/f_auto,q_auto:good,w_1920/viva-26/landingPage/gate-animation/frame_03"
-    as="image">
-  <link rel="preload"
-    href="https://res.cloudinary.com/doxipu0v7/image/upload/f_auto,q_auto:good,w_1920/viva-26/landingPage/gate-animation/frame_04"
-    as="image">
-
-  <!-- Performance hints for mobile -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <!-- Primary Meta Tags -->
-  <title>Vivacity 2026</title>
-  <meta name="title" content="Vivacity 2026 | LNMIIT's Annual Cultural Fest" />
-  <meta name="description"
-    content="Experience Vivacity 2026 - The annual cultural extravaganza of LNMIIT, Jaipur. Join us for an unforgettable celebration of art, music, dance, drama, and more!" />
-  <meta name="keywords"
-    content="Vivacity, LNMIIT, cultural fest, college fest, Jaipur, cultural festival 2026, music, dance, drama, art, events, LNMIIT fest" />
-  <meta name="author" content="GDG On Campus, LNMIIT" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vivacity.lnmiit.ac.in/" />
-  <meta property="og:title" content="Vivacity 2026 | LNMIIT's Annual Cultural Fest" />
-  <meta property="og:description"
-    content="Experience Vivacity 2026 - The annual cultural extravaganza of LNMIIT, Jaipur. Join us for an unforgettable celebration of art, music, dance, drama, and more!" />
-  <meta property="og:image" content="/og-image.png" />
-  <meta property="og:site_name" content="Vivacity 2026" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://vivacity.lnmiit.ac.in/" />
-  <meta property="twitter:title" content="Vivacity 2026 | LNMIIT's Annual Cultural Fest" />
-  <meta property="twitter:description"
-    content="Experience Vivacity 2026 - The annual cultural extravaganza of LNMIIT, Jaipur. Join us for an unforgettable celebration of art, music, dance, drama, and more!" />
-  <meta property="twitter:image" content="/og-image.png" />
-
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#FF6B35" />
-  <link rel="canonical" href="https://vivacity.lnmiit.ac.in/" />
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+  <title>Vivacity Registration</title>
+  <meta name="description" content="Register for Vivacity at LNMIIT, Jaipur." />
+  <meta name="theme-color" content="#0a0e27" />
 </head>
-
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
-
 </html>
